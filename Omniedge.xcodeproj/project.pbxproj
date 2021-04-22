@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		7E84C9D826310E78001C76A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E84C9D626310E78001C76A8 /* LaunchScreen.storyboard */; };
 		7E84C9E326310E78001C76A8 /* OmniedgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84C9E226310E78001C76A8 /* OmniedgeTests.swift */; };
 		7E84C9EE26310E78001C76A8 /* OmniedgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84C9ED26310E78001C76A8 /* OmniedgeUITests.swift */; };
+		7E8FDF75263148FD0016F2A7 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 7E8FDF74263148FD0016F2A7 /* AWSCognitoAuthPlugin */; };
+		7E8FDF77263148FD0016F2A7 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 7E8FDF76263148FD0016F2A7 /* Amplify */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E8FDF75263148FD0016F2A7 /* AWSCognitoAuthPlugin in Frameworks */,
+				7E8FDF77263148FD0016F2A7 /* Amplify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +148,10 @@
 			dependencies = (
 			);
 			name = Omniedge;
+			packageProductDependencies = (
+				7E8FDF74263148FD0016F2A7 /* AWSCognitoAuthPlugin */,
+				7E8FDF76263148FD0016F2A7 /* Amplify */,
+			);
 			productName = Omniedge;
 			productReference = 7E84C9C826310E76001C76A8 /* Omniedge.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +223,9 @@
 				Base,
 			);
 			mainGroup = 7E84C9BF26310E76001C76A8;
+			packageReferences = (
+				7E8FDF73263148FD0016F2A7 /* XCRemoteSwiftPackageReference "amplify-ios" */,
+			);
 			productRefGroup = 7E84C9C926310E76001C76A8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -593,6 +604,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7E8FDF73263148FD0016F2A7 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7E8FDF74263148FD0016F2A7 /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E8FDF73263148FD0016F2A7 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		7E8FDF76263148FD0016F2A7 /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E8FDF73263148FD0016F2A7 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = Amplify;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7E84C9C026310E76001C76A8 /* Project object */;
 }
