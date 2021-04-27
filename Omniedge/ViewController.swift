@@ -6,11 +6,25 @@
 //
 
 import UIKit
+import NetworkExtension
 
 class ViewController: UIViewController {
+    var tunnel: VPNConfigurationService?;
     @objc func handleButton() {
-        //_presenter.showGreeting();
-        //_viewModel.showGreeting();
+        if let service = tunnel {
+            if !service.isStarted {
+                service.installProfile { result in
+                    switch result {
+                    case .success:
+                        print("fail");
+                        break;
+                    case let .failure(error):
+                        print("fail\(error)");
+                        break;
+                    }
+                }
+            }
+        }
     }
     override func loadView() {
         let view = UIView();
@@ -20,7 +34,7 @@ class ViewController: UIViewController {
         let button = UIButton.init(type: UIButton.ButtonType.system);
         //button.layer.borderColor = UIColor.red.cgColor;
         //button.layer.borderWidth = 1;
-        button.setTitle("Hello Omniedge", for: UIControl.State.normal);
+        button.setTitle("Start Omniedge", for: UIControl.State.normal);
         button.setTitleColor(UIColor.blue, for: UIControl.State.normal);
         button.setTitleColor(UIColor.red, for: UIControl.State.highlighted);
         button.addTarget(self, action: #selector(handleButton), for: UIControl.Event.touchUpInside);
@@ -36,6 +50,7 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        tunnel = .shared;
         // Do any additional setup after loading the view.
     }
 

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E519780264F364B00B4D2DB /* VPNConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E51977F264F364B00B4D2DB /* VPNConfigurationService.swift */; };
+		7E519781264F364B00B4D2DB /* VPNConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E51977F264F364B00B4D2DB /* VPNConfigurationService.swift */; };
+		7E519782264F364B00B4D2DB /* VPNConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E51977F264F364B00B4D2DB /* VPNConfigurationService.swift */; };
+		7E6C982D26384D0B00163586 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6C982C26384D0B00163586 /* NetworkExtension.framework */; };
+		7E6C983026384D0B00163586 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C982F26384D0B00163586 /* PacketTunnelProvider.swift */; };
+		7E6C983526384D0B00163586 /* Tunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7E6C982A26384D0B00163586 /* Tunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7E6C983F26384D9800163586 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6C982C26384D0B00163586 /* NetworkExtension.framework */; };
 		7E84C9CC26310E76001C76A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84C9CB26310E76001C76A8 /* AppDelegate.swift */; };
 		7E84C9CE26310E76001C76A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84C9CD26310E76001C76A8 /* SceneDelegate.swift */; };
 		7E84C9D026310E76001C76A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84C9CF26310E76001C76A8 /* ViewController.swift */; };
@@ -20,6 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7E6C983326384D0B00163586 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E84C9C026310E76001C76A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E6C982926384D0B00163586;
+			remoteInfo = Tunnel;
+		};
 		7E84C9DF26310E78001C76A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7E84C9C026310E76001C76A8 /* Project object */;
@@ -36,7 +50,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7E6C983926384D0B00163586 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7E6C983526384D0B00163586 /* Tunnel.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7E51977F264F364B00B4D2DB /* VPNConfigurationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNConfigurationService.swift; sourceTree = "<group>"; };
+		7E6C982A26384D0B00163586 /* Tunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Tunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E6C982C26384D0B00163586 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		7E6C982F26384D0B00163586 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		7E6C983126384D0B00163586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E6C983226384D0B00163586 /* Tunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tunnel.entitlements; sourceTree = "<group>"; };
+		7E6C983E26384D9800163586 /* Omniedge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Omniedge.entitlements; sourceTree = "<group>"; };
 		7E84C9C826310E76001C76A8 /* Omniedge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Omniedge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E84C9CB26310E76001C76A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E84C9CD26310E76001C76A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,11 +89,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7E6C982726384D0B00163586 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E6C982D26384D0B00163586 /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E84C9C526310E76001C76A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7E8FDF75263148FD0016F2A7 /* AWSCognitoAuthPlugin in Frameworks */,
+				7E6C983F26384D9800163586 /* NetworkExtension.framework in Frameworks */,
 				7E8FDF77263148FD0016F2A7 /* Amplify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,12 +124,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E6C982B26384D0B00163586 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E6C982C26384D0B00163586 /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E6C982E26384D0B00163586 /* Tunnel */ = {
+			isa = PBXGroup;
+			children = (
+				7E6C982F26384D0B00163586 /* PacketTunnelProvider.swift */,
+				7E6C983126384D0B00163586 /* Info.plist */,
+				7E6C983226384D0B00163586 /* Tunnel.entitlements */,
+			);
+			path = Tunnel;
+			sourceTree = "<group>";
+		};
 		7E84C9BF26310E76001C76A8 = {
 			isa = PBXGroup;
 			children = (
 				7E84C9CA26310E76001C76A8 /* Omniedge */,
 				7E84C9E126310E78001C76A8 /* OmniedgeTests */,
 				7E84C9EC26310E78001C76A8 /* OmniedgeUITests */,
+				7E6C982E26384D0B00163586 /* Tunnel */,
+				7E6C982B26384D0B00163586 /* Frameworks */,
 				7E84C9C926310E76001C76A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +160,7 @@
 				7E84C9C826310E76001C76A8 /* Omniedge.app */,
 				7E84C9DE26310E78001C76A8 /* OmniedgeTests.xctest */,
 				7E84C9E926310E78001C76A8 /* OmniedgeUITests.xctest */,
+				7E6C982A26384D0B00163586 /* Tunnel.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,9 +168,11 @@
 		7E84C9CA26310E76001C76A8 /* Omniedge */ = {
 			isa = PBXGroup;
 			children = (
+				7E6C983E26384D9800163586 /* Omniedge.entitlements */,
 				7E84C9CB26310E76001C76A8 /* AppDelegate.swift */,
 				7E84C9CD26310E76001C76A8 /* SceneDelegate.swift */,
 				7E84C9CF26310E76001C76A8 /* ViewController.swift */,
+				7E51977F264F364B00B4D2DB /* VPNConfigurationService.swift */,
 				7E84C9D126310E76001C76A8 /* Main.storyboard */,
 				7E84C9D426310E78001C76A8 /* Assets.xcassets */,
 				7E84C9D626310E78001C76A8 /* LaunchScreen.storyboard */,
@@ -135,6 +202,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7E6C982926384D0B00163586 /* Tunnel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E6C983626384D0B00163586 /* Build configuration list for PBXNativeTarget "Tunnel" */;
+			buildPhases = (
+				7E6C982626384D0B00163586 /* Sources */,
+				7E6C982726384D0B00163586 /* Frameworks */,
+				7E6C982826384D0B00163586 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tunnel;
+			productName = Tunnel;
+			productReference = 7E6C982A26384D0B00163586 /* Tunnel.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		7E84C9C726310E76001C76A8 /* Omniedge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E84C9F226310E78001C76A8 /* Build configuration list for PBXNativeTarget "Omniedge" */;
@@ -142,10 +226,12 @@
 				7E84C9C426310E76001C76A8 /* Sources */,
 				7E84C9C526310E76001C76A8 /* Frameworks */,
 				7E84C9C626310E76001C76A8 /* Resources */,
+				7E6C983926384D0B00163586 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7E6C983426384D0B00163586 /* PBXTargetDependency */,
 			);
 			name = Omniedge;
 			packageProductDependencies = (
@@ -201,6 +287,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					7E6C982926384D0B00163586 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
 					7E84C9C726310E76001C76A8 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -233,11 +323,19 @@
 				7E84C9C726310E76001C76A8 /* Omniedge */,
 				7E84C9DD26310E78001C76A8 /* OmniedgeTests */,
 				7E84C9E826310E78001C76A8 /* OmniedgeUITests */,
+				7E6C982926384D0B00163586 /* Tunnel */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7E6C982826384D0B00163586 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E84C9C626310E76001C76A8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,11 +363,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7E6C982626384D0B00163586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E6C983026384D0B00163586 /* PacketTunnelProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7E84C9C426310E76001C76A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7E84C9D026310E76001C76A8 /* ViewController.swift in Sources */,
+				7E519780264F364B00B4D2DB /* VPNConfigurationService.swift in Sources */,
 				7E84C9CC26310E76001C76A8 /* AppDelegate.swift in Sources */,
 				7E84C9CE26310E76001C76A8 /* SceneDelegate.swift in Sources */,
 			);
@@ -280,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E84C9E326310E78001C76A8 /* OmniedgeTests.swift in Sources */,
+				7E519781264F364B00B4D2DB /* VPNConfigurationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,12 +396,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E84C9EE26310E78001C76A8 /* OmniedgeUITests.swift in Sources */,
+				7E519782264F364B00B4D2DB /* VPNConfigurationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7E6C983426384D0B00163586 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E6C982926384D0B00163586 /* Tunnel */;
+			targetProxy = 7E6C983326384D0B00163586 /* PBXContainerItemProxy */;
+		};
 		7E84C9E026310E78001C76A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7E84C9C726310E76001C76A8 /* Omniedge */;
@@ -326,6 +440,65 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7E6C983726384D0B00163586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Tunnel/Tunnel.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = S4K8QNVVRR;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					UIP_CONF_EXTERNAL_BUFFER,
+				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/n2n/iOS/uip\"";
+				INFOPLIST_FILE = Tunnel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.Omniedge.Tunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = OmniedgeTunnel;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "n2n/Tunnel-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7E6C983826384D0B00163586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Tunnel/Tunnel.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = S4K8QNVVRR;
+				GCC_PREPROCESSOR_DEFINITIONS = UIP_CONF_EXTERNAL_BUFFER;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/n2n/iOS/uip\"";
+				INFOPLIST_FILE = Tunnel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.Omniedge.Tunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = OmniedgeTunnel;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "n2n/Tunnel-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		7E84C9F026310E78001C76A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -377,7 +550,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -432,7 +605,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -445,38 +618,48 @@
 		7E84C9F326310E78001C76A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Omniedge/Omniedge.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S4K8QNVVRR;
 				INFOPLIST_FILE = Omniedge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.test.Omniedge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.Omniedge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = OmniEdgeiOS;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		7E84C9F426310E78001C76A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Omniedge/Omniedge.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = S4K8QNVVRR;
 				INFOPLIST_FILE = Omniedge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.test.Omniedge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.Omniedge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = OmniEdgeiOS;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -567,6 +750,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7E6C983626384D0B00163586 /* Build configuration list for PBXNativeTarget "Tunnel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E6C983726384D0B00163586 /* Debug */,
+				7E6C983826384D0B00163586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7E84C9C326310E76001C76A8 /* Build configuration list for PBXProject "Omniedge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
