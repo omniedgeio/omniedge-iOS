@@ -32,6 +32,7 @@ final class VPNConfigurationService: ObservableObject {
                 if let list = list {
                     if list.count > 0 {
                         self.manager = list.first;
+                        self.manager?.isEnabled = true;
                         self.isStarted = true;
                         complete(.success(()));
                     }
@@ -64,6 +65,7 @@ final class VPNConfigurationService: ObservableObject {
         proto.providerBundleIdentifier = "com.meandlife.Omniedge.Tunnel";
         proto.serverAddress = "151.11.50.180:7777";//supernode.ntop.org:7777";
         manager.protocolConfiguration = proto;
+        manager.isEnabled = true;
         return manager;
     }
 }

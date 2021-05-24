@@ -10,20 +10,20 @@ import os.log
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
     private let log = OSLog(subsystem: "Omniedge", category: "default")
+    
     override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void) {
-        os_log(.fault, log: log, "Omniedge Starting tunnel, options: %{private}@", "\(String(describing: options))");
-        let ipv4 = NEIPv4Settings(addresses: ["10.0.0.1"], subnetMasks: ["255.255.255.0"]);
-        let setting = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "8.8.8.8");
-        setting.mtu = 1500;
-        setting.ipv4Settings = ipv4;
-        setTunnelNetworkSettings(setting, completionHandler: {(_ error: Error?) -> Void in
-            guard error == nil else {
-                NSLog("error: \(String(describing: error))");
-                completionHandler(error);
-                return;
+        os_log(.default, log: log, "Omniedge Starting tunnel, options: %{private}@", "\(String(describing: options))")
+        do {
+            guard let proto = protocolConfiguration as? NETunnelProviderProtocol else {
+                throw NEVPNError(.configurationInvalid)
             }
-            completionHandler(nil);
-        });
+            os_log(.error, log: log, "Omniedge Failed to read the configuration", "error")
+        } catch {
+            os_log(.error, log: log, "Omniedge Failed to read the configuration", error.localizedDescription)
+            completionHandler(error)
+        }
+
+        os_log(.default, log: log, "Omniedge Read configuration %{private}@", "\(String(describing: "hello"))")
         // Add code here to start the process of connecting the tunnel.
     }
     
