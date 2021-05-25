@@ -46,6 +46,12 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         os_log(.fault, log: log, "Omniedge ****** omniedge now wake*********\n");
     }
     
+    deinit {
+        if let queue = even_queue {
+            n2n_destroy_event_queue(queue);
+        }
+    }
+    
     // MARK: - Private
     private func readPackets () {
         os_log(.fault, log: log, "Omniedge start readPackets\n");

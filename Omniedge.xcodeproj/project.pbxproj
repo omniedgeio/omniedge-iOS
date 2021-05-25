@@ -22,7 +22,7 @@
 		7E84C9D826310E78001C76A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E84C9D626310E78001C76A8 /* LaunchScreen.storyboard */; };
 		7E84C9E326310E78001C76A8 /* OmniedgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84C9E226310E78001C76A8 /* OmniedgeTests.swift */; };
 		7E84C9EE26310E78001C76A8 /* OmniedgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84C9ED26310E78001C76A8 /* OmniedgeUITests.swift */; };
-		7E8EE0C6265CE4640050210E /* n2n_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EE0C5265CE4640050210E /* n2n_event.c */; };
+		7E8EE0C6265CE4640050210E /* n2n_event.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EE0C5265CE4640050210E /* n2n_event.m */; };
 		7EE9C0C7265B867C00F29958 /* OmniEdgeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */; };
 		7EE9C0CD265B869C00F29958 /* OmniEdgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0CC265B869C00F29958 /* OmniEdgeManager.swift */; };
 		7EE9C0D3265B86CE00F29958 /* OmniEdgeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0D2265B86CE00F29958 /* OmniEdgeLog.swift */; };
@@ -90,7 +90,7 @@
 		7E84C9EF26310E78001C76A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E8EE0C3265CDF6A0050210E /* n2n_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = n2n_event.h; sourceTree = "<group>"; };
 		7E8EE0C4265CE05D0050210E /* Tunnel-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tunnel-Bridging-Header.h"; path = "n2n/Tunnel-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		7E8EE0C5265CE4640050210E /* n2n_event.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = n2n_event.c; sourceTree = "<group>"; };
+		7E8EE0C5265CE4640050210E /* n2n_event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = n2n_event.m; sourceTree = "<group>"; };
 		7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeConfig.swift; sourceTree = "<group>"; };
 		7EE9C0CC265B869C00F29958 /* OmniEdgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeManager.swift; sourceTree = "<group>"; };
 		7EE9C0D2265B86CE00F29958 /* OmniEdgeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeLog.swift; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				7E8EE0C3265CDF6A0050210E /* n2n_event.h */,
-				7E8EE0C5265CE4640050210E /* n2n_event.c */,
+				7E8EE0C5265CE4640050210E /* n2n_event.m */,
 			);
 			name = iOS;
 			path = n2n/iOS;
@@ -388,7 +388,7 @@
 				7EE9C0CD265B869C00F29958 /* OmniEdgeManager.swift in Sources */,
 				7E6C983026384D0B00163586 /* PacketTunnelProvider.swift in Sources */,
 				7EE9C0D3265B86CE00F29958 /* OmniEdgeLog.swift in Sources */,
-				7E8EE0C6265CE4640050210E /* n2n_event.c in Sources */,
+				7E8EE0C6265CE4640050210E /* n2n_event.m in Sources */,
 				7EE9C0C7265B867C00F29958 /* OmniEdgeConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

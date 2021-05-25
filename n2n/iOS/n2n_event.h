@@ -22,7 +22,7 @@
 #include <stdio.h>
 
 typedef enum {
-    N2N_EVENT_TIMER,    //event of timeout(10s)
+    N2N_EVENT_TIMEOUT,    //event of timeout(10s)
     N2N_EVENT_TUN,      //data from tun
     N2N_EVENT_UDP,      //data from udp
     N2N_EVENT_QUIT,     //event of quit
