@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,8 +22,7 @@
 		7E84C9D826310E78001C76A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E84C9D626310E78001C76A8 /* LaunchScreen.storyboard */; };
 		7E84C9E326310E78001C76A8 /* OmniedgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84C9E226310E78001C76A8 /* OmniedgeTests.swift */; };
 		7E84C9EE26310E78001C76A8 /* OmniedgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84C9ED26310E78001C76A8 /* OmniedgeUITests.swift */; };
-		7E8FDF75263148FD0016F2A7 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 7E8FDF74263148FD0016F2A7 /* AWSCognitoAuthPlugin */; };
-		7E8FDF77263148FD0016F2A7 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 7E8FDF76263148FD0016F2A7 /* Amplify */; };
+		7E8EE0C6265CE4640050210E /* n2n_event.c in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EE0C5265CE4640050210E /* n2n_event.c */; };
 		7EE9C0C7265B867C00F29958 /* OmniEdgeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */; };
 		7EE9C0CD265B869C00F29958 /* OmniEdgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0CC265B869C00F29958 /* OmniEdgeManager.swift */; };
 		7EE9C0D3265B86CE00F29958 /* OmniEdgeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0D2265B86CE00F29958 /* OmniEdgeLog.swift */; };
@@ -89,6 +88,9 @@
 		7E84C9E926310E78001C76A8 /* OmniedgeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniedgeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E84C9ED26310E78001C76A8 /* OmniedgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniedgeUITests.swift; sourceTree = "<group>"; };
 		7E84C9EF26310E78001C76A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E8EE0C3265CDF6A0050210E /* n2n_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = n2n_event.h; sourceTree = "<group>"; };
+		7E8EE0C4265CE05D0050210E /* Tunnel-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tunnel-Bridging-Header.h"; path = "n2n/Tunnel-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		7E8EE0C5265CE4640050210E /* n2n_event.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = n2n_event.c; sourceTree = "<group>"; };
 		7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeConfig.swift; sourceTree = "<group>"; };
 		7EE9C0CC265B869C00F29958 /* OmniEdgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeManager.swift; sourceTree = "<group>"; };
 		7EE9C0D2265B86CE00F29958 /* OmniEdgeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeLog.swift; sourceTree = "<group>"; };
@@ -107,9 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E8FDF75263148FD0016F2A7 /* AWSCognitoAuthPlugin in Frameworks */,
 				7E6C983F26384D9800163586 /* NetworkExtension.framework in Frameworks */,
-				7E8FDF77263148FD0016F2A7 /* Amplify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +141,8 @@
 		7E6C982E26384D0B00163586 /* Tunnel */ = {
 			isa = PBXGroup;
 			children = (
+				7E8EE0C4265CE05D0050210E /* Tunnel-Bridging-Header.h */,
+				7E8EE0C2265CDF6A0050210E /* iOS */,
 				7E6C982F26384D0B00163586 /* PacketTunnelProvider.swift */,
 				7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */,
 				7EE9C0CC265B869C00F29958 /* OmniEdgeManager.swift */,
@@ -208,6 +210,16 @@
 			path = OmniedgeUITests;
 			sourceTree = "<group>";
 		};
+		7E8EE0C2265CDF6A0050210E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7E8EE0C3265CDF6A0050210E /* n2n_event.h */,
+				7E8EE0C5265CE4640050210E /* n2n_event.c */,
+			);
+			name = iOS;
+			path = n2n/iOS;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,8 +256,6 @@
 			);
 			name = Omniedge;
 			packageProductDependencies = (
-				7E8FDF74263148FD0016F2A7 /* AWSCognitoAuthPlugin */,
-				7E8FDF76263148FD0016F2A7 /* Amplify */,
 			);
 			productName = Omniedge;
 			productReference = 7E84C9C826310E76001C76A8 /* Omniedge.app */;
@@ -323,7 +333,6 @@
 			);
 			mainGroup = 7E84C9BF26310E76001C76A8;
 			packageReferences = (
-				7E8FDF73263148FD0016F2A7 /* XCRemoteSwiftPackageReference "amplify-ios" */,
 			);
 			productRefGroup = 7E84C9C926310E76001C76A8 /* Products */;
 			projectDirPath = "";
@@ -379,6 +388,7 @@
 				7EE9C0CD265B869C00F29958 /* OmniEdgeManager.swift in Sources */,
 				7E6C983026384D0B00163586 /* PacketTunnelProvider.swift in Sources */,
 				7EE9C0D3265B86CE00F29958 /* OmniEdgeLog.swift in Sources */,
+				7E8EE0C6265CE4640050210E /* n2n_event.c in Sources */,
 				7EE9C0C7265B867C00F29958 /* OmniEdgeConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -808,30 +818,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7E8FDF73263148FD0016F2A7 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7E8FDF74263148FD0016F2A7 /* AWSCognitoAuthPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7E8FDF73263148FD0016F2A7 /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = AWSCognitoAuthPlugin;
-		};
-		7E8FDF76263148FD0016F2A7 /* Amplify */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7E8FDF73263148FD0016F2A7 /* XCRemoteSwiftPackageReference "amplify-ios" */;
-			productName = Amplify;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7E84C9C026310E76001C76A8 /* Project object */;
 }

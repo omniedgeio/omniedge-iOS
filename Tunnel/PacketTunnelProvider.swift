@@ -9,22 +9,15 @@ import NetworkExtension
 import os.log
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
-    private let log = OSLog(subsystem: "Omniedge", category: "default")
+    private let log = OSLog(subsystem: "Omniedge", category: "default");
+    private var even_queue: UnsafeMutableRawPointer?
     
+    // MARK: - Override
     override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void) {
         os_log(.default, log: log, "Omniedge Starting tunnel, options: %{private}@", "\(String(describing: options))")
-        do {
-            guard let proto = protocolConfiguration as? NETunnelProviderProtocol else {
-                throw NEVPNError(.configurationInvalid)
-            }
-            os_log(.error, log: log, "Omniedge Failed to read the configuration", "error")
-        } catch {
-            os_log(.error, log: log, "Omniedge Failed to read the configuration", error.localizedDescription)
-            completionHandler(error)
-        }
-
-        os_log(.default, log: log, "Omniedge Read configuration %{private}@", "\(String(describing: "hello"))")
-        // Add code here to start the process of connecting the tunnel.
+        even_queue = n2n_create_event_queue();
+        completionHandler(nil);
+        readPackets();
     }
     
     override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
@@ -51,5 +44,15 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     override func wake() {
         // Add code here to wake up.
         os_log(.fault, log: log, "Omniedge ****** omniedge now wake*********\n");
+    }
+    
+    // MARK: - Private
+    private func readPackets () {
+        os_log(.fault, log: log, "Omniedge start readPackets\n");
+        packetFlow.readPacketObjects { [weak self] packets in
+            n2n_event_send(self?.even_queue, N2N_EVENT_TUN, nil, 0);
+            os_log(.fault, log: self?.log ?? .default, "Omniedge get a packet\n");
+            self?.readPackets();
+        }
     }
 }
