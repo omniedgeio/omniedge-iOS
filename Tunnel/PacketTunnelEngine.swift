@@ -14,14 +14,15 @@ enum Event {
 
 class PacketTunnelEngine {
     // MARK: - Property
-    private var even_queue: UnsafeMutableRawPointer?
+    private var n2n_queue: UnsafeMutableRawPointer?;
+    private let queue = DispatchQueue(label: "omniedge.packet-tunnel-provider"); //serial
     
     // MARK: - Init and Deinit
     init() {
-        even_queue = n2n_create_event_queue();
+        n2n_queue = n2n_create_event_queue();
     }
     deinit {
-        if let queue = even_queue {
+        if let queue = n2n_queue {
             n2n_destroy_event_queue(queue);
         }
     }
@@ -29,14 +30,20 @@ class PacketTunnelEngine {
     //MARK: - Public
     func start() {
         var status: n2n_edge_status_t = n2n_edge_status_t();
-        status.event_queue = even_queue;
-        start_edge_v2(&status);
+        status.event_queue = n2n_queue;
+        queue.async {
+            start_edge_v2(&status);
+        }
     }
     func stop() {
-        stop_edge_v2();
+        queue.async {
+            stop_edge_v2();
+        }
     }
     func sendEvent(event: Event, data: Data?) {
-        n2n_event_send(even_queue, N2N_EVENT_TUN, nil, 0);
+        queue.async {
+            n2n_event_send(self.n2n_queue, N2N_EVENT_TUN, nil, 0);
+        }
     }
     
     //MARK: - Private
