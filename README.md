@@ -60,9 +60,30 @@ Android系统用VpnService实现了一个Tun设备, 通过这个设备可以进�
 
 与系统交互
 
-> edge_jni
+> edge_jni.c
 
 用JNI封装C函数供Java层调用, runloop线程在此创建.
+- Java_io_omniedge_n2n_N2NService_startEdge
+- Java_io_omniedge_n2n_N2NService_stopEdge
+- Java_io_omniedge_n2n_N2NService_getEdgeStatus
+
+调用pthread_create创建线程:
+```
+...
+JNIEXPORT jboolean JNICALL Java_io_omniedge_n2n_N2NService_startEdge(
+        JNIEnv *env,
+        jobject this,
+        jobject jcmd) {
+    ...
+        int ret = pthread_create(&status.tid, NULL, EdgeRoutine, NULL);
+    if (ret != 0) {
+        ResetEdgeStatus(env, 1 /* cleanup*/);
+        return JNI_FALSE;
+    }
+    ...
+}
+```
+线程主函数EdgeRoutine调用start_edge_v2, 开启runloop
 
 > edge_android
 

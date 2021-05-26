@@ -10,21 +10,26 @@ import os.log
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
     private let log = OSLog(subsystem: "Omniedge", category: "default");
-    private var even_queue: UnsafeMutableRawPointer?
+    private var engine: PacketTunnelEngine?
     
     // MARK: - Override
     override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void) {
         os_log(.default, log: log, "Omniedge Starting tunnel, options: %{private}@", "\(String(describing: options))")
-        even_queue = n2n_create_event_queue();
+        if (engine == nil) {
+            engine = PacketTunnelEngine();
+        }
+        engine?.start();
         completionHandler(nil);
         readPackets();
     }
     
     override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
+        if let e = engine {
+            e.stop();
+        }
         // Add code here to start the process of stopping the tunnel.
         completionHandler()
         os_log(.fault, log: log, "Omniedge stopTunnel tunnel, options: %{private}@");
-
     }
     
     override func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)?) {
@@ -45,18 +50,16 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         // Add code here to wake up.
         os_log(.fault, log: log, "Omniedge ****** omniedge now wake*********\n");
     }
-    
-    deinit {
-        if let queue = even_queue {
-            n2n_destroy_event_queue(queue);
-        }
-    }
-    
+
     // MARK: - Private
     private func readPackets () {
         os_log(.fault, log: log, "Omniedge start readPackets\n");
         packetFlow.readPacketObjects { [weak self] packets in
-            n2n_event_send(self?.even_queue, N2N_EVENT_TUN, nil, 0);
+            if let e = self?.engine {
+                for item in packets {
+                    e.sendEvent(event: .TunEvent, data: item.data);
+                }
+            }
             os_log(.fault, log: self?.log ?? .default, "Omniedge get a packet\n");
             self?.readPackets();
         }
