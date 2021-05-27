@@ -4,6 +4,7 @@ OmniEdge on iOS
 
 - [5. N2N On iOS](#5-n2n-on-ios)
     - [5.1 配置Tunnel初始化edge](#51-配置tunnel初始化edge)
+    - [5.2 Runloop](#52-runloop)
 - [4. N2N On Android](#4-n2n-on-android)
     - [4.1 配置Tun初始化edge](#41-配置tun初始化edge)
         - [4.1.1 配置Tun设备](#411-配置tun设备)
@@ -48,6 +49,24 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 当tun设备开启时, startTunnel函数会被调用, 在这里进行配置以及初始化操作.
 
 ![](./resource/iosstartup.png)
+
+## 5.2 Runloop
+
+Because the runloop in n2n is based on either file descriptor of socket, a bridge between async message and fd is necessary on iOS system.
+
+A pipe based bridge is introduced to solve this problem.
+
+![](./resource/iosrunloop.png)
+
+> device.fd
+
+a pipe is instroduced here, fd[0] is set to device.fd for select in n2n runloop. if tunnel packets comes from system statck, data will be written to fd[1] and the select will be activated and data can be read from device.fd.
+
+> udp_sock
+
+
+> udp_mgmt_sock
+
 
 
 # 4. N2N On Android
