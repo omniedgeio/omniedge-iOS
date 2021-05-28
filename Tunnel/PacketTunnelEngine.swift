@@ -10,39 +10,60 @@ import Foundation
 enum Event {
     case TunEvent
     case UDPEvent
+    case MgrEvent
 }
 
 class PacketTunnelEngine {
     // MARK: - Property
-    private var n2n_queue: UnsafeMutableRawPointer?;
+    private var n2n_bridge: UnsafeMutableRawPointer?;
     private let queue = DispatchQueue(label: "omniedge.packet-tunnel-provider"); //serial
     
     // MARK: - Init and Deinit
     init() {
-        n2n_queue = n2n_create_event_queue();
+        n2n_bridge = ios_create_bridge();
     }
     deinit {
-        if let queue = n2n_queue {
-            n2n_destroy_event_queue(queue);
+        if let bridge = n2n_bridge {
+            ios_destroy_bridge(bridge);
         }
     }
 
     //MARK: - Public
-    func start() {
-        var status: n2n_edge_status_t = n2n_edge_status_t();
-        status.event_queue = n2n_queue;
+    func start(config: OmniEdgeConfig) {
         queue.async {
-            start_edge_v2(&status);
-        }
+            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask);
+            let url: URL = path[0];
+            ios_start_edge_v2(url.absoluteString, self.n2n_bridge);
+        };
     }
     func stop() {
         queue.async {
-            stop_edge_v2();
+            ios_stop_edge_v2();
         }
     }
     func sendEvent(event: Event, data: Data?) {
-        queue.async {
-            n2n_event_send(self.n2n_queue, N2N_EVENT_TUN, nil, 0);
+        if let data = data, data.count > 0 {
+            queue.async {
+                if let bridge = self.n2n_bridge {
+                    switch event {
+                    case .TunEvent:
+                        data.withUnsafeBytes { rawBufferPointer in
+                            let p = rawBufferPointer.baseAddress;
+                            ios_receive_tun_data(bridge, p, Int32(data.count));
+                        }
+                    case .UDPEvent:
+                        data.withUnsafeBytes { rawBufferPointer in
+                            let p = rawBufferPointer.baseAddress;
+                            ios_receive_udp_data(bridge, p, Int32(data.count));
+                        }
+                    case .MgrEvent:
+                        data.withUnsafeBytes { rawBufferPointer in
+                            let p = rawBufferPointer.baseAddress;
+                            ios_receive_mgr_data(bridge, p, Int32(data.count));
+                        }
+                    }
+                }
+            }
         }
     }
     

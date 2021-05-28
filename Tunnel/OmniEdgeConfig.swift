@@ -7,3 +7,6 @@
 
 import Foundation
 
+class OmniEdgeConfig {
+    
+}

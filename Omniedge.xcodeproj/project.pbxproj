@@ -27,6 +27,7 @@
 		7E9634E4265E3EE200A6E7DE /* libn2n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9634DA265E350100A6E7DE /* libn2n.a */; };
 		7E9634E7265E42F000A6E7DE /* libn2n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9634DA265E350100A6E7DE /* libn2n.a */; };
 		7E9634E8265F27B200A6E7DE /* PacketTunnelEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9634DE265E37D700A6E7DE /* PacketTunnelEngine.swift */; };
+		7E9634E92660841D00A6E7DE /* OmniEdgeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */; };
 		7EE9C0C7265B867C00F29958 /* OmniEdgeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */; };
 		7EE9C0CD265B869C00F29958 /* OmniEdgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0CC265B869C00F29958 /* OmniEdgeManager.swift */; };
 		7EE9C0D3265B86CE00F29958 /* OmniEdgeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0D2265B86CE00F29958 /* OmniEdgeLog.swift */; };
@@ -462,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E84C9E326310E78001C76A8 /* OmniedgeTests.swift in Sources */,
+				7E9634E92660841D00A6E7DE /* OmniEdgeConfig.swift in Sources */,
 				7E9634E8265F27B200A6E7DE /* PacketTunnelEngine.swift in Sources */,
 				7E519781264F364B00B4D2DB /* VPNConfigurationService.swift in Sources */,
 			);

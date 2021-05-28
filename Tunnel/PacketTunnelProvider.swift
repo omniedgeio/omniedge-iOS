@@ -18,7 +18,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         if (engine == nil) {
             engine = PacketTunnelEngine();
         }
-        engine?.start();
+        let config = OmniEdgeConfig();
+        engine?.start(config: config);
         completionHandler(nil);
         readPackets();
     }
