@@ -16,7 +16,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void) {
         os_log(.default, log: log, "Omniedge Starting tunnel, options: %{private}@", "\(String(describing: options))")
         if (engine == nil) {
-            engine = PacketTunnelEngine();
+            engine = PacketTunnelEngine.init(provider: self);
         }
         let config = OmniEdgeConfig();
         engine?.start(config: config);
@@ -51,14 +51,14 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         // Add code here to wake up.
         os_log(.fault, log: log, "Omniedge ****** omniedge now wake*********\n");
     }
-
+    
     // MARK: - Private
     private func readPackets () {
         os_log(.fault, log: log, "Omniedge start readPackets\n");
         packetFlow.readPacketObjects { [weak self] packets in
             if let e = self?.engine {
                 for item in packets {
-                    e.sendEvent(event: .TunEvent, data: item.data);
+                    e.onTunData(item.data);
                 }
             }
             os_log(.fault, log: self?.log ?? .default, "Omniedge get a packet\n");

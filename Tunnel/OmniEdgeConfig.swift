@@ -8,5 +8,5 @@
 import Foundation
 
 class OmniEdgeConfig {
-    
+    private var superNodeAddr: String?
 }
