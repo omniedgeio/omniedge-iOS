@@ -11,14 +11,11 @@ import NetworkExtension
 
 class OmniedgeTests: XCTestCase {
     private var engine: PacketTunnelEngine?;
-    private var tunnel: PacketTunnelProvider?
+    private var tunnel = PacketTunnelProvider();
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        tunnel = PacketTunnelProvider();
-        if let tunnel = tunnel {
-            engine = PacketTunnelEngine.init(provider: tunnel);
-        }
+        engine = PacketTunnelEngine.init(provider: tunnel);
     }
 
     override func tearDownWithError() throws {
@@ -34,7 +31,7 @@ class OmniedgeTests: XCTestCase {
             e.start(config: config);
             
             //tun
-            sleep(1);
+            sleep(5);
             print("send tun\n");
             var hello = "hello from tun";
             var data = Data(hello.utf8)
@@ -56,7 +53,7 @@ class OmniedgeTests: XCTestCase {
             e.sendEvent(event: .MgrEvent, data: data);
             #endif
             
-            sleep(10);
+            sleep(1000);
             print("test over\n");
         }
     }

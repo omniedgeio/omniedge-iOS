@@ -16,7 +16,7 @@ class ViewController: UIViewController {
                 service.installProfile { result in
                     switch result {
                     case .success:
-                        print("fail");
+                        print("sucess");
                         break;
                     case let .failure(error):
                         print("fail\(error)");

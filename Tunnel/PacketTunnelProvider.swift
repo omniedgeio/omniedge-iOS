@@ -15,15 +15,31 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     // MARK: - Override
     override func startTunnel(options: [String : NSObject]?, completionHandler: @escaping (Error?) -> Void) {
         os_log(.default, log: log, "Omniedge Starting tunnel, options: %{private}@", "\(String(describing: options))")
+
         if (engine == nil) {
             engine = PacketTunnelEngine.init(provider: self);
         }
-        let config = OmniEdgeConfig();
-        engine?.start(config: config);
-        completionHandler(nil);
-        readPackets();
+        if let engine = engine {
+            let config = OmniEdgeConfig();
+            engine.start(config: config) { [weak self] error in
+                guard let self = self else {
+                    return;
+                }
+                os_log(.default, log: self.log, "Omniedge Did setup tunnel")
+
+                let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "151.11.50.180");
+                let ipV4 = NEIPv4Settings.init(addresses: ["10.254.1.69"], subnetMasks: ["255.255.255.0"]);
+                settings.ipv4Settings = ipV4;
+                self.setTunnelNetworkSettings(settings) { error in
+                    os_log(.default, log: self.log, "Did setup tunnel settings: %{public}@, error: %{public}@", "\(settings)", "\(String(describing: error))")
+
+                    completionHandler(error)
+                    self.didStartTunnel()
+                }
+            }
+        }
     }
-    
+
     override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
         if let e = engine {
             e.stop();
@@ -53,16 +69,24 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     }
     
     // MARK: - Private
+    private func didStartTunnel() {
+        readPackets()
+    }
+
     private func readPackets () {
         os_log(.fault, log: log, "Omniedge start readPackets\n");
         packetFlow.readPacketObjects { [weak self] packets in
-            if let e = self?.engine {
+            guard let self = self else {
+                return;
+            }
+            os_log(.fault, log: self.log, "Omniedge readPackets ok\n");
+            if let e = self.engine {
                 for item in packets {
                     e.onTunData(item.data);
                 }
             }
-            os_log(.fault, log: self?.log ?? .default, "Omniedge get a packet\n");
-            self?.readPackets();
+            os_log(.fault, log: self.log, "Omniedge get a packet\n");
+            self.readPackets();
         }
     }
 }
