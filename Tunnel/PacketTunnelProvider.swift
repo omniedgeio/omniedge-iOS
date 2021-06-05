@@ -26,7 +26,6 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                     return;
                 }
                 os_log(.default, log: self.log, "Omniedge Did setup tunnel")
-
                 let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "151.11.50.180");
                 let ipV4 = NEIPv4Settings.init(addresses: ["10.254.1.69"], subnetMasks: ["255.255.255.0"]);
                 settings.ipv4Settings = ipV4;

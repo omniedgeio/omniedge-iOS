@@ -124,7 +124,9 @@ class PacketTunnelEngine : NSObject {
                     self.didReceiveDatagrams(datagrams: datagrams ?? [], error: error)
                 }
             }, maxDatagrams: Int.max)
+            self.timeoutTimer?.invalidate()
             pendingCompletion?(nil);
+            pendingCompletion = nil;
             n2nQueue.async { [weak self] in
                 self?.ocEngine.start();
             };

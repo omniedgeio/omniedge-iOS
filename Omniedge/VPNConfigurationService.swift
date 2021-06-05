@@ -22,7 +22,23 @@ final class VPNConfigurationService: ObservableObject {
             self?.refresh();
         }
     }
+    
     // MARK: - Public
+    func stop() {
+        do {
+            try manager?.connection.stopVPNTunnel()
+        } catch {
+            print(error);
+        }
+    }
+    
+    func start() {
+        do {
+            try manager?.connection.startVPNTunnel(options: [:])
+        } catch {
+            print(error);
+        }
+    }
     func refresh(complete: @escaping (Result<Void, Error>) -> Void) {
         NETunnelProviderManager.loadAllFromPreferences { [weak self] list, error in
             guard let self = self else { return };
@@ -64,6 +80,7 @@ final class VPNConfigurationService: ObservableObject {
         // containing packet tunnel provider.
         proto.providerBundleIdentifier = "com.meandlife.Omniedge.Tunnel";
         proto.serverAddress = "151.11.50.180:7777";//supernode.ntop.org:7777";
+        proto.providerConfiguration = [:];
         manager.protocolConfiguration = proto;
         manager.isEnabled = true;
         return manager;
