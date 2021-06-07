@@ -28,6 +28,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 os_log(.default, log: self.log, "Omniedge Did setup tunnel")
                 let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "151.11.50.180");
                 let ipV4 = NEIPv4Settings.init(addresses: ["10.254.1.69"], subnetMasks: ["255.255.255.0"]);
+                ipV4.includedRoutes = [NEIPv4Route.default()];
                 settings.ipv4Settings = ipV4;
                 self.setTunnelNetworkSettings(settings) { error in
                     os_log(.default, log: self.log, "Did setup tunnel settings: %{public}@, error: %{public}@", "\(settings)", "\(String(describing: error))")
