@@ -42,13 +42,22 @@ class PacketTunnelEngine : NSObject {
         if let data = data, data.count > 0 {
             queue.async { [weak self] in
                 if let engine = self?.ocEngine {
-                    engine.onData(data, with: NetDataType.tun);
+                    engine.onData(data, with: NetDataType.tun, ip: "", port: 0);
                 }
             }
         }
     }
     
     //MARK: - Called By N2N
+    @objc
+    func writeTunData(_ data: Data?) {
+        guard let data = data else {
+            return;
+        }
+        queue.async { [weak self] in
+            self?.tunnel.packetFlow.writePackets([data], withProtocols: [AF_INET as NSNumber]);
+        }
+    }
     @objc
     func sendUdp(data: Data?, hostname: String, port: String) -> Bool {
         guard let data = data else {
@@ -68,7 +77,7 @@ class PacketTunnelEngine : NSObject {
                 self.queue.async {
                     if let engine = self.ocEngine, let list = datagrams {
                         for item in list {
-                            engine.onData(item, with: NetDataType.udp);
+                            engine.onData(item, with: NetDataType.udp, ip: hostname, port: Int(port) ?? 0);
                         }
                     }
                 }
@@ -102,26 +111,30 @@ class PacketTunnelEngine : NSObject {
     
     private func startUDPSession() {
         os_log(.default, log: log, "engine Starting UDP session");
-
-        let endpoint = NWHostEndpoint(hostname: "151.11.50.180", port: "7777");
+        //let endpoint = NWHostEndpoint(hostname: "151.11.50.180", port: "7777");
+        let endpoint = NWHostEndpoint(hostname: "54.223.23.92", port: "7787");
         self.udpSession = tunnel.createUDPSession(to: endpoint, from: nil)
         self.observer = udpSession.observe(\.state, options: [.new]) { [weak self] session, _ in
             guard let self = self else { return }
             os_log(.default, log: self.log, "engine Session did update state: %{public}@", session)
             self.queue.async {
-                self.udpSession(session, didUpdateState: session.state)
+                self.udpSession(session, didUpdateState: session.state, ip:"54.223.23.92", port:7787);
             }
         }
     }
     
-    private func udpSession(_ session: NWUDPSession, didUpdateState state: NWUDPSessionState) {
+    private func udpSession(_ session: NWUDPSession, didUpdateState state: NWUDPSessionState, ip: String, port: Int) {
         switch state {
         case .ready:
             guard pendingCompletion != nil else { return }
             session.setReadHandler({ [weak self] datagrams, error in
                 guard let self = self else { return }
                 self.queue.async {
-                    self.didReceiveDatagrams(datagrams: datagrams ?? [], error: error)
+                    if let engine = self.ocEngine, let list = datagrams {
+                        for item in list {
+                            engine.onData(item, with: NetDataType.udp, ip: ip, port: port);
+                        }
+                    }
                 }
             }, maxDatagrams: Int.max)
             self.timeoutTimer?.invalidate()
@@ -140,7 +153,7 @@ class PacketTunnelEngine : NSObject {
         }
     }
     
-    private func didReceiveDatagrams(datagrams: [Data], error: Error?) {
+    private func didReceiveDatagrams(datagrams: [Data], error: Error?, ip: String, port: Int) {
         for datagram in datagrams {
             do {
                 os_log(.default, log: self.log, "UDP session read handler error: %{public}@", "\(datagrams)")

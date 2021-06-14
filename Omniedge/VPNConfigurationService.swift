@@ -79,7 +79,7 @@ final class VPNConfigurationService: ObservableObject {
         // WARNING: This must match the bundle identifier of the app extension
         // containing packet tunnel provider.
         proto.providerBundleIdentifier = "com.meandlife.Omniedge.Tunnel";
-        proto.serverAddress = "151.11.50.180:7777";//supernode.ntop.org:7777";
+        proto.serverAddress = "54.223.23.92:7787";//supernode.ntop.org:7777";
         proto.providerConfiguration = [:];
         manager.protocolConfiguration = proto;
         manager.isEnabled = true;
