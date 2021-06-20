@@ -7,6 +7,7 @@
 
 import NetworkExtension
 import os.log
+import OmniedgeDylib
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
     private let log = OSLog(subsystem: "Omniedge", category: "default");

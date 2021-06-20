@@ -8,6 +8,7 @@
 import Foundation
 import NetworkExtension
 import os.log
+import OmniedgeDylib
 
 class PacketTunnelEngine : NSObject {
     // MARK: - Property

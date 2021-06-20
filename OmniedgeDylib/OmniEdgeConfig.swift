@@ -7,10 +7,10 @@
 
 import Foundation
 
-class OmniEdgeConfig {
-    var superNodeAddr: String;
-    var superNodePort: String
-    init(addr: String, port: String) {
+public class OmniEdgeConfig {
+    public var superNodeAddr: String;
+    public var superNodePort: String
+    public init(addr: String, port: String) {
         superNodeAddr = addr;
         superNodePort = port;
     }
