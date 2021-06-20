@@ -2,7 +2,7 @@
 //  OmniedgeTests.swift
 //  OmniedgeTests
 //
-//  Created by samuelsong on 2021/4/22.
+//  Created by samuel.song.bc@gmail.com on 2021/4/22.
 //
 
 import XCTest

@@ -31,6 +31,7 @@
 		7E9634F82664990000A6E7DE /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C982F26384D0B00163586 /* PacketTunnelProvider.swift */; };
 		7E9634F92664998300A6E7DE /* edge_ios_oc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9634EE26646CDB00A6E7DE /* edge_ios_oc.m */; };
 		7E9634FD26649D8D00A6E7DE /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9634FC26649D8D00A6E7DE /* NetworkExtension.framework */; };
+		7EBAE7CB267C892A007B92AA /* OmniEdgeUDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBAE7CA267C892A007B92AA /* OmniEdgeUDP.swift */; };
 		7ED638A62664C649002D60EF /* OmniEdgeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0D2265B86CE00F29958 /* OmniEdgeLog.swift */; };
 		7ED638A82664C64D002D60EF /* OmniEdgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0CC265B869C00F29958 /* OmniEdgeManager.swift */; };
 		7EE9C0C7265B867C00F29958 /* OmniEdgeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */; };
@@ -125,6 +126,7 @@
 		7E9634ED26646CDA00A6E7DE /* edge_ios_oc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edge_ios_oc.h; path = n2n/src/main/cpp/ios/edge_ios_oc.h; sourceTree = SOURCE_ROOT; };
 		7E9634EE26646CDB00A6E7DE /* edge_ios_oc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = edge_ios_oc.m; path = n2n/src/main/cpp/ios/edge_ios_oc.m; sourceTree = SOURCE_ROOT; };
 		7E9634FC26649D8D00A6E7DE /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/System/Library/Frameworks/NetworkExtension.framework; sourceTree = DEVELOPER_DIR; };
+		7EBAE7CA267C892A007B92AA /* OmniEdgeUDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeUDP.swift; sourceTree = "<group>"; };
 		7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeConfig.swift; sourceTree = "<group>"; };
 		7EE9C0CC265B869C00F29958 /* OmniEdgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeManager.swift; sourceTree = "<group>"; };
 		7EE9C0D2265B86CE00F29958 /* OmniEdgeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeLog.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				7E9634E1265E3D5400A6E7DE /* Tunnel-Bridging-Header.h */,
 				7E6C982F26384D0B00163586 /* PacketTunnelProvider.swift */,
 				7E9634DE265E37D700A6E7DE /* PacketTunnelEngine.swift */,
+				7EBAE7CA267C892A007B92AA /* OmniEdgeUDP.swift */,
 				7EE9C0C6265B867C00F29958 /* OmniEdgeConfig.swift */,
 				7EE9C0CC265B869C00F29958 /* OmniEdgeManager.swift */,
 				7EE9C0D2265B86CE00F29958 /* OmniEdgeLog.swift */,
@@ -442,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EBAE7CB267C892A007B92AA /* OmniEdgeUDP.swift in Sources */,
 				7E9634E0265E37D700A6E7DE /* PacketTunnelEngine.swift in Sources */,
 				7EE9C0CD265B869C00F29958 /* OmniEdgeManager.swift in Sources */,
 				7E9634EF26646CDB00A6E7DE /* edge_ios_oc.m in Sources */,

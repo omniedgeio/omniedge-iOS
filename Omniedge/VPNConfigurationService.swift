@@ -2,7 +2,7 @@
 //  VPNConfigurationService.swift
 //  Omniedge
 //
-//  Created by samuelsong on 2021/5/15.
+//  Created by samuel.song.bc@gmail.com on 2021/5/15.
 //
 
 import Foundation

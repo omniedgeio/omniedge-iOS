@@ -2,7 +2,7 @@
 //  PacketTunnelProvider.swift
 //  Tunnel
 //
-//  Created by samuelsong on 2021/4/27.
+//  Created by samuel.song.bc@gmail.com on 2021/4/27.
 //
 
 import NetworkExtension
@@ -20,7 +20,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             engine = PacketTunnelEngine.init(provider: self);
         }
         if let engine = engine {
-            let config = OmniEdgeConfig();
+            let config = OmniEdgeConfig(addr: "54.223.23.92", port: "7787");
             engine.start(config: config) { [weak self] error in
                 guard let self = self else {
                     return;

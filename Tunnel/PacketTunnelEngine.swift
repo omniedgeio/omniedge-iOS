@@ -2,7 +2,7 @@
 //  PacketTunnelEngine.swift
 //  Omniedge
 //
-//  Created by samuelsong on 2021/5/26.
+//  Created by samuel.song.bc@gmail.com on 2021/5/26.
 //
 
 import Foundation
@@ -11,25 +11,31 @@ import os.log
 
 class PacketTunnelEngine : NSObject {
     // MARK: - Property
+    private let udp: OmniEdgeUDP;
     private var ocEngine: EdgeEngine!;
     private weak var tunnel: PacketTunnelProvider!;
-    private var udpSession: NWUDPSession!
+    private var configuration: OmniEdgeConfig!;
+    private var superNode: NWUDPSession!
     private let log = OSLog(subsystem: "Omniedge", category: "default");
-    private let queue = DispatchQueue(label: "omniedge.packet-tunnel-provider"); //serial
+    private let queue = DispatchQueue(label: "omniedge.tunnel"); //serial
     private let n2nQueue = DispatchQueue(label: "omniedge.n2n"); //serial
     private var pendingCompletion: ((Error?) -> Void)?
     private weak var timeoutTimer: Timer?
     private var observer: AnyObject?
+    private var udpSessionList: [NWUDPSession]!
 
     // MARK: - Init and Deinit
     init(provider: PacketTunnelProvider) {
+        udp = OmniEdgeUDP(queue: queue, tunnel: provider);
         super.init();
         tunnel = provider;
+        udpSessionList = [];
         ocEngine = EdgeEngine.init(tunnelProvider: self);
     }
 
     //MARK: - Public
     func start(config: OmniEdgeConfig, _ completionHandler: @escaping (Error?) -> Void) {
+        configuration = config;
         pendingCompletion = completionHandler;
         self.startTunnel();
     }
@@ -58,20 +64,23 @@ class PacketTunnelEngine : NSObject {
             self?.tunnel.packetFlow.writePackets([data], withProtocols: [AF_INET as NSNumber]);
         }
     }
+    
     @objc
     func sendUdp(data: Data?, hostname: String, port: String) -> Bool {
         guard let data = data else {
             return false;
         }
-        os_log(.default, log: self.log, "send udp data: \(data.count), \((String(describing: hostname))), \(String(describing: port))")
-
-        if udpSession == nil {
-            os_log(.default, log:self.log, "+++ create udp session");
-            
-            let endpoint = NWHostEndpoint(hostname: hostname, port: port)
-            udpSession = tunnel.createUDPSession(to: endpoint, from: nil)
-            udpSession.setReadHandler({ [weak self] datagrams, error in
-                os_log(.default, log: self!.log, "--------udp recv data")
+        if (hostname == configuration?.superNodeAddr && port == configuration?.superNodePort) {
+            superNode.writeDatagram(data) { [weak self] error in
+                if let error = error {
+                    os_log(.default, log: self?.log ?? .default, "Failed to write udp datagram, error: %{public}@", "\(error)")
+                } else {
+                    os_log(.default, log: self?.log ?? .default, "Success to write udp datagram:\(data.count)")
+                }
+            }
+        } else {
+            udp.sendData(data: data, hostname: hostname, port: port) {
+                [weak self] datagrams, error in
                 guard let self = self else { return }
                 os_log(.default, log: self.log, "udp recv data")
                 self.queue.async {
@@ -81,26 +90,17 @@ class PacketTunnelEngine : NSObject {
                         }
                     }
                 }
-            }, maxDatagrams: Int.max);
-        }
-        
-        udpSession.writeDatagram(data) { error in
-            if let error = error {
-                // TODO: Handle errors
-                os_log(.default, log: self.log, "Failed to write udp datagram, error: %{public}@", "\(error)")
-            } else {
-                os_log(.default, log: self.log, "Success to write udp datagram:\(data.count)")
             }
+            return true;
         }
 
-        return false;
+        return true;
     }
 
     //MARK: - Private
     private func startTunnel() {
         os_log(.default, log: self.log, "engine startTunnel");
         self.startUDPSession()
-
         self.timeoutTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { [weak self] _ in
             guard let self = self else { return }
             os_log(.default, log: self.log, "engine startTunnel timeout");
@@ -112,13 +112,14 @@ class PacketTunnelEngine : NSObject {
     private func startUDPSession() {
         os_log(.default, log: log, "engine Starting UDP session");
         //let endpoint = NWHostEndpoint(hostname: "151.11.50.180", port: "7777");
-        let endpoint = NWHostEndpoint(hostname: "54.223.23.92", port: "7787");
-        self.udpSession = tunnel.createUDPSession(to: endpoint, from: nil)
-        self.observer = udpSession.observe(\.state, options: [.new]) { [weak self] session, _ in
+        let endpoint = NWHostEndpoint(hostname: configuration.superNodeAddr, port: configuration.superNodePort);
+        self.superNode = tunnel.createUDPSession(to: endpoint, from: nil)
+        self.observer = superNode.observe(\.state, options: [.new]) {
+            [weak self] session, _ in
             guard let self = self else { return }
             os_log(.default, log: self.log, "engine Session did update state: %{public}@", session)
             self.queue.async {
-                self.udpSession(session, didUpdateState: session.state, ip:"54.223.23.92", port:7787);
+                self.udpSession(session, didUpdateState: session.state, ip:self.configuration.superNodeAddr, port:Int(self.configuration.superNodePort) ?? 0);
             }
         }
     }
@@ -152,21 +153,4 @@ class PacketTunnelEngine : NSObject {
             break
         }
     }
-    
-    private func didReceiveDatagrams(datagrams: [Data], error: Error?, ip: String, port: Int) {
-        for datagram in datagrams {
-            do {
-                os_log(.default, log: self.log, "UDP session read handler error: %{public}@", "\(datagrams)")
-                //try self.didReceiveDatagram(datagram: datagram)
-            } catch {
-                // TODO: handle error
-                os_log(.default, log: self.log, "UDP session read handler error: %{public}@", "\(error)")
-            }
-        }
-        if let error = error {
-            // TODO: handle error
-            os_log(.default, log: self.log, "UDP session read handler error: %{public}@", "\(error)")
-        }
-    }
-
 }
