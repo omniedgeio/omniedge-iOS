@@ -10,7 +10,8 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel =
-        MainViewModel(config: .init(addr: "54.223.23.92", port: "7787"))
+        //prod-cn.edgecomputing.network
+        MainViewModel(config: .init(defaultHost: "54.223.23.92", defaultPort: "7787"))
 
     var body: some View {
         NavigationView {

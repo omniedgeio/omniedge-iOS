@@ -21,6 +21,7 @@ final class MainViewModel: ObservableObject {
     }
     
     func handleStart() {
+        config.sync()
         OmniEdgeManager.shared.start(with: config) { error in
         }
     }
@@ -31,7 +32,6 @@ final class MainViewModel: ObservableObject {
     
     func handleRemove() {
         OmniEdgeManager.shared.remove { error in
-            
         }
     }
 }

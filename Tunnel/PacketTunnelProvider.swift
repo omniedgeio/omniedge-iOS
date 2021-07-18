@@ -21,7 +21,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             engine = PacketTunnelEngine.init(provider: self);
         }
         if let engine = engine {
-            let config = OmniEdgeConfig(addr: "54.223.23.92", port: "7787");
+            let config = OmniEdgeConfig(defaultHost: "54.223.23.92", defaultPort: "7787");
             engine.start(config: config) { [weak self] error in
                 guard let self = self else {
                     return;
