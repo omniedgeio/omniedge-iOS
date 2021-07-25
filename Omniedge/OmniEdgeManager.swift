@@ -44,7 +44,9 @@ public final class OmniEdgeManager {
     func start(with config: OmniEdgeConfig,
                completion: @escaping Handler) {
     }
+    
     func start(_ completion: @escaping Handler) {
+        
     }
 
     func stop() {

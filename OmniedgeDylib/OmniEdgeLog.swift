@@ -6,3 +6,6 @@
 //
 
 import Foundation
+import OSLog
+
+typealias OmniEdgeLog = OSLog
