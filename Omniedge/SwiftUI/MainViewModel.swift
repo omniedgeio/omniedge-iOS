@@ -12,6 +12,7 @@ import OmniedgeDylib
 final class MainViewModel: ObservableObject {
     @Published var config: OmniEdgeConfig
     @Published var status = OmniEdgeManager.Status.off
+    @Published var showAlert = false
     
     init(config: OmniEdgeConfig) {
         self.config = config
@@ -31,6 +32,11 @@ final class MainViewModel: ObservableObject {
     
     func handleRemove() {
         OmniEdgeManager.shared.removeFromPreferences { error in
+            if error != nil {
+                self.showAlert = true
+            } else {
+                self.showAlert = false
+            }
         }
     }
 }

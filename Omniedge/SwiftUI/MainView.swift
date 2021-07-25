@@ -81,6 +81,12 @@ struct MainView: View {
             }
             .navigationBarTitle("Omniedge")
         }
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(
+                title: Text("Error"),
+                message: Text("Network Error"),
+                dismissButton: .destructive(Text("OK"), action:nil))
+        }
     }
 }
 

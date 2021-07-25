@@ -54,11 +54,12 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 
     override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
         if let e = engine {
-            e.stop();
+            e.stop { [weak self] in
+                completionHandler()
+                guard let self = self else { return }
+                os_log(.fault, log: self.log, "Omniedge stopTunnel tunnel, options: %{private}@");
+            }
         }
-        // Add code here to start the process of stopping the tunnel.
-        completionHandler()
-        os_log(.fault, log: log, "Omniedge stopTunnel tunnel, options: %{private}@");
     }
     
     override func handleAppMessage(_ messageData: Data, completionHandler: ((Data?) -> Void)?) {

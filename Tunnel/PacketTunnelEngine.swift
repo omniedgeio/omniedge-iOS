@@ -20,7 +20,8 @@ class PacketTunnelEngine : NSObject {
     private let log = OSLog(subsystem: "Omniedge", category: "default");
     private let queue = DispatchQueue(label: "omniedge.tunnel"); //serial
     private let n2nQueue = DispatchQueue(label: "omniedge.n2n"); //serial
-    private var pendingCompletion: ((Error?) -> Void)?
+    private var startHandler: ((Error?) -> Void)?
+    private var stopHandler: (()-> Void)?
     private weak var timeoutTimer: Timer?
     private var observer: AnyObject?
     private var udpSessionList: [NWUDPSession]!
@@ -37,10 +38,11 @@ class PacketTunnelEngine : NSObject {
     //MARK: - Public
     func start(config: OmniEdgeConfig, _ completionHandler: @escaping (Error?) -> Void) {
         configuration = config;
-        pendingCompletion = completionHandler;
+        startHandler = completionHandler;
         self.startTunnel();
     }
-    func stop() {
+    func stop(complete: @escaping () -> Void) {
+        stopHandler = complete
         queue.async { [weak self] in
             self?.ocEngine.stop();
         }
@@ -105,8 +107,8 @@ class PacketTunnelEngine : NSObject {
         self.timeoutTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { [weak self] _ in
             guard let self = self else { return }
             os_log(.default, log: self.log, "engine startTunnel timeout");
-            self.pendingCompletion?(NEVPNError(.connectionFailed))
-            self.pendingCompletion = nil
+            self.startHandler?(NEVPNError(.connectionFailed))
+            self.startHandler = nil
         }
     }
     
@@ -125,10 +127,19 @@ class PacketTunnelEngine : NSObject {
         }
     }
     
+    private func edgeConfig() -> EdgeConfig {
+        let config = EdgeConfig()
+        config.superNodeAddr = configuration.superNodeAddr
+        config.superNodePort = UInt(configuration.superNodePort) ?? 0
+        config.networkName = configuration.networkName
+        config.encryptionKey = configuration.encryptionKey
+        config.ipAddress = configuration.ipAddress
+        return config;
+    }
     private func udpSession(_ session: NWUDPSession, didUpdateState state: NWUDPSessionState, ip: String, port: Int) {
         switch state {
         case .ready:
-            guard pendingCompletion != nil else { return }
+            guard startHandler != nil else { return }
             session.setReadHandler({ [weak self] datagrams, error in
                 guard let self = self else { return }
                 self.queue.async {
@@ -140,16 +151,20 @@ class PacketTunnelEngine : NSObject {
                 }
             }, maxDatagrams: Int.max)
             self.timeoutTimer?.invalidate()
-            pendingCompletion?(nil);
-            pendingCompletion = nil;
+            startHandler?(nil);
+            startHandler = nil;
             n2nQueue.async { [weak self] in
-                self?.ocEngine.start();
+                guard let self = self else { return }
+                self.ocEngine.start(self.edgeConfig())
+                if let complete = self.stopHandler {
+                    complete()
+                }
             };
 
         case .failed:
-            guard pendingCompletion != nil else { return }
-            pendingCompletion?(NEVPNError(.connectionFailed))
-            pendingCompletion = nil
+            guard startHandler != nil else { return }
+            startHandler?(NEVPNError(.connectionFailed))
+            startHandler = nil
         default:
             break
         }
