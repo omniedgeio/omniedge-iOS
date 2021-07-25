@@ -8,7 +8,7 @@
 import Foundation
 
 extension OmniEdgeConfig {
-    static let group = "group.com.meandlife.OminiEdge"
+    static let group = "group.com.meandlife.Omniedge"
     static let networkName = "networkName"
     static let encryptionKey = "encryptionKey"
     static let ipAddress = "ipAddress"
@@ -48,22 +48,13 @@ public struct OmniEdgeConfig : Codable {
         if let dataStorage = UserDefaults.init(suiteName: OmniEdgeConfig.group) {
             if let network = dataStorage.string(forKey: OmniEdgeConfig.networkName) {
                 networkName = network
-            } else {
-                networkName = "mynetwork"
             }
-            
             if let key = dataStorage.string(forKey: OmniEdgeConfig.encryptionKey) {
                 encryptionKey = key
-            } else {
-                encryptionKey = "mysecretpass"
             }
-            
             if let ip = dataStorage.string(forKey: OmniEdgeConfig.ipAddress) {
                 ipAddress = ip
-            } else {
-                ipAddress = "10.254.1.123"
             }
-            
             isSecure = dataStorage.bool(forKey: OmniEdgeConfig.isSecure)
         }
     }
