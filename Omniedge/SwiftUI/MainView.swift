@@ -51,7 +51,7 @@ struct MainView: View {
                 }
 
                 Section(header: Text("Status")) {
-                    Text("Status: ") + Text(viewModel.status.rawValue)
+                    Text("Status: ") + Text(viewModel.status.text)
                     if viewModel.status == .off || viewModel.status == .invalid {
                         Button(action: {
                             self.hideKeyboard()

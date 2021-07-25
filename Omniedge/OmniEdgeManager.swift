@@ -17,6 +17,20 @@ public extension OmniEdgeManager {
         case connecting
         case disconnecting
         
+        public var text: String {
+            switch self {
+            case .on:
+                return "On"
+            case .connecting:
+                return "Connecting..."
+            case .disconnecting:
+                return "Disconnecting..."
+            case .off, .invalid:
+                return "Off"
+            @unknown default:
+                return "Off"
+            }
+        }
         public init(_ status: NEVPNStatus) {
             switch status {
             case .connected:
@@ -154,7 +168,6 @@ extension OmniEdgeManager {
 
     func makeTunnelManager(with config: OmniEdgeConfig) -> NETunnelProviderManager {
         let manager = NETunnelProviderManager()
-        manager.localizedDescription = "Omniedge";
         let proto = NETunnelProviderProtocol();
         // WARNING: This must match the bundle identifier of the app extension
         // containing packet tunnel provider.
@@ -175,8 +188,6 @@ extension OmniEdgeManager {
         } else {
             status = .off
         }
-
-        print(status)
     }
 
     func notifyStatusDidChange() {
