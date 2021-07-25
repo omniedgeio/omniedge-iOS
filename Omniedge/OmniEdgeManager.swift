@@ -27,8 +27,6 @@ public extension OmniEdgeManager {
                 return "Disconnecting..."
             case .off, .invalid:
                 return "Off"
-            @unknown default:
-                return "Off"
             }
         }
         public init(_ status: NEVPNStatus) {
@@ -176,7 +174,7 @@ extension OmniEdgeManager {
         /// passwordReference必须取keychain里面的值
         proto.providerConfiguration = [:];
         manager.protocolConfiguration = proto;
-        manager.localizedDescription = "Omniedge Club"
+        manager.localizedDescription = "Omniedge"
         manager.isEnabled = true;
 
         return manager
