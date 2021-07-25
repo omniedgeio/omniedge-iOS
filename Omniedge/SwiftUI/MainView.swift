@@ -11,23 +11,42 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var viewModel =
         //prod-cn.edgecomputing.network
-        MainViewModel(config: .init(defaultHost: "54.223.23.92", defaultPort: "7787"))
+        MainViewModel(config: .init(network: "mynetwork", key: "mysecretpass", ip: "10.254.1.123"))
 
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Settings")) {
                     HStack(alignment: .center) {
-                        Text("Host").font(.callout)
-                        TextField("Host", text: $viewModel.config.superNodeAddr)
+                        Text("Network name").font(.callout)
+                        TextField("mynetwork", text: $viewModel.config.networkName)
                             .multilineTextAlignment(.trailing)
                             .foregroundColor(.gray)
                     }
                     HStack(alignment: .center) {
-                        Text("Port").font(.callout)
-                        TextField("Port", text: $viewModel.config.superNodePort)
+                        Text("IP").font(.callout)
+                        TextField("IP", text: $viewModel.config.ipAddress)
                             .multilineTextAlignment(.trailing)
                             .foregroundColor(.gray)
+                        
+                    }
+                    HStack(alignment: .center) {
+                        Text("Encryption key").font(.callout)
+                        if viewModel.config.isSecure {
+                        SecureField("mysecretpass", text: $viewModel.config.encryptionKey)
+                            .multilineTextAlignment(.trailing)
+                            .foregroundColor(.gray)
+                        } else {
+                            TextField("mysecretpass", text: $viewModel.config.encryptionKey)
+                                .multilineTextAlignment(.trailing)
+                                .foregroundColor(.gray)
+
+                        }
+                        Button(action: {
+                            viewModel.config.isSecure.toggle()
+                        }, label: {
+                            Image(systemName: viewModel.config.isSecure ? "eye.slash" : "eye").accentColor(viewModel.config.isSecure ? .gray : nil)
+                        })
                     }
                 }
 
@@ -60,7 +79,7 @@ struct MainView: View {
                                   cancel: nil)
                 }
             }
-            .navigationBarTitle("VPN Status")
+            .navigationBarTitle("Omniedge")
         }
     }
 }

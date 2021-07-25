@@ -7,50 +7,58 @@
 
 import Foundation
 
+extension OmniEdgeConfig {
+    static let group = "group.com.meandlife.OminiEdge"
+    static let networkName = "networkName"
+    static let encryptionKey = "encryptionKey"
+    static let ipAddress = "ipAddress"
+    static let isSecure = "isSecure"
+}
+
 public struct OmniEdgeConfig : Codable {
-    public var superNodeAddr: String
-    public var superNodePort: String
+    public var superNodeAddr: String = "54.223.23.92"
+    public var superNodePort: String = "7787"
+    public var networkName: String = ""
+    public var encryptionKey: String = ""
+    public var ipAddress: String = ""
+    public var isSecure = true
     
-    public init(defaultHost: String, defaultPort: String) {
-        superNodeAddr = defaultHost;
-        superNodePort = defaultPort;
+    public init() {
+        load()
+    }
+    
+    public init(network: String, key: String, ip: String) {
+        networkName = network
+        encryptionKey = key
+        ipAddress = ip
         load()
     }
     
     public func sync() {
-        let file = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.meandlife.OminiEdge")?.appendingPathComponent("config.plist")
-        guard let file = file else {
-            return
-        }
-
-        do {
-            let encoder = PropertyListEncoder()
-            let data = try encoder.encode(self)
-            try data.write(to: file)
-        } catch {
-            print("Couldn't parse file")
-        }
+        let dataStorage = UserDefaults(suiteName: OmniEdgeConfig.group)
+        dataStorage?.setValue(networkName, forKey: OmniEdgeConfig.networkName)
+        dataStorage?.setValue(encryptionKey, forKey: OmniEdgeConfig.encryptionKey)
+        dataStorage?.setValue(ipAddress, forKey: OmniEdgeConfig.ipAddress)
+        dataStorage?.setValue(isSecure, forKey: OmniEdgeConfig.isSecure)
+        dataStorage?.synchronize()
     }
     
     private mutating func load() {
-        let data: Data
-        let file = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.meandlife.OminiEdge")?.appendingPathComponent("config.plist")
-        guard let file = file else {
-            return
+        let dataStorage = UserDefaults(suiteName: OmniEdgeConfig.group)
+        if let network = dataStorage?.string(forKey: OmniEdgeConfig.networkName) {
+            networkName = network
         }
         
-        do {
-            data = try Data(contentsOf: file)
-        } catch {
-            print("Couldn't load file")
-            return
+        if let key = dataStorage?.string(forKey: OmniEdgeConfig.encryptionKey) {
+            encryptionKey = key
         }
         
-        do {
-            let decoder = PropertyListDecoder()
-            self = try decoder.decode(OmniEdgeConfig.self, from: data)
-        } catch {
-            fatalError("Couldn't parse file")
+        if let ip = dataStorage?.string(forKey: OmniEdgeConfig.ipAddress) {
+            ipAddress = ip
+        }
+        
+        if let secure = dataStorage?.bool(forKey: OmniEdgeConfig.isSecure) {
+            isSecure = secure
         }
     }
 }
