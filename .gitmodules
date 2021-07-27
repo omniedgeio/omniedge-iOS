@@ -1,0 +1,3 @@
+[submodule "n2n"]
+	path = n2n
+	url = git@gitlab.com:omniedge/n2n-android.git
