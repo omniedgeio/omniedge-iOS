@@ -10,13 +10,24 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel =
-        //prod-cn.edgecomputing.network
         MainViewModel(config: .init(network: "mynetwork", key: "mysecretpass", ip: "10.254.1.123"))
 
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Settings")) {
+                    HStack(alignment: .center) {
+                        Text("Server IP").font(.callout)
+                        TextField("192.168.0.23", text: $viewModel.config.superNodeAddr)
+                            .multilineTextAlignment(.trailing)
+                            .foregroundColor(.gray)
+                    }
+                    HStack(alignment: .center) {
+                        Text("Server Port").font(.callout)
+                        TextField("7787", text: $viewModel.config.superNodePort)
+                            .multilineTextAlignment(.trailing)
+                            .foregroundColor(.gray)
+                    }
                     HStack(alignment: .center) {
                         Text("Network name").font(.callout)
                         TextField("mynetwork", text: $viewModel.config.networkName)
