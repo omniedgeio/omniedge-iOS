@@ -11,36 +11,36 @@ import OmniedgeDylib
 
 public extension OmniEdgeManager {
     enum Status: String {
-        case on
-        case off
+        case online
+        case offline
         case invalid /// The VPN is not configured
         case connecting
         case disconnecting
-        
+
         public var text: String {
             switch self {
-            case .on:
+            case .online:
                 return "On"
             case .connecting:
                 return "Connecting..."
             case .disconnecting:
                 return "Disconnecting..."
-            case .off, .invalid:
+            case .offline, .invalid:
                 return "Off"
             }
         }
         public init(_ status: NEVPNStatus) {
             switch status {
             case .connected:
-                self = .on
+                self = .online
             case .connecting, .reasserting:
                 self = .connecting
             case .disconnecting:
                 self = .disconnecting
             case .disconnected, .invalid:
-                self = .off
+                self = .offline
             @unknown default:
-                self = .off
+                self = .offline
             }
         }
     }
@@ -48,15 +48,15 @@ public extension OmniEdgeManager {
 
 public final class OmniEdgeManager {
     public typealias Handler = (Error?) -> Void
-    //MARK: - Property
-    static let shared = OmniEdgeManager();
-    
-    //MARK: - Public
+    // MARK: - Property
+    static let shared = OmniEdgeManager()
+
+    // MARK: - Public
     public var statusDidChangeHandler: ((Status) -> Void)?
-    
+
     public private(set) var tunnel: NETunnelProviderManager?
-    public var isOn: Bool { status == .on }
-    public private(set) var status: Status = .off {
+    public var isOn: Bool { status == .online }
+    public private(set) var status: Status = .offline {
         didSet { notifyStatusDidChange() }
     }
 
@@ -64,25 +64,18 @@ public final class OmniEdgeManager {
 
     private init() {
         refresh()
-        observers.append(
-            NotificationCenter.default.addObserver(
-                forName: .NEVPNStatusDidChange,
-                object: nil,
-                queue: OperationQueue.main
-            ) { [weak self] _ in
-                self?.updateStatus()
-            }
-        )
+        let statusChange = NotificationCenter.default.addObserver(forName: .NEVPNStatusDidChange,
+                                                                  object: nil,
+                                                                  queue: OperationQueue.main) { [weak self] _ in
+            self?.updateStatus()
+        }
+        observers.append(statusChange)
 
-        observers.append(
-            NotificationCenter.default.addObserver(
-                forName: .NEVPNConfigurationChange,
-                object: nil,
-                queue: OperationQueue.main
-            ) { [weak self] _ in
-                self?.refresh()
-            }
-        )
+        let configChange = NotificationCenter.default.addObserver(forName: .NEVPNConfigurationChange, object: nil,
+                                                                  queue: OperationQueue.main) { [weak self] _ in
+            self?.refresh()
+        }
+        observers.append(configChange)
     }
 }
 
@@ -103,7 +96,7 @@ extension OmniEdgeManager {
                     return completion(error)
                 }
 
-                self?.tunnel?.loadFromPreferences() { [weak self] _ in
+                self?.tunnel?.loadFromPreferences { [weak self] _ in
                     self?.start(completion)
                 }
             }
@@ -166,16 +159,16 @@ extension OmniEdgeManager {
 
     func makeTunnelManager(with config: OmniEdgeConfig) -> NETunnelProviderManager {
         let manager = NETunnelProviderManager()
-        let proto = NETunnelProviderProtocol();
+        let proto = NETunnelProviderProtocol()
         // WARNING: This must match the bundle identifier of the app extension
         // containing packet tunnel provider.
-        proto.providerBundleIdentifier = "com.meandlife.Omniedge.Tunnel";
-        proto.serverAddress = "Omniedge";//supernode.ntop.org:7777";
+        proto.providerBundleIdentifier = "com.meandlife.Omniedge.Tunnel"
+        proto.serverAddress = "Omniedge"//supernode.ntop.org:7777"
         /// passwordReference必须取keychain里面的值
-        proto.providerConfiguration = [:];
-        manager.protocolConfiguration = proto;
+        proto.providerConfiguration = [:]
+        manager.protocolConfiguration = proto
         manager.localizedDescription = "Omniedge"
-        manager.isEnabled = true;
+        manager.isEnabled = true
 
         return manager
     }
@@ -184,7 +177,7 @@ extension OmniEdgeManager {
         if let tunnel = tunnel {
             status = Status(tunnel.connection.status)
         } else {
-            status = .off
+            status = .offline
         }
     }
 

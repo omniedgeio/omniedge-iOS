@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E294A0526C76C2E008DEA5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E294A0426C76C2E008DEA5D /* Assets.xcassets */; };
+		7E294A0326C76C2D008DEA5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E294A0226C76C2D008DEA5D /* ContentView.swift */; };
+		7ED460A326C774D300FF4870 /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED4609D26C774C000FF4870 /* OEPlatform.framework */; };
+		7E294A0126C76C2D008DEA5D /* OmniedgeNewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E294A0026C76C2D008DEA5D /* OmniedgeNewApp.swift */; };
+		7E294A1326C76C2F008DEA5D /* OmniedgeNewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E294A1226C76C2F008DEA5D /* OmniedgeNewTests.swift */; };
+		7E294A1E26C76C2F008DEA5D /* OmniedgeNewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E294A1D26C76C2F008DEA5D /* OmniedgeNewUITests.swift */; };
+		7E294A0826C76C2E008DEA5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E294A0726C76C2E008DEA5D /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E294A0F26C76C2F008DEA5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E2949F526C76C2D008DEA5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E2949FC26C76C2D008DEA5D;
+			remoteInfo = OmniedgeNew;
+		};
+		7E294A1A26C76C2F008DEA5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E2949F526C76C2D008DEA5D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E2949FC26C76C2D008DEA5D;
+			remoteInfo = OmniedgeNew;
+		};
+		7ED4609C26C774C000FF4870 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EF5A35526C767E300EDFC03;
+			remoteInfo = OEPlatform;
+		};
+		7ED4609E26C774C000FF4870 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EF5A35E26C767E300EDFC03;
+			remoteInfo = OEPlatformTests;
+		};
+		7ED460A026C774CD00FF4870 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF5A35426C767E300EDFC03;
+			remoteInfo = OEPlatform;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7EF9725F26C8886B00B214A8 /* AllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllTests.xctestplan; sourceTree = "<group>"; };
+		7E294A0426C76C2E008DEA5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E294A0226C76C2D008DEA5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7E294A0926C76C2E008DEA5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E294A1426C76C2F008DEA5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E294A1F26C76C2F008DEA5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEPlatform.xcodeproj; path = OEPlatform/OEPlatform.xcodeproj; sourceTree = "<group>"; };
+		7E2949FD26C76C2D008DEA5D /* OmniedgeNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniedgeNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E294A0026C76C2D008DEA5D /* OmniedgeNewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniedgeNewApp.swift; sourceTree = "<group>"; };
+		7E294A1226C76C2F008DEA5D /* OmniedgeNewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniedgeNewTests.swift; sourceTree = "<group>"; };
+		7E294A0E26C76C2F008DEA5D /* OmniedgeNewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniedgeNewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E294A1D26C76C2F008DEA5D /* OmniedgeNewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniedgeNewUITests.swift; sourceTree = "<group>"; };
+		7E294A1926C76C2F008DEA5D /* OmniedgeNewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniedgeNewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E294A0726C76C2E008DEA5D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E2949FA26C76C2D008DEA5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ED460A326C774D300FF4870 /* OEPlatform.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E294A0B26C76C2F008DEA5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E294A1626C76C2F008DEA5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E2949F426C76C2D008DEA5D = {
+			isa = PBXGroup;
+			children = (
+				7ED460A226C774D300FF4870 /* Frameworks */,
+				7ED4608026C774AF00FF4870 /* Libraries */,
+				7E2949FF26C76C2D008DEA5D /* OmniedgeNew */,
+				7E294A1126C76C2F008DEA5D /* OmniedgeNewTests */,
+				7E294A1C26C76C2F008DEA5D /* OmniedgeNewUITests */,
+				7E2949FE26C76C2D008DEA5D /* Products */,
+				7EF9725F26C8886B00B214A8 /* AllTests.xctestplan */,
+			);
+			sourceTree = "<group>";
+		};
+		7E2949FE26C76C2D008DEA5D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E2949FD26C76C2D008DEA5D /* OmniedgeNew.app */,
+				7E294A0E26C76C2F008DEA5D /* OmniedgeNewTests.xctest */,
+				7E294A1926C76C2F008DEA5D /* OmniedgeNewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E2949FF26C76C2D008DEA5D /* OmniedgeNew */ = {
+			isa = PBXGroup;
+			children = (
+				7E294A0626C76C2E008DEA5D /* Preview Content */,
+				7E294A0426C76C2E008DEA5D /* Assets.xcassets */,
+				7E294A0226C76C2D008DEA5D /* ContentView.swift */,
+				7E294A0926C76C2E008DEA5D /* Info.plist */,
+				7E294A0026C76C2D008DEA5D /* OmniedgeNewApp.swift */,
+			);
+			path = OmniedgeNew;
+			sourceTree = "<group>";
+		};
+		7E294A0626C76C2E008DEA5D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7E294A0726C76C2E008DEA5D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7E294A1126C76C2F008DEA5D /* OmniedgeNewTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E294A1426C76C2F008DEA5D /* Info.plist */,
+				7E294A1226C76C2F008DEA5D /* OmniedgeNewTests.swift */,
+			);
+			path = OmniedgeNewTests;
+			sourceTree = "<group>";
+		};
+		7E294A1C26C76C2F008DEA5D /* OmniedgeNewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7E294A1F26C76C2F008DEA5D /* Info.plist */,
+				7E294A1D26C76C2F008DEA5D /* OmniedgeNewUITests.swift */,
+			);
+			path = OmniedgeNewUITests;
+			sourceTree = "<group>";
+		};
+		7ED4608026C774AF00FF4870 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */,
+			);
+			name = Libraries;
+			path = ../Libraries;
+			sourceTree = "<group>";
+		};
+		7ED4609826C774C000FF4870 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7ED4609D26C774C000FF4870 /* OEPlatform.framework */,
+				7ED4609F26C774C000FF4870 /* OEPlatformTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7ED460A226C774D300FF4870 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E2949FC26C76C2D008DEA5D /* OmniedgeNew */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E294A2226C76C2F008DEA5D /* Build configuration list for PBXNativeTarget "OmniedgeNew" */;
+			buildPhases = (
+				7E2949F926C76C2D008DEA5D /* Sources */,
+				7E2949FA26C76C2D008DEA5D /* Frameworks */,
+				7E2949FB26C76C2D008DEA5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7ED460A126C774CD00FF4870 /* PBXTargetDependency */,
+			);
+			name = OmniedgeNew;
+			productName = OmniedgeNew;
+			productReference = 7E2949FD26C76C2D008DEA5D /* OmniedgeNew.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7E294A0D26C76C2F008DEA5D /* OmniedgeNewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E294A2526C76C2F008DEA5D /* Build configuration list for PBXNativeTarget "OmniedgeNewTests" */;
+			buildPhases = (
+				7E294A0A26C76C2F008DEA5D /* Sources */,
+				7E294A0B26C76C2F008DEA5D /* Frameworks */,
+				7E294A0C26C76C2F008DEA5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E294A1026C76C2F008DEA5D /* PBXTargetDependency */,
+			);
+			name = OmniedgeNewTests;
+			productName = OmniedgeNewTests;
+			productReference = 7E294A0E26C76C2F008DEA5D /* OmniedgeNewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7E294A1826C76C2F008DEA5D /* OmniedgeNewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E294A2826C76C2F008DEA5D /* Build configuration list for PBXNativeTarget "OmniedgeNewUITests" */;
+			buildPhases = (
+				7E294A1526C76C2F008DEA5D /* Sources */,
+				7E294A1626C76C2F008DEA5D /* Frameworks */,
+				7E294A1726C76C2F008DEA5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E294A1B26C76C2F008DEA5D /* PBXTargetDependency */,
+			);
+			name = OmniedgeNewUITests;
+			productName = OmniedgeNewUITests;
+			productReference = 7E294A1926C76C2F008DEA5D /* OmniedgeNewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E2949F526C76C2D008DEA5D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					7E2949FC26C76C2D008DEA5D = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					7E294A0D26C76C2F008DEA5D = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 7E2949FC26C76C2D008DEA5D;
+					};
+					7E294A1826C76C2F008DEA5D = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 7E2949FC26C76C2D008DEA5D;
+					};
+				};
+			};
+			buildConfigurationList = 7E2949F826C76C2D008DEA5D /* Build configuration list for PBXProject "OmniedgeNew" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E2949F426C76C2D008DEA5D;
+			productRefGroup = 7E2949FE26C76C2D008DEA5D /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7ED4609826C774C000FF4870 /* Products */;
+					ProjectRef = 7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				7E2949FC26C76C2D008DEA5D /* OmniedgeNew */,
+				7E294A0D26C76C2F008DEA5D /* OmniedgeNewTests */,
+				7E294A1826C76C2F008DEA5D /* OmniedgeNewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7ED4609D26C774C000FF4870 /* OEPlatform.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OEPlatform.framework;
+			remoteRef = 7ED4609C26C774C000FF4870 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7ED4609F26C774C000FF4870 /* OEPlatformTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OEPlatformTests.xctest;
+			remoteRef = 7ED4609E26C774C000FF4870 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E2949FB26C76C2D008DEA5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E294A0526C76C2E008DEA5D /* Assets.xcassets in Resources */,
+				7E294A0826C76C2E008DEA5D /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E294A0C26C76C2F008DEA5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E294A1726C76C2F008DEA5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E2949F926C76C2D008DEA5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E294A0326C76C2D008DEA5D /* ContentView.swift in Sources */,
+				7E294A0126C76C2D008DEA5D /* OmniedgeNewApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E294A0A26C76C2F008DEA5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E294A1326C76C2F008DEA5D /* OmniedgeNewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E294A1526C76C2F008DEA5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E294A1E26C76C2F008DEA5D /* OmniedgeNewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E294A1026C76C2F008DEA5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E2949FC26C76C2D008DEA5D /* OmniedgeNew */;
+			targetProxy = 7E294A0F26C76C2F008DEA5D /* PBXContainerItemProxy */;
+		};
+		7E294A1B26C76C2F008DEA5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E2949FC26C76C2D008DEA5D /* OmniedgeNew */;
+			targetProxy = 7E294A1A26C76C2F008DEA5D /* PBXContainerItemProxy */;
+		};
+		7ED460A126C774CD00FF4870 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OEPlatform;
+			targetProxy = 7ED460A026C774CD00FF4870 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7E294A2026C76C2F008DEA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7E294A2126C76C2F008DEA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E294A2326C76C2F008DEA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
+				DEVELOPMENT_TEAM = S4K8QNVVRR;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OmniedgeNew/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.OmniedgeNew;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7E294A2426C76C2F008DEA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
+				DEVELOPMENT_TEAM = S4K8QNVVRR;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OmniedgeNew/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.OmniedgeNew;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7E294A2626C76C2F008DEA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4K8QNVVRR;
+				INFOPLIST_FILE = OmniedgeNewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.OmniedgeNewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmniedgeNew.app/OmniedgeNew";
+			};
+			name = Debug;
+		};
+		7E294A2726C76C2F008DEA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4K8QNVVRR;
+				INFOPLIST_FILE = OmniedgeNewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.OmniedgeNewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmniedgeNew.app/OmniedgeNew";
+			};
+			name = Release;
+		};
+		7E294A2926C76C2F008DEA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4K8QNVVRR;
+				INFOPLIST_FILE = OmniedgeNewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.OmniedgeNewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OmniedgeNew;
+			};
+			name = Debug;
+		};
+		7E294A2A26C76C2F008DEA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4K8QNVVRR;
+				INFOPLIST_FILE = OmniedgeNewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.meandlife.OmniedgeNewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OmniedgeNew;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E2949F826C76C2D008DEA5D /* Build configuration list for PBXProject "OmniedgeNew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E294A2026C76C2F008DEA5D /* Debug */,
+				7E294A2126C76C2F008DEA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E294A2226C76C2F008DEA5D /* Build configuration list for PBXNativeTarget "OmniedgeNew" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E294A2326C76C2F008DEA5D /* Debug */,
+				7E294A2426C76C2F008DEA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E294A2526C76C2F008DEA5D /* Build configuration list for PBXNativeTarget "OmniedgeNewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E294A2626C76C2F008DEA5D /* Debug */,
+				7E294A2726C76C2F008DEA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E294A2826C76C2F008DEA5D /* Build configuration list for PBXNativeTarget "OmniedgeNewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E294A2926C76C2F008DEA5D /* Debug */,
+				7E294A2A26C76C2F008DEA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E2949F526C76C2D008DEA5D /* Project object */;
+}

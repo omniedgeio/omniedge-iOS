@@ -15,27 +15,27 @@ extension OmniEdgeConfig {
     static let isSecure = "isSecure"
 }
 
-public struct OmniEdgeConfig : Codable {
+public struct OmniEdgeConfig: Codable {
     public var superNodeAddr: String = ""
     public var superNodePort: String = ""
     public var networkName: String = ""
     public var encryptionKey: String = ""
     public var ipAddress: String = ""
     public var isSecure = true
-    
+
     public init() {
         load()
     }
-    
-    public init(network: String, key: String, ip: String) {
+
+    public init(network: String, key: String, ipAddr: String) {
         networkName = network
         encryptionKey = key
-        ipAddress = ip
+        ipAddress = ipAddr
         load()
     }
-    
+
     public func sync() {
-        if let dataStorage = UserDefaults.init(suiteName: OmniEdgeConfig.group) {
+        if let dataStorage = UserDefaults(suiteName: OmniEdgeConfig.group) {
             dataStorage.setValue(networkName, forKey: OmniEdgeConfig.networkName)
             dataStorage.setValue(encryptionKey, forKey: OmniEdgeConfig.encryptionKey)
             dataStorage.setValue(ipAddress, forKey: OmniEdgeConfig.ipAddress)
@@ -43,17 +43,17 @@ public struct OmniEdgeConfig : Codable {
             dataStorage.synchronize()
         }
     }
-    
+
     private mutating func load() {
-        if let dataStorage = UserDefaults.init(suiteName: OmniEdgeConfig.group) {
+        if let dataStorage = UserDefaults(suiteName: OmniEdgeConfig.group) {
             if let network = dataStorage.string(forKey: OmniEdgeConfig.networkName) {
                 networkName = network
             }
             if let key = dataStorage.string(forKey: OmniEdgeConfig.encryptionKey) {
                 encryptionKey = key
             }
-            if let ip = dataStorage.string(forKey: OmniEdgeConfig.ipAddress) {
-                ipAddress = ip
+            if let ipAddr = dataStorage.string(forKey: OmniEdgeConfig.ipAddress) {
+                ipAddress = ipAddr
             }
             isSecure = dataStorage.bool(forKey: OmniEdgeConfig.isSecure)
         }

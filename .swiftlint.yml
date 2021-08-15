@@ -1,0 +1,53 @@
+# Swiftlint rules reference: https://realm.github.io/SwiftLint/rule-directory.html
+
+# We would want to pin the version to avoid these repeating issues
+swiftlint_version: 0.41.0
+
+disabled_rules: # rule identifiers to exclude from running
+    - orphaned_doc_comment
+    - large_tuple
+    - todo
+excluded:
+    # Dependency Management directories
+    - Carthage
+    # Code from 3rd party tool in module
+    - Libraries/BuyExperience/Carthage
+    - Pods
+    - "**/.build/checkouts" # swift packages
+    # Code from 3rd party in BuildTools
+    # https://github.com/apollographql/iOSCodegenTemplate
+    - BuildTools/Sources/BuildTools/ApolloCodegen
+    - BuildTools/.build
+    # Exclude generated graphql folders
+    - Libraries/SearchModule/SearchModule/API/Generated
+    # Exclude our templates which use invalid placeholders
+    - templates
+opt_in_rules:
+    - expiring_todo
+    - empty_count
+    - explicit_init
+    - closure_spacing
+    - overridden_super_call
+    - redundant_nil_coalescing
+    - private_outlet
+    - nimble_operator
+    - attributes
+    - operator_usage_whitespace
+    - closure_end_indentation
+    - first_where
+    - sorted_imports
+    - object_literal
+    - number_separator
+    - prohibited_super_call
+    - fatal_error_message
+    - vertical_parameter_alignment_on_call
+    - force_unwrapping
+identifier_name:
+    excluded:
+        - id
+        - ID
+line_length: 160
+function_body_length: 50
+type_body_length: 500
+number_separator:
+    minimum_length: 5

@@ -1,0 +1,90 @@
+name: ${PROJECT_NAME}
+options:
+  bundleIdPrefix: com.omniedge
+  minimumXcodeGenVersion: 2.23.1
+fileGroups:
+  - ../../Configuration
+configFiles:
+  Debug: ../../Configuration/Project-Debug.xcconfig
+  Release: ../../Configuration/Project-Release.xcconfig
+
+projectReferences:
+  OEPlatform.xcodeproj:
+    path: ../OEPlatform/OEPlatform.xcodeproj
+
+packages:
+  OEUIKit:
+    path: ../../Packages/OEUIKit
+
+targets:
+  ${PROJECT_NAME}:
+    platform: iOS
+    type: framework
+    configFiles:
+      Debug: ../../Configuration/Module.xcconfig
+      Release: ../../Configuration/Module.xcconfig
+    sources: ${PROJECT_NAME}
+    dependencies:
+      - target: OEPlatform.xcodeproj/OEPlatform
+      - package: OEUIKit
+    info:
+      path: ${PROJECT_NAME}/Info.plist
+      properties:
+        CFBundlePackageType: "$(PRODUCT_BUNDLE_PACKAGE_TYPE)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+
+  ${PROJECT_NAME}Tests:
+    platform: iOS
+    type: bundle.unit-test
+    configFiles:
+      Debug: ../../Configuration/Tests.xcconfig
+      Release: ../../Configuration/Tests.xcconfig
+    sources: ${PROJECT_NAME}Tests
+    dependencies:
+      - target: ${PROJECT_NAME}
+      - target: OEPlatform.xcodeproj/OEPlatform
+      - package: OEUIKit
+    info:
+      path: ${PROJECT_NAME}Tests/Info.plist
+      properties:
+        CFBundlePackageType: "$(PRODUCT_BUNDLE_PACKAGE_TYPE)"
+
+  ${PROJECT_NAME}Demo:
+    platform: iOS
+    type: application
+    configFiles:
+      Debug: ../../Configuration/App.xcconfig
+      Release: ../../Configuration/App.xcconfig
+    sources: ${PROJECT_NAME}Demo
+    dependencies:
+      - target: ${PROJECT_NAME}
+      - target: OEPlatform.xcodeproj/OEPlatform
+      - package: OEUIKit
+    info:
+      path: ${PROJECT_NAME}Demo/Info.plist
+      properties:
+        CFBundlePackageType: "$(PRODUCT_BUNDLE_PACKAGE_TYPE)"
+        LSRequiresIPhoneOS: true
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: true
+        UIApplicationSupportsIndirectInputEvents: true
+        UILaunchScreen: {}
+        UIRequiredDeviceCapabilities: [armv7]
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+
+schemes:
+  ${PROJECT_NAME}:
+    build:
+      targets:
+        ${PROJECT_NAME}: all
+    test:
+      gatherCoverageData: true
+      targets:
+        - ${PROJECT_NAME}Tests
+      coverageTargets:
+        - ${PROJECT_NAME}
+
+  ${PROJECT_NAME}Demo:
+    build:
+      targets:
+        ${PROJECT_NAME}Demo: all

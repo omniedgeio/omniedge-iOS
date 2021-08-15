@@ -11,25 +11,25 @@ import OmniedgeDylib
 
 final class MainViewModel: ObservableObject {
     @Published var config: OmniEdgeConfig
-    @Published var status = OmniEdgeManager.Status.off
+    @Published var status = OmniEdgeManager.Status.offline
     @Published var showAlert = false
-    
+
     init(config: OmniEdgeConfig) {
         self.config = config
         OmniEdgeManager.shared.statusDidChangeHandler = { [weak self] status in
             self?.status = status
         }
     }
-    
+
     func handleStart() {
-        OmniEdgeManager.shared.start(with: config) { error in
+        OmniEdgeManager.shared.start(with: config) { _ in
         }
     }
-    
+
     func handleStop() {
         OmniEdgeManager.shared.stop()
     }
-    
+
     func handleRemove() {
         OmniEdgeManager.shared.removeFromPreferences { error in
             if error != nil {

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Called by "git push" after it has checked the remote status,
+# but before anything has been pushed.
+#
+# If this script exits with a non-zero status nothing will be pushed.
+#
+# Steps to install, from the root directory of your repo...
+# 1. Copy the file into your repo at `.git/hooks/pre-push`
+# 2. Set executable permissions, run `chmod +x .git/hooks/pre-push`
+# 3. Or, use `rake hooks:pre_push` to install
+#
+# Requires git 1.8.2 or newer
+#
+# Git 1.8.2 release notes cover the new pre-push hook:
+# <https://github.com/git/git/blob/master/Documentation/RelNotes/1.8.2.txt>
+#
+# See Sample pre-push script:
+# <https://github.com/git/git/blob/87c86dd14abe8db7d00b0df5661ef8cf147a72a3/templates/hooks--pre-push.sample>
+
+root=`git rev-parse --show-toplevel`
+cd $root
+./scripts/verify_projects.sh
+success=$?
+if [ $success != 0 ]; then
+   tput setaf 2
+   echo "Project files need to be sorted. Please run ./scripts/clean_projects.sh and commit the changes."
+   tput sgr0
+   exit 1
+fi
