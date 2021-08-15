@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel =
-        MainViewModel(config: .init(network: "mynetwork", key: "mysecretpass", ip: "10.254.1.123"))
+        MainViewModel(config: .init(network: "mynetwork", key: "mysecretpass", ipAddr: "10.254.1.123"))
 
     var body: some View {
         NavigationView {
@@ -39,7 +39,6 @@ struct MainView: View {
                         TextField("IP", text: $viewModel.config.ipAddress)
                             .multilineTextAlignment(.trailing)
                             .foregroundColor(.gray)
-                        
                     }
                     HStack(alignment: .center) {
                         Text("Encryption key").font(.callout)
@@ -63,31 +62,30 @@ struct MainView: View {
 
                 Section(header: Text("Status")) {
                     Text("Status: ") + Text(viewModel.status.text)
-                    if viewModel.status == .off || viewModel.status == .invalid {
+                    if viewModel.status == .offline || viewModel.status == .invalid {
                         Button(action: {
                             self.hideKeyboard()
                             self.viewModel.handleStart()
-                        }) {
+                        }, label: {
                             Text("Start")
-                        }
+                        })
                     } else {
                         Button(action: {
                             self.hideKeyboard()
                             self.viewModel.handleStop()
-                        }) {
+                        }, label: {
                             Text("Stop")
-                        }
+                        })
                     }
                 }
-                
                 Section {
                     AlertButton(text: "Remove",
-                                  title: "确定删除?",
-                                  message: nil,
-                                  confirm: {
+                                title: "确定删除?",
+                                message: nil,
+                                confirm: {
                                       self.viewModel.handleRemove()
-                                  },
-                                  cancel: nil)
+                                },
+                                cancel: nil)
                 }
             }
             .navigationBarTitle("Omniedge")
@@ -96,7 +94,7 @@ struct MainView: View {
             Alert(
                 title: Text("Error"),
                 message: Text("Network Error"),
-                dismissButton: .destructive(Text("OK"), action:nil))
+                dismissButton: .destructive(Text("OK"), action: nil))
         }
     }
 }

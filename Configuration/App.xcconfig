@@ -1,0 +1,16 @@
+//
+//  App.xcconfig
+//  StubHub
+//
+//  Created by Shinnar, Gil(AWF) on 2021-03-10.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
+ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor
+
+ENABLE_PREVIEWS = YES

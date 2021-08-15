@@ -20,9 +20,10 @@ struct AlertButton: View {
     var body: some View {
         Button(action: {
             self.showAlert = true
-        }) {
+        }, label: {
             Text(text).foregroundColor(.red)
-        }.alert(isPresented: $showAlert) {
+        })
+        .alert(isPresented: $showAlert) {
             Alert(
                 title: Text(title),
                 message: Text(message ?? ""),

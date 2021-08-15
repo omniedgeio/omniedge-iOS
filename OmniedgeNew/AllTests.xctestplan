@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "136BB69F-1F9B-4265-98DB-52E735616999",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/Libraries\/OEPlatform\/OEPlatform.xcodeproj",
+        "identifier" : "7EF5A35D26C767E300EDFC03",
+        "name" : "OEPlatformTests"
+      }
+    }
+  ],
+  "version" : 1
+}

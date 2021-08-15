@@ -1,0 +1,3 @@
+#!/bin/zsh
+echo "Linting..."
+swiftlint --strict --quiet

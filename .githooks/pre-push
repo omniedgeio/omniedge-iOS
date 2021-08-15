@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Pre-push checks in progress..."
+
+cd "$(dirname "$0")/pre-push.d"
+
+for hook in *; do
+    bash $hook
+    RESULT=$?
+    if [ $RESULT != 0 ]; then
+        echo "pre-push.d/$hook returned non-zero: $RESULT, abort commit"
+        exit $RESULT
+    fi
+done
+
+exit 0
+

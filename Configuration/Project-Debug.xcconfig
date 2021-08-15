@@ -1,0 +1,27 @@
+//
+//  Project-Debug.xcconfig
+//  StubHub
+//
+//  Created by Shinnar, Gil(AWF) on 2021-03-10.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Project.xcconfig"
+
+ONLY_ACTIVE_ARCH = YES
+
+DEBUG_INFORMATION_FORMAT = dwarf
+
+ENABLE_TESTABILITY = YES
+
+GCC_OPTIMIZATION_LEVEL = 0
+
+GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1 $(inherited)
+
+SWIFT_OPTIMIZATION_LEVEL = -Onone
+
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG
+
+MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE
