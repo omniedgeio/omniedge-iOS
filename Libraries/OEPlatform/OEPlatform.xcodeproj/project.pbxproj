@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E6542D826CDE1FF00704948 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542D726CDE1FF00704948 /* Coordinator.swift */; };
+		62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */; };
 		7EF5A35F26C767E300EDFC03 /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5A35526C767E300EDFC03 /* OEPlatform.framework */; };
 		7EF5A36626C767E300EDFC03 /* OEPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF5A35826C767E300EDFC03 /* OEPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EF5A36426C767E300EDFC03 /* OEPlatformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5A36326C767E300EDFC03 /* OEPlatformTests.swift */; };
@@ -23,8 +25,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E6542D726CDE1FF00704948 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7EF5A35926C767E300EDFC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EF5A36526C767E300EDFC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		7EF5A35526C767E300EDFC03 /* OEPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OEPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF5A35826C767E300EDFC03 /* OEPlatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEPlatform.h; sourceTree = "<group>"; };
 		7EF5A36326C767E300EDFC03 /* OEPlatformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEPlatformTests.swift; sourceTree = "<group>"; };
@@ -50,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E6542D626CDE1E600704948 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7E6542D726CDE1FF00704948 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		7EF5A34B26C767E200EDFC03 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +83,7 @@
 		7EF5A35726C767E300EDFC03 /* OEPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				7E6542D626CDE1E600704948 /* Coordinator */,
 				7EF5A36F26C767FA00EDFC03 /* ModulesAPI */,
 				7EF5A35926C767E300EDFC03 /* Info.plist */,
 				7EF5A35826C767E300EDFC03 /* OEPlatform.h */,
@@ -90,6 +103,7 @@
 		7EF5A36F26C767FA00EDFC03 /* ModulesAPI */ = {
 			isa = PBXGroup;
 			children = (
+				3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */,
 			);
 			path = ModulesAPI;
 			sourceTree = "<group>";
@@ -202,6 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6542D826CDE1FF00704948 /* Coordinator.swift in Sources */,
+				62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
