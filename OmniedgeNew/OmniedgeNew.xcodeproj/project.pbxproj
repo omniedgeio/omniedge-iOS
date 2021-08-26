@@ -17,6 +17,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0EF0D97C9DAFA5A410AB0F21 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62A324E70C5E21EEBE2D1D3C /* Login.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8968B2B1ABAF6C1AF24C7804;
+			remoteInfo = Subproject;
+		};
+		3FA946E9932642B39DBCFA9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62A324E70C5E21EEBE2D1D3C /* Login.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AC2E8D3EB455200DD73774D5;
+			remoteInfo = Subproject;
+		};
 		7E294A0F26C76C2F008DEA5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7E2949F526C76C2D008DEA5D /* Project object */;
@@ -52,6 +66,13 @@
 			remoteGlobalIDString = 7EF5A35426C767E300EDFC03;
 			remoteInfo = OEPlatform;
 		};
+		E4AA01B2BB74F50A19D82929 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62A324E70C5E21EEBE2D1D3C /* Login.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 328FFDBBC94C077A39855488;
+			remoteInfo = Subproject;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +82,7 @@
 		7E294A0926C76C2E008DEA5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E294A1426C76C2F008DEA5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E294A1F26C76C2F008DEA5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62A324E70C5E21EEBE2D1D3C /* Login.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Login.xcodeproj; path = ../Libraries/Login/Login.xcodeproj; sourceTree = "<group>"; };
 		7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEPlatform.xcodeproj; path = OEPlatform/OEPlatform.xcodeproj; sourceTree = "<group>"; };
 		7E2949FD26C76C2D008DEA5D /* OmniedgeNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniedgeNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E294A0026C76C2D008DEA5D /* OmniedgeNewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniedgeNewApp.swift; sourceTree = "<group>"; };
@@ -113,6 +135,9 @@
 		7E2949FE26C76C2D008DEA5D /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				7077C9A16102209123401BD1 /* Login.framework */,
+				97756A587B2525F2C64761EC /* LoginDemo.app */,
+				FB0E2B5017107E8C9B8D75EA /* LoginTests.xctest */,
 				7E2949FD26C76C2D008DEA5D /* OmniedgeNew.app */,
 				7E294A0E26C76C2F008DEA5D /* OmniedgeNewTests.xctest */,
 				7E294A1926C76C2F008DEA5D /* OmniedgeNewUITests.xctest */,
@@ -161,6 +186,7 @@
 		7ED4608026C774AF00FF4870 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				62A324E70C5E21EEBE2D1D3C /* Login.xcodeproj */,
 				7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */,
 			);
 			name = Libraries;
@@ -278,6 +304,10 @@
 					ProductGroup = 7ED4609826C774C000FF4870 /* Products */;
 					ProjectRef = 7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */;
 				},
+				{
+					ProductGroup = 7E2949FE26C76C2D008DEA5D /* Products */;
+					ProjectRef = 62A324E70C5E21EEBE2D1D3C /* Login.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -289,6 +319,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		7077C9A16102209123401BD1 /* Login.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Login.framework;
+			remoteRef = 0EF0D97C9DAFA5A410AB0F21 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		7ED4609D26C774C000FF4870 /* OEPlatform.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -301,6 +338,20 @@
 			fileType = wrapper.cfbundle;
 			path = OEPlatformTests.xctest;
 			remoteRef = 7ED4609E26C774C000FF4870 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		97756A587B2525F2C64761EC /* LoginDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = LoginDemo.app;
+			remoteRef = 3FA946E9932642B39DBCFA9D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FB0E2B5017107E8C9B8D75EA /* LoginTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LoginTests.xctest;
+			remoteRef = E4AA01B2BB74F50A19D82929 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

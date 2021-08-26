@@ -1,3 +1,5 @@
 Omniedge.xcodeproj/project.xcworkspace/xcuserdata/samuel.xcuserdatad
+Packages/OEUIKit/build/*
 Libraries/OEPlatform/build/*
+Libraries/Login/build/*
 OmniedgeNew/build/*

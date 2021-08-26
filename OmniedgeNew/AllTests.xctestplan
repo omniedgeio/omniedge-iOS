@@ -4,12 +4,10 @@
       "id" : "136BB69F-1F9B-4265-98DB-52E735616999",
       "name" : "Configuration 1",
       "options" : {
-
       }
     }
   ],
   "defaultOptions" : {
-
   },
   "testTargets" : [
     {
@@ -17,6 +15,13 @@
         "containerPath" : "container:..\/Libraries\/OEPlatform\/OEPlatform.xcodeproj",
         "identifier" : "7EF5A35D26C767E300EDFC03",
         "name" : "OEPlatformTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Libraries\/Login\/Login.xcodeproj",
+        "identifier" : "8EC12D40A59F4E845C71699F",
+        "name" : "LoginTests"
       }
     }
   ],
