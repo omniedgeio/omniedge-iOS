@@ -22,6 +22,9 @@ public extension Color {
 
         public static let onPrimary = Color("OnPrimary", bundle: .module)
         public static let slate = Color("Slate", bundle: .module)
+
+        public static let error: Color = Color("ErrorRed", bundle: .module)
+        public static let successGreen = Color("SuccessGreen", bundle: .module)
     }
 }
 

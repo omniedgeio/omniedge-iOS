@@ -11,9 +11,14 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel
+
     @State var email: String = ""
     @State var password: String = ""
     @State var isSecured: Bool = true
+
+    var valid: Bool {
+        return !Validation.checkEmailAndPassword(email, password)
+    }
 
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -24,28 +29,13 @@ struct LoginView: View {
             Color.OME.background.onTapGesture {
                 hideKeyboard()
             }.edgesIgnoringSafeArea(.all)
+
             VStack(alignment: .center) {
                 Spacer().frame(maxHeight: 40)
-                Image.OME.primary
-                Text.OME.slogon.padding()
-
-                Button(action: {
-                    withAnimation {
-                        viewModel.login(email: email, password: password)
-                    }
-                }, label: {
-                    HStack {
-                        Image.OME.google
-                        Spacer().frame(width: 20)
-                        Text("Continue with Google")
-                            .foregroundColor(Color(.black.withAlphaComponent(0.54)))
-                            .font(Font.OME.buttonSecondary)
-                    }
-                })
-                .buttonStyle(SecondaryButtonStyle())
-                //.disabled(valid)
-                .padding(.top, 5)
-
+                LoginTitleView()
+                GoogleLoginView {
+                    viewModel.googleLogin()
+                }
                 Text("- or continue with email -")
                     .font(Font.OME.subTitle)
                     .foregroundColor(Color.OME.gray)
@@ -54,6 +44,10 @@ struct LoginView: View {
                         .inputButtonAppearance()
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
+
+                    if viewModel.isEmailInvalid(email: email) {
+                        InvalidEntryView(isInvalid: true, message: "Invalid Email Address")
+                    }
 
                     ZStack(alignment: .bottomTrailing) {
                         if isSecured {
@@ -78,8 +72,12 @@ struct LoginView: View {
                 }
                 .padding(.top, 5)
 
+                if viewModel.isPasswordInvalid(password: password) {
+                    InvalidPassword(password: password)
+                }
+
                 NavigationLink(
-                    destination: ResetPasswordView(viewModel: ResetPasswordViewModel("samuel@omniedge.com")),
+                    destination: ResetPasswordView(email: email, viewModel: viewModel),
                     label: {
                         Spacer()
                         Text("Forgot Password")
@@ -91,14 +89,14 @@ struct LoginView: View {
 
                 Button(action: {
                     withAnimation {
-                        //self.viewModel.login(email: email, password: password)
+                        viewModel.login(email: email, password: password)
                     }
                 }, label: {
                     Text("Sign In")
                         .foregroundColor(.white)
                 })
                 .buttonStyle(PrimaryButtonStyle())
-                //.disabled(valid)
+                .disabled(valid)
                 .padding(.top, 30)
 
                 HStack(alignment: .center) {
@@ -106,7 +104,7 @@ struct LoginView: View {
                         .font(.system(size: 15))
                     NavigationLink(
                         destination:
-                            RegisterView(viewModel: RegisterViewModel(email: "samuel@omniedge.com")),
+                            RegisterView(email: email, viewModel: viewModel),
                         label: {
                             Text("Create an account")
                                 .font(.system(size: 15))
@@ -119,9 +117,53 @@ struct LoginView: View {
 
                 Spacer()
             }.padding()
+            if viewModel.error != AuthError.none {
+                AlertView("The email address and password combination you entered is invalid. Please try again.").padding()
+            }
         }
         //.border(Color.black, width: 1)
         .navigationBarHidden(true)
+    }
+}
+
+struct InvalidPassword: View {
+    let password: String
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 5) {
+                InvalidEntryView(isInvalid: !Validation.checkPasswordLength(password), message: "At least 8 characters long")
+                InvalidEntryView(isInvalid: !Validation.checkPasswordCharacterSet(password), message: "Contains a symbol and number, a lowercase and uppercase")
+            }
+            Spacer()
+        }
+    }
+}
+
+struct LoginTitleView: View {
+    var body: some View {
+        Image.OME.primary
+        Text.OME.slogon.padding()
+    }
+}
+struct GoogleLoginView: View {
+    var login: () -> Void
+    public var body: some View {
+        Button(action: {
+            withAnimation {
+                login()
+            }
+        }, label: {
+            HStack {
+                Image.OME.google
+                Spacer().frame(width: 20)
+                Text("Continue with Google")
+                    .foregroundColor(Color(.black.withAlphaComponent(0.54)))
+                    .font(Font.OME.buttonSecondary)
+            }
+        })
+        .buttonStyle(SecondaryButtonStyle())
+        //.disabled(valid)
+        .padding(.top, 5)
     }
 }
 

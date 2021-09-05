@@ -26,18 +26,19 @@ public enum NetworkRequestError: LocalizedError, Equatable {
 public struct NetworkDispatcher {
     let urlSession: URLSession!
 
-    init(urlSession: URLSession = .shared) {
+    public init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
     }
 
-    func dispatch<ReturnType: Codable>(request: URLRequest) -> AnyPublisher<ReturnType, NetworkRequestError> {
+    public func dispatch<ReturnType: Codable>(request: URLRequest) -> AnyPublisher<ReturnType, NetworkRequestError> {
         return urlSession.dataTaskPublisher(for: request)
             .tryMap({data, response in
                 if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
-                    //throw httpError(response.statusCode)
+                    throw httpError(response.statusCode)
                 }
                 return data
             })
+            .receive(on: DispatchQueue.main)
             .decode(type: ReturnType.self, decoder: JSONDecoder())
             .mapError { error in
                 handleError(error)

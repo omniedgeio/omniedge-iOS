@@ -10,12 +10,11 @@ import OEUIKit
 import SwiftUI
 
 struct ResetPasswordView: View {
-    @ObservedObject var viewModel: ResetPasswordViewModel
+    @ObservedObject var viewModel: LoginViewModel
     @State var email: String = ""
-    @State var password: String = ""
-    @State var isSecured: Bool = true
 
-    init(viewModel: ResetPasswordViewModel) {
+    init(email: String, viewModel: LoginViewModel) {
+        self.email = email
         self.viewModel = viewModel
         configureBackground()
     }
@@ -43,7 +42,7 @@ struct ResetPasswordView: View {
 
                 Button(action: {
                     withAnimation {
-                        //self.viewModel.login(email: email, password: password)
+                        self.viewModel.resetPassword(email: email)
                     }
                 }, label: {
                     Text("Send Instruction")
@@ -61,7 +60,8 @@ struct ResetPasswordView: View {
 }
 
 struct ForgetPasswordView_Previews: PreviewProvider {
+    static let dataStore = LoginDataStoreMock()
     static var previews: some View {
-        ResetPasswordView(viewModel: ResetPasswordViewModel("samuel@omniedge.com"))
+        ResetPasswordView(email: "samuel@omniedge.com", viewModel: LoginViewModel(dataStore))
     }
 }
