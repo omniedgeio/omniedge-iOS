@@ -7,23 +7,42 @@
 //
 
 import Combine
+import OENetwork
 
 class LoginDataStoreProvider: LoginDataStoreAPI {
-    func login(_ model: LoginModel) -> Future<LoginResult, AuthError> {
-        let result = LoginResult(message: "Login successfully", data: "hi")
-        return Future { promise in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                promise(Result.success(result))
+    private var cancellables = [AnyCancellable]()
+    private let network = OENetwork(baseURL: "https://dev.omniedge.io/api")
+
+    func login(_ model: LoginModel) -> AnyPublisher<LoginResult, AuthError> {
+        return network.dispatch(LoginRequest(email: model.email, password: model.password))
+            .map({ result in
+                return LoginResult(message: result.message, data: result.data)
+            })
+            .mapError { error in
+                return AuthError.fail(message: error.localizedDescription)
             }
-        }
+            .eraseToAnyPublisher()
     }
 
-    func register(_ model: RegisterModel) -> Future<LoginResult, AuthError> {
-        let result = LoginResult(message: "Register successfully", data: "hi")
-        return Future { promise in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                promise(Result.success(result))
+    func register(_ model: RegisterModel) -> AnyPublisher<LoginResult, AuthError> {
+        return network.dispatch(RegisterRequst(name: model.name, email: model.email, password: model.password))
+            .map({ result in
+                return LoginResult(message: result.message, data: result.data)
+            })
+            .mapError { error in
+                return AuthError.fail(message: error.localizedDescription)
             }
-        }
+            .eraseToAnyPublisher()
+    }
+
+    func reset(_ model: ResetPasswordModel) -> AnyPublisher<LoginResult, AuthError> {
+        return network.dispatch(ResetPasswordRequest(email: model.email))
+            .map({ result in
+                return LoginResult(message: result.message, data: result.data)
+            })
+            .mapError { error in
+                return AuthError.fail(message: error.localizedDescription)
+            }
+            .eraseToAnyPublisher()
     }
 }

@@ -9,6 +9,7 @@
 import Combine
 
 protocol LoginDataStoreAPI {
-    func login(_ model: LoginModel) -> Future<LoginResult, AuthError>
-    func register(_ model: RegisterModel) -> Future<LoginResult, AuthError>
+    func login(_ model: LoginModel) -> AnyPublisher<LoginResult, AuthError>
+    func register(_ model: RegisterModel) -> AnyPublisher<LoginResult, AuthError>
+    func reset(_ model: ResetPasswordModel) -> AnyPublisher<LoginResult, AuthError>
 }

@@ -10,13 +10,20 @@ import OEUIKit
 import SwiftUI
 
 struct RegisterView: View {
-    @ObservedObject var viewModel: RegisterViewModel
+    @ObservedObject var viewModel: LoginViewModel
+
+    @State var name: String = ""
     @State var email: String = ""
     @State var password: String = ""
-    @State var comfirm: String = ""
+    @State var confirm: String = ""
     @State var isSecured: Bool = true
 
-    init(viewModel: RegisterViewModel) {
+    var invalid: Bool {
+        return !Validation.checkEmailAndPassword(email, password) || password != confirm || name.isEmpty
+    }
+
+    init(email: String, viewModel: LoginViewModel) {
+        self.email = email
         self.viewModel = viewModel
         configureBackground()
     }
@@ -27,51 +34,51 @@ struct RegisterView: View {
                 hideKeyboard()
             }.edgesIgnoringSafeArea(.all)
             VStack(alignment: .center) {
-                //Spacer().frame(maxHeight: 40)
-                Image.OME.primary
-                Text.OME.slogon.padding()
-
-                Button(action: {
-                    withAnimation {
-                        //self.viewModel.login(email: email, password: password)
+                Group {
+                    Image.OME.primary
+                    Text.OME.slogon.padding()
+                    GoogleLoginView {
+                        viewModel.googleLogin()
                     }
-                }, label: {
-                    HStack {
-                        Image.OME.google
-                        Spacer().frame(width: 20)
-                        Text("Continue with Google")
-                            .foregroundColor(Color(.black.withAlphaComponent(0.54)))
-                            .font(Font.OME.buttonSecondary)
-                    }
-                })
-                .buttonStyle(SecondaryButtonStyle())
-                //.disabled(valid)
-                .padding(.top, 5)
-
+                }
                 Text("- or continue with email -")
                     .font(Font.OME.subTitle)
                     .foregroundColor(Color.OME.gray)
+                OMEInputField(title: "Name", value: $name, message: "") { _ in
+                    return true
+                }
                 VStack(alignment: .leading) {
                     TextField("Email", text: $email)
                         .inputButtonAppearance()
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
+                    if viewModel.isEmailInvalid(email: email) {
+                        InvalidEntryView(isInvalid: true, message: "Invalid Email Address")
+                    }
                 }
                 .padding(.top, 5)
 
                 createPasswordView("Password", text: $password)
-                createPasswordView("Comfirm", text: $comfirm)
+                if viewModel.isPasswordInvalid(password: password) {
+                    InvalidPassword(password: password)
+                }
+                VStack(alignment: .leading) {
+                    createPasswordView("Comfirm", text: $confirm)
+                    if !confirm.isEmpty && password != confirm {
+                        InvalidEntryView(isInvalid: true, message: "Does not match password")
+                    }
+                }
 
                 Button(action: {
                     withAnimation {
-                        //self.viewModel.login(email: email, password: password)
+                        self.viewModel.register(name: name, email: email, password: password)
                     }
                 }, label: {
                     Text("Register")
                         .foregroundColor(.white)
                 })
                 .buttonStyle(PrimaryButtonStyle())
-                //.disabled(valid)
+                .disabled(invalid)
                 .padding(.top, 30)
 
                 Spacer()
@@ -106,8 +113,28 @@ struct RegisterView: View {
     }
 }
 
+struct OMEInputField: View {
+    let title: String
+    @Binding var value: String
+    let message: String //for invalid
+    let validate: (String) -> Bool
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            TextField(title, text: $value)
+                .inputButtonAppearance()
+                .textContentType(.emailAddress)
+                .keyboardType(.emailAddress)
+            if !validate(value) {
+                InvalidEntryView(isInvalid: true, message: message)
+            }
+        }
+        .padding(.top, 5)
+    }
+}
 struct RegisterView_Previews: PreviewProvider {
+    static let dataStore = LoginDataStoreMock()
     static var previews: some View {
-        RegisterView(viewModel: RegisterViewModel(email: "samuel@omniedge.com"))
+        RegisterView(email: "samuel@omniedge.com", viewModel: LoginViewModel(dataStore))
     }
 }

@@ -10,16 +10,26 @@ import Foundation
 import OEPlatform
 import SwiftUI
 
-class LoginCoordinatorImpl: LoginCoordinator {
+class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     var dataStore: LoginDataStoreAPI
     var viewModel: LoginViewModel
 
     init() {
         dataStore = LoginDataStoreMock()
         viewModel = LoginViewModel(dataStore)
+        viewModel.delegate = self
     }
 
     func createLoginView() -> AnyView {
         return AnyView(LoginView(viewModel: viewModel))
+    }
+
+    func didLogin(token: String) {
+    }
+
+    func didRegister(email: String, password: String) {
+    }
+
+    func didReset(email: String) {
     }
 }

@@ -4,18 +4,19 @@
 //
 //
 
+@testable import Login
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            LoginView(viewModel: LoginViewModel(LoginDataStoreProvider()))
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        //LoginView(viewModel: LoginViewModel())
-        Text("")
+        ContentView()
     }
 }

@@ -11,6 +11,7 @@ import SwiftUI
 public protocol LoginCoordinator: Coordinator {
     func createLoginView() -> AnyView
 }
+
 public protocol LoginAPI {
     // TODO - add the public APIs here
     func createLoginCoordinator() -> LoginCoordinator

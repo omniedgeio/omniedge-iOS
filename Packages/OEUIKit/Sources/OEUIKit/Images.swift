@@ -15,6 +15,14 @@ public extension Image {
     }
 }
 
+public extension Image {
+    func imageColorAppearance(color: Color) -> some View {
+        self
+            .renderingMode(.template)
+            .foregroundColor(color)
+    }
+}
+
 struct Images_Previews: PreviewProvider {
     static var previews: some View {
         VStack {

@@ -19,9 +19,13 @@ struct LoginModel {
     var password: String
 }
 
+struct ResetPasswordModel {
+    var email: String
+}
+
 struct LoginResult: Codable {
     var message: String
-    var data: String?
+    var data: [String: String]?
 }
 
 enum AuthError: Error, Hashable {
