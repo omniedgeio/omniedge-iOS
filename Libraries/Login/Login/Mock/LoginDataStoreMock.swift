@@ -15,7 +15,7 @@ class LoginDataStoreMock: LoginDataStoreAPI {
         let result = LoginResult(message: "Login successfully", data: nil)
         return Deferred {
             Future { promise in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     promise(Result.success(result))
                 }
             }
@@ -26,7 +26,7 @@ class LoginDataStoreMock: LoginDataStoreAPI {
         let result = LoginResult(message: "Register successfully", data: nil)
         return Deferred {
             Future { promise in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     promise(Result.success(result))
                 }
             }
@@ -37,7 +37,7 @@ class LoginDataStoreMock: LoginDataStoreAPI {
         let result = LoginResult(message: "Reset successfully", data: nil)
         return Deferred {
             Future { promise in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     promise(Result.success(result))
                 }
             }
