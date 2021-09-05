@@ -21,22 +21,22 @@ class LoginViewModel: ObservableObject {
     weak var delegate: LoginDelegate?
 
     @Published var error: AuthError = AuthError.none
+    @Published var loading: Bool = false
 
     init(_ dataStore: LoginDataStoreAPI) {
         dataStoreAPI = dataStore
     }
 
     func login(email: String, password: String) {
+        loading = true
         dataStoreAPI.login(LoginModel(email: email, password: password))
-            .sink(receiveCompletion: { complete in
-                guard self.error == .none else {
-                    return
-                }
+            .sink(receiveCompletion: { [weak self] complete in
+                self?.loading = false
                 switch complete {
                 case .finished:
-                    self.error = .none
+                    self?.error = .none
                 case .failure(let error):
-                    self.error = error
+                    self?.error = error
                 }
             }, receiveValue: { [weak self] model in
                 if let token = model.data?["token"] {
@@ -49,18 +49,17 @@ class LoginViewModel: ObservableObject {
     }
 
     func register(name: String, email: String, password: String) {
+        self.loading = true
         dataStoreAPI.register(RegisterModel(name: name, email: email, password: password))
-            .sink(receiveCompletion: { complete in
-                guard self.error == .none else {
-                    return
-                }
+            .sink(receiveCompletion: { [weak self] complete in
+                self?.loading = false
                 switch complete {
                 case .finished:
-                    self.error = .none
+                    self?.error = .none
                 case .failure(let error):
-                    self.error = error
+                    self?.error = error
                 }
-            }, receiveValue: { [weak self] _ in
+            }, receiveValue: { [weak self] result in
                 self?.delegate?.didRegister(email: email, password: password)
             })
             .store(in: &cancellableStore)
@@ -70,18 +69,17 @@ class LoginViewModel: ObservableObject {
         guard !email.isEmpty else {
             return
         }
+        self.loading = true
         dataStoreAPI.reset(ResetPasswordModel(email: email))
-            .sink(receiveCompletion: { complete in
-                guard self.error == .none else {
-                    return
-                }
+            .sink(receiveCompletion: { [weak self] complete in
+                self?.loading = false
                 switch complete {
                 case .finished:
-                    self.error = .none
+                    self?.error = .none
                 case .failure(let error):
-                    self.error = error
+                    self?.error = error
                 }
-            }, receiveValue: { [weak self] in
+            }, receiveValue: { [weak self] result in
                 self?.delegate?.didReset(email: email)
             })
             .store(in: &cancellableStore)

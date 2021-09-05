@@ -83,6 +83,12 @@ struct RegisterView: View {
 
                 Spacer()
             }.padding()
+            
+            //sinner
+            if (viewModel.loading) {
+                Spinner.forever
+                    .frame(width: 30)
+            }
         }
         //.border(Color.black, width: 1)
         .navigationBarBackButtonHidden(false)

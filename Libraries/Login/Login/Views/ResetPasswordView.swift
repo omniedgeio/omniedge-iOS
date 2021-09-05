@@ -53,6 +53,11 @@ struct ResetPasswordView: View {
                 .padding(.top, 30)
                 Spacer()
             }.padding()
+            //sinner
+            if (viewModel.loading) {
+                Spinner.forever
+                    .frame(width: 30)
+            }
         }
         //.border(Color.black, width: 1)
         .navigationBarTitleDisplayMode(.inline)

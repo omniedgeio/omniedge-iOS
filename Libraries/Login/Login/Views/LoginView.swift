@@ -117,10 +117,16 @@ struct LoginView: View {
 
                 Spacer()
             }.padding()
+
             if viewModel.error != AuthError.none {
-                AlertView("The email address and password combination you entered is invalid. Please try again.").padding()
+                AlertView(viewModel.error.localizedDescription).padding()
             }
-        }
+
+            //sinner
+            if (viewModel.loading) {
+                LoadingView()
+            }
+        } //ZStack
         //.border(Color.black, width: 1)
         .navigationBarHidden(true)
     }
@@ -143,27 +149,6 @@ struct LoginTitleView: View {
     var body: some View {
         Image.OME.primary
         Text.OME.slogon.padding()
-    }
-}
-struct GoogleLoginView: View {
-    var login: () -> Void
-    public var body: some View {
-        Button(action: {
-            withAnimation {
-                login()
-            }
-        }, label: {
-            HStack {
-                Image.OME.google
-                Spacer().frame(width: 20)
-                Text("Continue with Google")
-                    .foregroundColor(Color(.black.withAlphaComponent(0.54)))
-                    .font(Font.OME.buttonSecondary)
-            }
-        })
-        .buttonStyle(SecondaryButtonStyle())
-        //.disabled(valid)
-        .padding(.top, 5)
     }
 }
 
