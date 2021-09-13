@@ -26,6 +26,7 @@
 		7E8568CC26D45E1C00D252AD /* LoginDataStoreImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568CB26D45E1C00D252AD /* LoginDataStoreImpl.swift */; };
 		7E8568CE26D460D900D252AD /* LoginDataStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */; };
 		7E8568D326D49B0C00D252AD /* LoginNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568D226D49B0C00D252AD /* LoginNetworkProvider.swift */; };
+		7EB54FC126EF757C0036F34E /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB54FC026EF757C0036F34E /* DeviceList.swift */; };
 		7ED5E18E26D52DF8002A06B8 /* OENetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7ED5E18D26D52DF8002A06B8 /* OENetwork */; };
 		80815A967261E00079B97C0B /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8968B2B1ABAF6C1AF24C7804 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A006BEB3BC10C8CDB10CE68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8E700CB68FB25774742F7C6 /* Preview Assets.xcassets */; };
@@ -137,6 +138,7 @@
 		7E8568CB26D45E1C00D252AD /* LoginDataStoreImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreImpl.swift; sourceTree = "<group>"; };
 		7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreMock.swift; sourceTree = "<group>"; };
 		7E8568D226D49B0C00D252AD /* LoginNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkProvider.swift; sourceTree = "<group>"; };
+		7EB54FC026EF757C0036F34E /* DeviceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
 		7ED4406B8AA8FC6987106FA5 /* OEUIKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OEUIKit; path = ../../Packages/OEUIKit; sourceTree = SOURCE_ROOT; };
 		7ED5E18826D52CB2002A06B8 /* OENetwork */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OENetwork; path = ../../Packages/OENetwork; sourceTree = "<group>"; };
 		807757BF9A75CFE606C6233B /* Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
@@ -292,6 +294,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7EB54FBE26EF75660036F34E /* DeviceList */ = {
+			isa = PBXGroup;
+			children = (
+				7EB54FC026EF757C0036F34E /* DeviceList.swift */,
+			);
+			path = DeviceList;
+			sourceTree = "<group>";
+		};
 		7ED5E18C26D52DF8002A06B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +326,7 @@
 				7E453B1926DC5BE800A2EBE6 /* Mock */,
 				7E8568C826D45B7D00D252AD /* Model */,
 				7E6542AF26C9D95F00704948 /* ViewModels */,
+				7EB54FBE26EF75660036F34E /* DeviceList */,
 				7E6542AE26C9D95700704948 /* Views */,
 				D96C479B3733517D15DE0427 /* Info.plist */,
 				807757BF9A75CFE606C6233B /* Login.h */,
@@ -531,6 +542,7 @@
 				7E8568AC26D455EC00D252AD /* LoginDataStoreAPI.swift in Sources */,
 				7E8568CC26D45E1C00D252AD /* LoginDataStoreImpl.swift in Sources */,
 				7E8568CE26D460D900D252AD /* LoginDataStoreMock.swift in Sources */,
+				7EB54FC126EF757C0036F34E /* DeviceList.swift in Sources */,
 				7E8568CA26D45B8D00D252AD /* LoginModel.swift in Sources */,
 				7E0ABBE226E4F27B00590A60 /* LoginCommonView.swift in Sources */,
 				7E8568D326D49B0C00D252AD /* LoginNetworkProvider.swift in Sources */,

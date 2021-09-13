@@ -12,6 +12,8 @@ public extension Image {
     struct OME {
         public static let primary = Image("PrimaryIcon", bundle: .module)
         public static let google = Image("Google", bundle: .module)
+        public static let textLogoIcon = Image("TextLogoIcon", bundle: .module)
+        public static let textLogoText = Image("TextLogoText", bundle: .module)
     }
 }
 
@@ -31,6 +33,11 @@ struct Images_Previews: PreviewProvider {
             Image.OME.primary
             Text("Google")
             Image.OME.google
+            Text("Text Logo")
+            HStack {
+                Image.OME.textLogoIcon
+                Image.OME.textLogoText
+            }
         }
     }
 }
