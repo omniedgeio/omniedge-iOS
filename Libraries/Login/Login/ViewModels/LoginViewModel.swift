@@ -59,7 +59,7 @@ class LoginViewModel: ObservableObject {
                 case .failure(let error):
                     self?.error = error
                 }
-            }, receiveValue: { [weak self] result in
+            }, receiveValue: { [weak self] _ in
                 self?.delegate?.didRegister(email: email, password: password)
             })
             .store(in: &cancellableStore)
@@ -79,7 +79,7 @@ class LoginViewModel: ObservableObject {
                 case .failure(let error):
                     self?.error = error
                 }
-            }, receiveValue: { [weak self] result in
+            }, receiveValue: { [weak self] _ in
                 self?.delegate?.didReset(email: email)
             })
             .store(in: &cancellableStore)

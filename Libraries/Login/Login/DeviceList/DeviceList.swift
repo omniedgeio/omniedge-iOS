@@ -10,26 +10,88 @@ import OEUIKit
 import SwiftUI
 
 struct DeviceList: View {
+    @State private var query = ""
     var body: some View {
-        VStack {
-            TextLogo() {
+        ZStack {
+            Color.OME.background.onTapGesture {
+                hideKeyboard()
+            }.edgesIgnoringSafeArea(.all)
+
+            VStack(spacing: 12) {
+                TextLogo {
+                }
+                OMESearchBar(placeholder: "Search", searchQuery: $query).cornerRadius(10)
+
+                HostDeviceInfoView()
+                    .background(Color.white)
+                    .cornerRadius(10)
+
+                Button(action: {}, label: {
+                    Text("Ping Device")
+                }).buttonStyle(TertiaryButtonStyle())
+
+                deviceListView()
+
+                Spacer()
+            }.padding()
+        }
+    }
+
+    @ViewBuilder
+    func deviceListView() -> some View {
+        List {
+            Section(header: Text("OmniEdge US").font(Font.OME.subTitle12)) {
+                DeviceInfoView()
+                DeviceInfoView()
+            }.cornerRadius(10)
+
+            Section(header: Text("OmniEdge Malaysia").font(Font.OME.subTitle12)) {
+                Text("Hello1")
+                Text("Hello2")
+            }.cornerRadius(10)
+        }
+        .cornerRadius(10)
+        .background(Color.clear)
+    }
+}
+
+struct HostDeviceInfoView: View {
+    @State var isStart = false
+    var body: some View {
+        HStack {
+            DeviceInfoView()
+            Toggle(isOn: $isStart, label: {
+            })
+        }.padding(.trailing, 8)
+    }
+}
+
+struct DeviceInfoView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Yong's iPhone").font(Font.OME.subTitle17)
+            HStack(spacing: 8) {
+                Text("100.195.112.123")
+                    .font(Font.OME.subTitle17.semibold())
+                    .foregroundColor(Color.OME.gray60)
+                Image(systemName: "flag.fill").imageColorAppearance(color: Color.red)
             }
-            Spacer()
-        }.padding()
+        }
+        .padding(8)
     }
 }
 
 struct TextLogo: View {
     var action: () -> Void
     var body: some View {
-        HStack {
-            Image.OME.textLogoIcon.resizable().scaledToFit().frame(width: 40, height: 40)
-            Image.OME.textLogoText.resizable().scaledToFit().frame(height: 24)
+        HStack(alignment: .center, spacing: 5) {
+            Image.OME.textLogoIcon.resizable().scaledToFit().frame(width: 32, height: 37)
+            Image.OME.textLogoText.resizable().scaledToFit().frame(height: 22)
             Spacer()
             Button(action: {
                 action()
             }, label: {
-                Image(systemName: "person.crop.circle").resizable().scaledToFit().frame(height: 24).foregroundColor(Color.OME.primary)
+                Image(systemName: "person.crop.circle").resizable().scaledToFit().frame(width: 30, height: 30).foregroundColor(Color.OME.primary)
             })
         }
     }

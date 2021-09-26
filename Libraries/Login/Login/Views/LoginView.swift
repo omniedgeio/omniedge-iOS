@@ -123,7 +123,7 @@ struct LoginView: View {
             }
 
             //sinner
-            if (viewModel.loading) {
+            if viewModel.loading {
                 LoadingView()
             }
         } //ZStack

@@ -5,11 +5,14 @@ import PackageDescription
 
 let package = Package(
     name: "OEDI",
+    platforms: [
+        .iOS(.v14)
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "OEDI",
-            targets: ["OEDI"]),
+            targets: ["OEDI"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -23,6 +26,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "OEDITests",
-            dependencies: ["OEDI"]),
+            dependencies: ["OEDI"])
     ]
 )

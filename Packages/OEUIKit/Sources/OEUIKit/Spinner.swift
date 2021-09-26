@@ -11,7 +11,7 @@ import SwiftUI
 public struct Spinner: View {
     @Binding public var spinning: Bool
     @State private var enable = false
-    
+
     private var animation: Animation {
         Animation.linear(duration: 1.0).repeatForever(autoreverses: false)
     }

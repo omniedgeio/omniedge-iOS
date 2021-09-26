@@ -27,6 +27,16 @@ public struct SecondaryButtonStyle: ButtonStyle {
     }
 }
 
+public struct TertiaryButtonStyle: ButtonStyle {
+    public init() {}
+    public func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .modifier(PrimaryButtonStyleModifier(background: Color.white, foreground: Color.OME.primary, font: Font.OME.buttonTertiary))
+            .cornerRadius(10)
+            .isPressed(configuration)
+    }
+}
+
 // MARK: - Private Modifier
 private struct CommonButtonModifier: ViewModifier {
     let font: Font
@@ -70,15 +80,6 @@ private extension View {
     }
 }
 
-public extension View {
-    func configureBackground() {
-        let barApperance = UINavigationBarAppearance()
-        barApperance.backgroundColor = UIColor(Color.OME.background)
-        UINavigationBar.appearance().standardAppearance = barApperance
-        UINavigationBar.appearance().scrollEdgeAppearance = barApperance
-    }
-}
-
 struct Button_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
@@ -104,6 +105,13 @@ struct Button_Previews: PreviewProvider {
                         Text("SecondaryButtonStyle")
                     })
                     .buttonStyle(SecondaryButtonStyle())
+                    .padding()
+
+                    //Tertiary
+                    Button(action: {}, label: {
+                        Text("TertiaryButtonStyle")
+                    })
+                    .buttonStyle(TertiaryButtonStyle())
                     .padding()
                 }
             }

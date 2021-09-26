@@ -31,6 +31,15 @@ public struct AlertView: View {
     }
 }
 
+public extension View {
+    func configureBackground() {
+        let barApperance = UINavigationBarAppearance()
+        barApperance.backgroundColor = UIColor(Color.OME.background)
+        UINavigationBar.appearance().standardAppearance = barApperance
+        UINavigationBar.appearance().scrollEdgeAppearance = barApperance
+    }
+}
+
 struct Views_Previews: PreviewProvider {
     static var previews: some View {
         VStack {

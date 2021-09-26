@@ -19,6 +19,7 @@ public extension Color {
         public static let controlBackground: Color = Color("Blue", bundle: .module)
         public static let gray20 = Color("Gray20", bundle: .module)
         public static let gray50 = Color("Gray50", bundle: .module)
+        public static let gray60 = Color("Gray60", bundle: .module)
 
         public static let onPrimary = Color("OnPrimary", bundle: .module)
         public static let slate = Color("Slate", bundle: .module)

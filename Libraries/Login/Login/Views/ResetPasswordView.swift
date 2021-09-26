@@ -54,7 +54,7 @@ struct ResetPasswordView: View {
                 Spacer()
             }.padding()
             //sinner
-            if (viewModel.loading) {
+            if viewModel.loading {
                 Spinner.forever
                     .frame(width: 30)
             }
