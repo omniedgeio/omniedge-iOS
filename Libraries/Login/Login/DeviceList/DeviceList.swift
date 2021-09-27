@@ -31,7 +31,8 @@ struct DeviceList: View {
                 }).buttonStyle(TertiaryButtonStyle())
 
                 deviceListView()
-
+                    .background(Color.clear)
+                    .cornerRadius(10)
                 Spacer()
             }.padding()
         }
@@ -41,17 +42,28 @@ struct DeviceList: View {
     func deviceListView() -> some View {
         List {
             Section(header: Text("OmniEdge US").font(Font.OME.subTitle12)) {
+                NormalDeviceInfoView()
                 DeviceInfoView()
-                DeviceInfoView()
-            }.cornerRadius(10)
+            }.textCase(.none)
 
             Section(header: Text("OmniEdge Malaysia").font(Font.OME.subTitle12)) {
-                Text("Hello1")
-                Text("Hello2")
-            }.cornerRadius(10)
-        }
-        .cornerRadius(10)
-        .background(Color.clear)
+                DeviceInfoView()
+                DeviceInfoView()
+                DeviceInfoView()
+                DeviceInfoView()
+            }.textCase(.none)
+        }.listStyle(GroupedListStyle())
+    }
+}
+
+struct NormalDeviceInfoView: View {
+    @State var isStart = false
+    var body: some View {
+        HStack(alignment: .bottom) {
+            DeviceInfoView()
+            Spacer()
+            Text("3 ms")
+        }.padding(.trailing, 8)
     }
 }
 
