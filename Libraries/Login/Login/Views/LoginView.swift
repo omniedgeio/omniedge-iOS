@@ -12,6 +12,7 @@ import SwiftUI
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel
 
+    @State var isLogin: Bool = true
     @State var email: String = ""
     @State var password: String = ""
     @State var isSecured: Bool = true
@@ -87,17 +88,17 @@ struct LoginView: View {
                     })
                     .frame(maxWidth: .infinity)
 
-                Button(action: {
-                    withAnimation {
-                        viewModel.login(email: email, password: password)
-                    }
-                }, label: {
-                    Text("Sign In")
-                        .foregroundColor(.white)
-                })
-                .buttonStyle(PrimaryButtonStyle())
-                .disabled(valid)
-                .padding(.top, 30)
+                        Button(action: {
+                            withAnimation {
+                                viewModel.login(email: email, password: password)
+                            }
+                        }, label: {
+                            Text("Sign In")
+                                .foregroundColor(.white)
+                        })
+                        .buttonStyle(PrimaryButtonStyle())
+                        .disabled(valid)
+                        .padding(.top, 30)
 
                 HStack(alignment: .center) {
                     Text("New to OmniEdge?")
@@ -120,6 +121,14 @@ struct LoginView: View {
 
             if viewModel.error != AuthError.none {
                 AlertView(viewModel.error.localizedDescription).padding()
+            }
+
+            if viewModel.isLogin {
+                NavigationLink(
+                    "",
+                    destination: DeviceList().navigationBarHidden(true),
+                    isActive: $isLogin
+                    )
             }
 
             //sinner

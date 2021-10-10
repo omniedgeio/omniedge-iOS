@@ -25,6 +25,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     }
 
     func didLogin(token: String) {
+        print("login ok")
     }
 
     func didRegister(email: String, password: String) {

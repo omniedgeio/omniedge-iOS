@@ -12,7 +12,7 @@ import Combine
 
 class LoginDataStoreMock: LoginDataStoreAPI {
     func login(_ model: LoginModel) -> AnyPublisher<LoginResult, AuthError> {
-        let result = LoginResult(message: "Login successfully", data: nil)
+        let result = LoginResult(message: "Login successfully", data: ["token": "sdufifjsf&6sfsSFsljfsdlkj112@3kjflj"])
         return Deferred {
             Future { promise in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

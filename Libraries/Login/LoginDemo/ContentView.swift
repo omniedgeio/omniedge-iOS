@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            LoginView(viewModel: LoginViewModel(LoginDataStoreProvider()))
+            LoginView(viewModel: LoginViewModel(LoginDataStoreMock()))
         }
     }
 }
