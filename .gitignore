@@ -3,3 +3,5 @@ Packages/OEUIKit/build/*
 Libraries/OEPlatform/build/*
 Libraries/Login/build/*
 OmniedgeNew/build/*
+Packages/Build
+Libraries/DeviceList/Build

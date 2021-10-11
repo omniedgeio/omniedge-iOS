@@ -9,9 +9,10 @@
 import OEUIKit
 import SwiftUI
 
-struct DeviceList: View {
+public struct DeviceListView: View {
     @State private var query = ""
-    var body: some View {
+    public init() {}
+    public var body: some View {
         ZStack {
             Color.OME.background.onTapGesture {
                 hideKeyboard()
@@ -110,6 +111,6 @@ struct TextLogo: View {
 }
 struct DeviceList_Previews: PreviewProvider {
     static var previews: some View {
-        DeviceList()
+        DeviceListView()
     }
 }

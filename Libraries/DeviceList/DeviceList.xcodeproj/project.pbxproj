@@ -1,0 +1,650 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		022CEACEE35AED7FAB45A312 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A79096A7EC01E8852BC15DBF /* Assets.xcassets */; };
+		097D84C20D8DE5F49CF6E90C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834AE7F4A99310C4A8CE8E7C /* ContentView.swift */; };
+		5C7EC617004C3836D456FD43 /* DeviceList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8D8B0B470D156C7330CD5DC1 /* DeviceList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		294932A54A288B66ACD9A2F1 /* DeviceList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */; };
+		4CD8561E1AE56CC7E0C74424 /* DeviceList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */; };
+		D8228BE3B8C347BB6F0AAA42 /* DeviceList.h in Headers */ = {isa = PBXBuildFile; fileRef = 0531763D8210381C2A772DB1 /* DeviceList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AF4E7FF52422DC85C395D00 /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865655B47A3C333D186D589 /* DeviceList.swift */; };
+		03F0D54960BC178B03015890 /* DeviceListDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6849D2B173CE36714B37DFD4 /* DeviceListDemoApp.swift */; };
+		7EAE2EE627131122000156BC /* DeviceListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE2EE527131122000156BC /* DeviceListMock.swift */; };
+		FCD905451E56C9917D7B5357 /* DeviceListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6C6756669BF82A02D2615C /* DeviceListTests.swift */; };
+		7EAE2EE0271310C5000156BC /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE2EDF271310C5000156BC /* DeviceListView.swift */; };
+		BFFE2344E062C9E963EC35CB /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E519725A9AAE3057B08D7E /* OEPlatform.framework */; };
+		B4521DF22214F97166BD2434 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7A00A754BBBB4B90F3E3B1CB /* OEUIKit */; };
+		CFD731D47495C0723EF8B608 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81157FE36659379C053D0EC3 /* OEUIKit */; };
+		D3C800A689BF2113D54624A0 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7672717DD5155417F8BA3521 /* OEUIKit */; };
+		0D779E1EB4D15B16FAC97690 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B0DC5BCB34CB9FD12D9EB2 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		495B9B12A7F8EE740565D828 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A48928E7C238931E0BB320C /* OEPlatform.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF5A35426C767E300EDFC03;
+			remoteInfo = OEPlatform;
+		};
+		5162925B324408D078FBCF73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A48928E7C238931E0BB320C /* OEPlatform.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EF5A35526C767E300EDFC03;
+			remoteInfo = OEPlatform;
+		};
+		7EAE2EDB27131065000156BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A48928E7C238931E0BB320C /* OEPlatform.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EF5A35E26C767E300EDFC03;
+			remoteInfo = OEPlatformTests;
+		};
+		7FF4023D3A6FACD943C52F5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 372715C00D32E631694325B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5479CA4A68B7B9E7A7924BF2;
+			remoteInfo = DeviceList;
+		};
+		C920921DF8DFF5871379F68E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 372715C00D32E631694325B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5479CA4A68B7B9E7A7924BF2;
+			remoteInfo = DeviceList;
+		};
+		D7F990D8372892C2E9A75A7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A48928E7C238931E0BB320C /* OEPlatform.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF5A35426C767E300EDFC03;
+			remoteInfo = OEPlatform;
+		};
+		DE1AF3FC04967791973EDDCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A48928E7C238931E0BB320C /* OEPlatform.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF5A35426C767E300EDFC03;
+			remoteInfo = OEPlatform;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1E8F8B4241B73C725593BB1D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8D8B0B470D156C7330CD5DC1 /* DeviceList.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7E636BB5FF854AA9423F3EE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5C7EC617004C3836D456FD43 /* DeviceList.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		770979083AA405954EDDAD02 /* App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = App.xcconfig; sourceTree = "<group>"; };
+		A79096A7EC01E8852BC15DBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		834AE7F4A99310C4A8CE8E7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeviceList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0531763D8210381C2A772DB1 /* DeviceList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceList.h; sourceTree = "<group>"; };
+		4865655B47A3C333D186D589 /* DeviceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
+		73A428C4E8319D2E53B352B2 /* DeviceListDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviceListDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6849D2B173CE36714B37DFD4 /* DeviceListDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListDemoApp.swift; sourceTree = "<group>"; };
+		7EAE2EE527131122000156BC /* DeviceListMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListMock.swift; sourceTree = "<group>"; };
+		9F6C6756669BF82A02D2615C /* DeviceListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListTests.swift; sourceTree = "<group>"; };
+		BB29D8095210A2B0FF05C3A7 /* DeviceListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeviceListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EAE2EDF271310C5000156BC /* DeviceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListView.swift; sourceTree = "<group>"; };
+		9183332E2C5C38C2E53084FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B8054FB3B0B097C5C5105598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D44B7DBD76611643F341D86D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		27A3EF7C266BA6D49A26088E /* Module.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Module.xcconfig; sourceTree = "<group>"; };
+		7A48928E7C238931E0BB320C /* OEPlatform.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEPlatform.xcodeproj; path = ../OEPlatform/OEPlatform.xcodeproj; sourceTree = "<group>"; };
+		63EAAE146F36197394E70AFC /* OEUIKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OEUIKit; path = ../../Packages/OEUIKit; sourceTree = SOURCE_ROOT; };
+		06B0DC5BCB34CB9FD12D9EB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		76C15EBF357BDD5438FCC629 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
+		74045B99269F1886BF0AF120 /* Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
+		516A47236D449C2E12D885B7 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		FD7EEBB45CDC846348900ADB /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		92824AB4B7CBA780FDEE25EB /* UITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UITests.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05AD725C871203664CEF1C08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CD8561E1AE56CC7E0C74424 /* DeviceList.framework in Frameworks */,
+				D3C800A689BF2113D54624A0 /* OEUIKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A2054CB8F611C3B8D7DD286 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFFE2344E062C9E963EC35CB /* OEPlatform.framework in Frameworks */,
+				B4521DF22214F97166BD2434 /* OEUIKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCB2BBD1E4DE4B2313DAC201 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				294932A54A288B66ACD9A2F1 /* DeviceList.framework in Frameworks */,
+				CFD731D47495C0723EF8B608 /* OEUIKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		040321D217DF97E01B13BC18 /* DeviceListDemo */ = {
+			isa = PBXGroup;
+			children = (
+				4526547277D7BDC02B1A2963 /* Preview Content */,
+				A79096A7EC01E8852BC15DBF /* Assets.xcassets */,
+				834AE7F4A99310C4A8CE8E7C /* ContentView.swift */,
+				6849D2B173CE36714B37DFD4 /* DeviceListDemoApp.swift */,
+				B8054FB3B0B097C5C5105598 /* Info.plist */,
+			);
+			path = DeviceListDemo;
+			sourceTree = "<group>";
+		};
+		2784407880391320CB70D708 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				7A48928E7C238931E0BB320C /* OEPlatform.xcodeproj */,
+			);
+			name = Projects;
+			sourceTree = "<group>";
+		};
+		3E6638DB85CBCC8AB2F053DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */,
+				73A428C4E8319D2E53B352B2 /* DeviceListDemo.app */,
+				BB29D8095210A2B0FF05C3A7 /* DeviceListTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4526547277D7BDC02B1A2963 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				06B0DC5BCB34CB9FD12D9EB2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7681700675E4BC41508E072C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				63EAAE146F36197394E70AFC /* OEUIKit */,
+			);
+			name = Packages;
+			sourceTree = SOURCE_ROOT;
+		};
+		7EAE2ED927131065000156BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7EAE2EDF271310C5000156BC /* DeviceListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7EAE2EDD2713106F000156BC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7EAE2EDE27131082000156BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7EAE2EE1271310D1000156BC /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				7EAE2EE527131122000156BC /* DeviceListMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		B554BB241A818801B591A97F /* DeviceList */ = {
+			isa = PBXGroup;
+			children = (
+				7EAE2EE1271310D1000156BC /* Mock */,
+				7EAE2EDE27131082000156BC /* Models */,
+				7EAE2EDD2713106F000156BC /* ViewModels */,
+				7EAE2ED927131065000156BC /* Views */,
+				0531763D8210381C2A772DB1 /* DeviceList.h */,
+				4865655B47A3C333D186D589 /* DeviceList.swift */,
+				9183332E2C5C38C2E53084FC /* Info.plist */,
+			);
+			path = DeviceList;
+			sourceTree = "<group>";
+		};
+		B67EC44DC20072E16E647D4A /* DeviceListTests */ = {
+			isa = PBXGroup;
+			children = (
+				9F6C6756669BF82A02D2615C /* DeviceListTests.swift */,
+				D44B7DBD76611643F341D86D /* Info.plist */,
+			);
+			path = DeviceListTests;
+			sourceTree = "<group>";
+		};
+		CBF1AC55149931B9CBC350A9 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				770979083AA405954EDDAD02 /* App.xcconfig */,
+				27A3EF7C266BA6D49A26088E /* Module.xcconfig */,
+				76C15EBF357BDD5438FCC629 /* Project-Debug.xcconfig */,
+				74045B99269F1886BF0AF120 /* Project-Release.xcconfig */,
+				516A47236D449C2E12D885B7 /* Project.xcconfig */,
+				FD7EEBB45CDC846348900ADB /* Tests.xcconfig */,
+				92824AB4B7CBA780FDEE25EB /* UITests.xcconfig */,
+			);
+			name = Configuration;
+			path = ../../Configuration;
+			sourceTree = "<group>";
+		};
+		D111D61AF3BB1DC00E1BEC2F = {
+			isa = PBXGroup;
+			children = (
+				CBF1AC55149931B9CBC350A9 /* Configuration */,
+				B554BB241A818801B591A97F /* DeviceList */,
+				040321D217DF97E01B13BC18 /* DeviceListDemo */,
+				B67EC44DC20072E16E647D4A /* DeviceListTests */,
+				7681700675E4BC41508E072C /* Packages */,
+				3E6638DB85CBCC8AB2F053DE /* Products */,
+				2784407880391320CB70D708 /* Projects */,
+			);
+			sourceTree = "<group>";
+		};
+		D343F5611DCF6A01CCC327C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9E519725A9AAE3057B08D7E /* OEPlatform.framework */,
+				7EAE2EDC27131065000156BC /* OEPlatformTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E9A6EEE1591B0020E182CCA2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8228BE3B8C347BB6F0AAA42 /* DeviceList.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5479CA4A68B7B9E7A7924BF2 /* DeviceList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DA64E4D1275E876F92278BE /* Build configuration list for PBXNativeTarget "DeviceList" */;
+			buildPhases = (
+				E9A6EEE1591B0020E182CCA2 /* Headers */,
+				6CFBF4A1FF384219A37C87CC /* Sources */,
+				7A2054CB8F611C3B8D7DD286 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F1908CA18E39F0D5F39903B /* PBXTargetDependency */,
+			);
+			name = DeviceList;
+			packageProductDependencies = (
+				7A00A754BBBB4B90F3E3B1CB /* OEUIKit */,
+			);
+			productName = DeviceList;
+			productReference = B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9FECE060343F3651D9BC119C /* DeviceListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBDC32007B55A037F44C01B2 /* Build configuration list for PBXNativeTarget "DeviceListTests" */;
+			buildPhases = (
+				06E3122B67276171A6374730 /* Sources */,
+				BCB2BBD1E4DE4B2313DAC201 /* Frameworks */,
+				D7E636BB5FF854AA9423F3EE /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64225A08C3080F52F15FD188 /* PBXTargetDependency */,
+				F35F4FB1865008272F01CC76 /* PBXTargetDependency */,
+			);
+			name = DeviceListTests;
+			packageProductDependencies = (
+				81157FE36659379C053D0EC3 /* OEUIKit */,
+			);
+			productName = DeviceListTests;
+			productReference = BB29D8095210A2B0FF05C3A7 /* DeviceListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E757894FA86AA0A16C880AE5 /* DeviceListDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B2F430A573907F8D9A8E514 /* Build configuration list for PBXNativeTarget "DeviceListDemo" */;
+			buildPhases = (
+				4B6B41004CDECE3C12F48EF4 /* Sources */,
+				516FACE068E2735C77BCC15F /* Resources */,
+				05AD725C871203664CEF1C08 /* Frameworks */,
+				1E8F8B4241B73C725593BB1D /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A168E4DC0E9D6EF7FE506077 /* PBXTargetDependency */,
+				EB89861A6518B8943B53CB48 /* PBXTargetDependency */,
+			);
+			name = DeviceListDemo;
+			packageProductDependencies = (
+				7672717DD5155417F8BA3521 /* OEUIKit */,
+			);
+			productName = DeviceListDemo;
+			productReference = 73A428C4E8319D2E53B352B2 /* DeviceListDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		372715C00D32E631694325B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					5479CA4A68B7B9E7A7924BF2 = {
+						DevelopmentTeam = SQDGL9TDH9;
+						ProvisioningStyle = Automatic;
+					};
+					9FECE060343F3651D9BC119C = {
+						DevelopmentTeam = SQDGL9TDH9;
+						ProvisioningStyle = Automatic;
+					};
+					E757894FA86AA0A16C880AE5 = {
+						DevelopmentTeam = SQDGL9TDH9;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 93998EC6C18C624A815187F4 /* Build configuration list for PBXProject "DeviceList" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = D111D61AF3BB1DC00E1BEC2F;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D343F5611DCF6A01CCC327C0 /* Products */;
+					ProjectRef = 7A48928E7C238931E0BB320C /* OEPlatform.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				5479CA4A68B7B9E7A7924BF2 /* DeviceList */,
+				E757894FA86AA0A16C880AE5 /* DeviceListDemo */,
+				9FECE060343F3651D9BC119C /* DeviceListTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7EAE2EDC27131065000156BC /* OEPlatformTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OEPlatformTests.xctest;
+			remoteRef = 7EAE2EDB27131065000156BC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F9E519725A9AAE3057B08D7E /* OEPlatform.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OEPlatform.framework;
+			remoteRef = 5162925B324408D078FBCF73 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		516FACE068E2735C77BCC15F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				022CEACEE35AED7FAB45A312 /* Assets.xcassets in Resources */,
+				0D779E1EB4D15B16FAC97690 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06E3122B67276171A6374730 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCD905451E56C9917D7B5357 /* DeviceListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6B41004CDECE3C12F48EF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				097D84C20D8DE5F49CF6E90C /* ContentView.swift in Sources */,
+				03F0D54960BC178B03015890 /* DeviceListDemoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CFBF4A1FF384219A37C87CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AF4E7FF52422DC85C395D00 /* DeviceList.swift in Sources */,
+				7EAE2EE627131122000156BC /* DeviceListMock.swift in Sources */,
+				7EAE2EE0271310C5000156BC /* DeviceListView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F1908CA18E39F0D5F39903B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OEPlatform;
+			targetProxy = 495B9B12A7F8EE740565D828 /* PBXContainerItemProxy */;
+		};
+		64225A08C3080F52F15FD188 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5479CA4A68B7B9E7A7924BF2 /* DeviceList */;
+			targetProxy = 7FF4023D3A6FACD943C52F5D /* PBXContainerItemProxy */;
+		};
+		A168E4DC0E9D6EF7FE506077 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5479CA4A68B7B9E7A7924BF2 /* DeviceList */;
+			targetProxy = C920921DF8DFF5871379F68E /* PBXContainerItemProxy */;
+		};
+		EB89861A6518B8943B53CB48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OEPlatform;
+			targetProxy = DE1AF3FC04967791973EDDCD /* PBXContainerItemProxy */;
+		};
+		F35F4FB1865008272F01CC76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OEPlatform;
+			targetProxy = D7F990D8372892C2E9A75A7F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		083A3D391ACC14277D1237D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 770979083AA405954EDDAD02 /* App.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = DeviceListDemo/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceListDemo;
+			};
+			name = Debug;
+		};
+		2802F7B55D02ED6E3E924116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD7EEBB45CDC846348900ADB /* Tests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DeviceListTests/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceListTests;
+			};
+			name = Debug;
+		};
+		2D4A2D06E82330D6860DB375 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76C15EBF357BDD5438FCC629 /* Project-Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		774E1D83DB86342F24FEC79C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74045B99269F1886BF0AF120 /* Project-Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		789C407A3851FB489AB76CFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD7EEBB45CDC846348900ADB /* Tests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DeviceListTests/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceListTests;
+			};
+			name = Release;
+		};
+		78BFCADB2262C33C50BA3E6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 770979083AA405954EDDAD02 /* App.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = DeviceListDemo/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceListDemo;
+			};
+			name = Release;
+		};
+		C639528E7016FBA0564EFEF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27A3EF7C266BA6D49A26088E /* Module.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = DeviceList/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		FC3A90CC130B437A152495FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27A3EF7C266BA6D49A26088E /* Module.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = DeviceList/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B2F430A573907F8D9A8E514 /* Build configuration list for PBXNativeTarget "DeviceListDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				083A3D391ACC14277D1237D4 /* Debug */,
+				78BFCADB2262C33C50BA3E6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8DA64E4D1275E876F92278BE /* Build configuration list for PBXNativeTarget "DeviceList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC3A90CC130B437A152495FF /* Debug */,
+				C639528E7016FBA0564EFEF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		93998EC6C18C624A815187F4 /* Build configuration list for PBXProject "DeviceList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D4A2D06E82330D6860DB375 /* Debug */,
+				774E1D83DB86342F24FEC79C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CBDC32007B55A037F44C01B2 /* Build configuration list for PBXNativeTarget "DeviceListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2802F7B55D02ED6E3E924116 /* Debug */,
+				789C407A3851FB489AB76CFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7672717DD5155417F8BA3521 /* OEUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OEUIKit;
+		};
+		7A00A754BBBB4B90F3E3B1CB /* OEUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OEUIKit;
+		};
+		81157FE36659379C053D0EC3 /* OEUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OEUIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 372715C00D32E631694325B2 /* Project object */;
+}

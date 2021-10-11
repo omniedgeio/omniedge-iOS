@@ -11,8 +11,6 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel
-
-    @State var isLogin: Bool = true
     @State var email: String = ""
     @State var password: String = ""
     @State var isSecured: Bool = true
@@ -121,14 +119,6 @@ struct LoginView: View {
 
             if viewModel.error != AuthError.none {
                 AlertView(viewModel.error.localizedDescription).padding()
-            }
-
-            if viewModel.isLogin {
-                NavigationLink(
-                    "",
-                    destination: DeviceList().navigationBarHidden(true),
-                    isActive: $isLogin
-                    )
             }
 
             //sinner

@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		7A0000F98FCADEB3801AB0AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D260DCEB74B27BADED964EBC /* Assets.xcassets */; };
 		CC629E1A84CE8DF3AB7F0DF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D36DA0553E565CFD5A95BE5 /* ContentView.swift */; };
-		7EB54FC126EF757C0036F34E /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB54FC026EF757C0036F34E /* DeviceList.swift */; };
-		7E453B1C26DC5C5500A2EBE6 /* DeviceListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E453B1B26DC5C5500A2EBE6 /* DeviceListMock.swift */; };
 		7E6510B326E399D70063702B /* InvalidEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6510B226E399D70063702B /* InvalidEntryView.swift */; };
 		27B26DB74C0BCDFF6571ABCF /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8968B2B1ABAF6C1AF24C7804 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		80815A967261E00079B97C0B /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8968B2B1ABAF6C1AF24C7804 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -121,8 +119,7 @@
 		20699A8341077F809AFF085C /* App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = App.xcconfig; sourceTree = "<group>"; };
 		D260DCEB74B27BADED964EBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D36DA0553E565CFD5A95BE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7EB54FC026EF757C0036F34E /* DeviceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
-		7E453B1B26DC5C5500A2EBE6 /* DeviceListMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListMock.swift; sourceTree = "<group>"; };
+		7EAE2EE72713119B000156BC /* DeviceList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeviceList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4E5A380B8CECE72F2BABF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D96C479B3733517D15DE0427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E71545D50DB5B6D5EB692E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -135,12 +132,12 @@
 		7E8568AB26D455EC00D252AD /* LoginDataStoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreAPI.swift; sourceTree = "<group>"; };
 		7E8568CB26D45E1C00D252AD /* LoginDataStoreImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreImpl.swift; sourceTree = "<group>"; };
 		7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreMock.swift; sourceTree = "<group>"; };
-		AC2E8D3EB455200DD73774D5 /* LoginDemo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LoginDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC2E8D3EB455200DD73774D5 /* LoginDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE30F5BD69819A15DF7C4E9 /* LoginDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDemoApp.swift; sourceTree = "<group>"; };
 		7E8568C926D45B8D00D252AD /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		7E8568D226D49B0C00D252AD /* LoginNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkProvider.swift; sourceTree = "<group>"; };
 		760FDA35888856EC709A6D98 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
-		328FFDBBC94C077A39855488 /* LoginTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = LoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		328FFDBBC94C077A39855488 /* LoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E6542B226C9D9A800704948 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7E6542B426C9D9D200704948 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		44E7E638A8E605EBE7510540 /* Module.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Module.xcconfig; sourceTree = "<group>"; };
@@ -243,7 +240,6 @@
 		7E453B1926DC5BE800A2EBE6 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				7E453B1B26DC5C5500A2EBE6 /* DeviceListMock.swift */,
 				7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */,
 			);
 			path = Mock;
@@ -299,7 +295,6 @@
 		7EB54FBE26EF75660036F34E /* DeviceList */ = {
 			isa = PBXGroup;
 			children = (
-				7EB54FC026EF757C0036F34E /* DeviceList.swift */,
 			);
 			path = DeviceList;
 			sourceTree = "<group>";
@@ -307,6 +302,7 @@
 		7ED5E18C26D52DF8002A06B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EAE2EE72713119B000156BC /* DeviceList.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -537,8 +533,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EB54FC126EF757C0036F34E /* DeviceList.swift in Sources */,
-				7E453B1C26DC5C5500A2EBE6 /* DeviceListMock.swift in Sources */,
 				7E6510B326E399D70063702B /* InvalidEntryView.swift in Sources */,
 				F97A23B0CFE5D22ABFA37CBE /* Login.swift in Sources */,
 				7E0ABBE226E4F27B00590A60 /* LoginCommonView.swift in Sources */,

@@ -22,7 +22,6 @@ class LoginViewModel: ObservableObject {
 
     @Published var error: AuthError = AuthError.none
     @Published var loading: Bool = false
-    @Published var isLogin: Bool = false
 
     init(_ dataStore: LoginDataStoreAPI) {
         dataStoreAPI = dataStore
@@ -42,7 +41,6 @@ class LoginViewModel: ObservableObject {
             }, receiveValue: { [weak self] model in
                 if let token = model.data?["token"] {
                     self?.delegate?.didLogin(token: token)
-                    self?.isLogin = true
                 } else {
                     self?.error = .fail(message: "Error Token")
                 }

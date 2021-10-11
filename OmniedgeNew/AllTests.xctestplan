@@ -23,6 +23,13 @@
         "identifier" : "8EC12D40A59F4E845C71699F",
         "name" : "LoginTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Libraries\/DeviceList\/DeviceList.xcodeproj",
+        "identifier" : "9FECE060343F3651D9BC119C",
+        "name" : "DeviceListTests"
+      }
     }
   ],
   "version" : 1

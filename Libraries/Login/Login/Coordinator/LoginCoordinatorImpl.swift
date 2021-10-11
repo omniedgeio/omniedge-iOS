@@ -15,7 +15,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     var viewModel: LoginViewModel
 
     init() {
-        dataStore = LoginDataStoreMock()
+        dataStore = LoginDataStoreProvider()
         viewModel = LoginViewModel(dataStore)
         viewModel.delegate = self
     }
