@@ -7,37 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A0000F98FCADEB3801AB0AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D260DCEB74B27BADED964EBC /* Assets.xcassets */; };
-		CC629E1A84CE8DF3AB7F0DF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D36DA0553E565CFD5A95BE5 /* ContentView.swift */; };
-		7EB54FC126EF757C0036F34E /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB54FC026EF757C0036F34E /* DeviceList.swift */; };
-		7E453B1C26DC5C5500A2EBE6 /* DeviceListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E453B1B26DC5C5500A2EBE6 /* DeviceListMock.swift */; };
-		7E6510B326E399D70063702B /* InvalidEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6510B226E399D70063702B /* InvalidEntryView.swift */; };
 		27B26DB74C0BCDFF6571ABCF /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8968B2B1ABAF6C1AF24C7804 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		80815A967261E00079B97C0B /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8968B2B1ABAF6C1AF24C7804 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		29EBEDBECC97AEB14A3604B7 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8968B2B1ABAF6C1AF24C7804 /* Login.framework */; };
 		34BD26A2DA631FD1F752B666 /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8968B2B1ABAF6C1AF24C7804 /* Login.framework */; };
-		C8D4FFFA396966D629060DA1 /* Login.h in Headers */ = {isa = PBXBuildFile; fileRef = 807757BF9A75CFE606C6233B /* Login.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F97A23B0CFE5D22ABFA37CBE /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA54C9C30B8D4B1A79F418A /* Login.swift */; };
-		7E0ABBE226E4F27B00590A60 /* LoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0ABBE126E4F27B00590A60 /* LoginCommonView.swift */; };
-		7E6542DC26CF085300704948 /* LoginCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542DB26CF085300704948 /* LoginCoordinatorImpl.swift */; };
-		7E8568AC26D455EC00D252AD /* LoginDataStoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568AB26D455EC00D252AD /* LoginDataStoreAPI.swift */; };
-		7E8568CC26D45E1C00D252AD /* LoginDataStoreImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568CB26D45E1C00D252AD /* LoginDataStoreImpl.swift */; };
-		7E8568CE26D460D900D252AD /* LoginDataStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */; };
-		F988E60CB2154B3FB9921FAC /* LoginDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE30F5BD69819A15DF7C4E9 /* LoginDemoApp.swift */; };
-		7E8568CA26D45B8D00D252AD /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568C926D45B8D00D252AD /* LoginModel.swift */; };
-		7E8568D326D49B0C00D252AD /* LoginNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568D226D49B0C00D252AD /* LoginNetworkProvider.swift */; };
 		6F383C77963065E3FDC2F831 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDA35888856EC709A6D98 /* LoginTests.swift */; };
+		7A0000F98FCADEB3801AB0AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D260DCEB74B27BADED964EBC /* Assets.xcassets */; };
+		7E0ABBE226E4F27B00590A60 /* LoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0ABBE126E4F27B00590A60 /* LoginCommonView.swift */; };
+		7E6510B026E3992D0063702B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6510AF26E3992D0063702B /* Validation.swift */; };
+		7E6510B326E399D70063702B /* InvalidEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6510B226E399D70063702B /* InvalidEntryView.swift */; };
 		7E6542B326C9D9A800704948 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542B226C9D9A800704948 /* LoginView.swift */; };
 		7E6542B526C9D9D200704948 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542B426C9D9D200704948 /* LoginViewModel.swift */; };
-		7ED5E18E26D52DF8002A06B8 /* OENetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7ED5E18D26D52DF8002A06B8 /* OENetwork */; };
-		B74FED4CA91FFDD318679F6C /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE0DED94D32B4AF313AC1EF /* OEPlatform.framework */; };
-		8F89BB4AAB94593A15AD456E /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 01046F410334C90B2FD41D23 /* OEUIKit */; };
-		E01367743430A57E02252E16 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7267A9347BCFDD22A20A69B7 /* OEUIKit */; };
-		F9EBA893C5694712FBF2209F /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0FC4BE136DDB36B99E476F /* OEUIKit */; };
-		8A006BEB3BC10C8CDB10CE68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8E700CB68FB25774742F7C6 /* Preview Assets.xcassets */; };
 		7E6542B726C9DCF800704948 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542B626C9DCF800704948 /* RegisterView.swift */; };
 		7E6542B926C9DD2C00704948 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542B826C9DD2C00704948 /* ResetPasswordView.swift */; };
-		7E6510B026E3992D0063702B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6510AF26E3992D0063702B /* Validation.swift */; };
+		7E6542DC26CF085300704948 /* LoginCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542DB26CF085300704948 /* LoginCoordinatorImpl.swift */; };
+		7E8568AC26D455EC00D252AD /* LoginDataStoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568AB26D455EC00D252AD /* LoginDataStoreAPI.swift */; };
+		7E8568CA26D45B8D00D252AD /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568C926D45B8D00D252AD /* LoginModel.swift */; };
+		7E8568CC26D45E1C00D252AD /* LoginDataStoreImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568CB26D45E1C00D252AD /* LoginDataStoreImpl.swift */; };
+		7E8568CE26D460D900D252AD /* LoginDataStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */; };
+		7E8568D326D49B0C00D252AD /* LoginNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8568D226D49B0C00D252AD /* LoginNetworkProvider.swift */; };
+		7EAE2EE82713119B000156BC /* DeviceList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAE2EE72713119B000156BC /* DeviceList.framework */; };
+		7ED5E18E26D52DF8002A06B8 /* OENetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7ED5E18D26D52DF8002A06B8 /* OENetwork */; };
+		80815A967261E00079B97C0B /* Login.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8968B2B1ABAF6C1AF24C7804 /* Login.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A006BEB3BC10C8CDB10CE68 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8E700CB68FB25774742F7C6 /* Preview Assets.xcassets */; };
+		8F89BB4AAB94593A15AD456E /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 01046F410334C90B2FD41D23 /* OEUIKit */; };
+		B74FED4CA91FFDD318679F6C /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE0DED94D32B4AF313AC1EF /* OEPlatform.framework */; };
+		C8D4FFFA396966D629060DA1 /* Login.h in Headers */ = {isa = PBXBuildFile; fileRef = 807757BF9A75CFE606C6233B /* Login.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC629E1A84CE8DF3AB7F0DF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D36DA0553E565CFD5A95BE5 /* ContentView.swift */; };
+		E01367743430A57E02252E16 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7267A9347BCFDD22A20A69B7 /* OEUIKit */; };
+		F97A23B0CFE5D22ABFA37CBE /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA54C9C30B8D4B1A79F418A /* Login.swift */; };
+		F988E60CB2154B3FB9921FAC /* LoginDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE30F5BD69819A15DF7C4E9 /* LoginDemoApp.swift */; };
+		F9EBA893C5694712FBF2209F /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8D0FC4BE136DDB36B99E476F /* OEUIKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,44 +118,43 @@
 
 /* Begin PBXFileReference section */
 		20699A8341077F809AFF085C /* App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = App.xcconfig; sourceTree = "<group>"; };
-		D260DCEB74B27BADED964EBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		328FFDBBC94C077A39855488 /* LoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D36DA0553E565CFD5A95BE5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7EB54FC026EF757C0036F34E /* DeviceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
-		7E453B1B26DC5C5500A2EBE6 /* DeviceListMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListMock.swift; sourceTree = "<group>"; };
-		8D4E5A380B8CECE72F2BABF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		D96C479B3733517D15DE0427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E71545D50DB5B6D5EB692E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		7E6510B226E399D70063702B /* InvalidEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidEntryView.swift; sourceTree = "<group>"; };
-		8968B2B1ABAF6C1AF24C7804 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		807757BF9A75CFE606C6233B /* Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
 		3DA54C9C30B8D4B1A79F418A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		7E0ABBE126E4F27B00590A60 /* LoginCommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommonView.swift; sourceTree = "<group>"; };
-		7E6542DB26CF085300704948 /* LoginCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinatorImpl.swift; sourceTree = "<group>"; };
-		7E8568AB26D455EC00D252AD /* LoginDataStoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreAPI.swift; sourceTree = "<group>"; };
-		7E8568CB26D45E1C00D252AD /* LoginDataStoreImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreImpl.swift; sourceTree = "<group>"; };
-		7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreMock.swift; sourceTree = "<group>"; };
-		AC2E8D3EB455200DD73774D5 /* LoginDemo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LoginDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEE30F5BD69819A15DF7C4E9 /* LoginDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDemoApp.swift; sourceTree = "<group>"; };
-		7E8568C926D45B8D00D252AD /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		7E8568D226D49B0C00D252AD /* LoginNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkProvider.swift; sourceTree = "<group>"; };
+		44E7E638A8E605EBE7510540 /* Module.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Module.xcconfig; sourceTree = "<group>"; };
 		760FDA35888856EC709A6D98 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
-		328FFDBBC94C077A39855488 /* LoginTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = LoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0ABBE126E4F27B00590A60 /* LoginCommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommonView.swift; sourceTree = "<group>"; };
+		7E5E5BB92700094D006B2E19 /* OEDI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OEDI; path = ../../Packages/OEDI; sourceTree = "<group>"; };
+		7E6510AF26E3992D0063702B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		7E6510B226E399D70063702B /* InvalidEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidEntryView.swift; sourceTree = "<group>"; };
 		7E6542B226C9D9A800704948 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7E6542B426C9D9D200704948 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		44E7E638A8E605EBE7510540 /* Module.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Module.xcconfig; sourceTree = "<group>"; };
-		7E5E5BB92700094D006B2E19 /* OEDI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OEDI; path = ../../Packages/OEDI; sourceTree = "<group>"; };
-		7ED5E18826D52CB2002A06B8 /* OENetwork */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OENetwork; path = ../../Packages/OENetwork; sourceTree = "<group>"; };
-		85510A6FF0A37B57C4E4CBE9 /* OEPlatform.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEPlatform.xcodeproj; path = ../OEPlatform/OEPlatform.xcodeproj; sourceTree = "<group>"; };
-		7ED4406B8AA8FC6987106FA5 /* OEUIKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OEUIKit; path = ../../Packages/OEUIKit; sourceTree = SOURCE_ROOT; };
-		A8E700CB68FB25774742F7C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		838FC1E085593BE4E1CAA00F /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
-		CE94E8F959AF17EE379F0E0E /* Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
-		9C641F8D2BBF70BE092E3897 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		7E6542B626C9DCF800704948 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7E6542B826C9DD2C00704948 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
-		DAC213EA5494BF8378958B48 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		7E6542DB26CF085300704948 /* LoginCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinatorImpl.swift; sourceTree = "<group>"; };
+		7E8568AB26D455EC00D252AD /* LoginDataStoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreAPI.swift; sourceTree = "<group>"; };
+		7E8568C926D45B8D00D252AD /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		7E8568CB26D45E1C00D252AD /* LoginDataStoreImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreImpl.swift; sourceTree = "<group>"; };
+		7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataStoreMock.swift; sourceTree = "<group>"; };
+		7E8568D226D49B0C00D252AD /* LoginNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkProvider.swift; sourceTree = "<group>"; };
+		7EAE2EE72713119B000156BC /* DeviceList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeviceList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ED4406B8AA8FC6987106FA5 /* OEUIKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OEUIKit; path = ../../Packages/OEUIKit; sourceTree = SOURCE_ROOT; };
+		7ED5E18826D52CB2002A06B8 /* OENetwork */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OENetwork; path = ../../Packages/OENetwork; sourceTree = "<group>"; };
+		807757BF9A75CFE606C6233B /* Login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
+		838FC1E085593BE4E1CAA00F /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
 		8499C094DEB31F20FD0E123A /* UITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UITests.xcconfig; sourceTree = "<group>"; };
-		7E6510AF26E3992D0063702B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		85510A6FF0A37B57C4E4CBE9 /* OEPlatform.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEPlatform.xcodeproj; path = ../OEPlatform/OEPlatform.xcodeproj; sourceTree = "<group>"; };
+		8968B2B1ABAF6C1AF24C7804 /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D4E5A380B8CECE72F2BABF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9C641F8D2BBF70BE092E3897 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		A8E700CB68FB25774742F7C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC2E8D3EB455200DD73774D5 /* LoginDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE94E8F959AF17EE379F0E0E /* Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
+		D260DCEB74B27BADED964EBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D96C479B3733517D15DE0427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DAC213EA5494BF8378958B48 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		E71545D50DB5B6D5EB692E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EEE30F5BD69819A15DF7C4E9 /* LoginDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDemoApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EAE2EE82713119B000156BC /* DeviceList.framework in Frameworks */,
 				7ED5E18E26D52DF8002A06B8 /* OENetwork in Frameworks */,
 				B74FED4CA91FFDD318679F6C /* OEPlatform.framework in Frameworks */,
 				E01367743430A57E02252E16 /* OEUIKit in Frameworks */,
@@ -243,7 +242,6 @@
 		7E453B1926DC5BE800A2EBE6 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				7E453B1B26DC5C5500A2EBE6 /* DeviceListMock.swift */,
 				7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */,
 			);
 			path = Mock;
@@ -299,7 +297,6 @@
 		7EB54FBE26EF75660036F34E /* DeviceList */ = {
 			isa = PBXGroup;
 			children = (
-				7EB54FC026EF757C0036F34E /* DeviceList.swift */,
 			);
 			path = DeviceList;
 			sourceTree = "<group>";
@@ -307,6 +304,7 @@
 		7ED5E18C26D52DF8002A06B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7EAE2EE72713119B000156BC /* DeviceList.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -537,8 +535,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EB54FC126EF757C0036F34E /* DeviceList.swift in Sources */,
-				7E453B1C26DC5C5500A2EBE6 /* DeviceListMock.swift in Sources */,
 				7E6510B326E399D70063702B /* InvalidEntryView.swift in Sources */,
 				F97A23B0CFE5D22ABFA37CBE /* Login.swift in Sources */,
 				7E0ABBE226E4F27B00590A60 /* LoginCommonView.swift in Sources */,

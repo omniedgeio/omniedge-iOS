@@ -8,6 +8,7 @@
 
 import OEUIKit
 import SwiftUI
+import DeviceList
 
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel
@@ -126,7 +127,7 @@ struct LoginView: View {
             if viewModel.isLogin {
                 NavigationLink(
                     "",
-                    destination: DeviceList().navigationBarHidden(true),
+                    destination: DeviceListView().navigationBarHidden(true),
                     isActive: $isLogin
                     )
             }

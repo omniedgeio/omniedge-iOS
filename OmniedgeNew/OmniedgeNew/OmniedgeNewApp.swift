@@ -7,12 +7,30 @@
 //
 
 import SwiftUI
+import Tattoo
 
 @main
 struct OmniedgeNewApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            appDelegate.appCoordinator.contentView()
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    private let appScope = Scope()
+    let appCoordinator: AppCoordinator
+
+    override init() {
+        appCoordinator = AppCoordinator(scope: appScope)
+        super.init()
+    }
+
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        appCoordinator.bootstrap(scope: appScope)
+        return true
     }
 }

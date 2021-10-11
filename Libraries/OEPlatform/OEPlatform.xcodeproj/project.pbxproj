@@ -3,15 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E6542D826CDE1FF00704948 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542D726CDE1FF00704948 /* Coordinator.swift */; };
+		422EAD79E451151AE7DBA34D /* DeviceListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4EBCF76371FAE76A846FB9 /* DeviceListAPI.swift */; };
 		62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */; };
+		7E0F2B0727131443002BAD7D /* RoutingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFD27131443002BAD7D /* RoutingAPI.swift */; };
+		7E0F2B0827131443002BAD7D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFE27131443002BAD7D /* NavigationRouter.swift */; };
+		7E0F2B0927131443002BAD7D /* DefaultNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFF27131443002BAD7D /* DefaultNavigationFactory.swift */; };
+		7E0F2B0A27131443002BAD7D /* InterceptingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0027131443002BAD7D /* InterceptingRouter.swift */; };
+		7E0F2B0B27131443002BAD7D /* NavigationControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0227131443002BAD7D /* NavigationControllerWrapper.swift */; };
+		7E0F2B0C27131443002BAD7D /* SHNavigationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0327131443002BAD7D /* SHNavigationPreferences.swift */; };
+		7E0F2B0D27131443002BAD7D /* SHNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0427131443002BAD7D /* SHNavigationView.swift */; };
+		7E0F2B0E27131443002BAD7D /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0527131443002BAD7D /* RouterManager.swift */; };
+		7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */; };
+		7E59ED2627139F15008E159E /* Tattoo+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */; };
+		7E59ED2C27139F60008E159E /* Tattoo in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59ED2B27139F60008E159E /* Tattoo */; };
+		7E6542D826CDE1FF00704948 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542D726CDE1FF00704948 /* Coordinator.swift */; };
 		7EF5A35F26C767E300EDFC03 /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5A35526C767E300EDFC03 /* OEPlatform.framework */; };
-		7EF5A36626C767E300EDFC03 /* OEPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF5A35826C767E300EDFC03 /* OEPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EF5A36426C767E300EDFC03 /* OEPlatformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5A36326C767E300EDFC03 /* OEPlatformTests.swift */; };
+		7EF5A36626C767E300EDFC03 /* OEPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF5A35826C767E300EDFC03 /* OEPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,14 +37,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7E6542D726CDE1FF00704948 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		7EF5A35926C767E300EDFC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7EF5A36526C767E300EDFC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		7E0F2AFD27131443002BAD7D /* RoutingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingAPI.swift; sourceTree = "<group>"; };
+		7E0F2AFE27131443002BAD7D /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		7E0F2AFF27131443002BAD7D /* DefaultNavigationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNavigationFactory.swift; sourceTree = "<group>"; };
+		7E0F2B0027131443002BAD7D /* InterceptingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptingRouter.swift; sourceTree = "<group>"; };
+		7E0F2B0227131443002BAD7D /* NavigationControllerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerWrapper.swift; sourceTree = "<group>"; };
+		7E0F2B0327131443002BAD7D /* SHNavigationPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationPreferences.swift; sourceTree = "<group>"; };
+		7E0F2B0427131443002BAD7D /* SHNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationView.swift; sourceTree = "<group>"; };
+		7E0F2B0527131443002BAD7D /* RouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
+		7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingManagerImpl.swift; sourceTree = "<group>"; };
+		7E59ECF827139C4C008E159E /* Tattoo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Tattoo; path = ../../Packages/Tattoo; sourceTree = "<group>"; };
+		7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tattoo+Platform.swift"; sourceTree = "<group>"; };
+		7E6542D726CDE1FF00704948 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7EF5A35526C767E300EDFC03 /* OEPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OEPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF5A35826C767E300EDFC03 /* OEPlatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEPlatform.h; sourceTree = "<group>"; };
-		7EF5A36326C767E300EDFC03 /* OEPlatformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEPlatformTests.swift; sourceTree = "<group>"; };
+		7EF5A35926C767E300EDFC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EF5A35E26C767E300EDFC03 /* OEPlatformTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OEPlatformTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF5A36326C767E300EDFC03 /* OEPlatformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEPlatformTests.swift; sourceTree = "<group>"; };
+		7EF5A36526C767E300EDFC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE4EBCF76371FAE76A846FB9 /* DeviceListAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceListAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E59ED2C27139F60008E159E /* Tattoo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +79,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E0F2AFC27131443002BAD7D /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				7E0F2AFD27131443002BAD7D /* RoutingAPI.swift */,
+				7E0F2AFE27131443002BAD7D /* NavigationRouter.swift */,
+				7E0F2AFF27131443002BAD7D /* DefaultNavigationFactory.swift */,
+				7E0F2B0027131443002BAD7D /* InterceptingRouter.swift */,
+				7E0F2B0127131443002BAD7D /* Views */,
+				7E0F2B0527131443002BAD7D /* RouterManager.swift */,
+				7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		7E0F2B0127131443002BAD7D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E0F2B0227131443002BAD7D /* NavigationControllerWrapper.swift */,
+				7E0F2B0327131443002BAD7D /* SHNavigationPreferences.swift */,
+				7E0F2B0427131443002BAD7D /* SHNavigationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7E59ED1B27139F15008E159E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7E59ED2A27139F60008E159E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7E6542D626CDE1E600704948 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +129,11 @@
 		7EF5A34B26C767E200EDFC03 = {
 			isa = PBXGroup;
 			children = (
+				7E59ECF827139C4C008E159E /* Tattoo */,
 				7EF5A35726C767E300EDFC03 /* OEPlatform */,
 				7EF5A36226C767E300EDFC03 /* OEPlatformTests */,
 				7EF5A35626C767E300EDFC03 /* Products */,
+				7E59ED2A27139F60008E159E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +149,8 @@
 		7EF5A35726C767E300EDFC03 /* OEPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				7E59ED1B27139F15008E159E /* Extensions */,
+				7E0F2AFC27131443002BAD7D /* Routing */,
 				7E6542D626CDE1E600704948 /* Coordinator */,
 				7EF5A36F26C767FA00EDFC03 /* ModulesAPI */,
 				7EF5A35926C767E300EDFC03 /* Info.plist */,
@@ -103,6 +171,7 @@
 		7EF5A36F26C767FA00EDFC03 /* ModulesAPI */ = {
 			isa = PBXGroup;
 			children = (
+				DE4EBCF76371FAE76A846FB9 /* DeviceListAPI.swift */,
 				3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */,
 			);
 			path = ModulesAPI;
@@ -134,8 +203,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				7E59ECFA27139C84008E159E /* PBXTargetDependency */,
 			);
 			name = OEPlatform;
+			packageProductDependencies = (
+				7E59ED2B27139F60008E159E /* Tattoo */,
+			);
 			productName = OEPlatform;
 			productReference = 7EF5A35526C767E300EDFC03 /* OEPlatform.framework */;
 			productType = "com.apple.product-type.framework";
@@ -216,8 +289,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E0F2B0927131443002BAD7D /* DefaultNavigationFactory.swift in Sources */,
+				7E0F2B0E27131443002BAD7D /* RouterManager.swift in Sources */,
 				7E6542D826CDE1FF00704948 /* Coordinator.swift in Sources */,
+				7E0F2B0727131443002BAD7D /* RoutingAPI.swift in Sources */,
+				7E0F2B0B27131443002BAD7D /* NavigationControllerWrapper.swift in Sources */,
+				422EAD79E451151AE7DBA34D /* DeviceListAPI.swift in Sources */,
+				7E0F2B0A27131443002BAD7D /* InterceptingRouter.swift in Sources */,
+				7E0F2B0827131443002BAD7D /* NavigationRouter.swift in Sources */,
+				7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */,
+				7E0F2B0D27131443002BAD7D /* SHNavigationView.swift in Sources */,
+				7E59ED2627139F15008E159E /* Tattoo+Platform.swift in Sources */,
 				62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */,
+				7E0F2B0C27131443002BAD7D /* SHNavigationPreferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +316,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7E59ECFA27139C84008E159E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 7E59ECF927139C84008E159E /* Tattoo */;
+		};
 		7EF5A36126C767E300EDFC03 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7EF5A35426C767E300EDFC03 /* OEPlatform */;
@@ -479,6 +567,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7E59ECF927139C84008E159E /* Tattoo */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Tattoo;
+		};
+		7E59ED2B27139F60008E159E /* Tattoo */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Tattoo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7EF5A34C26C767E200EDFC03 /* Project object */;
 }
