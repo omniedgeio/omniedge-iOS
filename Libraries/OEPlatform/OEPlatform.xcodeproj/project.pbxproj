@@ -17,6 +17,8 @@
 		7EF5A35F26C767E300EDFC03 /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5A35526C767E300EDFC03 /* OEPlatform.framework */; };
 		7EF5A36626C767E300EDFC03 /* OEPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF5A35826C767E300EDFC03 /* OEPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EF5A36426C767E300EDFC03 /* OEPlatformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5A36326C767E300EDFC03 /* OEPlatformTests.swift */; };
+		7E923047272E300C00E5F6D5 /* PlatformModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E923046272E300C00E5F6D5 /* PlatformModule.swift */; };
+		7E923041272E243B00E5F6D5 /* ProductionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E923040272E243B00E5F6D5 /* ProductionModule.swift */; };
 		7E0F2B0E27131443002BAD7D /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0527131443002BAD7D /* RouterManager.swift */; };
 		7E0F2B0727131443002BAD7D /* RoutingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFD27131443002BAD7D /* RoutingAPI.swift */; };
 		7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */; };
@@ -50,6 +52,8 @@
 		7EF5A35826C767E300EDFC03 /* OEPlatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OEPlatform.h; sourceTree = "<group>"; };
 		7EF5A36326C767E300EDFC03 /* OEPlatformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OEPlatformTests.swift; sourceTree = "<group>"; };
 		7EF5A35E26C767E300EDFC03 /* OEPlatformTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OEPlatformTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E923046272E300C00E5F6D5 /* PlatformModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformModule.swift; sourceTree = "<group>"; };
+		7E923040272E243B00E5F6D5 /* ProductionModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionModule.swift; sourceTree = "<group>"; };
 		7E0F2B0527131443002BAD7D /* RouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		7E0F2AFD27131443002BAD7D /* RoutingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingAPI.swift; sourceTree = "<group>"; };
 		7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingManagerImpl.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 			children = (
 				DE4EBCF76371FAE76A846FB9 /* DeviceListAPI.swift */,
 				3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */,
+				7E923046272E300C00E5F6D5 /* PlatformModule.swift */,
+				7E923040272E243B00E5F6D5 /* ProductionModule.swift */,
 			);
 			path = ModulesAPI;
 			sourceTree = "<group>";
@@ -296,6 +302,8 @@
 				62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */,
 				7E0F2B0B27131443002BAD7D /* NavigationControllerWrapper.swift in Sources */,
 				7E0F2B0827131443002BAD7D /* NavigationRouter.swift in Sources */,
+				7E923047272E300C00E5F6D5 /* PlatformModule.swift in Sources */,
+				7E923041272E243B00E5F6D5 /* ProductionModule.swift in Sources */,
 				7E0F2B0E27131443002BAD7D /* RouterManager.swift in Sources */,
 				7E0F2B0727131443002BAD7D /* RoutingAPI.swift in Sources */,
 				7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */,

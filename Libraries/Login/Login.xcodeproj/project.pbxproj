@@ -292,13 +292,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7EB54FBE26EF75660036F34E /* DeviceList */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DeviceList;
-			sourceTree = "<group>";
-		};
 		7ED5E18C26D52DF8002A06B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,7 +314,6 @@
 			children = (
 				7E6542D926CDE3FD00704948 /* Coordinator */,
 				7E8568A926D455D000D252AD /* DataStore */,
-				7EB54FBE26EF75660036F34E /* DeviceList */,
 				7E453B1926DC5BE800A2EBE6 /* Mock */,
 				7E8568C826D45B7D00D252AD /* Model */,
 				7E6542AF26C9D95F00704948 /* ViewModels */,

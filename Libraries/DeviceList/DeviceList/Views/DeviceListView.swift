@@ -109,6 +109,7 @@ struct TextLogo: View {
         }
     }
 }
+
 struct DeviceList_Previews: PreviewProvider {
     static var previews: some View {
         DeviceListView()

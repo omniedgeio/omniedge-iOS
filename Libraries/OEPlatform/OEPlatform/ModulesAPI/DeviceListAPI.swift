@@ -5,8 +5,13 @@
 //
 
 import Foundation
+import SwiftUI
+import Tattoo
 
-/// The DeviceList public APIs to be used by other modules
+public protocol DeviceListCoordinator: Coordinator {
+    func createHomePage() -> AnyView
+}
+
 public protocol DeviceListAPI {
-    // TODO - add the public APIs here
+    func createHomeCoordinator(router: RoutingAPI) -> DeviceListCoordinator
 }

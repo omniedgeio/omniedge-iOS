@@ -14,5 +14,5 @@ public protocol LoginCoordinator: Coordinator {
 
 public protocol LoginAPI {
     // TODO - add the public APIs here
-    func createLoginCoordinator() -> LoginCoordinator
+    func createLoginCoordinator(router: RoutingAPI) -> LoginCoordinator
 }

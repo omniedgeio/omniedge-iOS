@@ -6,12 +6,16 @@
 
 import Foundation
 import OEPlatform
+import Tattoo
 
-/// Document your module purpose
 public class Login: LoginAPI {
-    public func createLoginCoordinator() -> LoginCoordinator {
-        return LoginCoordinatorImpl()
+    private let scope: Scope
+
+    public init(scope: Scope) {
+        self.scope = scope
     }
 
-    public init() {}
+    public func createLoginCoordinator(router: RoutingAPI) -> LoginCoordinator {
+        return LoginCoordinatorImpl(scope: scope, router: router)
+    }
 }
