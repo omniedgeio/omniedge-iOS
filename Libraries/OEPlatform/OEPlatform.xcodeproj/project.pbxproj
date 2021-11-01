@@ -12,6 +12,7 @@
 		422EAD79E451151AE7DBA34D /* DeviceListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4EBCF76371FAE76A846FB9 /* DeviceListAPI.swift */; };
 		7E0F2B0A27131443002BAD7D /* InterceptingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0027131443002BAD7D /* InterceptingRouter.swift */; };
 		7EF2D3F2272F8BE90030CBDF /* JWTUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF2D3F1272F8BE90030CBDF /* JWTUtil.swift */; };
+		7E01CBC6272FABB100E76A47 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 7E01CBC5272FABB100E76A47 /* KeychainAccess */; };
 		62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */; };
 		7E0F2B0B27131443002BAD7D /* NavigationControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0227131443002BAD7D /* NavigationControllerWrapper.swift */; };
 		7E0F2B0827131443002BAD7D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFE27131443002BAD7D /* NavigationRouter.swift */; };
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E01CBC6272FABB100E76A47 /* KeychainAccess in Frameworks */,
 				7E59ED2C27139F60008E159E /* Tattoo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +241,7 @@
 			name = OEPlatform;
 			packageProductDependencies = (
 				7E59ED2B27139F60008E159E /* Tattoo */,
+				7E01CBC5272FABB100E76A47 /* KeychainAccess */,
 			);
 			productName = OEPlatform;
 			productReference = 7EF5A35526C767E300EDFC03 /* OEPlatform.framework */;
@@ -288,6 +291,9 @@
 				Base,
 			);
 			mainGroup = 7EF5A34B26C767E200EDFC03;
+			packageReferences = (
+				7E01CBC4272FABB100E76A47 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 7EF5A35626C767E300EDFC03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -604,7 +610,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		7E01CBC4272FABB100E76A47 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		7E01CBC5272FABB100E76A47 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E01CBC4272FABB100E76A47 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		7E59ECF927139C84008E159E /* Tattoo */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Tattoo;

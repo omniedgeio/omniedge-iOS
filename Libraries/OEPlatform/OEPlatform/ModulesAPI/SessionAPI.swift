@@ -7,8 +7,15 @@
 
 import Foundation
 
+public struct User {
+    var name: String
+    var email: String
+    var picture: String?
+}
+
 public protocol SessionAPI {
     func login(token: String) -> Bool
     func logout()
-    var token: String { get }
+    var token: String? { get }
+    var user: User? { get }
 }

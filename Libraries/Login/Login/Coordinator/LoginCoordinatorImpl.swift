@@ -21,7 +21,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     }
 
     func createLoginView() -> AnyView {
-        let viewModel = LoginViewModel(LoginDataStoreMock())
+        let viewModel = LoginViewModel(LoginDataStoreProvider())
         viewModel.delegate = self
         return AnyView(LoginView(viewModel: viewModel))
     }
