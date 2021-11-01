@@ -12,10 +12,12 @@ import Tattoo
 class DeviceListCoordinatorImpl: DeviceListCoordinator {
     private let scope: Scope
     private let router: RoutingAPI
+    private var user: User
 
-    init(scope: Scope, router: RoutingAPI) {
+    init(scope: Scope, router: RoutingAPI, user: User) {
         self.scope = scope
         self.router = router
+        self.user = user
     }
 
     func createHomePage() -> AnyView {

@@ -17,7 +17,6 @@ public class SessionManager: SessionAPI {
     static private let emailKey = "email"
     static private let pictureURLKey = "imageURL"
 
-    public var token: String?
     public var user: User?
     private var expire: Date?
 
@@ -32,7 +31,7 @@ public class SessionManager: SessionAPI {
         guard !dict.isEmpty else {
             return false
         }
-        
+
         if let name = dict[Self.nameKey] as? String {
             keychain[Self.nameKey] = name
         }
@@ -47,15 +46,13 @@ public class SessionManager: SessionAPI {
 
         keychain[Self.tokenKey] = token
 
-        loadFromKeychain()
-        return true
+        return loadFromKeychain()
     }
 
     public func logout() {
         let keychain = Keychain(service: Self.guid)
         do {
             try keychain.removeAll()
-            self.token = nil
             self.user = nil
             self.expire = nil
         } catch {
@@ -63,16 +60,19 @@ public class SessionManager: SessionAPI {
         }
     }
 
-    private func loadFromKeychain() {
+    @discardableResult
+    private func loadFromKeychain() -> Bool {
         let keychain = Keychain(service: Self.guid)
-        token = keychain[Self.tokenKey]
 
         if let expireString = keychain[Self.expireKey], let time = Double(expireString) {
             expire = Date(timeIntervalSince1970: time)
         }
 
-        if let name = keychain[Self.nameKey], let email = keychain[Self.emailKey] {
-            user = User(name: name, email: email, picture: keychain[Self.pictureURLKey])
+        if let token = keychain[Self.tokenKey], let name = keychain[Self.nameKey], let email = keychain[Self.emailKey] {
+            user = User(name: name, email: email, token: token, picture: keychain[Self.pictureURLKey])
+            return true
         }
+
+        return false
     }
 }

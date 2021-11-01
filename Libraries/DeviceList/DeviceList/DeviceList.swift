@@ -16,7 +16,7 @@ public class DeviceList: DeviceListAPI {
         self.scope = scope
     }
 
-    public func createHomeCoordinator(router: RoutingAPI) -> DeviceListCoordinator {
-        return DeviceListCoordinatorImpl(scope: scope, router: router)
+    public func createHomeCoordinator(router: RoutingAPI, user: User) -> DeviceListCoordinator {
+        return DeviceListCoordinatorImpl(scope: scope, router: router, user: user)
     }
 }

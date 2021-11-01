@@ -29,13 +29,16 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     func didLogin(_ viewModel: LoginViewModel?, token: String) {
         let session = scope.getService(SessionAPI.self)
         if session.login(token: token) {
-            let deviceList = scope.getService(DeviceListAPI.self)
-            let coordinator = deviceList.createHomeCoordinator(router: router)
-            router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))
-        } else {
-            if let viewModel = viewModel {
-                viewModel.error = AuthError.fail(message: "Invalid token")
+            if let user = session.user {
+                let deviceList = scope.getService(DeviceListAPI.self)
+                let coordinator = deviceList.createHomeCoordinator(router: router, user: user)
+                router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))
+                return
             }
+        }
+
+        if let viewModel = viewModel {
+            viewModel.error = AuthError.fail(message: "Invalid token")
         }
     }
 
