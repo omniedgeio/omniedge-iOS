@@ -11,6 +11,7 @@
 		7E0F2B0927131443002BAD7D /* DefaultNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFF27131443002BAD7D /* DefaultNavigationFactory.swift */; };
 		422EAD79E451151AE7DBA34D /* DeviceListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4EBCF76371FAE76A846FB9 /* DeviceListAPI.swift */; };
 		7E0F2B0A27131443002BAD7D /* InterceptingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0027131443002BAD7D /* InterceptingRouter.swift */; };
+		7EF2D3F2272F8BE90030CBDF /* JWTUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF2D3F1272F8BE90030CBDF /* JWTUtil.swift */; };
 		62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */; };
 		7E0F2B0B27131443002BAD7D /* NavigationControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0227131443002BAD7D /* NavigationControllerWrapper.swift */; };
 		7E0F2B0827131443002BAD7D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFE27131443002BAD7D /* NavigationRouter.swift */; };
@@ -24,6 +25,8 @@
 		7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */; };
 		7E0F2B0C27131443002BAD7D /* SHNavigationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0327131443002BAD7D /* SHNavigationPreferences.swift */; };
 		7E0F2B0D27131443002BAD7D /* SHNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0427131443002BAD7D /* SHNavigationView.swift */; };
+		7E92304E272E687E00E5F6D5 /* SessionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E92304D272E687E00E5F6D5 /* SessionAPI.swift */; };
+		7E923052272E694200E5F6D5 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E923051272E694200E5F6D5 /* SessionManager.swift */; };
 		7E59ED2C27139F60008E159E /* Tattoo in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59ED2B27139F60008E159E /* Tattoo */; };
 		7E59ED2627139F15008E159E /* Tattoo+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +48,7 @@
 		7EF5A35926C767E300EDFC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EF5A36526C767E300EDFC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E0F2B0027131443002BAD7D /* InterceptingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptingRouter.swift; sourceTree = "<group>"; };
+		7EF2D3F1272F8BE90030CBDF /* JWTUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTUtil.swift; sourceTree = "<group>"; };
 		3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		7E0F2B0227131443002BAD7D /* NavigationControllerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerWrapper.swift; sourceTree = "<group>"; };
 		7E0F2AFE27131443002BAD7D /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 		7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingManagerImpl.swift; sourceTree = "<group>"; };
 		7E0F2B0327131443002BAD7D /* SHNavigationPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationPreferences.swift; sourceTree = "<group>"; };
 		7E0F2B0427131443002BAD7D /* SHNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationView.swift; sourceTree = "<group>"; };
+		7E92304D272E687E00E5F6D5 /* SessionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionAPI.swift; sourceTree = "<group>"; };
+		7E923051272E694200E5F6D5 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		7E59ECF827139C4C008E159E /* Tattoo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Tattoo; path = ../../Packages/Tattoo; sourceTree = "<group>"; };
 		7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tattoo+Platform.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +136,22 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		7E923050272E692E00E5F6D5 /* SessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				7E923051272E694200E5F6D5 /* SessionManager.swift */,
+			);
+			path = SessionManager;
+			sourceTree = "<group>";
+		};
+		7EF2D3EF272F8AE70030CBDF /* JWT */ = {
+			isa = PBXGroup;
+			children = (
+				7EF2D3F1272F8BE90030CBDF /* JWTUtil.swift */,
+			);
+			path = JWT;
+			sourceTree = "<group>";
+		};
 		7EF5A34B26C767E200EDFC03 = {
 			isa = PBXGroup;
 			children = (
@@ -155,8 +177,10 @@
 			children = (
 				7E6542D626CDE1E600704948 /* Coordinator */,
 				7E59ED1B27139F15008E159E /* Extensions */,
+				7EF2D3EF272F8AE70030CBDF /* JWT */,
 				7EF5A36F26C767FA00EDFC03 /* ModulesAPI */,
 				7E0F2AFC27131443002BAD7D /* Routing */,
+				7E923050272E692E00E5F6D5 /* SessionManager */,
 				7EF5A35926C767E300EDFC03 /* Info.plist */,
 				7EF5A35826C767E300EDFC03 /* OEPlatform.h */,
 			);
@@ -179,6 +203,7 @@
 				3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */,
 				7E923046272E300C00E5F6D5 /* PlatformModule.swift */,
 				7E923040272E243B00E5F6D5 /* ProductionModule.swift */,
+				7E92304D272E687E00E5F6D5 /* SessionAPI.swift */,
 			);
 			path = ModulesAPI;
 			sourceTree = "<group>";
@@ -299,6 +324,7 @@
 				7E0F2B0927131443002BAD7D /* DefaultNavigationFactory.swift in Sources */,
 				422EAD79E451151AE7DBA34D /* DeviceListAPI.swift in Sources */,
 				7E0F2B0A27131443002BAD7D /* InterceptingRouter.swift in Sources */,
+				7EF2D3F2272F8BE90030CBDF /* JWTUtil.swift in Sources */,
 				62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */,
 				7E0F2B0B27131443002BAD7D /* NavigationControllerWrapper.swift in Sources */,
 				7E0F2B0827131443002BAD7D /* NavigationRouter.swift in Sources */,
@@ -309,6 +335,8 @@
 				7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */,
 				7E0F2B0C27131443002BAD7D /* SHNavigationPreferences.swift in Sources */,
 				7E0F2B0D27131443002BAD7D /* SHNavigationView.swift in Sources */,
+				7E92304E272E687E00E5F6D5 /* SessionAPI.swift in Sources */,
+				7E923052272E694200E5F6D5 /* SessionManager.swift in Sources */,
 				7E59ED2627139F15008E159E /* Tattoo+Platform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

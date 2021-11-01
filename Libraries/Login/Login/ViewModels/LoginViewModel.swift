@@ -10,9 +10,9 @@ import Combine
 import Foundation
 
 protocol LoginDelegate: AnyObject {
-    func didLogin(token: String)
-    func didRegister(email: String, password: String)
-    func didReset(email: String)
+    func didLogin(_ viewModel: LoginViewModel?, token: String)
+    func didRegister(_ viewModel: LoginViewModel?, email: String, password: String)
+    func didReset(_ viewModel: LoginViewModel?, email: String)
 }
 
 class LoginViewModel: ObservableObject {
@@ -40,7 +40,7 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] model in
                 if let token = model.data?["token"] {
-                    self?.delegate?.didLogin(token: token)
+                    self?.delegate?.didLogin(self, token: token)
                 } else {
                     self?.error = .fail(message: "Error Token")
                 }
@@ -60,7 +60,7 @@ class LoginViewModel: ObservableObject {
                     self?.error = error
                 }
             }, receiveValue: { [weak self] _ in
-                self?.delegate?.didRegister(email: email, password: password)
+                self?.delegate?.didRegister(self, email: email, password: password)
             })
             .store(in: &cancellableStore)
     }
@@ -80,7 +80,7 @@ class LoginViewModel: ObservableObject {
                     self?.error = error
                 }
             }, receiveValue: { [weak self] _ in
-                self?.delegate?.didReset(email: email)
+                self?.delegate?.didReset(self, email: email)
             })
             .store(in: &cancellableStore)
     }

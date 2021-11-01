@@ -26,15 +26,22 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
         return AnyView(LoginView(viewModel: viewModel))
     }
 
-    func didLogin(token: String) {
-        let deviceList = scope.getService(DeviceListAPI.self)
-        let coordinator = deviceList.createHomeCoordinator(router: router)
-        router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))
+    func didLogin(_ viewModel: LoginViewModel?, token: String) {
+        let session = scope.getService(SessionAPI.self)
+        if session.login(token: token) {
+            let deviceList = scope.getService(DeviceListAPI.self)
+            let coordinator = deviceList.createHomeCoordinator(router: router)
+            router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))
+        } else {
+            if let viewModel = viewModel {
+                viewModel.error = AuthError.fail(message: "Invalid token")
+            }
+        }
     }
 
-    func didRegister(email: String, password: String) {
+    func didRegister(_ viewModel: LoginViewModel?, email: String, password: String) {
     }
 
-    func didReset(email: String) {
+    func didReset(_ viewModel: LoginViewModel?, email: String) {
     }
 }
