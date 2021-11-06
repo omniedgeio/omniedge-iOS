@@ -8,6 +8,7 @@
 
 import Foundation
 import OENetwork
+import UIKit
 
 struct LoginNetworkResult: Codable {
     var message: String
@@ -48,5 +49,28 @@ struct ResetPasswordRequest: Request {
     var path: String = "/auth/reset-password/code"
     var body: [String: Any]? {
         ["email": email]
+    }
+}
+
+struct RegisterDeviceRequest: Request {
+    let token: String
+    typealias ReturnType = LoginNetworkResult
+    var path: String = "/devices/register"
+
+    var headers: [String: String]? {
+        var authHeader = Self.bearToken(token)
+        if let dict = Self.commonHeaders {
+            dict.forEach { (k, v) in
+                authHeader[k] = v
+            }
+        }
+        return authHeader
+    }
+
+    var body: [String: Any]? {
+        let uuid:String  = UIDevice.current.identifierForVendor?.uuidString ?? "hardware_uuid-1-2-3-4"
+        return ["name": "samuel_iphone",
+                "hardware_uuid": uuid,
+                "os": "iOS Omniedge"]
     }
 }

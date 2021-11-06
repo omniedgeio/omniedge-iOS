@@ -10,7 +10,7 @@ import Combine
 import Foundation
 
 protocol LoginDelegate: AnyObject {
-    func didLogin(_ viewModel: LoginViewModel?, token: String)
+    func didLogin(_ viewModel: LoginViewModel?, token: String, uuid: String)
     func didRegister(_ viewModel: LoginViewModel?, email: String, password: String)
     func didReset(_ viewModel: LoginViewModel?, email: String)
 }
@@ -31,7 +31,6 @@ class LoginViewModel: ObservableObject {
         loading = true
         dataStoreAPI.login(LoginModel(email: email, password: password))
             .sink(receiveCompletion: { [weak self] complete in
-                self?.loading = false
                 switch complete {
                 case .finished:
                     self?.error = .none
@@ -40,8 +39,9 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] model in
                 if let token = model.data?["token"] {
-                    self?.delegate?.didLogin(self, token: token)
+                    self?.registerDevice(token)
                 } else {
+                    self?.loading = false
                     self?.error = .fail(message: "Error Token")
                 }
             })
@@ -94,5 +94,25 @@ class LoginViewModel: ObservableObject {
 
     func isPasswordInvalid(password: String) -> Bool {
         return (!Validation.checkPasswordLength(password) || !Validation.checkPasswordCharacterSet(password)) && !password.isEmpty
+    }
+
+    private func registerDevice(_ token: String) {
+        dataStoreAPI.registerDevice(token)
+            .sink(receiveCompletion: { [weak self] complete in
+                self?.loading = false
+                switch complete {
+                case .finished:
+                    self?.error = .none
+                case .failure(let error):
+                    self?.error = error
+                }
+            }, receiveValue: { [weak self] model in
+                if let uuid = model.data?["uuid"] {
+                    self?.delegate?.didLogin(self, token: token, uuid: uuid)
+                } else {
+                    self?.error = .fail(message: "Register Device Error")
+                }
+            })
+            .store(in: &cancellableStore)
     }
 }

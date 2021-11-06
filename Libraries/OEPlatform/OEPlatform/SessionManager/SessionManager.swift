@@ -15,6 +15,7 @@ public class SessionManager: SessionAPI {
     static private let expireKey = "exp"
     static private let nameKey = "name"
     static private let emailKey = "email"
+    static private let uuidKey = "uuid"
     static private let pictureURLKey = "imageURL"
 
     public var user: User?
@@ -24,7 +25,7 @@ public class SessionManager: SessionAPI {
         loadFromKeychain()
     }
 
-    public func login(token: String) -> Bool {
+    public func login(token: String, uuid: String) -> Bool {
         let keychain = Keychain(service: Self.guid)
 
         let dict = JWTUtil.decode(jwtToken: token)
@@ -44,6 +45,7 @@ public class SessionManager: SessionAPI {
             keychain[Self.expireKey] = expire
         }
 
+        keychain[Self.uuidKey] = uuid
         keychain[Self.tokenKey] = token
 
         return loadFromKeychain()
@@ -68,8 +70,8 @@ public class SessionManager: SessionAPI {
             expire = Date(timeIntervalSince1970: time)
         }
 
-        if let token = keychain[Self.tokenKey], let name = keychain[Self.nameKey], let email = keychain[Self.emailKey] {
-            user = User(name: name, email: email, token: token, picture: keychain[Self.pictureURLKey])
+        if let token = keychain[Self.tokenKey], let name = keychain[Self.nameKey], let email = keychain[Self.emailKey], let uuid = keychain[Self.uuidKey] {
+            user = User(name: name, email: email, uuid: uuid, token: token, picture: keychain[Self.pictureURLKey])
             return true
         }
 

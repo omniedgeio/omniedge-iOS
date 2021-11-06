@@ -26,9 +26,9 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
         return AnyView(LoginView(viewModel: viewModel))
     }
 
-    func didLogin(_ viewModel: LoginViewModel?, token: String) {
+    func didLogin(_ viewModel: LoginViewModel?, token: String, uuid: String) {
         let session = scope.getService(SessionAPI.self)
-        if session.login(token: token) {
+        if session.login(token: token, uuid: uuid) {
             if let user = session.user {
                 let deviceList = scope.getService(DeviceListAPI.self)
                 let coordinator = deviceList.createHomeCoordinator(router: router, user: user)

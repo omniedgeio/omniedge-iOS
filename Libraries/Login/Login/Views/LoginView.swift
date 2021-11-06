@@ -114,12 +114,13 @@ struct LoginView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.top)
 
-                Spacer()
+                ZStack {
+                    Spacer()
+                    if viewModel.error != AuthError.none {
+                        AlertView(viewModel.error.localizedDescription).padding()
+                    }
+                }
             }.padding()
-
-            if viewModel.error != AuthError.none {
-                AlertView(viewModel.error.localizedDescription).padding()
-            }
 
             //sinner
             if viewModel.loading {

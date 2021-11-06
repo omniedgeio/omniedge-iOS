@@ -25,9 +25,17 @@ public protocol Request {
 
 // MARK: - Default For Protocl
 public extension Request {
+    static var commonHeaders: [String: String]? {
+        return ["User-Agent": "OmniEdge iOS", "Accept": "*/*", "Content-Type": "application/json"]
+    }
+
+    static func bearToken(_ token: String) -> [String: String] {
+        return ["Authorization": "Bearer \(token)"]
+    }
+
     var method: HTTPMethod { return .post } //default POST
     var headers: [String: String]? {
-        return ["User-Agent": "OmniEdge iOS", "Accept": "*/*", "Content-Type": "application/json"]
+        return Self.commonHeaders
     }
     var contentType: String { return "application/json" }
     var body: [String: Any]? { return nil }

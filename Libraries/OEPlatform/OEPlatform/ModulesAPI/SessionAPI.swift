@@ -10,12 +10,13 @@ import Foundation
 public struct User {
     var name: String
     var email: String
+    var uuid: String
     var token: String
     var picture: String?
 }
 
 public protocol SessionAPI {
-    func login(token: String) -> Bool
+    func login(token: String, uuid: String) -> Bool
     func logout()
     var user: User? { get }
 }

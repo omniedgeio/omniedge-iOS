@@ -10,6 +10,17 @@ import Combine
 import OENetwork
 
 class LoginDataStoreProvider: LoginDataStoreAPI {
+    func registerDevice(_ token: String) -> AnyPublisher<LoginResult, AuthError> {
+        return network.dispatch(RegisterDeviceRequest(token: token))
+            .map({ result in
+                return LoginResult(message: result.message, data: result.data)
+            })
+            .mapError { error in
+                return AuthError.fail(message: error.localizedDescription)
+            }
+            .eraseToAnyPublisher()
+    }
+
     private var cancellables = [AnyCancellable]()
     private let network = OENetwork(baseURL: "https://dev.omniedge.io/api")
 

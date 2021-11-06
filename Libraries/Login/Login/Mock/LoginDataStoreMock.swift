@@ -11,6 +11,17 @@ import Combine
 #if DEBUG
 
 class LoginDataStoreMock: LoginDataStoreAPI {
+    func registerDevice(_ token: String) -> AnyPublisher<LoginResult, AuthError> {
+        let result = LoginResult(message: "Register successfully", data: ["token": "sdufifjsf&6sfsSFsljfsdlkj112@3kjflj"])
+        return Deferred {
+            Future { promise in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    promise(Result.success(result))
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
+
     func login(_ model: LoginModel) -> AnyPublisher<LoginResult, AuthError> {
         let result = LoginResult(message: "Login successfully", data: ["token": "sdufifjsf&6sfsSFsljfsdlkj112@3kjflj"])
         return Deferred {
