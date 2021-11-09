@@ -52,20 +52,21 @@ struct ResetPasswordRequest: Request {
     }
 }
 
+/*
+ //register device
+ {
+     "message": "Register device successfully",
+     "data": {
+         "uuid": "1534e554-25f8-47ec-9b53-14f37a58f7b0",
+         "name": "GL-MIFI",
+         "os": "OpenWrt GCC 7.3.0 r7258-5eb055306f"
+     }
+ }
+ */
 struct RegisterDeviceRequest: Request {
-    let token: String
+    let token: String?
     typealias ReturnType = LoginNetworkResult
     var path: String = "/devices/register"
-
-    var headers: [String: String]? {
-        var authHeader = Self.bearToken(token)
-        if let dict = Self.commonHeaders {
-            dict.forEach { (k, v) in
-                authHeader[k] = v
-            }
-        }
-        return authHeader
-    }
 
     var body: [String: Any]? {
         let uuid:String  = UIDevice.current.identifierForVendor?.uuidString ?? "hardware_uuid-1-2-3-4"

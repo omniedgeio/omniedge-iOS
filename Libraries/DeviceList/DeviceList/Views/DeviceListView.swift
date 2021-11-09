@@ -6,12 +6,13 @@
 //  
 //
 
+import Combine
 import OEUIKit
 import SwiftUI
 
 public struct DeviceListView: View {
-    @State private var query = ""
-    public init() {}
+    @ObservedObject var viewModel: DeviceListViewModel
+
     public var body: some View {
         ZStack {
             Color.OME.background.onTapGesture {
@@ -21,13 +22,15 @@ public struct DeviceListView: View {
             VStack(spacing: 12) {
                 TextLogo {
                 }
-                OMESearchBar(placeholder: "Search", searchQuery: $query).cornerRadius(10)
+                OMESearchBar(placeholder: "Search", searchQuery: $viewModel.query).cornerRadius(10)
 
                 HostDeviceInfoView()
                     .background(Color.white)
                     .cornerRadius(10)
 
-                Button(action: {}, label: {
+                Button(action: {
+                    viewModel.logout()
+                }, label: {
                     Text("Ping Device")
                 }).buttonStyle(TertiaryButtonStyle())
 
@@ -112,6 +115,6 @@ struct TextLogo: View {
 
 struct DeviceList_Previews: PreviewProvider {
     static var previews: some View {
-        DeviceListView()
+        DeviceListView(viewModel: DeviceListViewModel())
     }
 }

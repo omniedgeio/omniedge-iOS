@@ -21,6 +21,15 @@ class DeviceListCoordinatorImpl: DeviceListCoordinator {
     }
 
     func createHomePage() -> AnyView {
-        return AnyView(DeviceListView())
+        let viewModel = DeviceListViewModel()
+        viewModel.delegate = self
+        return AnyView(DeviceListView(viewModel: viewModel))
+    }
+}
+
+extension DeviceListCoordinatorImpl: DeviceListDelegate {
+    func logout() {
+        let session = scope.getService(SessionAPI.self)
+        session.logout()
     }
 }
