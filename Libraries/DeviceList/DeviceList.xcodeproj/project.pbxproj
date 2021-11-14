@@ -20,11 +20,11 @@
 		7E001D7527369FF700518F9D /* DeviceListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D7427369FF700518F9D /* DeviceListDataProvider.swift */; };
 		7E001D772736A1B300518F9D /* DeviceListDataProvider+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D762736A1B300518F9D /* DeviceListDataProvider+Mock.swift */; };
 		7E001D792736A29D00518F9D /* DeviceListDataNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D782736A29D00518F9D /* DeviceListDataNetwork.swift */; };
+		7E2A2847273D3D2B0023BDB6 /* OENetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7E2A2846273D3D2B0023BDB6 /* OENetwork */; };
 		7E485EE22739476D00C3D486 /* OENetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7E485EE12739476D00C3D486 /* OENetwork */; };
 		7E485EE52739495100C3D486 /* DeviceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E485EE42739495000C3D486 /* DeviceListViewModel.swift */; };
 		7E923045272E282C00E5F6D5 /* DeviceListCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E923044272E282C00E5F6D5 /* DeviceListCoordinatorImpl.swift */; };
 		7EAE2EE0271310C5000156BC /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE2EDF271310C5000156BC /* DeviceListView.swift */; };
-		8D8B0B470D156C7330CD5DC1 /* DeviceList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B4521DF22214F97166BD2434 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7A00A754BBBB4B90F3E3B1CB /* OEUIKit */; };
 		BFFE2344E062C9E963EC35CB /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E519725A9AAE3057B08D7E /* OEPlatform.framework */; };
 		CFD731D47495C0723EF8B608 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81157FE36659379C053D0EC3 /* OEUIKit */; };
@@ -86,17 +86,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1E8F8B4241B73C725593BB1D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8D8B0B470D156C7330CD5DC1 /* DeviceList.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D7E636BB5FF854AA9423F3EE /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +117,7 @@
 		7E001D7427369FF700518F9D /* DeviceListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListDataProvider.swift; sourceTree = "<group>"; };
 		7E001D762736A1B300518F9D /* DeviceListDataProvider+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceListDataProvider+Mock.swift"; sourceTree = "<group>"; };
 		7E001D782736A29D00518F9D /* DeviceListDataNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListDataNetwork.swift; sourceTree = "<group>"; };
+		7E2A2844273D3D0B0023BDB6 /* OENetwork */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OENetwork; path = ../../Packages/OENetwork; sourceTree = "<group>"; };
 		7E485EE42739495000C3D486 /* DeviceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewModel.swift; sourceTree = "<group>"; };
 		7E923044272E282C00E5F6D5 /* DeviceListCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListCoordinatorImpl.swift; sourceTree = "<group>"; };
 		7EAE2EDF271310C5000156BC /* DeviceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListView.swift; sourceTree = "<group>"; };
@@ -148,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E2A2847273D3D2B0023BDB6 /* OENetwork in Frameworks */,
 				4CD8561E1AE56CC7E0C74424 /* DeviceList.framework in Frameworks */,
 				D3C800A689BF2113D54624A0 /* OEUIKit in Frameworks */,
 			);
@@ -217,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				63EAAE146F36197394E70AFC /* OEUIKit */,
+				7E2A2844273D3D0B0023BDB6 /* OENetwork */,
 			);
 			name = Packages;
 			sourceTree = SOURCE_ROOT;
@@ -406,17 +398,18 @@
 				4B6B41004CDECE3C12F48EF4 /* Sources */,
 				516FACE068E2735C77BCC15F /* Resources */,
 				05AD725C871203664CEF1C08 /* Frameworks */,
-				1E8F8B4241B73C725593BB1D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7E2A2849273D3D340023BDB6 /* PBXTargetDependency */,
 				A168E4DC0E9D6EF7FE506077 /* PBXTargetDependency */,
 				EB89861A6518B8943B53CB48 /* PBXTargetDependency */,
 			);
 			name = DeviceListDemo;
 			packageProductDependencies = (
 				7672717DD5155417F8BA3521 /* OEUIKit */,
+				7E2A2846273D3D2B0023BDB6 /* OENetwork */,
 			);
 			productName = DeviceListDemo;
 			productReference = 73A428C4E8319D2E53B352B2 /* DeviceListDemo.app */;
@@ -544,6 +537,10 @@
 			isa = PBXTargetDependency;
 			target = 5479CA4A68B7B9E7A7924BF2 /* DeviceList */;
 			targetProxy = 7FF4023D3A6FACD943C52F5D /* PBXContainerItemProxy */;
+		};
+		7E2A2849273D3D340023BDB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 7E2A2848273D3D340023BDB6 /* OENetwork */;
 		};
 		A168E4DC0E9D6EF7FE506077 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -690,6 +687,14 @@
 		7A00A754BBBB4B90F3E3B1CB /* OEUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OEUIKit;
+		};
+		7E2A2846273D3D2B0023BDB6 /* OENetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OENetwork;
+		};
+		7E2A2848273D3D340023BDB6 /* OENetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OENetwork;
 		};
 		7E485EE12739476D00C3D486 /* OENetwork */ = {
 			isa = XCSwiftPackageProductDependency;
