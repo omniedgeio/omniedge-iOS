@@ -23,6 +23,7 @@
 		7E3C3C4E2748700600830824 /* OENetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3C3C4D2748700600830824 /* OENetwork */; };
 		7E3C3C502748700B00830824 /* OEDI in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3C3C4F2748700B00830824 /* OEDI */; };
 		7E3C3C522748702E00830824 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3C3C512748702E00830824 /* OEUIKit */; };
+		7E3C3C56274870BD00830824 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3C3C55274870BD00830824 /* NetworkExtension.framework */; };
 		7E659A562715B94E006EFB78 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E659A522715B94E006EFB78 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +151,9 @@
 		7E294A1D26C76C2F008DEA5D /* OmniedgeNewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniedgeNewUITests.swift; sourceTree = "<group>"; };
 		7E294A1F26C76C2F008DEA5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E3C3C4927486E5C00830824 /* OmniedgeNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniedgeNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E3C3C532748708100830824 /* OmniedgeNew.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmniedgeNew.entitlements; sourceTree = "<group>"; };
+		7E3C3C542748709600830824 /* OmniedgeNewRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmniedgeNewRelease.entitlements; sourceTree = "<group>"; };
+		7E3C3C55274870BD00830824 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		7E659A522715B94E006EFB78 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7E659A572715B960006EFB78 /* DeviceList.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DeviceList.xcodeproj; path = DeviceList/DeviceList.xcodeproj; sourceTree = "<group>"; };
 		7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEPlatform.xcodeproj; path = OEPlatform/OEPlatform.xcodeproj; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				7E3C3C3F27486E5A00830824 /* DeviceList.framework in Frameworks */,
 				7E3C3C522748702E00830824 /* OEUIKit in Frameworks */,
 				7E01CBBA272F9DC100E76A47 /* KeychainAccess in Frameworks */,
+				7E3C3C56274870BD00830824 /* NetworkExtension.framework in Frameworks */,
 				7E3C3C4E2748700600830824 /* OENetwork in Frameworks */,
 				7E3C3C502748700B00830824 /* OEDI in Frameworks */,
 			);
@@ -215,6 +220,8 @@
 		7E2949FF26C76C2D008DEA5D /* OmniedgeNew */ = {
 			isa = PBXGroup;
 			children = (
+				7E3C3C542748709600830824 /* OmniedgeNewRelease.entitlements */,
+				7E3C3C532748708100830824 /* OmniedgeNew.entitlements */,
 				7E659A512715B94E006EFB78 /* Coordinator */,
 				7E294A0626C76C2E008DEA5D /* Preview Content */,
 				7E294A0426C76C2E008DEA5D /* Assets.xcassets */,
@@ -292,6 +299,7 @@
 		7ED460A226C774D300FF4870 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E3C3C55274870BD00830824 /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -694,6 +702,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OmniedgeNew/OmniedgeNew.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Liantao Song (T4RJ424F3J)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
@@ -718,6 +727,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OmniedgeNew/OmniedgeNewRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Liantao Song (T4RJ424F3J)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
