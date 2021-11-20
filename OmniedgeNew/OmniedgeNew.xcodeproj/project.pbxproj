@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		7E01CBBA272F9DC100E76A47 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 7E01CBB9272F9DC100E76A47 /* KeychainAccess */; };
 		7E0D0AE92748776000E1D37D /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3C3C55274870BD00830824 /* NetworkExtension.framework */; };
-		7E0D0AF22748776000E1D37D /* Tunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7E0D0AE82748775F00E1D37D /* Tunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7E0D0AF9274877F400E1D37D /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D0AF8274877F400E1D37D /* PacketTunnelProvider.swift */; };
-		7E0D0AFF2748782D00E1D37D /* OmniEdgeUDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D0AFD2748782D00E1D37D /* OmniEdgeUDP.swift */; };
-		7E0D0B002748782D00E1D37D /* PacketTunnelEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D0AFE2748782D00E1D37D /* PacketTunnelEngine.swift */; };
 		7E294A0126C76C2D008DEA5D /* OmniedgeNewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E294A0026C76C2D008DEA5D /* OmniedgeNewApp.swift */; };
 		7E294A0326C76C2D008DEA5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E294A0226C76C2D008DEA5D /* ContentView.swift */; };
 		7E294A0526C76C2E008DEA5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E294A0426C76C2E008DEA5D /* Assets.xcassets */; };
@@ -30,6 +26,12 @@
 		7E3C3C522748702E00830824 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3C3C512748702E00830824 /* OEUIKit */; };
 		7E3C3C56274870BD00830824 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3C3C55274870BD00830824 /* NetworkExtension.framework */; };
 		7E659A562715B94E006EFB78 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E659A522715B94E006EFB78 /* AppCoordinator.swift */; };
+		7E9F8E4127491D2D0033CDBF /* OmniedgeDylib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB65B6E2748765E005FEA9F /* OmniedgeDylib.framework */; };
+		7EAEEBCA274919F50009D046 /* OmniEdgeUDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEEBC6274919F50009D046 /* OmniEdgeUDP.swift */; };
+		7EAEEBCB274919F50009D046 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEEBC7274919F50009D046 /* PacketTunnelProvider.swift */; };
+		7EAEEBCC274919F50009D046 /* PacketTunnelEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEEBC8274919F50009D046 /* PacketTunnelEngine.swift */; };
+		7EAEEBD027491A430009D046 /* edge_ios_oc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEEBCE27491A430009D046 /* edge_ios_oc.m */; };
+		7EAEEBDA27491AFB0009D046 /* libn2n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAEEBD727491AE90009D046 /* libn2n.a */; };
 		7EB65B7127487672005FEA9F /* OmniedgeDylib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB65B6E2748765E005FEA9F /* OmniedgeDylib.framework */; };
 		7EB65B722748767D005FEA9F /* OmniedgeDylib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB65B6E2748765E005FEA9F /* OmniedgeDylib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -105,6 +107,27 @@
 			remoteGlobalIDString = 5479CA4A68B7B9E7A7924BF2;
 			remoteInfo = DeviceList;
 		};
+		7E9F8E3F27491D230033CDBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EB65B692748765E005FEA9F /* OmniedgeDylib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E31228D274874A5000391CE;
+			remoteInfo = OmniedgeDylib;
+		};
+		7EAEEBD627491AE90009D046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EAEEBD227491AE90009D046 /* n2n.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EFA8E7D265E248D006B1EE1;
+			remoteInfo = n2n;
+		};
+		7EAEEBD827491AF50009D046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EAEEBD227491AE90009D046 /* n2n.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EFA8E7C265E248D006B1EE1;
+			remoteInfo = n2n;
+		};
 		7EB65B6D2748765E005FEA9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7EB65B692748765E005FEA9F /* OmniedgeDylib.xcodeproj */;
@@ -156,7 +179,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				7E0D0AF22748776000E1D37D /* Tunnel.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,15 +201,6 @@
 
 /* Begin PBXFileReference section */
 		62A324E70C5E21EEBE2D1D3C /* Login.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Login.xcodeproj; path = ../Libraries/Login/Login.xcodeproj; sourceTree = "<group>"; };
-		7E0D0ADD2748771B00E1D37D /* OmniedgeNewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewTests.xctest; path = "/Users/samuel/OmniEdge/gitlab/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewTests.xctest"; sourceTree = "<absolute>"; };
-		7E0D0ADE2748771B00E1D37D /* OmniedgeNewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewUITests.xctest; path = "/Users/samuel/OmniEdge/gitlab/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewUITests.xctest"; sourceTree = "<absolute>"; };
-		7E0D0AE82748775F00E1D37D /* Tunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Tunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E0D0AF32748776000E1D37D /* OmniedgeNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniedgeNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E0D0AF8274877F400E1D37D /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PacketTunnelProvider.swift; path = ../../Tunnel/PacketTunnelProvider.swift; sourceTree = "<group>"; };
-		7E0D0AFC2748781F00E1D37D /* Tunnel.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = Tunnel.entitlements; path = ../../Tunnel/Tunnel.entitlements; sourceTree = "<group>"; };
-		7E0D0AFD2748782D00E1D37D /* OmniEdgeUDP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OmniEdgeUDP.swift; path = ../../Tunnel/OmniEdgeUDP.swift; sourceTree = "<group>"; };
-		7E0D0AFE2748782D00E1D37D /* PacketTunnelEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PacketTunnelEngine.swift; path = ../../Tunnel/PacketTunnelEngine.swift; sourceTree = "<group>"; };
-		7E0D0B0727487B3600E1D37D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Tunnel/Info.plist; sourceTree = "<group>"; };
 		7E294A0026C76C2D008DEA5D /* OmniedgeNewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniedgeNewApp.swift; sourceTree = "<group>"; };
 		7E294A0226C76C2D008DEA5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7E294A0426C76C2E008DEA5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,6 +215,17 @@
 		7E3C3C55274870BD00830824 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		7E659A522715B94E006EFB78 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7E659A572715B960006EFB78 /* DeviceList.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DeviceList.xcodeproj; path = DeviceList/DeviceList.xcodeproj; sourceTree = "<group>"; };
+		7E9F8E2A27491C0B0033CDBF /* OmniedgeNewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewTests.xctest; path = "/Users/samuel/OmniEdge/gitlab/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewTests.xctest"; sourceTree = "<absolute>"; };
+		7E9F8E2B27491C0B0033CDBF /* OmniedgeNewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewUITests.xctest; path = "/Users/samuel/OmniEdge/gitlab/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewUITests.xctest"; sourceTree = "<absolute>"; };
+		7E9F8E3D27491C410033CDBF /* Tunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Tunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E9F8E3E27491C6C0033CDBF /* OmniedgeNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniedgeNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EAEEBC5274919F50009D046 /* Tunnel.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Tunnel.entitlements; sourceTree = "<group>"; };
+		7EAEEBC6274919F50009D046 /* OmniEdgeUDP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmniEdgeUDP.swift; sourceTree = "<group>"; };
+		7EAEEBC7274919F50009D046 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		7EAEEBC8274919F50009D046 /* PacketTunnelEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketTunnelEngine.swift; sourceTree = "<group>"; };
+		7EAEEBCE27491A430009D046 /* edge_ios_oc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = edge_ios_oc.m; path = ../n2n/src/main/cpp/ios/edge_ios_oc.m; sourceTree = "<group>"; };
+		7EAEEBCF27491A430009D046 /* edge_ios_oc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = edge_ios_oc.h; path = ../n2n/src/main/cpp/ios/edge_ios_oc.h; sourceTree = "<group>"; };
+		7EAEEBD227491AE90009D046 /* n2n.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = n2n.xcodeproj; path = ../n2n/src/main/cpp/ios/n2n.xcodeproj; sourceTree = "<group>"; };
 		7EB65B692748765E005FEA9F /* OmniedgeDylib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OmniedgeDylib.xcodeproj; path = ../OmniedgeDylib/OmniedgeDylib.xcodeproj; sourceTree = "<group>"; };
 		7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEPlatform.xcodeproj; path = OEPlatform/OEPlatform.xcodeproj; sourceTree = "<group>"; };
 		7EF9725F26C8886B00B214A8 /* AllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllTests.xctestplan; sourceTree = "<group>"; };
@@ -212,6 +236,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E9F8E4127491D2D0033CDBF /* OmniedgeDylib.framework in Frameworks */,
+				7EAEEBDA27491AFB0009D046 /* libn2n.a in Frameworks */,
 				7E0D0AE92748776000E1D37D /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,23 +275,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7E0D0AEA2748776000E1D37D /* Tunnel */ = {
-			isa = PBXGroup;
-			children = (
-				7E0D0B0727487B3600E1D37D /* Info.plist */,
-				7E0D0AFD2748782D00E1D37D /* OmniEdgeUDP.swift */,
-				7E0D0AFE2748782D00E1D37D /* PacketTunnelEngine.swift */,
-				7E0D0AF8274877F400E1D37D /* PacketTunnelProvider.swift */,
-				7E0D0AFC2748781F00E1D37D /* Tunnel.entitlements */,
-			);
-			path = Tunnel;
-			sourceTree = "<group>";
-		};
 		7E2949F426C76C2D008DEA5D = {
 			isa = PBXGroup;
 			children = (
+				7EAEEBD227491AE90009D046 /* n2n.xcodeproj */,
+				7EAEEBC4274919F50009D046 /* Tunnel */,
 				7EB65B692748765E005FEA9F /* OmniedgeDylib.xcodeproj */,
-				7E0D0AEA2748776000E1D37D /* Tunnel */,
 				7ED460A226C774D300FF4870 /* Frameworks */,
 				7ED4608026C774AF00FF4870 /* Libraries */,
 				7E2949FF26C76C2D008DEA5D /* OmniedgeNew */,
@@ -282,8 +297,8 @@
 				7077C9A16102209123401BD1 /* Login.framework */,
 				97756A587B2525F2C64761EC /* LoginDemo.app */,
 				FB0E2B5017107E8C9B8D75EA /* LoginTests.xctest */,
-				7E0D0AE82748775F00E1D37D /* Tunnel.appex */,
-				7E0D0AF32748776000E1D37D /* OmniedgeNew.app */,
+				7E9F8E3D27491C410033CDBF /* Tunnel.appex */,
+				7E9F8E3E27491C6C0033CDBF /* OmniedgeNew.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,6 +362,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7EAEEBC4274919F50009D046 /* Tunnel */ = {
+			isa = PBXGroup;
+			children = (
+				7EAEEBC5274919F50009D046 /* Tunnel.entitlements */,
+				7EAEEBC6274919F50009D046 /* OmniEdgeUDP.swift */,
+				7EAEEBCF27491A430009D046 /* edge_ios_oc.h */,
+				7EAEEBCE27491A430009D046 /* edge_ios_oc.m */,
+				7EAEEBC7274919F50009D046 /* PacketTunnelProvider.swift */,
+				7EAEEBC8274919F50009D046 /* PacketTunnelEngine.swift */,
+			);
+			name = Tunnel;
+			path = ../Tunnel;
+			sourceTree = "<group>";
+		};
+		7EAEEBD327491AE90009D046 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EAEEBD727491AE90009D046 /* libn2n.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7EB65B6A2748765E005FEA9F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,10 +434,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				7E9F8E4027491D230033CDBF /* PBXTargetDependency */,
+				7EAEEBD927491AF50009D046 /* PBXTargetDependency */,
 			);
 			name = Tunnel;
 			productName = Tunnel;
-			productReference = 7E0D0AE82748775F00E1D37D /* Tunnel.appex */;
+			productReference = 7E9F8E3D27491C410033CDBF /* Tunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		7E2949FC26C76C2D008DEA5D /* OmniedgeNew */ = {
@@ -431,7 +470,7 @@
 				7E3C3C512748702E00830824 /* OEUIKit */,
 			);
 			productName = OmniedgeNew;
-			productReference = 7E0D0AF32748776000E1D37D /* OmniedgeNew.app */;
+			productReference = 7E9F8E3E27491C6C0033CDBF /* OmniedgeNew.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7E294A0D26C76C2F008DEA5D /* OmniedgeNewTests */ = {
@@ -449,7 +488,7 @@
 			);
 			name = OmniedgeNewTests;
 			productName = OmniedgeNewTests;
-			productReference = 7E0D0ADD2748771B00E1D37D /* OmniedgeNewTests.xctest */;
+			productReference = 7E9F8E2A27491C0B0033CDBF /* OmniedgeNewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		7E294A1826C76C2F008DEA5D /* OmniedgeNewUITests */ = {
@@ -467,7 +506,7 @@
 			);
 			name = OmniedgeNewUITests;
 			productName = OmniedgeNewUITests;
-			productReference = 7E0D0ADE2748771B00E1D37D /* OmniedgeNewUITests.xctest */;
+			productReference = 7E9F8E2B27491C0B0033CDBF /* OmniedgeNewUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -520,6 +559,10 @@
 					ProjectRef = 62A324E70C5E21EEBE2D1D3C /* Login.xcodeproj */;
 				},
 				{
+					ProductGroup = 7EAEEBD327491AE90009D046 /* Products */;
+					ProjectRef = 7EAEEBD227491AE90009D046 /* n2n.xcodeproj */;
+				},
+				{
 					ProductGroup = 7ED4609826C774C000FF4870 /* Products */;
 					ProjectRef = 7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */;
 				},
@@ -565,6 +608,13 @@
 			fileType = wrapper.cfbundle;
 			path = DeviceListTests.xctest;
 			remoteRef = 7E659A622715B960006EFB78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7EAEEBD727491AE90009D046 /* libn2n.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libn2n.a;
+			remoteRef = 7EAEEBD627491AE90009D046 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7EB65B6E2748765E005FEA9F /* OmniedgeDylib.framework */ = {
@@ -642,9 +692,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E0D0AF9274877F400E1D37D /* PacketTunnelProvider.swift in Sources */,
-				7E0D0B002748782D00E1D37D /* PacketTunnelEngine.swift in Sources */,
-				7E0D0AFF2748782D00E1D37D /* OmniEdgeUDP.swift in Sources */,
+				7EAEEBD027491A430009D046 /* edge_ios_oc.m in Sources */,
+				7EAEEBCB274919F50009D046 /* PacketTunnelProvider.swift in Sources */,
+				7EAEEBCC274919F50009D046 /* PacketTunnelEngine.swift in Sources */,
+				7EAEEBCA274919F50009D046 /* OmniEdgeUDP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +757,16 @@
 			name = DeviceList;
 			targetProxy = 7E659A642715B96B006EFB78 /* PBXContainerItemProxy */;
 		};
+		7E9F8E4027491D230033CDBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OmniedgeDylib;
+			targetProxy = 7E9F8E3F27491D230033CDBF /* PBXContainerItemProxy */;
+		};
+		7EAEEBD927491AF50009D046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = n2n;
+			targetProxy = 7EAEEBD827491AF50009D046 /* PBXContainerItemProxy */;
+		};
 		7EB65B702748766A005FEA9F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = OmniedgeDylib;
@@ -730,7 +791,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S4K8QNVVRR;
 				DONT_GENERATE_INFOPLIST_FILE = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					__IOS_PLATFORM__,
+					TUNNEL_BRIDGE,
+					UIP_CONF_EXTERNAL_BUFFER,
+					"DEBUG=1",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../n2n/src/main/cpp/edge_jni\"";
 				INFOPLIST_FILE = ../Tunnel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tunnel;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -764,7 +832,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S4K8QNVVRR;
 				DONT_GENERATE_INFOPLIST_FILE = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					__IOS_PLATFORM__,
+					TUNNEL_BRIDGE,
+					UIP_CONF_EXTERNAL_BUFFER,
+				);
 				GENERATE_INFOPLIST_FILE = NO;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../n2n/src/main/cpp/edge_jni\"";
 				INFOPLIST_FILE = ../Tunnel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tunnel;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -918,6 +992,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
 				DEVELOPMENT_TEAM = S4K8QNVVRR;
 				ENABLE_PREVIEWS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					OMNIEDGE_BRIDGE,
+					__IOS_PLATFORM__,
+				);
 				INFOPLIST_FILE = OmniedgeNew/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -944,6 +1024,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
 				DEVELOPMENT_TEAM = S4K8QNVVRR;
 				ENABLE_PREVIEWS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					OMNIEDGE_BRIDGE,
+					__IOS_PLATFORM__,
+				);
 				INFOPLIST_FILE = OmniedgeNew/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
