@@ -10,7 +10,6 @@
 		7EB65B5827487512005FEA9F /* OmniEdgeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB65B5527487512005FEA9F /* OmniEdgeConfig.swift */; };
 		7EB65B5927487512005FEA9F /* OmniedgeDylib.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB65B5627487512005FEA9F /* OmniedgeDylib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EB65B5A27487512005FEA9F /* OmniEdgeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB65B5727487512005FEA9F /* OmniEdgeLog.swift */; };
-		7EB65B5C27487579005FEA9F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EB65B5B27487579005FEA9F /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,7 +120,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EB65B5C27487579005FEA9F /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +174,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DONT_GENERATE_INFOPLIST_FILE = YES;
+				DONT_GENERATE_INFOPLIST_FILE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -242,7 +240,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DONT_GENERATE_INFOPLIST_FILE = YES;
+				DONT_GENERATE_INFOPLIST_FILE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -269,6 +267,7 @@
 		7E312296274874A5000391CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -300,6 +299,7 @@
 		7E312297274874A5000391CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
