@@ -41,6 +41,7 @@ class AppCoordinator: Coordinator {
         scope.registerModule(SessionAPI.self, SessionManager.init)
         scope.registerModule(LoginAPI.self, Login.init)
         scope.registerModule(DeviceListAPI.self, DeviceList.init)
+        scope.registerModule(UserAPI.self, UserManager.init)
     }
 
     private var loginView: AnyView {

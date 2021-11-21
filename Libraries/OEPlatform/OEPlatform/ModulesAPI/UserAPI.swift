@@ -24,4 +24,5 @@ public struct NetworkInfo {
 public protocol UserAPI {
     func createUser(token: String) -> User?
     func user(email: String) -> User?
+    func setUser(_ user: User, for email: String)
 }

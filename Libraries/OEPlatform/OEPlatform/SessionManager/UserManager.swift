@@ -7,10 +7,22 @@
 
 import Foundation
 import KeychainAccess
+import Tattoo
 
 public class UserManager: UserAPI {
+    public init(scope: Scope) {
+    }
+
     public func user(email: String) -> User? {
-        return User(email: "", name: "")
+        if let user = UserDefaults.standard.value(forKey: email) as? User {
+            return user
+        } else {
+            return nil
+        }
+    }
+
+    public func setUser(_ user: User, for email: String) {
+        UserDefaults.standard.set(user, forKey: email)
     }
 
     public func createUser(token: String) -> User? {
@@ -18,18 +30,15 @@ public class UserManager: UserAPI {
         guard !dict.isEmpty else {
             return nil
         }
-
-        let writter = UserDefaults.standard
-
         guard let email = dict[Session.emailKey] as? String, let name = dict[Session.nameKey] as? String else {
             return nil
         }
-        writter.set(email, forKey: Session.emailKey)
-        writter.set(name, forKey: Session.nameKey)
-
+        var user = User(email: email, name: name)
         if let imageURL = dict[Session.pictureURLKey] as? String {
-            writter.set(imageURL, forKey: Session.pictureURLKey)
+            user.picture = imageURL
         }
-        return User(email: email, name: name)
+
+        UserDefaults.standard.set(user, forKey: email)
+        return user
     }
 }

@@ -43,6 +43,7 @@ struct LoginView: View {
                         .inputButtonAppearance()
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
 
                     if viewModel.isEmailInvalid(email: email) {
                         InvalidEntryView(isInvalid: true, message: "Invalid Email Address")

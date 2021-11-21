@@ -70,6 +70,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
 
         if let email = session.email(token: token), var user = userManager.user(email: email) {
             user.deviceUUID = deviceUUID
+            userManager.setUser(user, for: email)
             let deviceList = scope.getService(DeviceListAPI.self)
             let coordinator = deviceList.createHomeCoordinator(router: router, user: user)
             router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))

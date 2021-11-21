@@ -26,7 +26,8 @@ public class SessionManager: SessionAPI {
             return false
         }
         keychain[Session.tokenKey] = token
-        return loadFromKeychain()
+        self.token = token
+        return true
     }
 
     public func logout() {
