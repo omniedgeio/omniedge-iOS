@@ -7,16 +7,19 @@
 
 import Foundation
 
-public struct User {
-    var name: String
-    var email: String
-    var uuid: String
-    var token: String
-    var picture: String?
+public protocol SessionAPI {
+    func login(token: String) -> Bool
+    func logout()
+    func email(token: String) -> String?
+    var token: String? { get }
 }
 
-public protocol SessionAPI {
-    func login(token: String, uuid: String) -> Bool
-    func logout()
-    var user: User? { get }
+public struct Session {
+    static public let emailKey = "email"
+    public static let nameKey = "name"
+    static public let tokenKey = "token"
+    static public let expireKey = "exp"
+    static public let uuidKey = "uuid"
+    static public let pictureURLKey = "imageURL"
+
 }

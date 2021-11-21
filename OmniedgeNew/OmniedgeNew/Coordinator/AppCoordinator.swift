@@ -22,11 +22,18 @@ class AppCoordinator: Coordinator {
 
     lazy var contentView: AnyView = {
         let session = scope.getService(SessionAPI.self)
-        if let user = session.user {
-            return homeView(user)
-        } else {
-            return loginView
+        let userManager = scope.getService(UserAPI.self)
+
+        if let token = session.token, let email = session.email(token: token) {
+            if let user = userManager.user(email: email) {
+                return homeView(user)
+            } else {
+                if let user = userManager.createUser(token: token) {
+                    return homeView(user)
+                }
+            }
         }
+        return loginView
     }()
 
     func bootstrap(scope: Scope) {

@@ -10,9 +10,10 @@ import Combine
 import Foundation
 
 protocol LoginDelegate: AnyObject {
-    func didLogin(_ viewModel: LoginViewModel?, token: String, uuid: String)
+    func didLogin(_ viewModel: LoginViewModel?, token: String)
     func didRegister(_ viewModel: LoginViewModel?, email: String, password: String)
     func didReset(_ viewModel: LoginViewModel?, email: String)
+    func didRegisterDevice(_ viewModel: LoginViewModel?, token: String, deviceUUID: String)
 }
 
 class LoginViewModel: ObservableObject {
@@ -39,7 +40,7 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] model in
                 if let token = model.data?["token"] {
-                    self?.registerDevice(token)
+                    self?.delegate?.didLogin(self, token: token)
                 } else {
                     self?.loading = false
                     self?.error = .fail(message: "Error Token")
@@ -96,7 +97,7 @@ class LoginViewModel: ObservableObject {
         return (!Validation.checkPasswordLength(password) || !Validation.checkPasswordCharacterSet(password)) && !password.isEmpty
     }
 
-    private func registerDevice(_ token: String) {
+    public func registerDevice(_ token: String) {
         dataStoreAPI.registerDevice(token)
             .sink(receiveCompletion: { [weak self] complete in
                 self?.loading = false
@@ -108,7 +109,7 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] model in
                 if let uuid = model.data?["uuid"] {
-                    self?.delegate?.didLogin(self, token: token, uuid: uuid)
+                    self?.delegate?.didRegisterDevice(self, token: token, deviceUUID: uuid)
                 } else {
                     self?.error = .fail(message: "Register Device Error")
                 }

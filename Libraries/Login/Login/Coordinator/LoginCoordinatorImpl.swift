@@ -26,15 +26,54 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
         return AnyView(LoginView(viewModel: viewModel))
     }
 
-    func didLogin(_ viewModel: LoginViewModel?, token: String, uuid: String) {
+    func didLogin(_ viewModel: LoginViewModel?, token: String) {
         let session = scope.getService(SessionAPI.self)
-        if session.login(token: token, uuid: uuid) {
-            if let user = session.user {
-                let deviceList = scope.getService(DeviceListAPI.self)
-                let coordinator = deviceList.createHomeCoordinator(router: router, user: user)
-                router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))
-                return
+        let userManager = scope.getService(UserAPI.self)
+        var error = false
+
+        if session.login(token: token) {
+            if let email = session.email(token: token) {
+                var currentUsr: User? = nil
+
+                if let user = userManager.user(email: email) {
+                    currentUsr = user
+                } else {
+                    currentUsr = userManager.createUser(token: token)
+                }
+
+                if let currentUsr = currentUsr {
+                    if currentUsr.deviceUUID != nil { //already registered
+                        let deviceList = scope.getService(DeviceListAPI.self)
+                        let coordinator = deviceList.createHomeCoordinator(router: router, user: currentUsr)
+                        router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))
+                    } else { //need register device
+                        viewModel?.registerDevice(token)
+                    }
+                } else {
+                    error = true
+                }
+            } else {
+                error = true
             }
+        }
+
+        if let viewModel = viewModel {
+            if error {
+                viewModel.error = AuthError.fail(message: "Invalid token")
+            }
+        }
+    }
+
+    func didRegisterDevice(_ viewModel: LoginViewModel?, token: String, deviceUUID: String) {
+        let session = scope.getService(SessionAPI.self)
+        let userManager = scope.getService(UserAPI.self)
+
+        if let email = session.email(token: token), var user = userManager.user(email: email) {
+            user.deviceUUID = deviceUUID
+            let deviceList = scope.getService(DeviceListAPI.self)
+            let coordinator = deviceList.createHomeCoordinator(router: router, user: user)
+            router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))
+            return
         }
 
         if let viewModel = viewModel {
