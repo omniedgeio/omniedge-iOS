@@ -14,7 +14,7 @@ public class UserManager: UserAPI {
     }
 
     public func user(email: String) -> User? {
-        if let user = UserDefaults.standard.value(forKey: email) as? User {
+        if let user: User? = UserDefaults.standard.getDecodable(for: email) {
             return user
         } else {
             return nil
@@ -22,7 +22,11 @@ public class UserManager: UserAPI {
     }
 
     public func setUser(_ user: User, for email: String) {
-        UserDefaults.standard.set(user, forKey: email)
+        do {
+            try UserDefaults.standard.setEncodable(user, for: email)
+        } catch {
+            //
+        }
     }
 
     public func createUser(token: String) -> User? {
@@ -38,7 +42,30 @@ public class UserManager: UserAPI {
             user.picture = imageURL
         }
 
-        UserDefaults.standard.set(user, forKey: email)
+        do {
+            try UserDefaults.standard.setEncodable(user, for: email)
+        } catch {
+            return nil
+        }
         return user
+    }
+}
+
+extension UserDefaults {
+    func setEncodable<T: Encodable>(_ encodable: T, for key: String) throws {
+        let data = try PropertyListEncoder().encode(encodable)
+        self.set(data, forKey: key)
+    }
+
+    func getDecodable<T: Decodable>(for key: String) -> T? {
+        guard
+            self.object(forKey: key) != nil,
+            let data = self.value(forKey: key) as? Data
+        else {
+            return nil
+        }
+
+        let obj = try? PropertyListDecoder().decode(T.self, from: data)
+        return obj
     }
 }

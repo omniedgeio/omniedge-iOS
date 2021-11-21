@@ -98,7 +98,7 @@ struct RegisterView: View {
     private func createPasswordView(_ title: LocalizedStringKey, text: Binding<String>) -> some View {
         return ZStack(alignment: .bottomTrailing) {
             if isSecured {
-                SecureField(title, text: text)
+                SecureField(title, text: text, prompt: nil)
                     .inputButtonAppearance()
                     .textContentType(.password)
                     .padding(.top, 15)

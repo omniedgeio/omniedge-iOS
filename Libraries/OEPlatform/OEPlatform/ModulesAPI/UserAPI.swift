@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct User {
+public struct User: Codable {
     /// from token
     public var email: String
     public var name: String
@@ -16,7 +16,7 @@ public struct User {
     public var network: NetworkInfo?
 }
 
-public struct NetworkInfo {
+public struct NetworkInfo: Codable {
     var networkUUID: String /// from list network
     var ip: String /// from join network
 }

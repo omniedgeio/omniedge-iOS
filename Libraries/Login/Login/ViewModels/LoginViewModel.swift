@@ -31,6 +31,7 @@ class LoginViewModel: ObservableObject {
     func login(email: String, password: String) {
         loading = true
         dataStoreAPI.login(LoginModel(email: email, password: password))
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] complete in
                 switch complete {
                 case .finished:
@@ -52,6 +53,7 @@ class LoginViewModel: ObservableObject {
     func register(name: String, email: String, password: String) {
         self.loading = true
         dataStoreAPI.register(RegisterModel(name: name, email: email, password: password))
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] complete in
                 self?.loading = false
                 switch complete {
@@ -72,6 +74,7 @@ class LoginViewModel: ObservableObject {
         }
         self.loading = true
         dataStoreAPI.reset(ResetPasswordModel(email: email))
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] complete in
                 self?.loading = false
                 switch complete {
@@ -99,6 +102,7 @@ class LoginViewModel: ObservableObject {
 
     public func registerDevice(_ token: String) {
         dataStoreAPI.registerDevice(token)
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] complete in
                 self?.loading = false
                 switch complete {
