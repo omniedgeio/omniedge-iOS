@@ -21,6 +21,8 @@
 		7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */; };
 		7E59ED2627139F15008E159E /* Tattoo+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */; };
 		7E59ED2C27139F60008E159E /* Tattoo in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59ED2B27139F60008E159E /* Tattoo */; };
+		7E619950274B27490074037A /* ConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E61994F274B27490074037A /* ConfigAPI.swift */; };
+		7E619954274B2D3B0074037A /* OmniEdgeConfigProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E619953274B2D3B0074037A /* OmniEdgeConfigProvider.swift */; };
 		7E6542D826CDE1FF00704948 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542D726CDE1FF00704948 /* Coordinator.swift */; };
 		7E923041272E243B00E5F6D5 /* ProductionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E923040272E243B00E5F6D5 /* ProductionModule.swift */; };
 		7E923047272E300C00E5F6D5 /* PlatformModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E923046272E300C00E5F6D5 /* PlatformModule.swift */; };
@@ -57,6 +59,8 @@
 		7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingManagerImpl.swift; sourceTree = "<group>"; };
 		7E59ECF827139C4C008E159E /* Tattoo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Tattoo; path = ../../Packages/Tattoo; sourceTree = "<group>"; };
 		7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tattoo+Platform.swift"; sourceTree = "<group>"; };
+		7E61994F274B27490074037A /* ConfigAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigAPI.swift; sourceTree = "<group>"; };
+		7E619953274B2D3B0074037A /* OmniEdgeConfigProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniEdgeConfigProvider.swift; sourceTree = "<group>"; };
 		7E6542D726CDE1FF00704948 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7E923040272E243B00E5F6D5 /* ProductionModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionModule.swift; sourceTree = "<group>"; };
 		7E923046272E300C00E5F6D5 /* PlatformModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformModule.swift; sourceTree = "<group>"; };
@@ -134,6 +138,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7E619952274B2D2E0074037A /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				7E619953274B2D3B0074037A /* OmniEdgeConfigProvider.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		7E6542D626CDE1E600704948 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +194,7 @@
 		7EF5A35726C767E300EDFC03 /* OEPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				7E619952274B2D2E0074037A /* Config */,
 				7E6542D626CDE1E600704948 /* Coordinator */,
 				7E59ED1B27139F15008E159E /* Extensions */,
 				7EF2D3EF272F8AE70030CBDF /* JWT */,
@@ -212,6 +225,7 @@
 				7E923040272E243B00E5F6D5 /* ProductionModule.swift */,
 				7E92304D272E687E00E5F6D5 /* SessionAPI.swift */,
 				7E9F8E442749D6920033CDBF /* UserAPI.swift */,
+				7E61994F274B27490074037A /* ConfigAPI.swift */,
 			);
 			path = ModulesAPI;
 			sourceTree = "<group>";
@@ -341,8 +355,10 @@
 				62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */,
 				7E0F2B0B27131443002BAD7D /* NavigationControllerWrapper.swift in Sources */,
 				7E0F2B0827131443002BAD7D /* NavigationRouter.swift in Sources */,
+				7E619950274B27490074037A /* ConfigAPI.swift in Sources */,
 				7E923047272E300C00E5F6D5 /* PlatformModule.swift in Sources */,
 				7E923041272E243B00E5F6D5 /* ProductionModule.swift in Sources */,
+				7E619954274B2D3B0074037A /* OmniEdgeConfigProvider.swift in Sources */,
 				7E0F2B0E27131443002BAD7D /* RouterManager.swift in Sources */,
 				7E0F2B0727131443002BAD7D /* RoutingAPI.swift in Sources */,
 				7E9F8E452749D6920033CDBF /* UserAPI.swift in Sources */,
@@ -430,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -488,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -511,7 +527,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = OEPlatform/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,7 +552,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = OEPlatform/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

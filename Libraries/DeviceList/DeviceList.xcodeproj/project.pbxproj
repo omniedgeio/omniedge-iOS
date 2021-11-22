@@ -621,6 +621,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = DeviceList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -633,6 +634,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = DeviceList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

@@ -39,15 +39,26 @@ extension DeviceListCoordinatorImpl: DeviceListDelegate {
         guard user.network == nil else {
             return
         }
+        
         if let network = list.first {
             viewModel?.joinNetwork(request: JoinRequest(uuid: network, deviceID: user.deviceUUID ?? "", token: token))
         }
     }
 
     func didJoinNetwork(_ uuid: String, model: N2NModel) {
-        let userManager = scope.getService(UserAPI.self)
-        let info = OENetworkInfo(networkUUID: uuid, ip: model.virtual_ip)
-        user.network = info
-        userManager.setUser(user, for: user.email)
+        let config = scope.getService(ConfigAPI.self)
+        let address = model.server.host.components(separatedBy: ":")
+        if address.count > 1 {
+            /// save config
+            let n2nConfig = N2NConfig(host: address[0], port: address[1], networkName: model.community_name, ip: model.virtual_ip, key: model.secret_key)
+            config.save(config: n2nConfig)
+
+            /// save user info
+            let userManager = scope.getService(UserAPI.self)
+            let info = OENetworkInfo(networkUUID: uuid, ip: model.virtual_ip)
+            user.network = info
+            userManager.setUser(user, for: user.email)
+        }
+        
     }
 }

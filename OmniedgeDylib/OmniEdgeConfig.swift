@@ -9,6 +9,9 @@ import Foundation
 
 extension OmniEdgeConfig {
     static let group = "group.com.meandlife.Omniedge"
+
+    static let hostKey = "host"
+    static let portKey = "port"
     static let networkName = "networkName"
     static let encryptionKey = "encryptionKey"
     static let ipAddress = "ipAddress"
@@ -27,15 +30,18 @@ public struct OmniEdgeConfig: Codable {
         load()
     }
 
-    public init(network: String, key: String, ipAddr: String) {
+    public init(host: String, port: String, network: String, key: String, ipAddr: String) {
+        superNodeAddr = host
+        superNodePort = port
         networkName = network
         encryptionKey = key
         ipAddress = ipAddr
-        load()
     }
 
     public func sync() {
         if let dataStorage = UserDefaults(suiteName: OmniEdgeConfig.group) {
+            dataStorage.setValue(superNodeAddr, forKey: OmniEdgeConfig.hostKey)
+            dataStorage.setValue(superNodePort, forKey: OmniEdgeConfig.portKey)
             dataStorage.setValue(networkName, forKey: OmniEdgeConfig.networkName)
             dataStorage.setValue(encryptionKey, forKey: OmniEdgeConfig.encryptionKey)
             dataStorage.setValue(ipAddress, forKey: OmniEdgeConfig.ipAddress)
@@ -46,6 +52,14 @@ public struct OmniEdgeConfig: Codable {
 
     private mutating func load() {
         if let dataStorage = UserDefaults(suiteName: OmniEdgeConfig.group) {
+            if let host = dataStorage.string(forKey: OmniEdgeConfig.hostKey) {
+                superNodeAddr = host
+            }
+
+            if let port = dataStorage.string(forKey: OmniEdgeConfig.portKey) {
+                superNodePort = port
+            }
+
             if let network = dataStorage.string(forKey: OmniEdgeConfig.networkName) {
                 networkName = network
             }
