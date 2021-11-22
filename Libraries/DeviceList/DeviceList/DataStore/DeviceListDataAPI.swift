@@ -17,7 +17,7 @@ struct DeviceListRequest {
 }
 
 struct JoinRequest {
-    let uuid: String
+    let uuid: String //network uuid
     let deviceID: String
     let token: String
 }

@@ -13,12 +13,16 @@ public struct User: Codable {
     public var name: String
     public var picture: String?
     public var deviceUUID: String? /// from register
-    public var network: NetworkInfo?
+    public var network: OENetworkInfo?
 }
 
-public struct NetworkInfo: Codable {
-    var networkUUID: String /// from list network
-    var ip: String /// from join network
+public struct OENetworkInfo: Codable {
+    public var networkUUID: String /// from list network
+    public var ip: String /// from join network
+    public init(networkUUID: String, ip: String) {
+        self.networkUUID = networkUUID
+        self.ip = ip
+    }
 }
 
 public protocol UserAPI {

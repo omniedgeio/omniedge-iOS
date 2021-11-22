@@ -40,6 +40,16 @@ public struct DeviceListView: View {
                     .cornerRadius(10)
                 Spacer()
             }.padding()
+
+            if viewModel.isLoading {
+                ProgressView()
+            }
+
+            if viewModel.error != DataError.none {
+                AlertView(viewModel.error.localizedDescription).padding()
+            }
+        }.onAppear {
+            viewModel.load()
         }
     }
 
@@ -116,6 +126,6 @@ struct TextLogo: View {
 
 struct DeviceList_Previews: PreviewProvider {
     static var previews: some View {
-        DeviceListView(viewModel: DeviceListViewModel())
+        DeviceListView(viewModel: DeviceListViewModel(dataStore: DeviceListDataProvider(), token: ""))
     }
 }

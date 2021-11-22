@@ -15,7 +15,7 @@ class DeviceListDataProvider: DeviceListDataStoreAPI {
     func fetchNetworkList(_ request: NetworkListRequest) -> AnyPublisher<NetworkListModel, DataError> {
         return network.dispatch(FetchNetworkListRequst(token: request.token))
             .compactMap({ [weak self] result in
-                return self?.createNetworkList(message: result.message, dict: result.data)
+                return self?.createNetworkList(message: result.message, data: result.data)
             })
             .mapError { error in
                 return DataError.fail(message: error.localizedDescription)
@@ -23,8 +23,12 @@ class DeviceListDataProvider: DeviceListDataStoreAPI {
             .eraseToAnyPublisher()
     }
 
-    private func createNetworkList(message: String, dict: [String: String]?) -> NetworkListModel {
-        return NetworkListModel(list: [])
+    private func createNetworkList(message: String, data: [NetworkModel]?) -> NetworkListModel {
+        if let list = data {
+            return NetworkListModel(list: list)
+        } else {
+            return NetworkListModel(list: [])
+        }
     }
 
     func fetchDeviceList(_ request: DeviceListRequest) -> AnyPublisher<DeviceListModel, DataError> {
@@ -44,16 +48,12 @@ class DeviceListDataProvider: DeviceListDataStoreAPI {
 
     func joinNetwork(_ request: JoinRequest) -> AnyPublisher<N2NModel, DataError> {
         return network.dispatch(JoinNetworkRequst(token: request.token, uuid: request.uuid, deviceUUID: request.deviceID))
-            .compactMap({ [weak self] result in
-                return self?.createN2NModel(message: result.message, dict: result.data)
+            .compactMap({ result in
+                return result.data
             })
             .mapError { error in
                 return DataError.fail(message: error.localizedDescription)
             }
             .eraseToAnyPublisher()
     }
-    private func createN2NModel(message: String, dict: [String: String]?) -> N2NModel {
-        return N2NModel()
-    }
-
 }

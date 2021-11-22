@@ -12,8 +12,13 @@ struct DataNetworkResult: Codable {
     var data: [String: String]?
 }
 
+struct DataNetworkListResult: Codable {
+    var message: String
+    var data: [NetworkModel]?
+}
+
 struct FetchNetworkListRequst: Request {
-    typealias ReturnType = DataNetworkResult
+    typealias ReturnType = DataNetworkListResult
     var token: String?
     var method = HTTPMethod.get
     var path: String = "/virtual-networks"
@@ -26,8 +31,13 @@ struct FetchDeviceListRequst: Request {
     var path: String = "/devices"
 }
 
+struct JoinNetworkResult: Codable {
+    var message: String
+    var data: N2NModel
+}
+
 struct JoinNetworkRequst: Request {
-    typealias ReturnType = DataNetworkResult
+    typealias ReturnType = JoinNetworkResult
     var token: String?
     var uuid: String
     var deviceUUID: String

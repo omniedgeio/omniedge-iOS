@@ -36,6 +36,10 @@ public struct NetworkDispatcher {
                 if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
                     throw httpError(response.statusCode)
                 }
+            #if DEBUG
+                print("data: \(String(decoding: data, as: UTF8.self))")
+            #endif
+
                 return data
             })
             .receive(on: DispatchQueue.main)

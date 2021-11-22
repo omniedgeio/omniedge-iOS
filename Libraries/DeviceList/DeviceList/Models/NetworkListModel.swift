@@ -26,19 +26,25 @@ struct NetworkListModel {
     var list: [NetworkModel]
 }
 
-struct NetworkModel: Decodable {
+struct NetworkModel: Codable {
     var name: String
     var uuid: String
     var ip_range: String
     var role: String
+    var devices: [DeviceModel?]
 }
 
-struct DeviceListModel {
+struct DeviceListModel: Codable {
     var list: [DeviceModel]
 }
 
-struct DeviceModel {
+struct DeviceModel: Codable {
+    var uuid: String
     var name: String
+    var os: String
+    var virtual_ip: String
+    var last_seen: String
+    var online: Bool
 }
 
 /*
@@ -58,8 +64,18 @@ struct DeviceModel {
      }
  }
  */
-struct N2NModel {
+struct N2NModel: Codable {
+    var community_name: String
+    var secret_key: String
+    var virtual_ip: String
+    var subnet_mask: String
+    var server: Server
 
+    struct Server: Codable {
+        var name: String
+        var country: String
+        var host: String
+    }
 }
 
 enum DataError: Error, Hashable {

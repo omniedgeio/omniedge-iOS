@@ -44,7 +44,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
                 if let currentUsr = currentUsr {
                     if currentUsr.deviceUUID != nil { //already registered
                         let deviceList = scope.getService(DeviceListAPI.self)
-                        let coordinator = deviceList.createHomeCoordinator(router: router, user: currentUsr)
+                        let coordinator = deviceList.createHomeCoordinator(router: router, user: currentUsr, token: token)
                         router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))
                     } else { //need register device
                         viewModel?.registerDevice(token)
@@ -72,7 +72,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
             user.deviceUUID = deviceUUID
             userManager.setUser(user, for: email)
             let deviceList = scope.getService(DeviceListAPI.self)
-            let coordinator = deviceList.createHomeCoordinator(router: router, user: user)
+            let coordinator = deviceList.createHomeCoordinator(router: router, user: user, token: token)
             router.push(view: AnyView(coordinator.createHomePage().navigationBarHidden(true)))
             return
         }

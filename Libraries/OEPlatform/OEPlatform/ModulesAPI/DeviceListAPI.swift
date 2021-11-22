@@ -13,5 +13,5 @@ public protocol DeviceListCoordinator: Coordinator {
 }
 
 public protocol DeviceListAPI {
-    func createHomeCoordinator(router: RoutingAPI, user: User) -> DeviceListCoordinator
+    func createHomeCoordinator(router: RoutingAPI, user: User, token: String) -> DeviceListCoordinator
 }
