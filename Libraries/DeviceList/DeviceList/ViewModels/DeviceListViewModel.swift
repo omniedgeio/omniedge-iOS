@@ -11,6 +11,8 @@ protocol DeviceListDelegate: AnyObject {
     func logout() -> Void
     func didLoadNetworkList(_ viewModel: DeviceListViewModel?, list: [String])
     func didJoinNetwork(_ uuid: String, model: N2NModel)
+    func start()
+    func stop()
 }
 
 class DeviceListViewModel: ObservableObject {
@@ -19,6 +21,15 @@ class DeviceListViewModel: ObservableObject {
     @Published var query: String = ""
     @Published var isLoading = false
     @Published var error: DataError = .none
+    @Published var isStart = false {
+        didSet {
+            if isStart {
+                delegate?.start()
+            } else {
+                delegate?.stop()
+            }
+        }
+    }
 
     private let dataStore: DeviceListDataStoreAPI
     private let token: String

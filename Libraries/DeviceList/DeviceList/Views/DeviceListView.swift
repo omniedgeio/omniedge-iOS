@@ -25,7 +25,7 @@ public struct DeviceListView: View {
                 }
                 OMESearchBar(placeholder: "Search", searchQuery: $viewModel.query).cornerRadius(10)
 
-                HostDeviceInfoView()
+                hostDeviceInfoView
                     .background(Color.white)
                     .cornerRadius(10)
 
@@ -54,6 +54,15 @@ public struct DeviceListView: View {
     }
 
     @ViewBuilder
+    var hostDeviceInfoView: some View {
+        HStack {
+            DeviceInfoView()
+            Toggle(isOn: $viewModel.isStart, label: {
+            })
+        }.padding(.trailing, 8)
+    }
+
+    @ViewBuilder
     func deviceListView() -> some View {
         List {
             Section(header: Text("OmniEdge US").font(Font.OME.subTitle12)) {
@@ -78,17 +87,6 @@ struct NormalDeviceInfoView: View {
             DeviceInfoView()
             Spacer()
             Text("3 ms")
-        }.padding(.trailing, 8)
-    }
-}
-
-struct HostDeviceInfoView: View {
-    @State var isStart = false
-    var body: some View {
-        HStack {
-            DeviceInfoView()
-            Toggle(isOn: $isStart, label: {
-            })
         }.padding(.trailing, 8)
     }
 }

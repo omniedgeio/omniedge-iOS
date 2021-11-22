@@ -30,6 +30,16 @@ class DeviceListCoordinatorImpl: DeviceListCoordinator {
 }
 
 extension DeviceListCoordinatorImpl: DeviceListDelegate {
+    func start() {
+        let tunnel = scope.getService(TunnelAPI.self)
+        tunnel.start()
+    }
+
+    func stop() {
+        let tunnel = scope.getService(TunnelAPI.self)
+        tunnel.stop()
+    }
+    
     func logout() {
         let session = scope.getService(SessionAPI.self)
         session.logout()

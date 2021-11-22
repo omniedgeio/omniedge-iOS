@@ -43,6 +43,7 @@ class AppCoordinator: Coordinator {
         scope.registerModule(DeviceListAPI.self, DeviceList.init)
         scope.registerModule(UserAPI.self, UserManager.init)
         scope.registerModule(ConfigAPI.self, OmniEdgeConfigProvider.init)
+        scope.registerModule(TunnelAPI.self, TunnelProvider.init)
     }
 
     private var loginView: AnyView {

@@ -19,6 +19,7 @@
 		7E0F2B0D27131443002BAD7D /* SHNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0427131443002BAD7D /* SHNavigationView.swift */; };
 		7E0F2B0E27131443002BAD7D /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0527131443002BAD7D /* RouterManager.swift */; };
 		7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */; };
+		7E171663274BCA7900DBA41F /* TunnelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E171662274BCA7900DBA41F /* TunnelAPI.swift */; };
 		7E59ED2627139F15008E159E /* Tattoo+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */; };
 		7E59ED2C27139F60008E159E /* Tattoo in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59ED2B27139F60008E159E /* Tattoo */; };
 		7E619950274B27490074037A /* ConfigAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E61994F274B27490074037A /* ConfigAPI.swift */; };
@@ -57,6 +58,7 @@
 		7E0F2B0427131443002BAD7D /* SHNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationView.swift; sourceTree = "<group>"; };
 		7E0F2B0527131443002BAD7D /* RouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingManagerImpl.swift; sourceTree = "<group>"; };
+		7E171662274BCA7900DBA41F /* TunnelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelAPI.swift; sourceTree = "<group>"; };
 		7E59ECF827139C4C008E159E /* Tattoo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Tattoo; path = ../../Packages/Tattoo; sourceTree = "<group>"; };
 		7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tattoo+Platform.swift"; sourceTree = "<group>"; };
 		7E61994F274B27490074037A /* ConfigAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigAPI.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				7E92304D272E687E00E5F6D5 /* SessionAPI.swift */,
 				7E9F8E442749D6920033CDBF /* UserAPI.swift */,
 				7E61994F274B27490074037A /* ConfigAPI.swift */,
+				7E171662274BCA7900DBA41F /* TunnelAPI.swift */,
 			);
 			path = ModulesAPI;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				7E92304E272E687E00E5F6D5 /* SessionAPI.swift in Sources */,
 				7E923052272E694200E5F6D5 /* SessionManager.swift in Sources */,
 				7E59ED2627139F15008E159E /* Tattoo+Platform.swift in Sources */,
+				7E171663274BCA7900DBA41F /* TunnelAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
