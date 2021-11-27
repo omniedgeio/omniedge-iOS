@@ -13,6 +13,7 @@
 		6F383C77963065E3FDC2F831 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760FDA35888856EC709A6D98 /* LoginTests.swift */; };
 		7A0000F98FCADEB3801AB0AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D260DCEB74B27BADED964EBC /* Assets.xcassets */; };
 		7E0ABBE226E4F27B00590A60 /* LoginCommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0ABBE126E4F27B00590A60 /* LoginCommonView.swift */; };
+		7E4764272750F2530020B848 /* OmniedgeDylib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E4764242750F1E80020B848 /* OmniedgeDylib.framework */; };
 		7E6510B026E3992D0063702B /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6510AF26E3992D0063702B /* Validation.swift */; };
 		7E6510B326E399D70063702B /* InvalidEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6510B226E399D70063702B /* InvalidEntryView.swift */; };
 		7E6542B326C9D9A800704948 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6542B226C9D9A800704948 /* LoginView.swift */; };
@@ -59,6 +60,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 7EF5A35526C767E300EDFC03;
 			remoteInfo = OEPlatform;
+		};
+		7E4764232750F1E80020B848 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E47641E2750F1E80020B848 /* OmniedgeDylib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E31228E274874A5000391CE;
+			remoteInfo = OmniedgeDylib;
+		};
+		7E4764252750F24D0020B848 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E47641E2750F1E80020B848 /* OmniedgeDylib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E31228D274874A5000391CE;
+			remoteInfo = OmniedgeDylib;
 		};
 		7E65429126C9D8EC00704948 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -123,6 +138,7 @@
 		44E7E638A8E605EBE7510540 /* Module.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Module.xcconfig; sourceTree = "<group>"; };
 		760FDA35888856EC709A6D98 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		7E0ABBE126E4F27B00590A60 /* LoginCommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCommonView.swift; sourceTree = "<group>"; };
+		7E47641E2750F1E80020B848 /* OmniedgeDylib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OmniedgeDylib.xcodeproj; path = ../../OmniedgeDylib/OmniedgeDylib.xcodeproj; sourceTree = "<group>"; };
 		7E5E5BB92700094D006B2E19 /* OEDI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OEDI; path = ../../Packages/OEDI; sourceTree = "<group>"; };
 		7E6510AF26E3992D0063702B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		7E6510B226E399D70063702B /* InvalidEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidEntryView.swift; sourceTree = "<group>"; };
@@ -170,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E4764272750F2530020B848 /* OmniedgeDylib.framework in Frameworks */,
 				29EBEDBECC97AEB14A3604B7 /* Login.framework in Frameworks */,
 				8F89BB4AAB94593A15AD456E /* OEUIKit in Frameworks */,
 			);
@@ -243,6 +260,14 @@
 				7E8568CD26D460D900D252AD /* LoginDataStoreMock.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		7E47641F2750F1E80020B848 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E4764242750F1E80020B848 /* OmniedgeDylib.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7E6542AE26C9D95700704948 /* Views */ = {
@@ -328,6 +353,7 @@
 		C6706ACC281E41D4625E4576 /* Projects */ = {
 			isa = PBXGroup;
 			children = (
+				7E47641E2750F1E80020B848 /* OmniedgeDylib.xcodeproj */,
 				85510A6FF0A37B57C4E4CBE9 /* OEPlatform.xcodeproj */,
 			);
 			name = Projects;
@@ -388,6 +414,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7E4764262750F24D0020B848 /* PBXTargetDependency */,
 				9FE6F8EF928B65C4D035303A /* PBXTargetDependency */,
 				1823DE590A50C47AB1A93C2F /* PBXTargetDependency */,
 			);
@@ -481,6 +508,10 @@
 					ProductGroup = 160E3B26D24C555CD63064C5 /* Products */;
 					ProjectRef = 85510A6FF0A37B57C4E4CBE9 /* OEPlatform.xcodeproj */;
 				},
+				{
+					ProductGroup = 7E47641F2750F1E80020B848 /* Products */;
+					ProjectRef = 7E47641E2750F1E80020B848 /* OmniedgeDylib.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -497,6 +528,13 @@
 			fileType = wrapper.framework;
 			path = OEPlatform.framework;
 			remoteRef = 6B38A524FAD3842A8E56E217 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E4764242750F1E80020B848 /* OmniedgeDylib.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OmniedgeDylib.framework;
+			remoteRef = 7E4764232750F1E80020B848 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		7E65429226C9D8EC00704948 /* OEPlatformTests.xctest */ = {
@@ -576,6 +614,11 @@
 			isa = PBXTargetDependency;
 			target = EF8CE03A2759141C3B1EAC1D /* Login */;
 			targetProxy = E0A6CEA2EA4CD87935EF0CB1 /* PBXContainerItemProxy */;
+		};
+		7E4764262750F24D0020B848 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OmniedgeDylib;
+			targetProxy = 7E4764252750F24D0020B848 /* PBXContainerItemProxy */;
 		};
 		7ED5E18B26D52DEE002A06B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -40,6 +40,16 @@ public extension View {
     }
 }
 
+public extension Spacer {
+    /// https://stackoverflow.com/a/57416760/3393964
+    func forceTapGesture(count: Int = 1, perform action: @escaping () -> Void) -> some View {
+        ZStack {
+            Color.black.opacity(0.001).onTapGesture(count: count, perform: action)
+            self
+        }
+    }
+}
+
 struct Views_Previews: PreviewProvider {
     static var previews: some View {
         VStack {

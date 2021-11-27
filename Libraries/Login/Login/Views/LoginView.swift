@@ -79,7 +79,9 @@ struct LoginView: View {
                 NavigationLink(
                     destination: ResetPasswordView(email: email, viewModel: viewModel),
                     label: {
-                        Spacer()
+                        Spacer().forceTapGesture {
+                            hideKeyboard()
+                        }.frame(maxHeight: 20)
                         Text("Forgot Password")
                             .underline()
                             .font(.system(size: 16))
@@ -87,11 +89,11 @@ struct LoginView: View {
                     })
                     .frame(maxWidth: .infinity)
 
-                        Button(action: {
-                            withAnimation {
-                                viewModel.login(email: email, password: password)
-                            }
-                        }, label: {
+                Button(action: {
+                    withAnimation {
+                        hideKeyboard()
+                        viewModel.login(email: email, password: password)
+                    }}, label: {
                             Text("Sign In")
                                 .foregroundColor(.white)
                         })
