@@ -25,10 +25,12 @@ struct LoginView: View {
 
     public var body: some View {
         ZStack {
+            /// layer1: background colorß
             Color.OME.background.onTapGesture {
                 hideKeyboard()
             }.edgesIgnoringSafeArea(.all)
 
+            /// layer2: content
             VStack(alignment: .center) {
                 Spacer().frame(maxHeight: 40)
                 LoginTitleView()
@@ -125,12 +127,14 @@ struct LoginView: View {
                 }
             }.padding()
 
-            //sinner
+            /// layer3: loading spinner
             if viewModel.loading {
-                LoadingView()
+                //LoadingView()
+                ProgressView()
             }
         } //ZStack
         //.border(Color.black, width: 1)
+        .allowsHitTesting(!viewModel.loading)
         .navigationBarHidden(true)
     }
 }

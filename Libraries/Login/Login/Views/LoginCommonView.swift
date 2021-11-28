@@ -26,7 +26,7 @@ struct GoogleLoginView: View {
             }
         })
         .buttonStyle(SecondaryButtonStyle())
-        //.disabled(valid)
+        .disabled(true)
         .padding(.top, 5)
     }
 }

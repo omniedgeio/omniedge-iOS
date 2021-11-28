@@ -56,6 +56,7 @@ extension Request {
         request.httpMethod = method.rawValue
         request.httpBody = requestBodyFrom(body)
         request.allHTTPHeaderFields = headers
+        request.timeoutInterval = 10 /// set 10 sew
         return request
     }
 }

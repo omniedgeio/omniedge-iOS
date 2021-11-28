@@ -29,7 +29,14 @@ class LoginViewModel: ObservableObject {
     }
 
     func login(email: String, password: String) {
+        guard loading == false else {
+            return
+        }
+        /// clear
         loading = true
+        error = .none
+
+        //request
         dataStoreAPI.login(LoginModel(email: email, password: password))
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] complete in
@@ -38,6 +45,7 @@ class LoginViewModel: ObservableObject {
                     self?.error = .none
                 case .failure(let error):
                     self?.error = error
+                    self?.loading = false
                 }
             }, receiveValue: { [weak self] model in
                 if let token = model.data?["token"] {
