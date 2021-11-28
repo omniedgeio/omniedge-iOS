@@ -12,36 +12,42 @@ struct SettingView: View {
 
     var body: some View {
         List {
-            dashBoard.onTapGesture {}
-            support.onTapGesture {}
-            logout.onTapGesture {
-                viewModel.logout()
-            }
+            dashBoard
+            support
+            logout
         }
     }
 
     @ViewBuilder
     var dashBoard: some View {
-        HStack {
-            Image(systemName: "gearshape")
-            Text("Dashboard")
-        }
+        Button(action: {}, label: {
+            HStack {
+                Image(systemName: "gearshape")
+                Text("Dashboard")
+            }
+        })
     }
 
     @ViewBuilder
     var support: some View {
-        HStack {
-            Image(systemName: "questionmark.circle")
-            Text("Support")
-        }
+        Button(action: {}, label: {
+            HStack {
+                Image(systemName: "questionmark.circle")
+                Text("Support")
+            }
+        })
     }
 
     @ViewBuilder
     var logout: some View {
-        HStack {
-            Image(systemName: "rectangle.portrait.and.arrow.right.fill")
-            Text("Logout")
-        }
+        Button(action: {
+            viewModel.logout()
+        }, label: {
+            HStack {
+                Image(systemName: "rectangle.portrait.and.arrow.right.fill")
+                Text("Logout")
+            }
+        })
     }
 }
 
