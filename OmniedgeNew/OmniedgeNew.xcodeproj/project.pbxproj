@@ -204,6 +204,7 @@
 /* Begin PBXFileReference section */
 		62A324E70C5E21EEBE2D1D3C /* Login.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Login.xcodeproj; path = ../Libraries/Login/Login.xcodeproj; sourceTree = "<group>"; };
 		7E171664274BCAD000DBA41F /* TunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelProvider.swift; sourceTree = "<group>"; };
+		7E1FD96A27539412003F53C4 /* Tunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Tunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E294A0026C76C2D008DEA5D /* OmniedgeNewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniedgeNewApp.swift; sourceTree = "<group>"; };
 		7E294A0226C76C2D008DEA5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7E294A0426C76C2E008DEA5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -228,10 +229,9 @@
 		7EAEEBD227491AE90009D046 /* n2n.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = n2n.xcodeproj; path = ../n2n/src/main/cpp/ios/n2n.xcodeproj; sourceTree = "<group>"; };
 		7EB65B692748765E005FEA9F /* OmniedgeDylib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OmniedgeDylib.xcodeproj; path = ../OmniedgeDylib/OmniedgeDylib.xcodeproj; sourceTree = "<group>"; };
 		7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEPlatform.xcodeproj; path = OEPlatform/OEPlatform.xcodeproj; sourceTree = "<group>"; };
-		7EDECE4B2750D73100DAC50E /* OmniedgeNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniedgeNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7EDECE4C2750D73100DAC50E /* Tunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Tunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		7EDECE4D2750D73100DAC50E /* OmniedgeNewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniedgeNewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7EDECE4E2750D73100DAC50E /* OmniedgeNewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniedgeNewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EDECE4B2750D73100DAC50E /* OmniedgeNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = OmniedgeNew.app; path = "/Users/samuel/OmniEdge/gitlab/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNew.app"; sourceTree = "<absolute>"; };
+		7EDECE4D2750D73100DAC50E /* OmniedgeNewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewTests.xctest; path = "/Users/samuel/OmniEdge/gitlab/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewTests.xctest"; sourceTree = "<absolute>"; };
+		7EDECE4E2750D73100DAC50E /* OmniedgeNewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewUITests.xctest; path = "/Users/samuel/OmniEdge/gitlab/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewUITests.xctest"; sourceTree = "<absolute>"; };
 		7EF9725F26C8886B00B214A8 /* AllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -301,10 +301,7 @@
 				7077C9A16102209123401BD1 /* Login.framework */,
 				97756A587B2525F2C64761EC /* LoginDemo.app */,
 				FB0E2B5017107E8C9B8D75EA /* LoginTests.xctest */,
-				7EDECE4B2750D73100DAC50E /* OmniedgeNew.app */,
-				7EDECE4C2750D73100DAC50E /* Tunnel.appex */,
-				7EDECE4D2750D73100DAC50E /* OmniedgeNewTests.xctest */,
-				7EDECE4E2750D73100DAC50E /* OmniedgeNewUITests.xctest */,
+				7E1FD96A27539412003F53C4 /* Tunnel.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -447,7 +444,7 @@
 			);
 			name = Tunnel;
 			productName = Tunnel;
-			productReference = 7EDECE4C2750D73100DAC50E /* Tunnel.appex */;
+			productReference = 7E1FD96A27539412003F53C4 /* Tunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		7E2949FC26C76C2D008DEA5D /* OmniedgeNew */ = {
@@ -812,7 +809,7 @@
 				INFOPLIST_FILE = ../Tunnel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tunnel;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -852,7 +849,7 @@
 				INFOPLIST_FILE = ../Tunnel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tunnel;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
