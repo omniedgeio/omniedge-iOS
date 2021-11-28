@@ -21,7 +21,7 @@ public struct DeviceListView: View {
 
             VStack(spacing: 12) {
                 TextLogo {
-                    viewModel.logout()
+                    viewModel.showSetting()
                 }
                 OMESearchBar(placeholder: "Search", searchQuery: $viewModel.query).cornerRadius(10)
 

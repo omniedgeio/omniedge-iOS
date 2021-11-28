@@ -13,6 +13,7 @@ protocol DeviceListDelegate: AnyObject {
     func didJoinNetwork(_ uuid: String, model: N2NModel)
     func start()
     func stop()
+    func showSetting()
 }
 
 class DeviceListViewModel: ObservableObject {
@@ -86,6 +87,10 @@ class DeviceListViewModel: ObservableObject {
                 self?.delegate?.didLoadNetworkList(self, list: list ?? [])
             })
             .store(in: &cancellableStore)
+    }
+
+    func showSetting() {
+        delegate?.showSetting()
     }
 
     private func parseNetworkList(model: NetworkListModel) -> [String] {

@@ -40,11 +40,6 @@ extension DeviceListCoordinatorImpl: DeviceListDelegate {
         tunnel.stop()
     }
     
-    func logout() {
-        let session = scope.getService(SessionAPI.self)
-        session.logout()
-    }
-
     func didLoadNetworkList(_ viewModel: DeviceListViewModel?, list: [String]) {
         guard user.network == nil else {
             return
@@ -69,6 +64,25 @@ extension DeviceListCoordinatorImpl: DeviceListDelegate {
             user.network = info
             userManager.setUser(user, for: user.email)
         }
-        
+    }
+
+    func showSetting() {
+        let viewModel = SettingViewModel()
+        viewModel.delegate = self
+        let view = SettingView(viewModel: viewModel)
+        router.push(view: AnyView(view))
+    }
+}
+
+extension DeviceListCoordinatorImpl: SettingDelegate {
+    func logout() {
+        let session = scope.getService(SessionAPI.self)
+        session.logout()
+        let loginAPI = scope.getService(LoginAPI.self)
+        let navigator = SHNavigationView(scope: scope) { router -> AnyView in
+            let coordinator = loginAPI.createLoginCoordinator(router: router)
+            return coordinator.createLoginView()
+        }
+        router.push(view: AnyView(navigator.ignoresSafeArea()), parameters: RoutingParameters(allowDismiss: false))
     }
 }
