@@ -41,11 +41,19 @@ struct LoginView: View {
                     .font(Font.OME.subTitle)
                     .foregroundColor(Color.OME.gray)
                 VStack(alignment: .leading) {
-                    TextField("Email", text: $email)
-                        .inputButtonAppearance()
-                        .textContentType(.emailAddress)
-                        .keyboardType(.emailAddress)
-                        .textInputAutocapitalization(.never)
+                    if #available(iOS 15.0, *) {
+                        TextField("Email", text: $email)
+                            .inputButtonAppearance()
+                            .textContentType(.emailAddress)
+                            .keyboardType(.emailAddress)
+                            .textInputAutocapitalization(.never)
+                    } else {
+                        TextField("Email", text: $email)
+                            .inputButtonAppearance()
+                            .textContentType(.emailAddress)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                    }
 
                     if viewModel.isEmailInvalid(email: email) {
                         InvalidEntryView(isInvalid: true, message: "Invalid Email Address")

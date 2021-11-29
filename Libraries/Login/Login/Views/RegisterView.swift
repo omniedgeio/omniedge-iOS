@@ -98,10 +98,17 @@ struct RegisterView: View {
     private func createPasswordView(_ title: LocalizedStringKey, text: Binding<String>) -> some View {
         return ZStack(alignment: .bottomTrailing) {
             if isSecured {
-                SecureField(title, text: text, prompt: nil)
-                    .inputButtonAppearance()
-                    .textContentType(.password)
-                    .padding(.top, 15)
+                if #available(iOS 15.0, *) {
+                    SecureField(title, text: text, prompt: nil)
+                        .inputButtonAppearance()
+                        .textContentType(.password)
+                        .padding(.top, 15)
+                } else {
+                    SecureField(title, text: text, onCommit: {})
+                        .inputButtonAppearance()
+                        .textContentType(.password)
+                        .padding(.top, 15)
+                }
             } else {
                 TextField(title, text: text)
                     .inputButtonAppearance()

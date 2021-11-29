@@ -616,6 +616,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 76C15EBF357BDD5438FCC629 /* Project-Debug.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Debug;
 		};
@@ -623,6 +624,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74045B99269F1886BF0AF120 /* Project-Release.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Release;
 		};
@@ -653,7 +655,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = DeviceList/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -666,7 +668,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = DeviceList/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

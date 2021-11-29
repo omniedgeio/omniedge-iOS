@@ -191,7 +191,7 @@ public extension NETunnelProviderManager {
         guard let proto = protocolConfiguration as? NETunnelProviderProtocol else {
             return
         }
-        proto.serverAddress = "\(config.superNodeAddr):\(config.superNodePort)"
+        //proto.serverAddress = "\(config.superNodeAddr):\(config.superNodePort)"
         protocolConfiguration = proto
     }
 }
