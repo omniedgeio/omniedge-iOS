@@ -7,6 +7,7 @@
 //
 
 import Combine
+import OEPlatform
 import OEUIKit
 import SwiftUI
 
@@ -24,7 +25,6 @@ public struct DeviceListView: View {
                     viewModel.showSetting()
                 }
                 OMESearchBar(placeholder: "Search", searchQuery: $viewModel.query).cornerRadius(10)
-
                 hostDeviceInfoView
                     .background(Color.white)
                     .cornerRadius(10)
@@ -50,13 +50,13 @@ public struct DeviceListView: View {
             }
         }.onAppear {
             viewModel.load()
-        }
+        }.allowsHitTesting(!viewModel.isLoading)
     }
 
     @ViewBuilder
     var hostDeviceInfoView: some View {
         HStack {
-            DeviceInfoView()
+            deviceInfoView(info: viewModel.host)
             Toggle(isOn: $viewModel.isStart, label: {
             })
         }.padding(.trailing, 8)
@@ -77,6 +77,20 @@ public struct DeviceListView: View {
                 DeviceInfoView()
             }.textCase(.none)
         }.listStyle(GroupedListStyle())
+    }
+
+    @ViewBuilder
+    private func deviceInfoView(info: DeviceInfoViewModel) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(info.name).font(Font.OME.subTitle17)
+            HStack(spacing: 8) {
+                Text(info.ip)
+                    .font(Font.OME.subTitle17.semibold())
+                    .foregroundColor(Color.OME.gray60)
+                Image(systemName: "flag.fill").imageColorAppearance(color: Color.red)
+            }
+        }
+        .padding(8)
     }
 }
 
@@ -124,6 +138,6 @@ struct TextLogo: View {
 
 struct DeviceList_Previews: PreviewProvider {
     static var previews: some View {
-        DeviceListView(viewModel: DeviceListViewModel(dataStore: DeviceListDataProvider(), token: ""))
+        DeviceListView(viewModel: DeviceListViewModel(dataStore: DeviceListDataProvider(), token: "", user: User.mocked))
     }
 }

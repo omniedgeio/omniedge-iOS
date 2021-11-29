@@ -14,6 +14,11 @@ public struct User: Codable {
     public var picture: String?
     public var deviceUUID: String? /// from register
     public var network: OENetworkInfo?
+
+    public init(email: String, name: String) {
+        self.email = email
+        self.name = name
+    }
 }
 
 public struct OENetworkInfo: Codable {

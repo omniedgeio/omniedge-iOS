@@ -23,7 +23,7 @@ class DeviceListCoordinatorImpl: DeviceListCoordinator {
     }
 
     func createHomePage() -> AnyView {
-        let viewModel = DeviceListViewModel(dataStore: DeviceListDataProvider(), token: token)
+        let viewModel = DeviceListViewModel(dataStore: DeviceListDataProvider(), token: token, user: user)
         viewModel.delegate = self
         return AnyView(DeviceListView(viewModel: viewModel))
     }

@@ -6,6 +6,7 @@
 //
 
 import Combine
+import OEPlatform
 
 protocol DeviceListDelegate: AnyObject {
     func logout() -> Void
@@ -19,6 +20,7 @@ protocol DeviceListDelegate: AnyObject {
 class DeviceListViewModel: ObservableObject {
     weak var delegate: DeviceListDelegate?
 
+    @Published var host: DeviceInfoViewModel
     @Published var query: String = ""
     @Published var isLoading = false
     @Published var error: DataError = .none
@@ -34,11 +36,17 @@ class DeviceListViewModel: ObservableObject {
 
     private let dataStore: DeviceListDataStoreAPI
     private let token: String
+    private let user: User
     private var cancellableStore = [AnyCancellable]()
 
-    init(dataStore: DeviceListDataStoreAPI, token: String) {
+    init(dataStore: DeviceListDataStoreAPI, token: String, user: User) {
         self.dataStore = dataStore
         self.token = token
+        self.user = user
+        self.host = DeviceInfoViewModel(name: user.name, ip: "*")
+        if let network = user.network {
+            host.ip = network.ip
+        }
     }
 
     public func joinNetwork(request: JoinRequest) {
@@ -57,6 +65,7 @@ class DeviceListViewModel: ObservableObject {
                 }
                 self?.isLoading = false
             }, receiveValue: { [weak self] model in
+                self?.host.ip = model.virtual_ip
                 self?.delegate?.didJoinNetwork(request.uuid, model: model)
             })
             .store(in: &cancellableStore)
@@ -96,4 +105,14 @@ class DeviceListViewModel: ObservableObject {
     private func parseNetworkList(model: NetworkListModel) -> [String] {
         return model.list.map { $0.uuid }
     }
+}
+
+struct DeviceInfoViewModel {
+    var name: String
+    var ip: String
+}
+
+struct NetworkViewModel {
+    var name: String
+    var list: [DeviceInfoViewModel]
 }
