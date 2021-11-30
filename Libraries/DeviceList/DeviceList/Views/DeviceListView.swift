@@ -65,18 +65,23 @@ public struct DeviceListView: View {
     @ViewBuilder
     func deviceListView() -> some View {
         List {
-            Section(header: Text("OmniEdge US").font(Font.OME.subTitle12)) {
-                NormalDeviceInfoView()
-                DeviceInfoView()
-            }.textCase(.none)
-
-            Section(header: Text("OmniEdge Malaysia").font(Font.OME.subTitle12)) {
-                DeviceInfoView()
-                DeviceInfoView()
-                DeviceInfoView()
-                DeviceInfoView()
-            }.textCase(.none)
+            ForEach(viewModel.list, id: \.uuid) { network in
+                Section(header: Text(network.name).font(Font.OME.subTitle12)) {
+                    ForEach(network.list, id: \.uuid) { device in
+                        normalDeviceInfoView(info: device)
+                    }
+                }.textCase(.none)
+            }
         }.listStyle(GroupedListStyle())
+    }
+
+    @ViewBuilder
+    private func normalDeviceInfoView(info: DeviceInfoViewModel) -> some View {
+        HStack(alignment: .bottom) {
+            deviceInfoView(info: info)
+            Spacer()
+            Text("\(info.ping) ms")
+        }.padding(.trailing, 8)
     }
 
     @ViewBuilder
@@ -85,32 +90,6 @@ public struct DeviceListView: View {
             Text(info.name).font(Font.OME.subTitle17)
             HStack(spacing: 8) {
                 Text(info.ip)
-                    .font(Font.OME.subTitle17.semibold())
-                    .foregroundColor(Color.OME.gray60)
-                Image(systemName: "flag.fill").imageColorAppearance(color: Color.red)
-            }
-        }
-        .padding(8)
-    }
-}
-
-struct NormalDeviceInfoView: View {
-    @State var isStart = false
-    var body: some View {
-        HStack(alignment: .bottom) {
-            DeviceInfoView()
-            Spacer()
-            Text("3 ms")
-        }.padding(.trailing, 8)
-    }
-}
-
-struct DeviceInfoView: View {
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Yong's iPhone").font(Font.OME.subTitle17)
-            HStack(spacing: 8) {
-                Text("100.195.112.123")
                     .font(Font.OME.subTitle17.semibold())
                     .foregroundColor(Color.OME.gray60)
                 Image(systemName: "flag.fill").imageColorAppearance(color: Color.red)

@@ -20,6 +20,7 @@ protocol DeviceListDelegate: AnyObject {
 class DeviceListViewModel: ObservableObject {
     weak var delegate: DeviceListDelegate?
 
+    @Published var list = [NetworkViewModel]()
     @Published var host: DeviceInfoViewModel
     @Published var query: String = ""
     @Published var isLoading = false
@@ -43,7 +44,7 @@ class DeviceListViewModel: ObservableObject {
         self.dataStore = dataStore
         self.token = token
         self.user = user
-        self.host = DeviceInfoViewModel(name: user.name, ip: "*")
+        self.host = DeviceInfoViewModel(uuid: user.deviceUUID ?? "null-uuid", name: user.name, ip: "*")
         if let network = user.network {
             host.ip = network.ip
         }
@@ -103,16 +104,30 @@ class DeviceListViewModel: ObservableObject {
     }
 
     private func parseNetworkList(model: NetworkListModel) -> [String] {
+        for network in model.list {
+            var deviceList = [DeviceInfoViewModel]()
+            for device in network.devices {
+                if let device = device {
+                    let deviceViewModel = DeviceInfoViewModel(uuid: device.uuid, name: device.name, ip: device.virtual_ip)
+                    deviceList.append(deviceViewModel)
+                }
+            }
+            let networkItem = NetworkViewModel(name: network.name, uuid: network.uuid, list: deviceList)
+            list.append(networkItem)
+        }
         return model.list.map { $0.uuid }
     }
 }
 
 struct DeviceInfoViewModel {
+    var uuid: String
     var name: String
     var ip: String
+    var ping: Int = 0
 }
 
 struct NetworkViewModel {
     var name: String
+    var uuid: String
     var list: [DeviceInfoViewModel]
 }
