@@ -50,20 +50,44 @@ extension DeviceListCoordinatorImpl: DeviceListDelegate {
         }
     }
 
-    func didJoinNetwork(_ uuid: String, model: N2NModel) {
+    func didJoinNetwork(_ uuid: String, model: N2NModel) -> Bool {
         let config = scope.getService(ConfigAPI.self)
         let address = model.server.host.components(separatedBy: ":")
         if address.count > 1 {
-            /// save config
-            let n2nConfig = N2NConfig(host: address[0], port: address[1], networkName: model.community_name, ip: model.virtual_ip, key: model.secret_key)
-            config.save(config: n2nConfig)
+            if let hostIP = getIPs(dnsName: address[0]) {
+                /// save config
+                let n2nConfig = N2NConfig(host: hostIP, port: address[1], networkName: model.community_name, ip: model.virtual_ip, key: model.secret_key)
+                config.save(config: n2nConfig)
 
-            /// save user info
-            let userManager = scope.getService(UserAPI.self)
-            let info = OENetworkInfo(networkUUID: uuid, ip: model.virtual_ip)
-            user.network = info
-            userManager.setUser(user, for: user.email)
+                /// save user info
+                let userManager = scope.getService(UserAPI.self)
+                let info = OENetworkInfo(networkUUID: uuid, ip: model.virtual_ip)
+                user.network = info
+                userManager.setUser(user, for: user.email)
+
+                return true
+            }
         }
+        return false
+    }
+
+    // You many want to run this in the background
+    private func getIPs(dnsName: String) -> String? {
+        let host = CFHostCreateWithName(nil, dnsName as CFString).takeRetainedValue()
+        CFHostStartInfoResolution(host, .addresses, nil)
+        var success: DarwinBoolean = false
+        if let addresses = CFHostGetAddressing(host, &success)?.takeUnretainedValue() as NSArray? {
+            for case let theAddress as NSData in addresses {
+                var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                if getnameinfo(theAddress.bytes.assumingMemoryBound(to: sockaddr.self), socklen_t(theAddress.length),
+                               &hostname, socklen_t(hostname.count), nil, 0, NI_NUMERICHOST) == 0 {
+                    let numAddress = String(cString: hostname)
+                    return numAddress
+                }
+            }
+        }
+
+        return nil
     }
 
     func showSetting() {

@@ -91,9 +91,6 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
         }
     }
 
-    func didRegister(_ viewModel: LoginViewModel?, email: String, password: String) {
-    }
-
     func didReset(_ viewModel: LoginViewModel?, email: String) {
     }
 }

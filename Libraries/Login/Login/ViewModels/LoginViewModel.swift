@@ -11,7 +11,6 @@ import Foundation
 
 protocol LoginDelegate: AnyObject {
     func didLogin(_ viewModel: LoginViewModel?, token: String)
-    func didRegister(_ viewModel: LoginViewModel?, email: String, password: String)
     func didReset(_ viewModel: LoginViewModel?, email: String)
     func didRegisterDevice(_ viewModel: LoginViewModel?, token: String, deviceUUID: String)
 }
@@ -71,7 +70,8 @@ class LoginViewModel: ObservableObject {
                     self?.error = error
                 }
             }, receiveValue: { [weak self] _ in
-                self?.delegate?.didRegister(self, email: email, password: password)
+                self?.loading = false
+                self?.login(email: email, password: password)
             })
             .store(in: &cancellableStore)
     }

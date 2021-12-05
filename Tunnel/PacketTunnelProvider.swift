@@ -30,6 +30,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "151.11.50.180")
             //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "54.223.23.92")
             let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: config.superNodeAddr)
+            //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "18.163.33.122")
             let ipV4 = NEIPv4Settings(addresses: [config.ipAddress], subnetMasks: ["255.255.255.0"])
             ipV4.includedRoutes = [NEIPv4Route.default()]
             settings.ipv4Settings = ipV4

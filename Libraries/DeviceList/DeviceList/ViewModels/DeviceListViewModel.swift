@@ -7,11 +7,12 @@
 
 import Combine
 import OEPlatform
+import Foundation
 
 protocol DeviceListDelegate: AnyObject {
     func logout() -> Void
     func didLoadNetworkList(_ viewModel: DeviceListViewModel?, list: [String])
-    func didJoinNetwork(_ uuid: String, model: N2NModel)
+    func didJoinNetwork(_ uuid: String, model: N2NModel) -> Bool
     func start()
     func stop()
     func showSetting()
@@ -67,7 +68,9 @@ class DeviceListViewModel: ObservableObject {
                 self?.isLoading = false
             }, receiveValue: { [weak self] model in
                 self?.host.ip = model.virtual_ip
-                self?.delegate?.didJoinNetwork(request.uuid, model: model)
+                if self?.delegate?.didJoinNetwork(request.uuid, model: model) == false {
+                    self?.error = DataError.fail(message: "Can't join network")
+                }
             })
             .store(in: &cancellableStore)
     }
