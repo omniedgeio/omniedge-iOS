@@ -115,8 +115,12 @@ struct TextLogo: View {
     }
 }
 
+#if DEBUG
+
 struct DeviceList_Previews: PreviewProvider {
     static var previews: some View {
         DeviceListView(viewModel: DeviceListViewModel(dataStore: DeviceListDataProvider(), token: "", user: User.mocked))
     }
 }
+
+#endif

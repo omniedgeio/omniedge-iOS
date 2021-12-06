@@ -167,6 +167,8 @@ struct LoginTitleView: View {
     }
 }
 
+#if DEBUG
+
 struct LoginView_Previews: PreviewProvider {
     static let dataStore = LoginDataStoreMock()
     static var previews: some View {
@@ -175,3 +177,5 @@ struct LoginView_Previews: PreviewProvider {
         }
     }
 }
+
+#endif

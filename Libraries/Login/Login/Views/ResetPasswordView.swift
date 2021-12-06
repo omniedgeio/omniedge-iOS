@@ -64,9 +64,13 @@ struct ResetPasswordView: View {
     }
 }
 
+#if DEBUG
+
 struct ForgetPasswordView_Previews: PreviewProvider {
     static let dataStore = LoginDataStoreMock()
     static var previews: some View {
         ResetPasswordView(email: "samuel@omniedge.com", viewModel: LoginViewModel(dataStore))
     }
 }
+
+#endif

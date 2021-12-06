@@ -145,9 +145,14 @@ struct OMEInputField: View {
         .padding(.top, 5)
     }
 }
+
+#if DEBUG
+
 struct RegisterView_Previews: PreviewProvider {
     static let dataStore = LoginDataStoreMock()
     static var previews: some View {
         RegisterView(email: "samuel@omniedge.com", viewModel: LoginViewModel(dataStore))
     }
 }
+
+#endif
