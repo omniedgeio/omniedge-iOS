@@ -11,11 +11,14 @@ struct SettingView: View {
     @ObservedObject var viewModel: SettingViewModel
 
     var body: some View {
-        List {
-            dashBoard
-            support
-            logout
-            reset
+        ZStack {
+            Color.OME.background.edgesIgnoringSafeArea(.all)
+            List {
+                dashBoard
+                support
+                logout
+                reset
+            }.background(Color.OME.background)
         }
     }
 
