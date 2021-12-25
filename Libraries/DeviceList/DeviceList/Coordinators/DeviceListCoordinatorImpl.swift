@@ -5,6 +5,7 @@
 //  Created by samuelsong on 2021/10/31.
 //
 
+import Combine
 import OEPlatform
 import SwiftUI
 import Tattoo
@@ -15,6 +16,8 @@ class DeviceListCoordinatorImpl: DeviceListCoordinator {
     private var user: User
     private let token: String
     private var login: LoginCoordinator?
+    private var setting: UnwindingHandle?
+    private var subscriptions = Set<AnyCancellable>()
 
     init(scope: Scope, router: RoutingAPI, user: User, token: String) {
         self.scope = scope
@@ -26,7 +29,7 @@ class DeviceListCoordinatorImpl: DeviceListCoordinator {
     func createHomePage() -> AnyView {
         let viewModel = DeviceListViewModel(dataStore: DeviceListDataProvider(), token: token, user: user)
         viewModel.delegate = self
-        return AnyView(DeviceListView(viewModel: viewModel))
+        return AnyView(DeviceListView(viewModel: viewModel).navigationBarHidden(true))
     }
 }
 
@@ -95,7 +98,7 @@ extension DeviceListCoordinatorImpl: DeviceListDelegate {
         let viewModel = SettingViewModel()
         viewModel.delegate = self
         let view = SettingView(viewModel: viewModel)
-        router.push(view: AnyView(view))
+        setting = router.push(view: AnyView(view))
     }
 }
 
@@ -108,7 +111,14 @@ extension DeviceListCoordinatorImpl: SettingDelegate {
             self?.login = loginAPI.createLoginCoordinator(router: router)
             return self?.login?.createLoginView() ?? AnyView(Text("Error"))
         }
-        router.push(view: AnyView(navigator.ignoresSafeArea()), parameters: RoutingParameters(allowDismiss: false))
+        if let handle = setting {
+            handle.didUnwind.sink { [weak self] in
+                DispatchQueue.main.async {
+                    self?.router.push(view: AnyView(navigator.ignoresSafeArea().navigationBarHidden(true)), parameters: RoutingParameters(allowDismiss: false))
+                }
+            }.store(in: &subscriptions)
+            router.unwind(handle)
+        }
     }
 
     func reset() {

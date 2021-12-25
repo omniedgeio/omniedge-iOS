@@ -24,7 +24,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     func createLoginView() -> AnyView {
         let viewModel = LoginViewModel(LoginDataStoreProvider())
         viewModel.delegate = self
-        return AnyView(LoginView(viewModel: viewModel))
+        return AnyView(LoginView(viewModel: viewModel).navigationBarHidden(true))
     }
 
     func didLogin(_ viewModel: LoginViewModel?, token: String) {

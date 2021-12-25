@@ -54,7 +54,7 @@ class AppCoordinator: Coordinator {
             self?.child.append(coordinator)
             return coordinator.createLoginView()
         }
-        return AnyView(navigator.ignoresSafeArea())
+        return AnyView(navigator.ignoresSafeArea().navigationBarHidden(true))
     }
 
     private func homeView(_ user: User, token: String) -> AnyView {
@@ -64,6 +64,6 @@ class AppCoordinator: Coordinator {
             self?.child.append(coordinator)
             return coordinator.createHomePage()
         }
-        return AnyView(navigator.ignoresSafeArea())
+        return AnyView(navigator.ignoresSafeArea().navigationBarHidden(true))
     }
 }
