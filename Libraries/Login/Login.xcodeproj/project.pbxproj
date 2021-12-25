@@ -686,6 +686,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = Login/Info.plist;
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.Login;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -698,6 +699,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = Login/Info.plist;
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.Login;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

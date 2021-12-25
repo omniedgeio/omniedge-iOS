@@ -15,6 +15,7 @@ struct SettingView: View {
             dashBoard
             support
             logout
+            reset
         }
     }
 
@@ -49,6 +50,19 @@ struct SettingView: View {
             }
         })
     }
+
+    @ViewBuilder
+    var reset: some View {
+        Button(action: {
+            viewModel.reset()
+        }, label: {
+            HStack {
+                Image(systemName: "trash.slash.fill")
+                Text("Reset")
+            }
+        })
+    }
+
 }
 
 struct SettingView_Previews: PreviewProvider {

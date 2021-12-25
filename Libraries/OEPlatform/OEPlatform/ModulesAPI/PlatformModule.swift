@@ -69,6 +69,6 @@ public extension Scope {
     }
 
     func setupPlatformUserDefaults() {
-        registerService(UserDefaults.self, { UserDefaults.standard })
+        registerService(UserDefaults.self, { UserDefaults(suiteName: "com.omniedge.ios") ?? UserDefaults.standard })
     }
 }

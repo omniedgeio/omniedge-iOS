@@ -14,6 +14,7 @@ class DeviceListCoordinatorImpl: DeviceListCoordinator {
     private let router: RoutingAPI
     private var user: User
     private let token: String
+    private var login: LoginCoordinator?
 
     init(scope: Scope, router: RoutingAPI, user: User, token: String) {
         self.scope = scope
@@ -103,10 +104,16 @@ extension DeviceListCoordinatorImpl: SettingDelegate {
         let session = scope.getService(SessionAPI.self)
         session.logout()
         let loginAPI = scope.getService(LoginAPI.self)
-        let navigator = SHNavigationView(scope: scope) { router -> AnyView in
-            let coordinator = loginAPI.createLoginCoordinator(router: router)
-            return coordinator.createLoginView()
+        let navigator = SHNavigationView(scope: scope) { [weak self] router -> AnyView in
+            self?.login = loginAPI.createLoginCoordinator(router: router)
+            return self?.login?.createLoginView() ?? AnyView(Text("Error"))
         }
         router.push(view: AnyView(navigator.ignoresSafeArea()), parameters: RoutingParameters(allowDismiss: false))
+    }
+
+    func reset() {
+        let service = scope.getService(UserAPI.self)
+        service.clear()
+        logout()
     }
 }

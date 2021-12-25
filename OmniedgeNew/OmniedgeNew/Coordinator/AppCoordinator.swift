@@ -37,6 +37,7 @@ class AppCoordinator: Coordinator {
     }()
 
     func bootstrap(scope: Scope) {
+        scope.setupPlatformUserDefaults()
         scope.setupPlatformRouting()
         scope.registerModule(SessionAPI.self, SessionManager.init)
         scope.registerModule(LoginAPI.self, Login.init)

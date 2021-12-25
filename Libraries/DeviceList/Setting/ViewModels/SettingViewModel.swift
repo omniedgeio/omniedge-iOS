@@ -10,6 +10,7 @@ import Combine
 
 protocol SettingDelegate: AnyObject {
     func logout()
+    func reset()
 }
 
 class SettingViewModel: ObservableObject {
@@ -17,5 +18,9 @@ class SettingViewModel: ObservableObject {
 
     func logout() {
         delegate?.logout()
+    }
+
+    func reset() {
+        delegate?.reset()
     }
 }

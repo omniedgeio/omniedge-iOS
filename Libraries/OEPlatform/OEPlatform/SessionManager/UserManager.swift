@@ -10,11 +10,14 @@ import KeychainAccess
 import Tattoo
 
 public class UserManager: UserAPI {
+    let scope: Scope
+
     public init(scope: Scope) {
+        self.scope = scope
     }
 
     public func user(email: String) -> User? {
-        if let user: User? = UserDefaults.standard.getDecodable(for: email) {
+        if let user: User? = scope.userDefaults().getDecodable(for: email) {
             return user
         } else {
             return nil
@@ -23,7 +26,7 @@ public class UserManager: UserAPI {
 
     public func setUser(_ user: User, for email: String) {
         do {
-            try UserDefaults.standard.setEncodable(user, for: email)
+            try scope.userDefaults().setEncodable(user, for: email)
         } catch {
             //
         }
@@ -43,11 +46,16 @@ public class UserManager: UserAPI {
         }
 
         do {
-            try UserDefaults.standard.setEncodable(user, for: email)
+            try scope.userDefaults().setEncodable(user, for: email)
         } catch {
             return nil
         }
         return user
+    }
+
+    public func clear() {
+        scope.userDefaults().removeSuite(named: "com.omniedge.ios")
+        scope.userDefaults().synchronize()
     }
 }
 

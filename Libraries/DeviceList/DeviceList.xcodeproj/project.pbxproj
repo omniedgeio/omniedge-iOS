@@ -660,6 +660,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = DeviceList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -673,6 +674,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = DeviceList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
