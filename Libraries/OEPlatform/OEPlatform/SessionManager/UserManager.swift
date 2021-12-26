@@ -54,8 +54,9 @@ public class UserManager: UserAPI {
     }
 
     public func clear() {
-        scope.userDefaults().removeSuite(named: "com.omniedge.ios")
-        scope.userDefaults().synchronize()
+        if let identifier = Bundle.main.bundleIdentifier {
+            scope.userDefaults().removePersistentDomain(forName: identifier)
+        }
     }
 }
 
