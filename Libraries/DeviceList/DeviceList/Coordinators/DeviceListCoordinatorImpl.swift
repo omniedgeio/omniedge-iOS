@@ -100,6 +100,10 @@ extension DeviceListCoordinatorImpl: DeviceListDelegate {
         let view = SettingView(viewModel: viewModel)
         setting = router.push(view: AnyView(view))
     }
+
+    func ping(_ ip: String, _ complete: @escaping (Double) -> Void) {
+        scope.pingProvider.ping(ip, complete)
+    }
 }
 
 extension DeviceListCoordinatorImpl: SettingDelegate {

@@ -29,11 +29,17 @@ public struct DeviceListView: View {
                     .background(Color.white)
                     .cornerRadius(10)
 
-                Button(action: {
-                    viewModel.logout()
-                }, label: {
-                    Text("Ping Device")
-                }).buttonStyle(TertiaryButtonStyle())
+                ZStack {
+                    Button(action: {
+                        viewModel.ping()
+                    }, label: {
+                        Text("Ping Device")
+                    }).buttonStyle(TertiaryButtonStyle())
+                        .disabled(viewModel.isPinging)
+                    if viewModel.isPinging {
+                        ProgressView()
+                    }
+                }
 
                 deviceListView()
                     .background(Color.clear)
@@ -80,7 +86,7 @@ public struct DeviceListView: View {
         HStack(alignment: .bottom) {
             deviceInfoView(info: info)
             Spacer()
-            Text("\(info.ping) ms")
+            Text("\(info.ping) ms").foregroundColor(Color.green)
         }.padding(.trailing, 8)
     }
 

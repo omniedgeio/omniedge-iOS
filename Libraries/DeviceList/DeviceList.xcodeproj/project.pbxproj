@@ -18,7 +18,6 @@
 		7E001D712736976A00518F9D /* DeviceListDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D702736976A00518F9D /* DeviceListDataAPI.swift */; };
 		7E001D7327369A0100518F9D /* NetworkListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D7227369A0100518F9D /* NetworkListModel.swift */; };
 		7E001D7527369FF700518F9D /* DeviceListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D7427369FF700518F9D /* DeviceListDataProvider.swift */; };
-		7E001D772736A1B300518F9D /* DeviceListDataProvider+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D762736A1B300518F9D /* DeviceListDataProvider+Mock.swift */; };
 		7E001D792736A29D00518F9D /* DeviceListDataNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D782736A29D00518F9D /* DeviceListDataNetwork.swift */; };
 		7E2A2847273D3D2B0023BDB6 /* OENetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7E2A2846273D3D2B0023BDB6 /* OENetwork */; };
 		7E3F7D492754FBCE00C4B7A1 /* DeviceList+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3F7D482754FBCE00C4B7A1 /* DeviceList+Mock.swift */; };
@@ -28,6 +27,8 @@
 		7EAE2EE0271310C5000156BC /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE2EDF271310C5000156BC /* DeviceListView.swift */; };
 		7EB8F764275332DE008928D2 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB8F763275332DE008928D2 /* SettingViewModel.swift */; };
 		7EB8F7662753330C008928D2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB8F7652753330C008928D2 /* SettingView.swift */; };
+		7EEE59C7277803930015F0ED /* DevicePingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE59C6277803930015F0ED /* DevicePingAPI.swift */; };
+		7EEE59C9277804040015F0ED /* DevicePing+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEE59C8277804040015F0ED /* DevicePing+Mock.swift */; };
 		B4521DF22214F97166BD2434 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7A00A754BBBB4B90F3E3B1CB /* OEUIKit */; };
 		BFFE2344E062C9E963EC35CB /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E519725A9AAE3057B08D7E /* OEPlatform.framework */; };
 		CFD731D47495C0723EF8B608 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81157FE36659379C053D0EC3 /* OEUIKit */; };
@@ -118,7 +119,6 @@
 		7E001D702736976A00518F9D /* DeviceListDataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListDataAPI.swift; sourceTree = "<group>"; };
 		7E001D7227369A0100518F9D /* NetworkListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListModel.swift; sourceTree = "<group>"; };
 		7E001D7427369FF700518F9D /* DeviceListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListDataProvider.swift; sourceTree = "<group>"; };
-		7E001D762736A1B300518F9D /* DeviceListDataProvider+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceListDataProvider+Mock.swift"; sourceTree = "<group>"; };
 		7E001D782736A29D00518F9D /* DeviceListDataNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListDataNetwork.swift; sourceTree = "<group>"; };
 		7E2A2844273D3D0B0023BDB6 /* OENetwork */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OENetwork; path = ../../Packages/OENetwork; sourceTree = "<group>"; };
 		7E3F7D482754FBCE00C4B7A1 /* DeviceList+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceList+Mock.swift"; sourceTree = "<group>"; };
@@ -127,6 +127,8 @@
 		7EAE2EDF271310C5000156BC /* DeviceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceListView.swift; sourceTree = "<group>"; };
 		7EB8F763275332DE008928D2 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		7EB8F7652753330C008928D2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		7EEE59C6277803930015F0ED /* DevicePingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePingAPI.swift; sourceTree = "<group>"; };
+		7EEE59C8277804040015F0ED /* DevicePing+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DevicePing+Mock.swift"; sourceTree = "<group>"; };
 		834AE7F4A99310C4A8CE8E7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9183332E2C5C38C2E53084FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		92824AB4B7CBA780FDEE25EB /* UITests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UITests.xcconfig; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				7E001D702736976A00518F9D /* DeviceListDataAPI.swift */,
+				7EEE59C6277803930015F0ED /* DevicePingAPI.swift */,
 				7E001D7427369FF700518F9D /* DeviceListDataProvider.swift */,
 				7E001D782736A29D00518F9D /* DeviceListDataNetwork.swift */,
 			);
@@ -271,8 +274,8 @@
 		7EAE2EE1271310D1000156BC /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				7E001D762736A1B300518F9D /* DeviceListDataProvider+Mock.swift */,
 				7E3F7D482754FBCE00C4B7A1 /* DeviceList+Mock.swift */,
+				7EEE59C8277804040015F0ED /* DevicePing+Mock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -549,11 +552,12 @@
 				7E485EE52739495100C3D486 /* DeviceListViewModel.swift in Sources */,
 				2AF4E7FF52422DC85C395D00 /* DeviceList.swift in Sources */,
 				7E923045272E282C00E5F6D5 /* DeviceListCoordinatorImpl.swift in Sources */,
+				7EEE59C9277804040015F0ED /* DevicePing+Mock.swift in Sources */,
+				7EEE59C7277803930015F0ED /* DevicePingAPI.swift in Sources */,
 				7E001D7327369A0100518F9D /* NetworkListModel.swift in Sources */,
 				7E001D712736976A00518F9D /* DeviceListDataAPI.swift in Sources */,
 				7EB8F764275332DE008928D2 /* SettingViewModel.swift in Sources */,
 				7EAE2EE0271310C5000156BC /* DeviceListView.swift in Sources */,
-				7E001D772736A1B300518F9D /* DeviceListDataProvider+Mock.swift in Sources */,
 				7E001D792736A29D00518F9D /* DeviceListDataNetwork.swift in Sources */,
 				7E3F7D492754FBCE00C4B7A1 /* DeviceList+Mock.swift in Sources */,
 				7E001D7527369FF700518F9D /* DeviceListDataProvider.swift in Sources */,

@@ -16,6 +16,7 @@ protocol DeviceListDelegate: AnyObject {
     func start()
     func stop()
     func showSetting()
+    func ping(_ ip: String, _ complete: @escaping (Double) -> Void)
 }
 
 class DeviceListViewModel: ObservableObject {
@@ -26,6 +27,9 @@ class DeviceListViewModel: ObservableObject {
     @Published var query: String = ""
     @Published var isLoading = false
     @Published var error: DataError = .none
+    @Published var isPinging = false
+    private var pingCount = 0
+
     @Published var isStart = false {
         didSet {
             if isStart {
@@ -79,6 +83,26 @@ class DeviceListViewModel: ObservableObject {
         delegate?.logout()
     }
 
+    func ping() {
+        guard isPinging == false else {
+            return
+        }
+        isPinging = true
+        for subnet in list {
+            for device in subnet.list {
+                pingCount += 1
+                delegate?.ping(device.ip) { [weak self] time in
+                    print("ping: \(device.ip), \(time)")
+                    device.ping = Int(time)
+                    self?.pingCount -= 1
+                    if (self?.pingCount == 0) {
+                        self?.isPinging = false
+                    }
+                }
+            }
+        }
+    }
+
     func load() {
         guard isLoading == false else {
             return
@@ -122,15 +146,26 @@ class DeviceListViewModel: ObservableObject {
     }
 }
 
-struct DeviceInfoViewModel {
+class DeviceInfoViewModel {
     var uuid: String
     var name: String
     var ip: String
     var ping: Int = 0
+    init(uuid: String, name: String, ip: String) {
+        self.uuid = uuid
+        self.name = name
+        self.ip = ip
+    }
 }
 
-struct NetworkViewModel {
+class NetworkViewModel {
     var name: String
     var uuid: String
     var list: [DeviceInfoViewModel]
+
+    init(name: String, uuid: String, list: [DeviceInfoViewModel]) {
+        self.name = name
+        self.uuid = uuid
+        self.list = list
+    }
 }

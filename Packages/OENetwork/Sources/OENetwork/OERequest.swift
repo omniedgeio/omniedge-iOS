@@ -57,6 +57,9 @@ extension Request {
         request.httpBody = requestBodyFrom(body)
         request.allHTTPHeaderFields = headers
         request.timeoutInterval = 10 /// set 10 sew
+#if DEBUG
+    print("request: \(request)")
+#endif
         return request
     }
 }
