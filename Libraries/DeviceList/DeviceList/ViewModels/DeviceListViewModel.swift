@@ -22,7 +22,7 @@ protocol DeviceListDelegate: AnyObject {
 class DeviceListViewModel: ObservableObject {
     weak var delegate: DeviceListDelegate?
 
-    @Published var list = [NetworkViewModel]()
+    @Published var list: [NetworkViewModel] = []
     @Published var host: DeviceInfoViewModel
     @Published var query: String = ""
     @Published var isLoading = false
@@ -93,6 +93,7 @@ class DeviceListViewModel: ObservableObject {
                 pingCount += 1
                 delegate?.ping(device.ip) { [weak self] time in
                     print("ping: \(device.ip), \(time)")
+                    self?.objectWillChange.send() //
                     device.ping = Int(time)
                     self?.pingCount -= 1
                     if (self?.pingCount == 0) {
