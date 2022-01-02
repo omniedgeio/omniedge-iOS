@@ -162,7 +162,7 @@ extension OmniEdgeManager {
         let proto = NETunnelProviderProtocol()
         // WARNING: This must match the bundle identifier of the app extension
         // containing packet tunnel provider.
-        proto.providerBundleIdentifier = "com.meandlife.Omniedge.Tunnel"
+        proto.providerBundleIdentifier = "com.jieqi.omniedge.tunnel"
         proto.serverAddress = "Omniedge"//supernode.ntop.org:7777"
         /// passwordReference必须取keychain里面的值
         proto.providerConfiguration = [:]
