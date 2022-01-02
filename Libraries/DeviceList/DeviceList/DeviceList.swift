@@ -21,7 +21,7 @@ public class DeviceList: DeviceListAPI, ProductionModule {
     }
 
     public func addProductionServices(_ scope: Scope) {
-        scope.registerService(DevicePingAPI.self, DevicePingProviderMock.init)
+        scope.registerService(DevicePingAPI.self, DevicePingProvider.init)
     }
 }
 
