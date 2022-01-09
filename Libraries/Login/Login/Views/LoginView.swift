@@ -34,12 +34,6 @@ struct LoginView: View {
             VStack(alignment: .center) {
                 Spacer().frame(maxHeight: 40)
                 LoginTitleView()
-                GoogleLoginView {
-                    viewModel.googleLogin()
-                }
-                Text("- or continue with email -")
-                    .font(Font.OME.subTitle)
-                    .foregroundColor(Color.OME.gray)
                 VStack(alignment: .leading) {
                     if #available(iOS 15.0, *) {
                         TextField("Email", text: $email)

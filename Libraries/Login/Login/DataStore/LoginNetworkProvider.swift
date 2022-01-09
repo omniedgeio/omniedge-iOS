@@ -69,9 +69,9 @@ struct RegisterDeviceRequest: Request {
     var path: String = "/devices/register"
 
     var body: [String: Any]? {
-        let uuid:String  = UIDevice.current.identifierForVendor?.uuidString ?? "hardware_uuid-1-2-3-4"
-        return ["name": "samuel_iphone",
+        let uuid: String = UIDevice.current.identifierForVendor?.uuidString ?? "hardware_uuid-1-2-3-4"
+        return ["name": UIDevice.current.name,
                 "hardware_uuid": uuid,
-                "os": "iOS Omniedge"]
+                "os": "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"]
     }
 }

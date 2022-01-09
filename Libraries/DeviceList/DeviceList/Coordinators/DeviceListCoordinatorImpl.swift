@@ -98,7 +98,7 @@ extension DeviceListCoordinatorImpl: DeviceListDelegate {
         let viewModel = SettingViewModel()
         viewModel.delegate = self
         let view = SettingView(viewModel: viewModel)
-        setting = router.push(view: AnyView(view))
+        setting = router.push(view: AnyView(view.ignoresSafeArea()))
     }
 
     func ping(_ ip: String, _ complete: @escaping (Double) -> Void) {

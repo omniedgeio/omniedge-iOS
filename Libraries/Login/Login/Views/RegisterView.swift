@@ -37,13 +37,7 @@ struct RegisterView: View {
                 Group {
                     Image.OME.primary
                     Text.OME.slogon.padding()
-                    GoogleLoginView {
-                        viewModel.googleLogin()
-                    }
                 }
-                Text("- or continue with email -")
-                    .font(Font.OME.subTitle)
-                    .foregroundColor(Color.OME.gray)
                 OMEInputField(title: "Name", value: $name, message: "") { _ in
                     return true
                 }

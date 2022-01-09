@@ -28,10 +28,11 @@ public protocol Request {
 public extension Request {
     var method: HTTPMethod { return .post } //default POST
     var headers: [String: String]? {
+        let version: String = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0"
         if let token = token {
-            return ["User-Agent": "OmniEdge iOS", "Accept": "*/*", "Content-Type": "application/json", "Authorization": "Bearer \(token)"]
+            return ["User-Agent": "OmniEdge iOS \(version)", "Accept": "*/*", "Content-Type": "application/json", "Authorization": "Bearer \(token)"]
         } else {
-            return ["User-Agent": "OmniEdge iOS", "Accept": "*/*", "Content-Type": "application/json"]
+            return ["User-Agent": "OmniEdge iOS \(version)", "Accept": "*/*", "Content-Type": "application/json"]
         }
     }
     var contentType: String { return "application/json" }

@@ -14,8 +14,6 @@ struct SettingView: View {
         ZStack {
             Color.OME.background.edgesIgnoringSafeArea(.all)
             List {
-                dashBoard
-                support
                 logout
                 reset
             }.background(Color.OME.background)
