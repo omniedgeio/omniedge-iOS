@@ -74,6 +74,9 @@ class DeviceListViewModel: ObservableObject {
                 self?.host.ip = model.virtual_ip
                 if self?.delegate?.didJoinNetwork(request.uuid, model: model) == false {
                     self?.error = DataError.fail(message: "Can't join network")
+                } else {
+                    self?.isLoading = false
+                    self?.load()
                 }
             })
             .store(in: &cancellableStore)
@@ -132,6 +135,7 @@ class DeviceListViewModel: ObservableObject {
     }
 
     private func parseNetworkList(model: NetworkListModel) -> [String] {
+        self.list.removeAll()
         for network in model.list {
             var deviceList = [DeviceInfoViewModel]()
             for device in network.devices {
@@ -141,7 +145,7 @@ class DeviceListViewModel: ObservableObject {
                 }
             }
             let networkItem = NetworkViewModel(name: network.name, uuid: network.uuid, list: deviceList)
-            list.append(networkItem)
+            self.list.append(networkItem)
         }
         return model.list.map { $0.uuid }
     }

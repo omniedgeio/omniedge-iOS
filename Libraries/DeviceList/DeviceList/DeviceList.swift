@@ -21,6 +21,7 @@ public class DeviceList: DeviceListAPI, ProductionModule {
     }
 
     public func addProductionServices(_ scope: Scope) {
+        scope.registerService(DeviceListDataStoreAPI.self, DeviceListDataProvider.init)
         scope.registerService(DevicePingAPI.self, DevicePingProvider.init)
     }
 }
@@ -28,5 +29,8 @@ public class DeviceList: DeviceListAPI, ProductionModule {
 extension Scope {
     var pingProvider: DevicePingAPI {
         self.getService(DevicePingAPI.self)
+    }
+    var deviceListProvider: DeviceListDataStoreAPI {
+        self.getService(DeviceListDataStoreAPI.self)
     }
 }

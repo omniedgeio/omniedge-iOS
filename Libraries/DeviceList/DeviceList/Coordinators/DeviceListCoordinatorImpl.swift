@@ -27,7 +27,7 @@ class DeviceListCoordinatorImpl: DeviceListCoordinator {
     }
 
     func createHomePage() -> AnyView {
-        let viewModel = DeviceListViewModel(dataStore: DeviceListDataProvider(), token: token, user: user)
+        let viewModel = DeviceListViewModel(dataStore: scope.deviceListProvider, token: token, user: user)
         viewModel.delegate = self
         return AnyView(DeviceListView(viewModel: viewModel).navigationBarHidden(true))
     }

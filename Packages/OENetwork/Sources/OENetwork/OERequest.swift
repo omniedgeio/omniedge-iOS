@@ -60,6 +60,7 @@ extension Request {
         request.timeoutInterval = 10 /// set 10 sew
 #if DEBUG
     print("request: \(request)")
+    print("body: \(String(describing: body))")
 #endif
         return request
     }
