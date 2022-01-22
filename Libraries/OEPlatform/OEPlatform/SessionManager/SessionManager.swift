@@ -49,14 +49,22 @@ public class SessionManager: SessionAPI {
         }
         return false
     }
+}
 
-    public func email(token: String) -> String? {
-        let dict = JWTUtil.decode(jwtToken: token)
+public extension String {
+    struct JWTUser {
+        public var name: String?
+        public var email: String?
+    }
+    var jwt: JWTUser? {
+        let dict = JWTUtil.decode(jwtToken: self)
         guard !dict.isEmpty else {
             return nil
         }
-        if let email = dict[Session.emailKey] as? String {
-            return email
+
+        if let data = dict[Session.dataKey] as? [String: Any],
+           let user = data[Session.usrKey] as? [String: Any] {
+            return JWTUser(name: user[Session.nameKey] as? String, email: user[Session.emailKey] as? String)
         }
         return nil
     }

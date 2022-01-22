@@ -47,7 +47,7 @@ class LoginViewModel: ObservableObject {
                     self?.loading = false
                 }
             }, receiveValue: { [weak self] model in
-                if let token = model.data?["token"] {
+                if let token = model.token {
                     self?.delegate?.didLogin(self, token: token)
                 } else {
                     self?.loading = false
@@ -120,7 +120,7 @@ class LoginViewModel: ObservableObject {
                     self?.error = error
                 }
             }, receiveValue: { [weak self] model in
-                if let uuid = model.data?["uuid"] {
+                if let uuid = model.id {
                     self?.delegate?.didRegisterDevice(self, token: token, deviceUUID: uuid)
                 } else {
                     self?.error = .fail(message: "Register Device Error")

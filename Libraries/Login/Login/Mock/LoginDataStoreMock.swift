@@ -11,8 +11,8 @@ import Combine
 #if DEBUG
 
 class LoginDataStoreMock: LoginDataStoreAPI {
-    func registerDevice(_ token: String) -> AnyPublisher<LoginResult, AuthError> {
-        let result = LoginResult(message: "Register successfully", data: ["token": "sdufifjsf&6sfsSFsljfsdlkj112@3kjflj"])
+    func registerDevice(_ token: String) -> AnyPublisher<RegisterDeviceResult, AuthError> {
+        let result = RegisterDeviceResult(id: "sfsd")
         return Deferred {
             Future { promise in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -23,7 +23,7 @@ class LoginDataStoreMock: LoginDataStoreAPI {
     }
 
     func login(_ model: LoginModel) -> AnyPublisher<LoginResult, AuthError> {
-        let result = LoginResult(message: "Login successfully", data: ["token": "sdufifjsf&6sfsSFsljfsdlkj112@3kjflj"])
+        let result = LoginResult(token: "sdufifjsf&6sfsSFsljfsdlkj112@3kjflj", refreshToken: "123", expires_at: "34")
         return Deferred {
             Future { promise in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -44,8 +44,8 @@ class LoginDataStoreMock: LoginDataStoreAPI {
         }.eraseToAnyPublisher()
     }
 
-    func reset(_ model: ResetPasswordModel) -> AnyPublisher<LoginResult, AuthError> {
-        let result = LoginResult(message: "Reset successfully", data: nil)
+    func reset(_ model: ResetPasswordModel) -> AnyPublisher<ResetResult, AuthError> {
+        let result = ResetResult(id: "sfs")
         return Deferred {
             Future { promise in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

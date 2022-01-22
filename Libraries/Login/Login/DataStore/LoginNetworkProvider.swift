@@ -10,11 +10,6 @@ import Foundation
 import OENetwork
 import UIKit
 
-struct LoginNetworkResult: Codable {
-    var message: String
-    var data: [String: String]?
-}
-
 struct RegisterNetworkResult: Codable {
     struct RegisterInfo: Codable {
         var id: String?
@@ -36,6 +31,16 @@ struct RegisterRequst: Request {
     }
 }
 
+struct LoginNetworkResult: Codable {
+    struct LoginInfo: Codable {
+        var token: String?
+        var refreshToken: String?
+        var expires_at: String?
+    }
+
+    var data: LoginInfo?
+}
+
 struct LoginRequest: Request {
     let email: String
     let password: String
@@ -47,8 +52,15 @@ struct LoginRequest: Request {
     }
 }
 
+struct ResetPasswordNetworkResult: Codable {
+    struct Info: Codable {
+        var status: String?
+    }
+    var data: Info?
+}
+
 struct ResetPasswordRequest: Request {
-    typealias ReturnType = LoginNetworkResult
+    typealias ReturnType = ResetPasswordNetworkResult
     var email: String
     var path: String = "/auth/reset-password/code"
     var body: [String: Any]? {
@@ -56,6 +68,12 @@ struct ResetPasswordRequest: Request {
     }
 }
 
+struct RegisterDeviceNetworkResult: Codable {
+    struct Info: Codable {
+        var id: String?
+    }
+    var data: Info?
+}
 /*
  //register device
  {
@@ -69,7 +87,7 @@ struct ResetPasswordRequest: Request {
  */
 struct RegisterDeviceRequest: Request {
     let token: String?
-    typealias ReturnType = LoginNetworkResult
+    typealias ReturnType = RegisterDeviceNetworkResult
     var path: String = "/devices/register"
 
     var body: [String: Any]? {

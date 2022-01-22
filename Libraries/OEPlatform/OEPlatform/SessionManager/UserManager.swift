@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import KeychainAccess
 import Tattoo
 
 public class UserManager: UserAPI {
@@ -33,18 +32,10 @@ public class UserManager: UserAPI {
     }
 
     public func createUser(token: String) -> User? {
-        let dict = JWTUtil.decode(jwtToken: token)
-        guard !dict.isEmpty else {
+        guard let jwt = token.jwt, let email = jwt.email, let name = jwt.name else {
             return nil
         }
-        guard let email = dict[Session.emailKey] as? String, let name = dict[Session.nameKey] as? String else {
-            return nil
-        }
-        var user = User(email: email, name: name)
-        if let imageURL = dict[Session.pictureURLKey] as? String {
-            user.picture = imageURL
-        }
-
+        let user = User(email: email, name: name)
         do {
             try scope.userDefaults().setEncodable(user, for: email)
         } catch {

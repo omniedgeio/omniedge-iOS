@@ -20,7 +20,9 @@ class LoginDataStoreProvider: LoginDataStoreAPI {
     func login(_ model: LoginModel) -> AnyPublisher<LoginResult, AuthError> {
         return network.dispatch(LoginRequest(email: model.email, password: model.password))
             .map({ result in
-                return LoginResult(message: result.message, data: result.data)
+                return LoginResult(token: result.data?.token ?? "",
+                                   refreshToken: result.data?.refreshToken ?? "",
+                                   expires_at: result.data?.expires_at ?? "")
             })
             .mapError { error in
                 return AuthError.fail(message: error.localizedDescription)
@@ -39,10 +41,10 @@ class LoginDataStoreProvider: LoginDataStoreAPI {
             .eraseToAnyPublisher()
     }
 
-    func reset(_ model: ResetPasswordModel) -> AnyPublisher<LoginResult, AuthError> {
+    func reset(_ model: ResetPasswordModel) -> AnyPublisher<ResetResult, AuthError> {
         return network.dispatch(ResetPasswordRequest(email: model.email))
             .map({ result in
-                return LoginResult(message: result.message, data: result.data)
+                return ResetResult(id: result.data?.status)
             })
             .mapError { error in
                 return AuthError.fail(message: error.localizedDescription)
@@ -50,10 +52,10 @@ class LoginDataStoreProvider: LoginDataStoreAPI {
             .eraseToAnyPublisher()
     }
 
-    func registerDevice(_ token: String) -> AnyPublisher<LoginResult, AuthError> {
+    func registerDevice(_ token: String) -> AnyPublisher<RegisterDeviceResult, AuthError> {
         return network.dispatch(RegisterDeviceRequest(token: token))
             .map({ result in
-                return LoginResult(message: result.message, data: result.data)
+                return RegisterDeviceResult(id: result.data?.id)
             })
             .mapError { error in
                 return AuthError.fail(message: error.localizedDescription)

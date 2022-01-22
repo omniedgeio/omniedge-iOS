@@ -10,11 +10,12 @@ import Foundation
 public protocol SessionAPI {
     func login(token: String) -> Bool
     func logout()
-    func email(token: String) -> String?
     var token: String? { get }
 }
 
 public struct Session {
+    static public let dataKey = "data"
+    static public let usrKey = "user"
     static public let emailKey = "email"
     public static let nameKey = "name"
     static public let tokenKey = "token"

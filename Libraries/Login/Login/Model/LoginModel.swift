@@ -23,12 +23,21 @@ struct ResetPasswordModel {
     var email: String
 }
 
-struct LoginResult: Codable {
-    var message: String
-    var data: [String: String]?
+struct LoginResult {
+    var token: String?
+    var refreshToken: String?
+    var expires_at: String?
 }
 
-struct RegisterResult: Codable {
+struct RegisterResult {
+    var id: String?
+}
+
+struct ResetResult {
+    var id: String?
+}
+
+struct RegisterDeviceResult {
     var id: String?
 }
 

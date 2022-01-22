@@ -33,7 +33,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
         var error = false
 
         if session.login(token: token) {
-            if let email = session.email(token: token) {
+            if let email = token.jwt?.email {
                 var currentUsr: User? = nil
 
                 if let user = userManager.user(email: email) {
@@ -70,10 +70,9 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     }
 
     func didRegisterDevice(_ viewModel: LoginViewModel?, token: String, deviceUUID: String) {
-        let session = scope.getService(SessionAPI.self)
         let userManager = scope.getService(UserAPI.self)
 
-        if let email = session.email(token: token), var user = userManager.user(email: email) {
+        if let email = token.jwt?.email, var user = userManager.user(email: email) {
             user.deviceUUID = deviceUUID
             userManager.setUser(user, for: email)
             let deviceList = scope.getService(DeviceListAPI.self)
