@@ -12,15 +12,3 @@ public protocol SessionAPI {
     func logout()
     var token: String? { get }
 }
-
-public struct Session {
-    static public let dataKey = "data"
-    static public let usrKey = "user"
-    static public let emailKey = "email"
-    public static let nameKey = "name"
-    static public let tokenKey = "token"
-    static public let expireKey = "exp"
-    static public let uuidKey = "uuid"
-    static public let pictureURLKey = "imageURL"
-
-}
