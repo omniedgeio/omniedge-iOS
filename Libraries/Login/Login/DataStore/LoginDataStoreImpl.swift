@@ -11,7 +11,11 @@ import OENetwork
 
 class LoginDataStoreProvider: LoginDataStoreAPI {
     private var cancellables = [AnyCancellable]()
-    private let network = OENetwork(baseURL: "https://dev.omniedge.io/api")
+    #if DEBUG
+    private let network = OENetwork(baseURL: "https://dev-api.omniedge.io/api/v1")
+    #else
+    private let network = OENetwork(baseURL: "https://api.omniedge.io/api/v1")
+    #endif
 
     func login(_ model: LoginModel) -> AnyPublisher<LoginResult, AuthError> {
         return network.dispatch(LoginRequest(email: model.email, password: model.password))
@@ -24,10 +28,10 @@ class LoginDataStoreProvider: LoginDataStoreAPI {
             .eraseToAnyPublisher()
     }
 
-    func register(_ model: RegisterModel) -> AnyPublisher<LoginResult, AuthError> {
+    func register(_ model: RegisterModel) -> AnyPublisher<RegisterResult, AuthError> {
         return network.dispatch(RegisterRequst(name: model.name, email: model.email, password: model.password))
             .map({ result in
-                return LoginResult(message: result.message, data: result.data)
+                return RegisterResult(id: result.data?.id)
             })
             .mapError { error in
                 return AuthError.fail(message: error.localizedDescription)

@@ -28,6 +28,10 @@ struct LoginResult: Codable {
     var data: [String: String]?
 }
 
+struct RegisterResult: Codable {
+    var id: String?
+}
+
 enum AuthError: Error, Hashable {
     case success(message: String)
     case fail(message: String)

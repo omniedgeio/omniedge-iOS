@@ -15,8 +15,15 @@ struct LoginNetworkResult: Codable {
     var data: [String: String]?
 }
 
+struct RegisterNetworkResult: Codable {
+    struct RegisterInfo: Codable {
+        var id: String?
+    }
+    var data: RegisterInfo?
+}
+
 struct RegisterRequst: Request {
-    typealias ReturnType = LoginNetworkResult
+    typealias ReturnType = RegisterNetworkResult
     var name: String
     var email: String
     var password: String
@@ -25,9 +32,7 @@ struct RegisterRequst: Request {
     var body: [String: Any]? {
         ["name": name,
          "email": email,
-         "password": password,
-         "confirm_password": password,
-         "auth_session_uuid": "e9497ac1-f33d-41d9-b868-ad1035854610"]
+         "password": password]
     }
 }
 
@@ -38,8 +43,7 @@ struct LoginRequest: Request {
     var path: String = "/auth/login/password"
     var body: [String: Any]? {
         ["email": email,
-         "password": password,
-         "auth_session_uuid": "e9497ac1-f33d-41d9-b868-ad1035854610"]
+         "password": password]
     }
 }
 
@@ -71,7 +75,7 @@ struct RegisterDeviceRequest: Request {
     var body: [String: Any]? {
         let uuid: String = UIDevice.current.identifierForVendor?.uuidString ?? "hardware_uuid-1-2-3-4"
         return ["name": UIDevice.current.name,
-                "hardware_uuid": uuid,
-                "os": "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"]
+                "hardware_id": uuid,
+                "platform": "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"]
     }
 }

@@ -4,7 +4,11 @@ import XCTest
 
 final class OENetworkTests: XCTestCase {
     private var cancellables = [AnyCancellable]()
-    private let network = OENetwork(baseURL: "https://dev.omniedge.io/api")
+    #if DEBUG
+    private let network = OENetwork(baseURL: "https://dev-api.omniedge.io/api/v1")
+    #else
+    private let network = OENetwork(baseURL: "https://api.omniedge.io/api/v1")
+    #endif
 
     func testRegister() {
         let expectation = expectation(description: "wait for register")
@@ -59,7 +63,7 @@ final class OENetworkTests: XCTestCase {
 }
 
 struct TestResult: Codable {
-    var message: String
+    var message: String?
     var data: [String: String]?
 }
 

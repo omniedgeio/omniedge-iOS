@@ -33,8 +33,8 @@ class LoginDataStoreMock: LoginDataStoreAPI {
         }.eraseToAnyPublisher()
     }
 
-    func register(_ model: RegisterModel) -> AnyPublisher<LoginResult, AuthError> {
-        let result = LoginResult(message: "Register successfully", data: nil)
+    func register(_ model: RegisterModel) -> AnyPublisher<RegisterResult, AuthError> {
+        let result = RegisterResult(id: "234")
         return Deferred {
             Future { promise in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

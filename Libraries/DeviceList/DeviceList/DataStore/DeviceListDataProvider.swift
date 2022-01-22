@@ -10,7 +10,11 @@ import OENetwork
 
 class DeviceListDataProvider: DeviceListDataStoreAPI {
     private var cancellables = [AnyCancellable]()
-    private let network = OENetwork(baseURL: "https://dev.omniedge.io/api")
+    #if DEBUG
+    private let network = OENetwork(baseURL: "https://dev-api.omniedge.io/api/v1")
+    #else
+    private let network = OENetwork(baseURL: "https://api.omniedge.io/api/v1")
+    #endif
 
     func fetchNetworkList(_ request: NetworkListRequest) -> AnyPublisher<NetworkListModel, DataError> {
         return network.dispatch(FetchNetworkListRequst(token: request.token))
