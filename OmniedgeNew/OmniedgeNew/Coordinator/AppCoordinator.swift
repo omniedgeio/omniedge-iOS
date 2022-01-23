@@ -25,10 +25,10 @@ class AppCoordinator: Coordinator {
         let userManager = scope.getService(UserAPI.self)
 
         if let token = session.token, let email = token.jwt?.email {
-            if let user = userManager.user(email: email) {
+            if let user = userManager.user(email: email), let _ = user.deviceUUID {
                 return homeView(user, token: token)
             } else {
-                if let user = userManager.createUser(token: token) {
+                if let user = userManager.createUser(token: token), let _ = user.deviceUUID {
                     return homeView(user, token: token)
                 }
             }

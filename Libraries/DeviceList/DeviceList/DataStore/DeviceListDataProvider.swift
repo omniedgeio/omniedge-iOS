@@ -19,7 +19,7 @@ class DeviceListDataProvider: DeviceListDataStoreAPI {
     func fetchNetworkList(_ request: NetworkListRequest) -> AnyPublisher<NetworkListModel, DataError> {
         return network.dispatch(FetchNetworkListRequst(token: request.token))
             .compactMap({ [weak self] result in
-                return self?.createNetworkList(message: result.message, data: result.data)
+                return self?.createNetworkList(result.data)
             })
             .mapError { error in
                 return DataError.fail(message: error.localizedDescription)
@@ -27,7 +27,7 @@ class DeviceListDataProvider: DeviceListDataStoreAPI {
             .eraseToAnyPublisher()
     }
 
-    private func createNetworkList(message: String, data: [NetworkModel]?) -> NetworkListModel {
+    private func createNetworkList(_ data: [NetworkModel]?) -> NetworkListModel {
         if let list = data {
             return NetworkListModel(list: list)
         } else {

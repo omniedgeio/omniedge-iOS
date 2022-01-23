@@ -28,9 +28,9 @@ struct NetworkListModel {
 
 struct NetworkModel: Codable {
     var name: String
-    var uuid: String
+    var id: String
     var ip_range: String
-    var role: String
+    var role: Int
     var devices: [DeviceModel?]
 }
 
@@ -72,6 +72,7 @@ struct N2NModel: Codable {
     var server: Server
 
     struct Server: Codable {
+        var id: String
         var name: String
         var country: String
         var host: String

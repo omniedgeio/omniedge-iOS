@@ -13,7 +13,6 @@ struct DataNetworkResult: Codable {
 }
 
 struct DataNetworkListResult: Codable {
-    var message: String
     var data: [NetworkModel]?
 }
 
@@ -32,8 +31,7 @@ struct FetchDeviceListRequst: Request {
 }
 
 struct JoinNetworkResult: Codable {
-    var message: String
-    var data: N2NModel
+    var data: N2NModel?
 }
 
 struct JoinNetworkRequst: Request {

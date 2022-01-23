@@ -144,10 +144,10 @@ class DeviceListViewModel: ObservableObject {
                     deviceList.append(deviceViewModel)
                 }
             }
-            let networkItem = NetworkViewModel(name: network.name, uuid: network.uuid, list: deviceList)
+            let networkItem = NetworkViewModel(name: network.name, uuid: network.id, list: deviceList)
             self.list.append(networkItem)
         }
-        return model.list.map { $0.uuid }
+        return model.list.map { $0.id }
     }
 }
 
