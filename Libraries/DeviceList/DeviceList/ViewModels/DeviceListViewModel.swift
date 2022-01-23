@@ -140,7 +140,7 @@ class DeviceListViewModel: ObservableObject {
             var deviceList = [DeviceInfoViewModel]()
             for device in network.devices {
                 if let device = device {
-                    let deviceViewModel = DeviceInfoViewModel(uuid: device.uuid, name: device.name, ip: device.virtual_ip)
+                    let deviceViewModel = DeviceInfoViewModel(uuid: device.id, name: device.name, ip: device.virtual_ip)
                     deviceList.append(deviceViewModel)
                 }
             }

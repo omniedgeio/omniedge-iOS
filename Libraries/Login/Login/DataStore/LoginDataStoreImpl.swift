@@ -55,7 +55,7 @@ class LoginDataStoreProvider: LoginDataStoreAPI {
     func registerDevice(_ token: String) -> AnyPublisher<RegisterDeviceResult, AuthError> {
         return network.dispatch(RegisterDeviceRequest(token: token))
             .map({ result in
-                return RegisterDeviceResult(id: result.data?.hardware_id)
+                return RegisterDeviceResult(id: result.data?.id)
             })
             .mapError { error in
                 return AuthError.fail(message: error.localizedDescription)

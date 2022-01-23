@@ -39,12 +39,11 @@ struct DeviceListModel: Codable {
 }
 
 struct DeviceModel: Codable {
-    var uuid: String
+    var id: String
     var name: String
-    var os: String
+    var platform: String
     var virtual_ip: String
     var last_seen: String
-    var online: Bool
 }
 
 /*
@@ -72,7 +71,6 @@ struct N2NModel: Codable {
     var server: Server
 
     struct Server: Codable {
-        var id: String
         var name: String
         var country: String
         var host: String

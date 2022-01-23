@@ -19,7 +19,6 @@
 		7E001D7327369A0100518F9D /* NetworkListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D7227369A0100518F9D /* NetworkListModel.swift */; };
 		7E001D7527369FF700518F9D /* DeviceListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D7427369FF700518F9D /* DeviceListDataProvider.swift */; };
 		7E001D792736A29D00518F9D /* DeviceListDataNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D782736A29D00518F9D /* DeviceListDataNetwork.swift */; };
-		7E2A2847273D3D2B0023BDB6 /* OENetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7E2A2846273D3D2B0023BDB6 /* OENetwork */; };
 		7E3F7D492754FBCE00C4B7A1 /* DeviceList+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3F7D482754FBCE00C4B7A1 /* DeviceList+Mock.swift */; };
 		7E485EE22739476D00C3D486 /* OENetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 7E485EE12739476D00C3D486 /* OENetwork */; };
 		7E485EE52739495100C3D486 /* DeviceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E485EE42739495000C3D486 /* DeviceListViewModel.swift */; };
@@ -34,7 +33,6 @@
 		B4521DF22214F97166BD2434 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7A00A754BBBB4B90F3E3B1CB /* OEUIKit */; };
 		BFFE2344E062C9E963EC35CB /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E519725A9AAE3057B08D7E /* OEPlatform.framework */; };
 		CFD731D47495C0723EF8B608 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81157FE36659379C053D0EC3 /* OEUIKit */; };
-		D3C800A689BF2113D54624A0 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7672717DD5155417F8BA3521 /* OEUIKit */; };
 		D8228BE3B8C347BB6F0AAA42 /* DeviceList.h in Headers */ = {isa = PBXBuildFile; fileRef = 0531763D8210381C2A772DB1 /* DeviceList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCD905451E56C9917D7B5357 /* DeviceListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6C6756669BF82A02D2615C /* DeviceListTests.swift */; };
 /* End PBXBuildFile section */
@@ -150,9 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E2A2847273D3D2B0023BDB6 /* OENetwork in Frameworks */,
 				4CD8561E1AE56CC7E0C74424 /* DeviceList.framework in Frameworks */,
-				D3C800A689BF2113D54624A0 /* OEUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,8 +446,6 @@
 			);
 			name = DeviceListDemo;
 			packageProductDependencies = (
-				7672717DD5155417F8BA3521 /* OEUIKit */,
-				7E2A2846273D3D2B0023BDB6 /* OENetwork */,
 			);
 			productName = DeviceListDemo;
 			productReference = 73A428C4E8319D2E53B352B2 /* DeviceListDemo.app */;
@@ -734,17 +728,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7672717DD5155417F8BA3521 /* OEUIKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = OEUIKit;
-		};
 		7A00A754BBBB4B90F3E3B1CB /* OEUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OEUIKit;
-		};
-		7E2A2846273D3D2B0023BDB6 /* OENetwork */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = OENetwork;
 		};
 		7E2A2848273D3D340023BDB6 /* OENetwork */ = {
 			isa = XCSwiftPackageProductDependency;

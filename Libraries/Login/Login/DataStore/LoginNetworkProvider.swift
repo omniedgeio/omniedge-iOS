@@ -71,6 +71,8 @@ struct ResetPasswordRequest: Request {
 struct RegisterDeviceNetworkResult: Codable {
     struct Info: Codable {
         var id: String?
+        var name: String?
+        var hardware_id: String?
     }
     var data: Info?
 }
@@ -93,7 +95,7 @@ struct RegisterDeviceRequest: Request {
     var body: [String: Any]? {
         let uuid: String = UIDevice.current.identifierForVendor?.uuidString ?? "hardware_uuid-1-2-3-4"
         return ["name": UIDevice.current.name,
-                "hardware_id": uuid,
+                "hardware_uuid": uuid,
                 "platform": "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"]
     }
 }
