@@ -69,10 +69,23 @@ public struct DeviceListView: View {
     }
 
     @ViewBuilder
+    func networkHeader(_ network: NetworkViewModel) -> some View {
+        Button(action: {
+            viewModel.joinNetwork(network.uuid)
+        }, label: {
+            Text(network.name).font(Font.OME.subTitle12)
+            Spacer()
+            if (network.connected) {
+                Image(systemName: "network")
+            }
+        })
+    }
+
+    @ViewBuilder
     func deviceListView() -> some View {
         List {
             ForEach(viewModel.list, id: \.uuid) { network in
-                Section(header: Text(network.name).font(Font.OME.subTitle12)) {
+                Section(header: networkHeader(network)) {
                     ForEach(network.list, id: \.uuid) { device in
                         normalDeviceInfoView(info: device)
                     }

@@ -76,6 +76,7 @@ class DeviceListViewModel: ObservableObject {
                     self?.error = DataError.fail(message: "Can't join network")
                 } else {
                     self?.isLoading = false
+                    let _ = self?.list.filter { $0.uuid == request.uuid }.map { $0.connected = true }
                     self?.load()
                 }
             })
@@ -125,6 +126,9 @@ class DeviceListViewModel: ObservableObject {
             }, receiveValue: { [weak self] model in
                 self?.isLoading = false
                 let list = self?.parseNetworkList(model: model)
+                if let network = self?.user.network {
+                    let _ = self?.list.filter { $0.uuid == network.networkUUID }.map { $0.connected = true }
+                }
                 self?.delegate?.didLoadNetworkList(self, list: list ?? [])
             })
             .store(in: &cancellableStore)
@@ -132,6 +136,16 @@ class DeviceListViewModel: ObservableObject {
 
     func showSetting() {
         delegate?.showSetting()
+    }
+
+    func joinNetwork(_ uuid: String) {
+        let current = self.list.filter { $0.uuid == uuid }
+        for network in current {
+            if network.connected {
+                return
+            }
+        }
+        joinNetwork(request: JoinRequest(uuid: uuid, deviceID: user.deviceUUID ?? "", token: token))
     }
 
     private func parseNetworkList(model: NetworkListModel) -> [String] {
@@ -166,6 +180,8 @@ class DeviceInfoViewModel {
 class NetworkViewModel {
     var name: String
     var uuid: String
+    var connected = false
+
     var list: [DeviceInfoViewModel]
 
     init(name: String, uuid: String, list: [DeviceInfoViewModel]) {
