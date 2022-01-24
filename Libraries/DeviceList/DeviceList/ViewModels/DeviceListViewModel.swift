@@ -145,6 +145,7 @@ class DeviceListViewModel: ObservableObject {
                 return
             }
         }
+        isStart.toggle()
         joinNetwork(request: JoinRequest(uuid: uuid, deviceID: user.deviceUUID ?? "", token: token))
     }
 
