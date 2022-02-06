@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol TunnelAPI {
-    func start()
+    func start(_ complete: @escaping (Error?) -> Void)
     func stop()
 }

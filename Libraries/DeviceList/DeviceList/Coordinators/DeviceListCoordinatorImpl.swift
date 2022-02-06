@@ -34,9 +34,9 @@ class DeviceListCoordinatorImpl: DeviceListCoordinator {
 }
 
 extension DeviceListCoordinatorImpl: DeviceListDelegate {
-    func start() {
+    func start(_ complete: @escaping (Error?) -> Void) {
         let tunnel = scope.getService(TunnelAPI.self)
-        tunnel.start()
+        tunnel.start(complete)
     }
 
     func stop() {

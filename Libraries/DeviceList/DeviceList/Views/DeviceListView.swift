@@ -51,8 +51,10 @@ public struct DeviceListView: View {
                 ProgressView()
             }
 
-            if viewModel.error != DataError.none {
-                AlertView(viewModel.error.localizedDescription).padding()
+            if viewModel.error != .none {
+                AlertView(viewModel.error.localizedDescription).onTapGesture {
+                    viewModel.error = .none
+                }
             }
         }.onAppear {
             viewModel.load()

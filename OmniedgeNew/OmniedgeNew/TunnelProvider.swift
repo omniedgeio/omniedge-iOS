@@ -13,10 +13,10 @@ import Tattoo
 public class TunnelProvider: TunnelAPI {
     public init(scope: Scope) {}
 
-    public func start() {
+    public func start(_ complete: @escaping (Error?) -> Void) {
         let config = OmniEdgeConfig()
         OmniEdgeManager.shared.start(with: config, completion: { result in
-            print("\(String(describing: result))")
+            complete(result)
         })
     }
 

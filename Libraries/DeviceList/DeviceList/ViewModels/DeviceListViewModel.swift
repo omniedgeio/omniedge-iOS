@@ -8,12 +8,13 @@
 import Combine
 import OEPlatform
 import Foundation
+import Login
 
 protocol DeviceListDelegate: AnyObject {
     func logout() -> Void
     func didLoadNetworkList(_ viewModel: DeviceListViewModel?, list: [String])
     func didJoinNetwork(_ uuid: String, model: N2NModel) -> Bool
-    func start()
+    func start(_ complete: @escaping (Error?) -> Void)
     func stop()
     func showSetting()
     func ping(_ ip: String, _ complete: @escaping (Double) -> Void)
@@ -33,7 +34,13 @@ class DeviceListViewModel: ObservableObject {
     @Published var isStart = false {
         didSet {
             if isStart {
-                delegate?.start()
+                isLoading = true
+                delegate?.start() { [weak self] invalid in
+                    self?.isLoading = false
+                    if invalid != nil {
+                        self?.error = .fail(message: "Failed to start VPN")
+                    }
+                }
             } else {
                 delegate?.stop()
             }
