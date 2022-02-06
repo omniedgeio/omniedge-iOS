@@ -106,6 +106,7 @@ extension OmniEdgeManager {
     func start(_ completion: @escaping Handler) {
         do {
             try tunnel?.connection.startVPNTunnel()
+            completion(nil)
         } catch {
             completion(error)
         }
