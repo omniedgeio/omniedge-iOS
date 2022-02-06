@@ -12,11 +12,11 @@ class DevicePingProvider: DevicePingAPI {
         // Ping once
         let once = try? SwiftyPing(host: ip, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
         once?.observer = { (response) in
-            var duration = response.duration
+            var duration = response.duration * 1000.0
             if response.error != nil {
                 duration = -1
             }
-            complete(duration * 1000.0)
+            complete(duration)
         }
         once?.targetCount = 1
         try? once?.startPinging()

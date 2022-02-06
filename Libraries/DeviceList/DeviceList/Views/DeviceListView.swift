@@ -52,8 +52,10 @@ public struct DeviceListView: View {
             }
 
             if viewModel.error != .none {
-                AlertView(viewModel.error.localizedDescription).onTapGesture {
-                    viewModel.error = .none
+                if case let DataError.fail(message) = viewModel.error {
+                    AlertView(message).onTapGesture {
+                        viewModel.error = .none
+                    }
                 }
             }
         }.onAppear {

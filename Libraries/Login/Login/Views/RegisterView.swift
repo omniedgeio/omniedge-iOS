@@ -33,6 +33,7 @@ struct RegisterView: View {
             Color.OME.background.onTapGesture {
                 hideKeyboard()
             }.edgesIgnoringSafeArea(.all)
+
             VStack(alignment: .center) {
                 Group {
                     Image.OME.primary
@@ -82,6 +83,12 @@ struct RegisterView: View {
             if viewModel.loading {
                 Spinner.forever
                     .frame(width: 30)
+            }
+
+            if viewModel.error != .none {
+                AlertView("Register error").onTapGesture {
+                    viewModel.error = .none
+                }
             }
         }
         //.border(Color.black, width: 1)

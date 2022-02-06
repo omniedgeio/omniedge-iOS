@@ -124,7 +124,9 @@ struct LoginView: View {
                 ZStack {
                     Spacer()
                     if viewModel.error != AuthError.none {
-                        AlertView(viewModel.error.localizedDescription).padding()
+                        AlertView("Login error").onTapGesture {
+                            viewModel.error = .none
+                        }
                     }
                 }
             }.padding()

@@ -39,6 +39,10 @@ class DeviceListViewModel: ObservableObject {
                     self?.isLoading = false
                     if invalid != nil {
                         self?.error = .fail(message: "Failed to start VPN")
+                        self?.isStart = false
+                        #if DEBUG
+                        print("===> \(String(describing: invalid))")
+                        #endif
                     }
                 }
             } else {
