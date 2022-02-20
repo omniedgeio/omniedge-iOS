@@ -8,6 +8,12 @@
 
 import SwiftUI
 
+public extension View {
+    func asAnyView() -> AnyView {
+        return AnyView(self)
+    }
+}
+
 public struct AlertView: View {
     private let message: String
     public init(_ message: String) {

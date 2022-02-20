@@ -6,6 +6,7 @@
 //  
 //
 
+import Foundation
 import OEUIKit
 import SwiftUI
 
@@ -14,6 +15,8 @@ struct LoginView: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var isSecured: Bool = true
+    @State private var showConcentAlert: Bool
+    @State private var concentChecked = false
 
     var valid: Bool {
         return !Validation.checkEmailAndPassword(email, password)
@@ -21,10 +24,12 @@ struct LoginView: View {
 
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
+        self.showConcentAlert = !UserDefaults.standard.bool(forKey: "UserConcent")
     }
 
     public var body: some View {
         ZStack {
+            Group {
             /// layer1: background colorß
             Color.OME.background.onTapGesture {
                 hideKeyboard()
@@ -136,10 +141,56 @@ struct LoginView: View {
                 //LoadingView()
                 ProgressView()
             }
+            }.disabled(showConcentAlert)
+
+            if showConcentAlert {
+                BottomSheetView(isOpen: .constant(true), maxHeight: 400) {
+                    termOfServiceView
+                }.shadow(radius: 4)
+            }
         } //ZStack
         //.border(Color.black, width: 1)
         .allowsHitTesting(!viewModel.loading)
         .navigationBarHidden(true)
+    }
+
+    @ViewBuilder
+    private var termOfServiceView: some View {
+        VStack(alignment: .leading) {
+            Text("Privacy & Terms").font(.title3.bold())//.padding()
+            ScrollView {
+            Text("""
+Information we collect
+The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.
+    current private info needed: device name
+    current privilege: VPN
+""").padding()
+            }
+            //Toggle(isOn: $concentChecked) { Text("") }.padding(.init(top: 0, leading: 0, bottom: 0, trailing: 20)).border(.blue, width: 1)
+            HStack(spacing: 0) {
+                Text("Our ")
+                Link("Term of Service", destination: URL(string: "https://omniedge.io/terms")!)
+                Text(" And ")
+                Link("Privacy", destination: URL(string: "https://omniedge.io/privacy")!)
+            }
+            HStack {
+                Text("Concent: ")
+                Toggle("", isOn: $concentChecked).frame(maxWidth: 60)
+                Spacer()
+            }
+
+            HStack {
+                Button("OK") {
+                    self.showConcentAlert = false
+                    UserDefaults.standard.setValue(true, forKey: "UserConcent")
+                    UserDefaults.standard.synchronize()
+                }.disabled(!concentChecked)
+                Spacer()
+                Button("Quit") {
+                    exit(0)
+                }
+            }
+        }.padding()
     }
 }
 
