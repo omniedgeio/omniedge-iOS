@@ -91,6 +91,10 @@ extension OmniEdgeManager {
                 self.tunnel = self.makeTunnelManager(with: config)
             }
 
+            if self.tunnel?.isEnabled == false {
+                self.tunnel?.isEnabled = true
+            }
+            
             self.saveToPreferences(with: config) { [weak self] error in
                 if let error = error {
                     return completion(error)
