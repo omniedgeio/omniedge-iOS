@@ -24,6 +24,10 @@ class AppCoordinator: Coordinator {
         let session = scope.getService(SessionAPI.self)
         let userManager = scope.getService(UserAPI.self)
 
+        if UserDefaults.standard.bool(forKey: "UserConcent") == false {
+            return loginView
+        }
+        
         if let token = session.token, let email = token.jwt?.email {
             if let user = userManager.user(email: email), let _ = user.deviceUUID {
                 return homeView(user, token: token)

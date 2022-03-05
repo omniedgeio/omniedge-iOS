@@ -30,7 +30,6 @@ struct NetworkModel: Codable {
     var name: String
     var id: String
     var ip_range: String
-    var role: Int
     var devices: [DeviceModel?]
 }
 
@@ -43,7 +42,7 @@ struct DeviceModel: Codable {
     var name: String
     var platform: String
     var virtual_ip: String
-    var last_seen: String
+    var last_seen: String?
 }
 
 /*

@@ -13,6 +13,7 @@ struct DataNetworkResult: Codable {
 }
 
 struct DataNetworkListResult: Codable {
+    var code: Int?
     var data: [NetworkModel]?
 }
 

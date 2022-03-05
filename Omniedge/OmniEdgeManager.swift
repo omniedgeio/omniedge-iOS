@@ -184,6 +184,9 @@ extension OmniEdgeManager {
         } else {
             status = .offline
         }
+        #if DEBUG
+        print("====> status: \(status.text)")
+        #endif
     }
 
     func notifyStatusDidChange() {
