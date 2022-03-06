@@ -10,7 +10,7 @@ import OENetwork
 
 class DeviceListDataProvider: DeviceListDataStoreAPI {
     private var cancellables = [AnyCancellable]()
-    #if DEBUG
+    #if false
     private let network = OENetwork(baseURL: "https://dev-api.omniedge.io/api/v1")
     #else
     private let network = OENetwork(baseURL: "https://api.omniedge.io/api/v1")

@@ -72,7 +72,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     func didRegisterDevice(_ viewModel: LoginViewModel?, token: String, deviceUUID: String) {
         let userManager = scope.getService(UserAPI.self)
 
-        if let email = token.jwt?.email, var user = userManager.user(email: email) {
+        if let email = token.jwt?.email, let user = userManager.user(email: email) {
             user.deviceUUID = deviceUUID
             userManager.setUser(user, for: email)
             let deviceList = scope.getService(DeviceListAPI.self)
