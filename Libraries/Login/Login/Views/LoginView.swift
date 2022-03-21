@@ -164,6 +164,8 @@ Information we collect
 The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.
     current private info needed: device name
     current privilege: VPN
+    Your device's name will be shown in the device list after you join a virtual network.
+    VPN will be used to connect your device into a P2P virtual network with you other device.
 """).padding()
             }
             //Toggle(isOn: $concentChecked) { Text("") }.padding(.init(top: 0, leading: 0, bottom: 0, trailing: 20)).border(.blue, width: 1)
