@@ -27,16 +27,14 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 return
             }
             os_log(.default, log: self.log, "Omniedge Did setup tunnel")
-            //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "151.11.50.180")
-            //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "54.223.23.92")
-            let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: config.superNodeAddr)
-            //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "18.163.33.122")
+            //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: config.superNodeAddr)
+            let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: config.ipAddress)
             let ipV4 = NEIPv4Settings(addresses: [config.ipAddress], subnetMasks: ["255.255.255.0"])
             ipV4.includedRoutes = [NEIPv4Route.default()]
             settings.ipv4Settings = ipV4
 
             #if false
-            let dns = "8.8.8.8,8.4.4.4"
+            let dns = "1.1.1.1,208.67.220.220"
             let dnsSettings = NEDNSSettings(servers: dns.components(separatedBy: ","))
             /// overrides system DNS settings
             dnsSettings.matchDomains = [""]
