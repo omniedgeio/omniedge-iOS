@@ -33,7 +33,6 @@
 		7E7E939727AFBEE600527213 /* libn2n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAEEBD727491AE90009D046 /* libn2n.a */; };
 		7EB65B722748767D005FEA9F /* OmniedgeDylib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB65B6E2748765E005FEA9F /* OmniedgeDylib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE6C5BC327F2CC7F005F5B83 /* OmniedgeDylib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EB65B6E2748765E005FEA9F /* OmniedgeDylib.framework */; };
-		EE6C5BCB27F2D884005F5B83 /* Tunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EE6C5BC727F2D5BE005F5B83 /* Tunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,7 +178,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				EE6C5BCB27F2D884005F5B83 /* Tunnel.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -228,10 +226,10 @@
 		7EB65B692748765E005FEA9F /* OmniedgeDylib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OmniedgeDylib.xcodeproj; path = ../OmniedgeDylib/OmniedgeDylib.xcodeproj; sourceTree = "<group>"; };
 		7ED4609726C774C000FF4870 /* OEPlatform.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEPlatform.xcodeproj; path = OEPlatform/OEPlatform.xcodeproj; sourceTree = "<group>"; };
 		7EF9725F26C8886B00B214A8 /* AllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllTests.xctestplan; sourceTree = "<group>"; };
-		EE6C5BBA27F2CA1E005F5B83 /* OmniedgeNewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewTests.xctest; path = "/Users/yong/Data/Project-OmniEdget/Git/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewTests.xctest"; sourceTree = "<absolute>"; };
-		EE6C5BBB27F2CA1E005F5B83 /* OmniedgeNewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewUITests.xctest; path = "/Users/yong/Data/Project-OmniEdget/Git/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewUITests.xctest"; sourceTree = "<absolute>"; };
-		EE6C5BC227F2CAAD005F5B83 /* OmniedgeNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniedgeNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE6C5BC727F2D5BE005F5B83 /* Tunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Tunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC06D612801207B00269729 /* OmniedgeNewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewTests.xctest; path = "/Users/yong/Data/Project-OmniEdget/Git/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewTests.xctest"; sourceTree = "<absolute>"; };
+		EEC06D622801207B00269729 /* OmniedgeNewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = OmniedgeNewUITests.xctest; path = "/Users/yong/Data/Project-OmniEdget/Git/omniedge-ios/OmniedgeNew/build/Debug-iphoneos/OmniedgeNewUITests.xctest"; sourceTree = "<absolute>"; };
+		EEC06D85280527EE00269729 /* OmniedgeNew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniedgeNew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC06D8628052A7600269729 /* Tunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Tunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,8 +299,8 @@
 				7077C9A16102209123401BD1 /* Login.framework */,
 				97756A587B2525F2C64761EC /* LoginDemo.app */,
 				FB0E2B5017107E8C9B8D75EA /* LoginTests.xctest */,
-				EE6C5BC227F2CAAD005F5B83 /* OmniedgeNew.app */,
-				EE6C5BC727F2D5BE005F5B83 /* Tunnel.appex */,
+				EEC06D85280527EE00269729 /* OmniedgeNew.app */,
+				EEC06D8628052A7600269729 /* Tunnel.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -458,7 +456,7 @@
 				7E3C3C512748702E00830824 /* OEUIKit */,
 			);
 			productName = OmniedgeNew;
-			productReference = EE6C5BC227F2CAAD005F5B83 /* OmniedgeNew.app */;
+			productReference = EEC06D85280527EE00269729 /* OmniedgeNew.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7E294A0D26C76C2F008DEA5D /* OmniedgeNewTests */ = {
@@ -476,7 +474,7 @@
 			);
 			name = OmniedgeNewTests;
 			productName = OmniedgeNewTests;
-			productReference = EE6C5BBA27F2CA1E005F5B83 /* OmniedgeNewTests.xctest */;
+			productReference = EEC06D612801207B00269729 /* OmniedgeNewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		7E294A1826C76C2F008DEA5D /* OmniedgeNewUITests */ = {
@@ -494,7 +492,7 @@
 			);
 			name = OmniedgeNewUITests;
 			productName = OmniedgeNewUITests;
-			productReference = EE6C5BBB27F2CA1E005F5B83 /* OmniedgeNewUITests.xctest */;
+			productReference = EEC06D622801207B00269729 /* OmniedgeNewUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		7E7E937B27AFBB1C00527213 /* Tunnel */ = {
@@ -513,7 +511,7 @@
 			);
 			name = Tunnel;
 			productName = Tunnel;
-			productReference = EE6C5BC727F2D5BE005F5B83 /* Tunnel.appex */;
+			productReference = EEC06D8628052A7600269729 /* Tunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -846,13 +844,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../n2n/src/main/cpp/edge_jni\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
@@ -909,7 +907,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../n2n/src/main/cpp/edge_jni\"";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -929,7 +927,7 @@
 				CODE_SIGN_ENTITLEMENTS = OmniedgeNew/OmniedgeNew.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
 				DEVELOPMENT_TEAM = 9D68HRF7M3;
@@ -941,12 +939,12 @@
 					__IOS_PLATFORM__,
 				);
 				INFOPLIST_FILE = OmniedgeNew/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.16;
+				MARKETING_VERSION = 1.0.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jieqi.omniedge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -964,7 +962,7 @@
 				CODE_SIGN_ENTITLEMENTS = OmniedgeNew/OmniedgeNewRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
 				DEVELOPMENT_TEAM = 9D68HRF7M3;
 				ENABLE_PREVIEWS = YES;
@@ -974,16 +972,16 @@
 					__IOS_PLATFORM__,
 				);
 				INFOPLIST_FILE = OmniedgeNew/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.16;
+				MARKETING_VERSION = 1.0.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jieqi.omniedge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1081,7 +1079,7 @@
 				CODE_SIGN_ENTITLEMENTS = Tunnel/Tunnel.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9D68HRF7M3;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1094,20 +1092,20 @@
 				INFOPLIST_FILE = Tunnel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tunnel;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.16;
+				MARKETING_VERSION = 1.0.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jieqi.omniedge.tunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Tunnel/Tunnel-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1121,7 +1119,7 @@
 				CODE_SIGN_ENTITLEMENTS = Tunnel/Tunnel.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 9D68HRF7M3;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					TUNNEL_BRIDGE,
@@ -1131,13 +1129,13 @@
 				INFOPLIST_FILE = Tunnel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Tunnel;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.16;
+				MARKETING_VERSION = 1.0.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jieqi.omniedge.tunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -34,6 +34,7 @@
 		BFFE2344E062C9E963EC35CB /* OEPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9E519725A9AAE3057B08D7E /* OEPlatform.framework */; };
 		CFD731D47495C0723EF8B608 /* OEUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81157FE36659379C053D0EC3 /* OEUIKit */; };
 		D8228BE3B8C347BB6F0AAA42 /* DeviceList.h in Headers */ = {isa = PBXBuildFile; fileRef = 0531763D8210381C2A772DB1 /* DeviceList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEEAA80727F2F6170073B5CF /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEEAA80627F2F6170073B5CF /* Login.framework */; };
 		FCD905451E56C9917D7B5357 /* DeviceListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6C6756669BF82A02D2615C /* DeviceListTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		B8054FB3B0B097C5C5105598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BB29D8095210A2B0FF05C3A7 /* DeviceListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeviceListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44B7DBD76611643F341D86D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EEEAA80627F2F6170073B5CF /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7EEBB45CDC846348900ADB /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEEAA80727F2F6170073B5CF /* Login.framework in Frameworks */,
 				7E485EE22739476D00C3D486 /* OENetwork in Frameworks */,
 				BFFE2344E062C9E963EC35CB /* OEPlatform.framework in Frameworks */,
 				B4521DF22214F97166BD2434 /* OEUIKit in Frameworks */,
@@ -237,6 +240,7 @@
 		7E485EE02739476D00C3D486 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EEEAA80627F2F6170073B5CF /* Login.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -626,7 +630,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 76C15EBF357BDD5438FCC629 /* Project-Debug.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Debug;
 		};
@@ -634,7 +639,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74045B99269F1886BF0AF120 /* Project-Release.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
@@ -682,6 +687,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;

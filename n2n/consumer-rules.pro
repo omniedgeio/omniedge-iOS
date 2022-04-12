@@ -1,0 +1,1 @@
+-keep public class io.omniedge.n2n.** { *; }

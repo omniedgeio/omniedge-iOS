@@ -28,7 +28,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             }
             os_log(.default, log: self.log, "Omniedge Did setup tunnel")
             //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: config.superNodeAddr)
-            let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: config.ipAddress)
+            //peer to peer is not a vpn tunnel
+            let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "127.0.0.1")
             let ipV4 = NEIPv4Settings(addresses: [config.ipAddress], subnetMasks: ["255.255.255.0"])
             ipV4.includedRoutes = [NEIPv4Route.default()]
             settings.ipv4Settings = ipV4

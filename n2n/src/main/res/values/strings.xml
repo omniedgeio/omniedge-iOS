@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="vpn_session_name">
+        <item>n2n_v1</item>
+        <item>n2n_v2</item>
+        <item>n2n_v2s</item>
+    </string-array>
+
+</resources>

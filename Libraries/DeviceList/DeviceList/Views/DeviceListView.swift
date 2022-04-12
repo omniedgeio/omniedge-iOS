@@ -24,7 +24,7 @@ public struct DeviceListView: View {
                 TextLogo {
                     viewModel.showSetting()
                 }
-                OMESearchBar(placeholder: "Search", searchQuery: $viewModel.query).cornerRadius(10)
+//                OMESearchBar(placeholder: "Search", searchQuery: $viewModel.query).cornerRadius(10)
                 hostDeviceInfoView
                     .background(Color.white)
                     .cornerRadius(10)
@@ -103,7 +103,23 @@ public struct DeviceListView: View {
         HStack(alignment: .bottom) {
             deviceInfoView(info: info)
             Spacer()
-            Text("\(info.ping) ms").foregroundColor(Color.green)
+            if (info.ping == 0) {
+                Text("? ms").foregroundColor(Color.gray)
+            }
+            else if (info.ping < 100) {
+                Text("\(info.ping) ms").foregroundColor(Color.green)
+            }
+            else if (info.ping > 200) {
+                if (info.ping > 2000) {
+                    Text("? ms").foregroundColor(Color.gray)
+                }
+                else {Text("\(info.ping) ms").foregroundColor(Color.red)
+                }
+            }
+            else
+            {
+                Text("\(info.ping) ms").foregroundColor(Color.orange)
+            }
         }.padding(.trailing, 8)
     }
 

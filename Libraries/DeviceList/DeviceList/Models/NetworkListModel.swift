@@ -22,6 +22,7 @@ import Foundation
      ]
  }
  */
+
 struct NetworkListModel {
     var list: [NetworkModel]
 }

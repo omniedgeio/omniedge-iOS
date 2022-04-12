@@ -38,7 +38,7 @@ class DeviceListViewModel: ObservableObject {
                 delegate?.start() { [weak self] invalid in
                     self?.isLoading = false
                     if invalid != nil {
-                        self?.error = .fail(message: "Failed to start VPN")
+                        self?.error = .fail(message: "Failed to start OmniEdge")
                         self?.isStart = false
                         #if DEBUG
                         print("===> \(String(describing: invalid))")
@@ -103,6 +103,7 @@ class DeviceListViewModel: ObservableObject {
             return
         }
         isPinging = true
+        
         for subnet in list {
             for device in subnet.list {
                 pingCount += 1
