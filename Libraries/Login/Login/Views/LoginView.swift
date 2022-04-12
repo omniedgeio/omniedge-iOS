@@ -160,20 +160,23 @@ struct LoginView: View {
             Text("Privacy & Terms").font(.title3.bold())//.padding()
             ScrollView {
             Text("""
-Information we collect:
-    1.device name: used to show in your device list
-    2.current privilege VPN: used to help your connect your devices in your own private network.
+Information we collect
+The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.
+    current private info needed: device name
+    current privilege: VPN
+    Your device's name will be shown in the device list after you join a virtual network.
+    VPN will be used to connect your device into a P2P virtual network with you other device.
 """).padding()
             }
-//            Toggle(isOn: $concentChecked) { Text("") }.padding(.init(top: 0, leading: 0, bottom: 0, trailing: 20)).border(.blue, width: 1)
+            //Toggle(isOn: $concentChecked) { Text("") }.padding(.init(top: 0, leading: 0, bottom: 0, trailing: 20)).border(.blue, width: 1)
             HStack(spacing: 0) {
-                Text("You can read our  ")
+                Text("Our ")
                 Link("Term of Service", destination: URL(string: "https://omniedge.io/terms")!)
                 Text(" And ")
                 Link("Privacy", destination: URL(string: "https://omniedge.io/privacy")!)
             }
             HStack {
-                Text("I Agree: ")
+                Text("Concent: ")
                 Toggle("", isOn: $concentChecked).frame(maxWidth: 60)
                 Spacer()
             }

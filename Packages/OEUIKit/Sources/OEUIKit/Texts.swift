@@ -10,7 +10,7 @@ import SwiftUI
 
 public extension Text {
     struct OME {
-        public static let slogon = { Text("Bring Intranet On The Internet")
+        public static let slogon = { Text("Connect without concern at any\nplatform, anytime, anywhere")
             .font(Font.OME.subTitle)
             .foregroundColor(Color.OME.gray)
         }()

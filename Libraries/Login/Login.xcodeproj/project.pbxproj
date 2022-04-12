@@ -701,7 +701,6 @@
 				INFOPLIST_FILE = Login/Info.plist;
 				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.Login;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
