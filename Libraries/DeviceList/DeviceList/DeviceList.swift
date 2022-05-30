@@ -10,9 +10,9 @@ import Tattoo
 
 /// Document your module purpose
 public class DeviceList: DeviceListAPI, ProductionModule {
-    private let scope: Scope
+    private let scope: APICenter
 
-    public init(scope: Scope) {
+    public init(scope: APICenter) {
         self.scope = scope
     }
 
@@ -20,13 +20,13 @@ public class DeviceList: DeviceListAPI, ProductionModule {
         return DeviceListCoordinatorImpl(scope: scope, router: router, user: user, token: token)
     }
 
-    public func addProductionServices(_ scope: Scope) {
+    public func addProductionServices(_ scope: APICenter) {
         scope.registerService(DeviceListDataStoreAPI.self, DeviceListDataProvider.init)
         scope.registerService(DevicePingAPI.self, DevicePingProvider.init)
     }
 }
 
-extension Scope {
+extension APICenter {
     var pingProvider: DevicePingAPI {
         self.getService(DevicePingAPI.self)
     }

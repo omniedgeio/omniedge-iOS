@@ -9,9 +9,9 @@ import Foundation
 import Tattoo
 
 public class UserManager: UserAPI {
-    let scope: Scope
+    let scope: APICenter
 
-    public init(scope: Scope) {
+    public init(scope: APICenter) {
         self.scope = scope
     }
 

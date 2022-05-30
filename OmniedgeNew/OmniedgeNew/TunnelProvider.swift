@@ -11,7 +11,7 @@ import OmniedgeDylib
 import Tattoo
 
 public class TunnelProvider: TunnelAPI {
-    public init(scope: Scope) {}
+    public init(scope: APICenter) {}
 
     public func start(_ complete: @escaping (Error?) -> Void) {
         let config = OmniEdgeConfig()

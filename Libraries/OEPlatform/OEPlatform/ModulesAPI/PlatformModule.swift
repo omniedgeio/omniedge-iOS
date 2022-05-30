@@ -37,14 +37,14 @@ public struct GQLFederatedEndpoint {
 public class PlatformModule: ProductionModule {
     public init() {}
 
-    public func addProductionServices(_ scope: Scope) {
+    public func addProductionServices(_ scope: APICenter) {
         scope.setupPlatformNotificationCenter()
         scope.setupPlatformRouting()
         scope.setupPlatformUserDefaults()
     }
 }
 
-public extension Scope {
+public extension APICenter {
 
     // MARK: - Routing
     /// Configures routing in this scope

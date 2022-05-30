@@ -149,7 +149,7 @@ public extension RoutingAPI {
     }
 }
 
-public extension Scope {
+public extension APICenter {
     /// Obtain the registered router in this scope.
     func router() -> RoutingAPI {
         return Tattoo.get(RoutingAPI.self, self)

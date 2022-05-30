@@ -13,10 +13,10 @@ import SwiftUI
 import Tattoo
 
 class AppCoordinator: Coordinator {
-    private var scope: Scope
+    private var scope: APICenter
     private var child: [Coordinator] = []
 
-    init(scope: Scope) {
+    init(scope: APICenter) {
         self.scope = scope
     }
 
@@ -40,7 +40,7 @@ class AppCoordinator: Coordinator {
         return loginView
     }()
 
-    func bootstrap(scope: Scope) {
+    func bootstrap(scope: APICenter) {
         scope.setupPlatformUserDefaults()
         scope.setupPlatformRouting()
         scope.registerModule(SessionAPI.self, SessionManager.init)

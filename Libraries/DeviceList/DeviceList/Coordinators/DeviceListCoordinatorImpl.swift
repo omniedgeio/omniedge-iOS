@@ -11,7 +11,7 @@ import SwiftUI
 import Tattoo
 
 class DeviceListCoordinatorImpl: DeviceListCoordinator {
-    private let scope: Scope
+    private let scope: APICenter
     private let router: RoutingAPI
     private var user: User
     private let token: String
@@ -19,7 +19,7 @@ class DeviceListCoordinatorImpl: DeviceListCoordinator {
     private var setting: UnwindingHandle?
     private var subscriptions = Set<AnyCancellable>()
 
-    init(scope: Scope, router: RoutingAPI, user: User, token: String) {
+    init(scope: APICenter, router: RoutingAPI, user: User, token: String) {
         self.scope = scope
         self.router = router
         self.user = user

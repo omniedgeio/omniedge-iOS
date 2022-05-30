@@ -10,7 +10,7 @@
 import Tattoo
 
 class DevicePingProviderMock: DevicePingAPI {
-    init(scope: Scope) {}
+    init(scope: APICenter) {}
 
     func ping(_ ip: String, _ complete: @escaping (Double) -> Void) {
         let delay = Double.random(in: 0..<10)

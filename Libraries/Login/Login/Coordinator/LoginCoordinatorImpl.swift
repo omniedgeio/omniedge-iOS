@@ -13,10 +13,10 @@ import Tattoo
 
 class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     private var child = [Coordinator]()
-    private let scope: Scope
+    private let scope: APICenter
     private let router: RoutingAPI
 
-    init(scope: Scope, router: RoutingAPI) {
+    init(scope: APICenter, router: RoutingAPI) {
         self.scope = scope
         self.router = router
     }

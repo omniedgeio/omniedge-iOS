@@ -20,7 +20,7 @@ public struct SHNavigationView<Content: View>: View {
     /// Creates a new instance. The scope you pass along must hold a `RoutingManager`
     ///
     /// The content which you provide is the root of the new navigation stack. Your code should hold on to the routing API and pass it to the dependent modules
-    public init(scope: Scope, @ViewBuilder content: @escaping (RoutingAPI) -> Content) {
+    public init(scope: APICenter, @ViewBuilder content: @escaping (RoutingAPI) -> Content) {
         self.routingManager = scope.newRouterProvider
         self.viewProvider = content
     }
@@ -42,8 +42,8 @@ public struct SHNavigationView<Content: View>: View {
 }
 
 struct SHNavigationView_Previews: PreviewProvider {
-    static let scope: Scope = {
-        let result = Scope()
+    static let scope: APICenter = {
+        let result = APICenter()
         result.registerService(RoutingManager.self, RoutingManagerImpl.init)
         return result
     }()
@@ -56,7 +56,7 @@ struct SHNavigationView_Previews: PreviewProvider {
 }
 
 /// An internal extension for scope used to expose the internal `NewRouterProvider`
-extension Scope {
+extension APICenter {
     var newRouterProvider: NewRouterProvider {
         let routingManager = getService(RoutingManager.self) as? NewRouterProvider
         return routingManager ?? getService(NewRouterProvider.self)

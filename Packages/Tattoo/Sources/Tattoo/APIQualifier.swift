@@ -1,17 +1,11 @@
-//
-//  File.swift
-//  
-//
-//  Created by He, Junjie on 3/16/21.
-//
 
 public typealias QualifierValue = String
 
-public protocol Qualifier {
+public protocol APIQualifier {
     var value: QualifierValue { get }
 }
 
-public class StringQualifier: Qualifier {
+public class StringQualifier: APIQualifier {
 
     public let value: QualifierValue
 
@@ -20,7 +14,7 @@ public class StringQualifier: Qualifier {
     }
 }
 
-public class TypeQualifier<T>: Qualifier {
+public class TypeQualifier<T>: APIQualifier {
 
     public let value: QualifierValue
 

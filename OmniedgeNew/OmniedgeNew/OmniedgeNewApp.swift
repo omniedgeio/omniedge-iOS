@@ -20,7 +20,7 @@ struct OmniedgeNewApp: App {
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    private let appScope = Scope()
+    private let appScope = APICenter()
     let appCoordinator: AppCoordinator
 
     override init() {
