@@ -10,15 +10,14 @@
 		422EAD79E451151AE7DBA34D /* DeviceListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4EBCF76371FAE76A846FB9 /* DeviceListAPI.swift */; };
 		62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */; };
 		7E01CBC6272FABB100E76A47 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 7E01CBC5272FABB100E76A47 /* KeychainAccess */; };
-		7E0F2B0727131443002BAD7D /* RoutingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFD27131443002BAD7D /* RoutingAPI.swift */; };
-		7E0F2B0827131443002BAD7D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFE27131443002BAD7D /* NavigationRouter.swift */; };
-		7E0F2B0927131443002BAD7D /* DefaultNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFF27131443002BAD7D /* DefaultNavigationFactory.swift */; };
-		7E0F2B0A27131443002BAD7D /* InterceptingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0027131443002BAD7D /* InterceptingRouter.swift */; };
-		7E0F2B0B27131443002BAD7D /* NavigationControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0227131443002BAD7D /* NavigationControllerWrapper.swift */; };
+		7E0F2B0727131443002BAD7D /* OMERoutingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFD27131443002BAD7D /* OMERoutingAPI.swift */; };
+		7E0F2B0827131443002BAD7D /* OMENavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2AFE27131443002BAD7D /* OMENavigationRouter.swift */; };
+		7E0F2B0A27131443002BAD7D /* OMEInterceptRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0027131443002BAD7D /* OMEInterceptRouter.swift */; };
+		7E0F2B0B27131443002BAD7D /* NAVControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0227131443002BAD7D /* NAVControllerWrapper.swift */; };
 		7E0F2B0C27131443002BAD7D /* SHNavigationPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0327131443002BAD7D /* SHNavigationPreferences.swift */; };
-		7E0F2B0D27131443002BAD7D /* SHNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0427131443002BAD7D /* SHNavigationView.swift */; };
-		7E0F2B0E27131443002BAD7D /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0527131443002BAD7D /* RouterManager.swift */; };
-		7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */; };
+		7E0F2B0D27131443002BAD7D /* OMENavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0427131443002BAD7D /* OMENavigationView.swift */; };
+		7E0F2B0E27131443002BAD7D /* OMERouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0527131443002BAD7D /* OMERouterManager.swift */; };
+		7E0F2B0F27131443002BAD7D /* OMERoutingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F2B0627131443002BAD7D /* OMERoutingManagerImpl.swift */; };
 		7E171663274BCA7900DBA41F /* TunnelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E171662274BCA7900DBA41F /* TunnelAPI.swift */; };
 		7E59ED2627139F15008E159E /* Tattoo+Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */; };
 		7E59ED2C27139F60008E159E /* Tattoo in Frameworks */ = {isa = PBXBuildFile; productRef = 7E59ED2B27139F60008E159E /* Tattoo */; };
@@ -49,15 +48,14 @@
 
 /* Begin PBXFileReference section */
 		3576C411D3AB82CC3AF7C99B /* LoginAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
-		7E0F2AFD27131443002BAD7D /* RoutingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingAPI.swift; sourceTree = "<group>"; };
-		7E0F2AFE27131443002BAD7D /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
-		7E0F2AFF27131443002BAD7D /* DefaultNavigationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNavigationFactory.swift; sourceTree = "<group>"; };
-		7E0F2B0027131443002BAD7D /* InterceptingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterceptingRouter.swift; sourceTree = "<group>"; };
-		7E0F2B0227131443002BAD7D /* NavigationControllerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerWrapper.swift; sourceTree = "<group>"; };
+		7E0F2AFD27131443002BAD7D /* OMERoutingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMERoutingAPI.swift; sourceTree = "<group>"; };
+		7E0F2AFE27131443002BAD7D /* OMENavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMENavigationRouter.swift; sourceTree = "<group>"; };
+		7E0F2B0027131443002BAD7D /* OMEInterceptRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMEInterceptRouter.swift; sourceTree = "<group>"; };
+		7E0F2B0227131443002BAD7D /* NAVControllerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NAVControllerWrapper.swift; sourceTree = "<group>"; };
 		7E0F2B0327131443002BAD7D /* SHNavigationPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationPreferences.swift; sourceTree = "<group>"; };
-		7E0F2B0427131443002BAD7D /* SHNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationView.swift; sourceTree = "<group>"; };
-		7E0F2B0527131443002BAD7D /* RouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
-		7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutingManagerImpl.swift; sourceTree = "<group>"; };
+		7E0F2B0427131443002BAD7D /* OMENavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMENavigationView.swift; sourceTree = "<group>"; };
+		7E0F2B0527131443002BAD7D /* OMERouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMERouterManager.swift; sourceTree = "<group>"; };
+		7E0F2B0627131443002BAD7D /* OMERoutingManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMERoutingManagerImpl.swift; sourceTree = "<group>"; };
 		7E171662274BCA7900DBA41F /* TunnelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelAPI.swift; sourceTree = "<group>"; };
 		7E59ECF827139C4C008E159E /* Tattoo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Tattoo; path = ../../Packages/Tattoo; sourceTree = "<group>"; };
 		7E59ED1F27139F15008E159E /* Tattoo+Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tattoo+Platform.swift"; sourceTree = "<group>"; };
@@ -105,12 +103,11 @@
 			isa = PBXGroup;
 			children = (
 				7E0F2B0127131443002BAD7D /* Views */,
-				7E0F2AFF27131443002BAD7D /* DefaultNavigationFactory.swift */,
-				7E0F2B0027131443002BAD7D /* InterceptingRouter.swift */,
-				7E0F2AFE27131443002BAD7D /* NavigationRouter.swift */,
-				7E0F2B0527131443002BAD7D /* RouterManager.swift */,
-				7E0F2AFD27131443002BAD7D /* RoutingAPI.swift */,
-				7E0F2B0627131443002BAD7D /* RoutingManagerImpl.swift */,
+				7E0F2B0027131443002BAD7D /* OMEInterceptRouter.swift */,
+				7E0F2AFE27131443002BAD7D /* OMENavigationRouter.swift */,
+				7E0F2B0527131443002BAD7D /* OMERouterManager.swift */,
+				7E0F2AFD27131443002BAD7D /* OMERoutingAPI.swift */,
+				7E0F2B0627131443002BAD7D /* OMERoutingManagerImpl.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -118,9 +115,9 @@
 		7E0F2B0127131443002BAD7D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7E0F2B0227131443002BAD7D /* NavigationControllerWrapper.swift */,
+				7E0F2B0227131443002BAD7D /* NAVControllerWrapper.swift */,
 				7E0F2B0327131443002BAD7D /* SHNavigationPreferences.swift */,
-				7E0F2B0427131443002BAD7D /* SHNavigationView.swift */,
+				7E0F2B0427131443002BAD7D /* OMENavigationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,24 +347,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6542D826CDE1FF00704948 /* Coordinator.swift in Sources */,
-				7E0F2B0927131443002BAD7D /* DefaultNavigationFactory.swift in Sources */,
 				7E9F8E432749D5D90033CDBF /* UserManager.swift in Sources */,
 				422EAD79E451151AE7DBA34D /* DeviceListAPI.swift in Sources */,
-				7E0F2B0A27131443002BAD7D /* InterceptingRouter.swift in Sources */,
+				7E0F2B0A27131443002BAD7D /* OMEInterceptRouter.swift in Sources */,
 				7EF2D3F2272F8BE90030CBDF /* JWTUtil.swift in Sources */,
 				62F2F054D7424CAAA905E4D8 /* LoginAPI.swift in Sources */,
-				7E0F2B0B27131443002BAD7D /* NavigationControllerWrapper.swift in Sources */,
-				7E0F2B0827131443002BAD7D /* NavigationRouter.swift in Sources */,
+				7E0F2B0B27131443002BAD7D /* NAVControllerWrapper.swift in Sources */,
+				7E0F2B0827131443002BAD7D /* OMENavigationRouter.swift in Sources */,
 				7E619950274B27490074037A /* ConfigAPI.swift in Sources */,
 				7E923047272E300C00E5F6D5 /* PlatformModule.swift in Sources */,
 				7E923041272E243B00E5F6D5 /* ProductionModule.swift in Sources */,
 				7E619954274B2D3B0074037A /* OmniEdgeConfigProvider.swift in Sources */,
-				7E0F2B0E27131443002BAD7D /* RouterManager.swift in Sources */,
-				7E0F2B0727131443002BAD7D /* RoutingAPI.swift in Sources */,
+				7E0F2B0E27131443002BAD7D /* OMERouterManager.swift in Sources */,
+				7E0F2B0727131443002BAD7D /* OMERoutingAPI.swift in Sources */,
 				7E9F8E452749D6920033CDBF /* UserAPI.swift in Sources */,
-				7E0F2B0F27131443002BAD7D /* RoutingManagerImpl.swift in Sources */,
+				7E0F2B0F27131443002BAD7D /* OMERoutingManagerImpl.swift in Sources */,
 				7E0F2B0C27131443002BAD7D /* SHNavigationPreferences.swift in Sources */,
-				7E0F2B0D27131443002BAD7D /* SHNavigationView.swift in Sources */,
+				7E0F2B0D27131443002BAD7D /* OMENavigationView.swift in Sources */,
 				7E92304E272E687E00E5F6D5 /* SessionAPI.swift in Sources */,
 				7E923052272E694200E5F6D5 /* SessionManager.swift in Sources */,
 				7E59ED2627139F15008E159E /* Tattoo+Platform.swift in Sources */,

@@ -1,23 +1,16 @@
-//
-//  ProductionModule.swift
-//  SHPlatform
-//
-//  Created by Shinnar, Gil(AWF) on 2021-04-26.
-//
 
 import Foundation
 import Tattoo
 
-/// An interface for production modules to add their services to the scope
+
 public protocol ProductionModule {
-    /// Called by the app in the module initialization phase to add the required services to the scope.
     func addProductionServices(_ scope: APICenter)
 }
 
+private class ProductionModuleSalt {
+}
+
 public extension APICenter {
-    /// Registers a module implementation and calls the `addProductionServices` function if it's implemented.
-    ///
-    /// Usually the bootstrap logic in the app will call this.
     func registerModule<Module>(_ type: Module.Type,
                                 _ block: @escaping (APICenter) -> Module) {
         singleton(type, self) { scope -> AnyObject in

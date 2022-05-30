@@ -1,13 +1,9 @@
-//
-//  Tattoo+Platform.swift
-//  SHPlatform
-//
-//  Created by Shinnar, Gil(AWF) on 2021-03-23.
-//
 
 import Tattoo
 
-// enhance scope with these to avoid using globals.
+fileprivate class APICenterSalt {
+}
+
 public extension APICenter {
     func getService<Service>(_ type: Service.Type) -> Service {
         return get(type, self)

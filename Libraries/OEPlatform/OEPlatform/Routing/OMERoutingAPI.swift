@@ -1,9 +1,3 @@
-//
-//  RoutingAPI.swift
-//  SHPlatform
-//
-//  Created by Shinnar, Gil(AWF) on 2021-03-22.
-//
 
 import Combine
 import SwiftUI

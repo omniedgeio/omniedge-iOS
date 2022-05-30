@@ -1,31 +1,26 @@
-//
-//  InterceptingRouter.swift
-//  SHPlatform
-//
-//  Created by Shinnar, Gil(AWF) on 2021-03-24.
-//
 
 import Combine
 import SwiftUI
 import UIKit
+import Tattoo
 
-/// An internal protocol for an object that provides interceptors
-protocol InterceptorProvider {
+protocol OMEInterceptProvider {
     var interceptors: [RoutingInterceptor] { get }
 }
 
 private typealias NavigationBlock = (RoutingAPI, RoutingParameters) -> UnwindingHandle
 
-/// A platform provided router which consults with the navigation interceptors prior to performing the transition.
-class InterceptingRouter: RoutingAPI {
-    private let interceptorProvider: InterceptorProvider
+class OMEInterceptRouter: RoutingAPI {
+    private let interceptorProvider: OMEInterceptProvider
     private let router: RoutingAPI
     private var subscriptions = Set<AnyCancellable>()
 
-    /// Creates a new instance and holds strong references to the provided `router` and `interceptorProvider`
-    init(router: RoutingAPI, interceptorProvider: InterceptorProvider) {
+    init(router: RoutingAPI, interceptorProvider: OMEInterceptProvider) {
         self.interceptorProvider = interceptorProvider
         self.router = router
+    }
+
+    private func beginSalt(){
     }
 
     private func tryToNavigate(_ parameters: RoutingParameters,
