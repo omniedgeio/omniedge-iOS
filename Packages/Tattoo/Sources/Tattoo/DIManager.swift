@@ -1,3 +1,7 @@
+
+public func beginSalt() {
+}
+
 public func get<Service>(_ qualifier: APIQualifier,
                          _ type: Service.Type,
                          _ scope: APICenter = mainCenter ) -> Service {
@@ -59,4 +63,7 @@ public func singleton<Service>(_ type: Service.Type,
                                _ function: String = #function,
                                _ line: Int = #line) {
     singleton(TypeQualifier(type: type), type, scope, factoryClosure, lazyLoad, file, function, line)
+}
+
+public func endSalt() {
 }

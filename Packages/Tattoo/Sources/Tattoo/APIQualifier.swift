@@ -14,6 +14,9 @@ public class StringQualifier: APIQualifier {
     }
 }
 
+public class QulifierSalt{
+}
+
 public class TypeQualifier<T>: APIQualifier {
 
     public let value: QualifierValue

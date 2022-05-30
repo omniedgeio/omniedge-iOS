@@ -81,6 +81,9 @@ extension APICenter {
     }
 }
 
+fileprivate class CenterSalt {
+}
+
 struct Class {
     let singleton: Bool
     let factoryClosure: FactoryClosure
