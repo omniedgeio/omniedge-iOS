@@ -13,10 +13,10 @@ import SwiftUI
 import Tattoo
 
 class AppCoordinator: Coordinator {
-    private var scope: Scope
+    private var scope: APICenter
     private var child: [Coordinator] = []
 
-    init(scope: Scope) {
+    init(scope: APICenter) {
         self.scope = scope
     }
 
@@ -40,7 +40,7 @@ class AppCoordinator: Coordinator {
         return loginView
     }()
 
-    func bootstrap(scope: Scope) {
+    func bootstrap(scope: APICenter) {
         scope.setupPlatformUserDefaults()
         scope.setupPlatformRouting()
         scope.registerModule(SessionAPI.self, SessionManager.init)
@@ -53,7 +53,7 @@ class AppCoordinator: Coordinator {
 
     private var loginView: AnyView {
         let loginAPI = scope.getService(LoginAPI.self)
-        let navigator = SHNavigationView(scope: scope) { [weak self] router -> AnyView in
+        let navigator = OMENavigationView(scope: scope) { [weak self] router -> AnyView in
             let coordinator = loginAPI.createLoginCoordinator(router: router)
             self?.child.append(coordinator)
             return coordinator.createLoginView()
@@ -63,7 +63,7 @@ class AppCoordinator: Coordinator {
 
     private func homeView(_ user: User, token: String) -> AnyView {
         let deviceList = scope.getService(DeviceListAPI.self)
-        let navigator = SHNavigationView(scope: scope) { [weak self] router -> AnyView in
+        let navigator = OMENavigationView(scope: scope) { [weak self] router -> AnyView in
             let coordinator = deviceList.createHomeCoordinator(router: router, user: user, token: token)
             self?.child.append(coordinator)
             return coordinator.createHomePage()

@@ -13,10 +13,10 @@ import Tattoo
 
 class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
     private var child = [Coordinator]()
-    private let scope: Scope
+    private let scope: APICenter
     private let router: RoutingAPI
 
-    init(scope: Scope, router: RoutingAPI) {
+    init(scope: APICenter, router: RoutingAPI) {
         self.scope = scope
         self.router = router
     }
@@ -45,7 +45,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
                 if let currentUsr = currentUsr {
                     if currentUsr.deviceUUID != nil { //already registered
                         let deviceList = scope.getService(DeviceListAPI.self)
-                        let navigator = SHNavigationView(scope: scope) { [weak self] router -> AnyView in
+                        let navigator = OMENavigationView(scope: scope) { [weak self] router -> AnyView in
                             let coordinator = deviceList.createHomeCoordinator(router: router, user: currentUsr, token: token)
                             self?.child.append(coordinator)
                             return coordinator.createHomePage()
@@ -76,7 +76,7 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
             user.deviceUUID = deviceUUID
             userManager.setUser(user, for: email)
             let deviceList = scope.getService(DeviceListAPI.self)
-            let navigator = SHNavigationView(scope: scope) { [weak self] router -> AnyView in
+            let navigator = OMENavigationView(scope: scope) { [weak self] router -> AnyView in
                 let coordinator = deviceList.createHomeCoordinator(router: router, user: user, token: token)
                 self?.child.append(coordinator)
                 return coordinator.createHomePage()

@@ -1,9 +1,3 @@
-//
-//  RoutingAPI.swift
-//  SHPlatform
-//
-//  Created by Shinnar, Gil(AWF) on 2021-03-22.
-//
 
 import Combine
 import SwiftUI
@@ -149,7 +143,7 @@ public extension RoutingAPI {
     }
 }
 
-public extension Scope {
+public extension APICenter {
     /// Obtain the registered router in this scope.
     func router() -> RoutingAPI {
         return Tattoo.get(RoutingAPI.self, self)

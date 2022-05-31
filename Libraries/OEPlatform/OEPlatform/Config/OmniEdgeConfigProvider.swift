@@ -10,7 +10,7 @@ import OmniedgeDylib
 import Tattoo
 
 public class OmniEdgeConfigProvider: ConfigAPI {
-    public init(scope: Scope) {}
+    public init(scope: APICenter) {}
     public func save(config: N2NConfig) {
         let writter = OmniEdgeConfig(host: config.host, port: config.port, network: config.networkName, key: config.key, ipAddr: config.ip)
         writter.sync()

@@ -1,14 +1,12 @@
-public typealias FactoryClosure = (Scope) -> AnyObject
+public typealias FactoryClosure = (APICenter) -> AnyObject
 
-public let mainScope: Scope = MainScope(parent: nil)
+public let mainCenter: APICenter = MainCenter(parent: nil)
 
-public class Scope {
-    fileprivate let parent: Scope?
-
-    public init(parent: Scope? = mainScope) {
+public class APICenter {
+    fileprivate let parent: APICenter?
+    public init(parent: APICenter? = mainCenter) {
         self.parent = parent
     }
-
     fileprivate var classes = [String: Class]()
 }
 
@@ -17,16 +15,11 @@ public protocol Configurable {
     func configure(configuration: Configuration)
 }
 
-extension Scope {
-
-    fileprivate func warnDuplicatedRegistrationIfExist<Service>(_ qualifier: Qualifier, _ type: Service.Type, _ function: String, _ file: String, _ line: Int) {
-        if classes.keys.contains(qualifier.value) {
-            // swiftlint:disable:next line_length
-            print("⚠️⚠️⚠️ The \(type) has already been registered in this Scope, this behavior will override the existing value. Please carefully review your code at \(function) \(file):\(line)! ⚠️⚠️⚠️")
-        }
+extension APICenter {
+    fileprivate func warnDuplicatedRegistrationIfExist<Service>(_ qualifier: APIQualifier, _ type: Service.Type, _ function: String, _ file: String, _ line: Int) {
     }
 
-    internal func factory<Service>(qualifier: Qualifier,
+    internal func apifactory<Service>(qualifier: APIQualifier,
                                    type: Service.Type,
                                    factoryClosure: @escaping FactoryClosure,
                                    file: String = #file,
@@ -41,7 +34,7 @@ extension Scope {
                                          line: line)
     }
 
-    internal func singleton<Service>(qualifier: Qualifier,
+    internal func singleton<Service>(qualifier: APIQualifier,
                                      type: Service.Type,
                                      factoryClosure: @escaping FactoryClosure,
                                      lazyLoad: Bool = true,
@@ -57,9 +50,9 @@ extension Scope {
                                          line: line)
     }
 
-    internal func ink<Service>(qualifier: Qualifier,
+    internal func ink<Service>(qualifier: APIQualifier,
                                type: Service.Type,
-                               scope: Scope) -> Service {
+                               scope: APICenter) -> Service {
         guard var clazz = classes[qualifier.value] else {
             guard let service = parent?.ink(qualifier: qualifier, type: type, scope: scope) else {
                 fatalError("\(qualifier.value) is not registered, please make sure to setup it before calling resolve.")
@@ -88,6 +81,9 @@ extension Scope {
     }
 }
 
+fileprivate class CenterSalt {
+}
+
 struct Class {
     let singleton: Bool
     let factoryClosure: FactoryClosure
@@ -97,16 +93,16 @@ struct Class {
     let line: Int
 }
 
-extension Scope {
-    internal func ink<Service: Configurable>(qualifier: Qualifier,
+extension APICenter {
+    internal func ink<Service: Configurable>(qualifier: APIQualifier,
                                              type: Service.Type,
                                              configuration: Service.Configuration,
-                                             scope: Scope) -> Service {
+                                             scope: APICenter) -> Service {
         let service = ink(qualifier: qualifier, type: type, scope: scope)
         service.configure(configuration: configuration)
         return service
     }
 }
 
-private class MainScope: Scope {
+private class MainCenter: APICenter {
 }

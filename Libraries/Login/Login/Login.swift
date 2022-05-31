@@ -9,9 +9,9 @@ import OEPlatform
 import Tattoo
 
 public class Login: LoginAPI {
-    private let scope: Scope
+    private let scope: APICenter
 
-    public init(scope: Scope) {
+    public init(scope: APICenter) {
         self.scope = scope
     }
 

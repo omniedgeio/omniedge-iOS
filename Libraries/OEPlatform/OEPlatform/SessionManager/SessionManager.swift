@@ -25,7 +25,7 @@ public class SessionManager: SessionAPI {
     static private let guid = "S4K8QNVVRR.com.omniedge.client"
     private var expire: Date?
 
-    public init(scope: Scope) {
+    public init(scope: APICenter) {
         loadFromKeychain()
     }
 

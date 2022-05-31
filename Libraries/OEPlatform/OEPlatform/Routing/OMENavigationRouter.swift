@@ -1,36 +1,23 @@
-//
-//  NavigationRouter.swift
-//  SHPlatform
-//
-//  Created by Shinnar, Gil(AWF) on 2021-03-24.
-//
 
 import Combine
 import SwiftUI
 import UIKit
 
-/// An internal struct for creating new navigation stacks.
-struct NewRouterSetup {
-    /// The newly created navigation controller
+struct OMENewRouterSetup {
     var navigationController: UINavigationController
-    /// The newly created router which will own the navigation controller
     var router: RoutingAPI
 }
 
-/// An internal interface for creating new routers and navigation controllers
-///
-/// This is used by the `NavigationRouter` to launch new navigation stacks
 protocol NewRouterProvider: AnyObject {
-    func setupNewRouter() -> NewRouterSetup
+    func setupNewRouter() -> OMENewRouterSetup
 }
 
-/// A platform provided navigation router which owns and manages the navigation in a UINavigationController
+
 class NavigationRouter: NSObject, RoutingAPI {
     private let routerProvider: NewRouterProvider
     private let navigationController: UINavigationController
     private let navigationHandles = NSMapTable<UIViewController, NavigationRouterHandle>.weakToWeakObjects()
 
-    /// Creates a new navigation router and maintains a strong reference to the navigation controller and provider
     init(_ navigationController: UINavigationController, routerProvider: NewRouterProvider) {
         self.navigationController = navigationController
         self.routerProvider = routerProvider
@@ -38,18 +25,12 @@ class NavigationRouter: NSObject, RoutingAPI {
         navigationController.delegate = self
     }
 
-    /// Pushes a SwiftUI view into view the navigation stack
-    ///
-    /// - returns: A handle which you can use to call `unwind` or monitor for dismissal
     @discardableResult
     func push(view: AnyView, parameters: RoutingParameters) -> UnwindingHandle {
         let host = UIHostingController(rootView: view)
         return push(viewController: host, parameters: parameters)
     }
 
-    /// Presents a SwiftUI view on top of the current navigation stack.
-    ///
-    /// - returns: A handle which you can use to call `unwind` or monitor for dismissal
     @discardableResult
     func present(view: AnyView, parameters: RoutingParameters) -> UnwindingHandle {
         let host = UIHostingController(rootView: view)
@@ -57,26 +38,18 @@ class NavigationRouter: NSObject, RoutingAPI {
         return present(viewController: host, parameters: parameters)
     }
 
-    /// Pushes a UIKit view controller into view the navigation stack
-    ///
-    /// - returns: A handle which you can use to call `unwind` or monitor for dismissal
     @discardableResult
     func push(viewController: UIViewController, parameters: RoutingParameters) -> UnwindingHandle {
         let result = NavigationRouterHandle(viewController: viewController,
                                             didPush: true,
                                             animated: parameters.animated)
         navigationHandles.setObject(result, forKey: viewController)
-        // Default for all of our screens is to hide the bottom bar when any view is being pushed.
-        // If in the future the requirements change, we can add this as a new property in the RoutingParameters
         viewController.hidesBottomBarWhenPushed = navigationController.topViewController != nil
         viewController.navigationItem.setHidesBackButton(!parameters.allowDismiss, animated: parameters.animated)
         navigationController.pushViewController(viewController, animated: parameters.animated)
         return result
     }
 
-    /// Presents a UIKit view controller on top of the current navigation stack.
-    ///
-    /// - returns: A handle which you can use to call `unwind` or monitor for dismissal
     @discardableResult
     func present(viewController: UIViewController, parameters: RoutingParameters) -> UnwindingHandle {
         if parameters.plainPresentation {
@@ -114,9 +87,6 @@ class NavigationRouter: NSObject, RoutingAPI {
         return result
     }
 
-    /// Pop or dimiss a previously pushed/presented view/view-controller
-    ///
-    /// - returns: Returns true if the view was unwound, false if it was already dismissed.
     @discardableResult
     func unwind(_ handle: UnwindingHandle) -> Bool {
         guard let navigationHandle = handle as? NavigationRouterHandle,
@@ -154,7 +124,6 @@ class NavigationRouter: NSObject, RoutingAPI {
         return true
     }
 
-    /// Compares the navigation controller state to our managed state and reconciles the differences
     private func scanAndNotifyHandles() {
         let viewControllers = navigationController.viewControllers
         var toRemove: [UIViewController] = []

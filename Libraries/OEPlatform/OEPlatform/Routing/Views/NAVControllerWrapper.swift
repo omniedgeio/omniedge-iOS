@@ -1,14 +1,6 @@
-//
-//  NavigationControllerWrapper.swift
-//  SHPlatform
-//
-//  Created by Shinnar, Gil(AWF) on 2021-03-29.
-//
-
 import SwiftUI
 
-/// An internal class used by the platform to wrap a UINavigationController
-struct NavigationControllerWrapper: UIViewControllerRepresentable {
+struct NAVControllerWrapper: UIViewControllerRepresentable {
     let navigationController: UINavigationController
 
     func makeCoordinator() -> UINavigationController {
