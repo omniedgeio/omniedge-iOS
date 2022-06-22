@@ -2,6 +2,10 @@
 
 >Bring the intranet on the internet
 
+[Install from App Store](https://apps.apple.com/us/app/omniedgenew/id1603005893)
+
+<img width="149" alt="image" src="https://user-images.githubusercontent.com/93888/175050671-936ad8d5-60a5-4e3a-917f-794686e67b81.png">
+
 <!-- [![Build Status]() -->
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
