@@ -33,7 +33,7 @@ curl https://omniedge.io/install/omniedge-install.sh | bash
 -   [macOS cli](https://omniedge.io/install/download/0.2.3/omniedgecli-macos-latest.zip)
 -   [Windows](https://omniedge.io/install/download/0.2.3/omniedge-setup-0.2.3.exe)
 -   [Linux Cli](https://github.com/omniedgeio/app-release/releases/tag/v0.2.3)
--   [iOS & M1 Mac]
+-   [iOS & M1 Mac on App Store](https://apps.apple.com/us/app/omniedgenew/id1603005893)
 -   [Synology](https://omniedge.io/download/synology)
 -   [Raspberry Pi, ARM, Nvidia Jetson](https://github.com/omniedgeio/app-release/releases/tag/v0.2.3)
 
