@@ -922,7 +922,7 @@
 				CODE_SIGN_ENTITLEMENTS = OmniedgeNew/OmniedgeNew.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
 				DEVELOPMENT_TEAM = 9D68HRF7M3;
 				ENABLE_PREVIEWS = YES;
@@ -956,7 +956,7 @@
 				CODE_SIGN_ENTITLEMENTS = OmniedgeNew/OmniedgeNewRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"OmniedgeNew/Preview Content\"";
 				DEVELOPMENT_TEAM = 9D68HRF7M3;
 				ENABLE_PREVIEWS = YES;

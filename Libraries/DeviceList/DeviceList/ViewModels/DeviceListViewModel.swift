@@ -38,7 +38,7 @@ class DeviceListViewModel: ObservableObject {
                 delegate?.start() { [weak self] invalid in
                     self?.isLoading = false
                     if invalid != nil {
-                        self?.error = .fail(message: "Failed to start VPN")
+                        self?.error = .fail(message: "Failed to start OmniEdge")
                         self?.isStart = false
                         #if DEBUG
                         print("===> \(String(describing: invalid))")
