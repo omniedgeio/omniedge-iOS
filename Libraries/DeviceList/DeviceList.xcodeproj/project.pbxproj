@@ -13,6 +13,7 @@
 		0D779E1EB4D15B16FAC97690 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B0DC5BCB34CB9FD12D9EB2 /* Preview Assets.xcassets */; };
 		294932A54A288B66ACD9A2F1 /* DeviceList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */; };
 		2AF4E7FF52422DC85C395D00 /* DeviceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4865655B47A3C333D186D589 /* DeviceList.swift */; };
+		4CACE67C290D42780030491C /* Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CACE67B290D42780030491C /* Login.framework */; };
 		4CD8561E1AE56CC7E0C74424 /* DeviceList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */; };
 		5C7EC617004C3836D456FD43 /* DeviceList.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60ACDD2473BB64C967FC0F8 /* DeviceList.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E001D712736976A00518F9D /* DeviceListDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E001D702736976A00518F9D /* DeviceListDataAPI.swift */; };
@@ -108,6 +109,7 @@
 		06B0DC5BCB34CB9FD12D9EB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27A3EF7C266BA6D49A26088E /* Module.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Module.xcconfig; sourceTree = "<group>"; };
 		4865655B47A3C333D186D589 /* DeviceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceList.swift; sourceTree = "<group>"; };
+		4CACE67B290D42780030491C /* Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		516A47236D449C2E12D885B7 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		63EAAE146F36197394E70AFC /* OEUIKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = OEUIKit; path = ../../Packages/OEUIKit; sourceTree = SOURCE_ROOT; };
 		6849D2B173CE36714B37DFD4 /* DeviceListDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListDemoApp.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CACE67C290D42780030491C /* Login.framework in Frameworks */,
 				7E485EE22739476D00C3D486 /* OENetwork in Frameworks */,
 				BFFE2344E062C9E963EC35CB /* OEPlatform.framework in Frameworks */,
 				B4521DF22214F97166BD2434 /* OEUIKit in Frameworks */,
@@ -237,6 +240,7 @@
 		7E485EE02739476D00C3D486 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4CACE67B290D42780030491C /* Login.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
