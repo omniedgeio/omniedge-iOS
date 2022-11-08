@@ -17,7 +17,7 @@ protocol DeviceListDelegate: AnyObject {
     func start(_ complete: @escaping (Error?) -> Void)
     func stop()
     func showSetting()
-    func ping(_ ip: String, _ complete: @escaping (Double) -> Void)
+    func ping(_ ip: String, _ complete: @escaping (Double, Error?) -> Void)
 }
 
 class DeviceListViewModel: ObservableObject {
@@ -106,10 +106,15 @@ class DeviceListViewModel: ObservableObject {
         for subnet in list {
             for device in subnet.list {
                 pingCount += 1
-                delegate?.ping(device.ip) { [weak self] time in
-                    print("ping: \(device.ip), \(time)")
-                    self?.objectWillChange.send() //
-                    device.ping = Int(time)
+                delegate?.ping(device.ip) { [weak self] (time, error) in
+                    if error != nil {
+                        print("ping: \(device.ip), \(error!)")
+                    } else {
+                        print("ping: \(device.ip), \(time)")
+                    }
+  
+                    self?.objectWillChange.send()
+                    device.ping = error != nil ? nil : Int(time)
                     self?.pingCount -= 1
                     if (self?.pingCount == 0) {
                         self?.isPinging = false
@@ -185,11 +190,12 @@ class DeviceInfoViewModel {
     var uuid: String
     var name: String
     var ip: String
-    var ping: Int = 0
+    var ping: Int?
     init(uuid: String, name: String, ip: String) {
         self.uuid = uuid
         self.name = name
         self.ip = ip
+        self.ping = 0
     }
 }
 

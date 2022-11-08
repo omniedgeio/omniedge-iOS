@@ -464,7 +464,6 @@
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					5479CA4A68B7B9E7A7924BF2 = {
-						DevelopmentTeam = SQDGL9TDH9;
 						ProvisioningStyle = Automatic;
 					};
 					9FECE060343F3651D9BC119C = {
@@ -668,6 +667,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9D68HRF7M3;
 				INFOPLIST_FILE = DeviceList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACH_O_TYPE = staticlib;
@@ -682,6 +682,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9D68HRF7M3;
 				INFOPLIST_FILE = DeviceList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACH_O_TYPE = staticlib;
