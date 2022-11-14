@@ -104,6 +104,9 @@ class DeviceListViewModel: ObservableObject {
         }
         isPinging = true
         for subnet in list {
+            if !subnet.connected {
+                continue
+            }
             for device in subnet.list {
                 pingCount += 1
                 delegate?.ping(device.ip) { [weak self] (time, error) in
