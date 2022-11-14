@@ -5,3 +5,15 @@ Libraries/Login/build/*
 OmniedgeNew/build/*
 Packages/Build
 Libraries/DeviceList/Build
+Libraries/DeviceList/DeviceList.xcodeproj/xcuserdata
+Libraries/Login/Login.xcodeproj/project.xcworkspace/xcuserdata
+Libraries/Login/Login.xcodeproj/xcuserdata
+Libraries/OEPlatform/OEPlatform.xcodeproj/project.xcworkspace/xcuserdata
+Libraries/OEPlatform/OEPlatform.xcodeproj/xcuserdata
+Libraries/.DS_Store
+Omniedge.xcodeproj/project.xcworkspace/xcuserdata
+Omniedge.xcodeproj/xcuserdata
+OmniedgeDylib/OmniedgeDylib.xcodeproj/xcuserdata
+OmniedgeNew/OmniedgeNew.xcworkspace/xcuserdata
+.DS_Store
+OmniedgeNew/OmniedgeNew.xcodeproj/xcuserdata

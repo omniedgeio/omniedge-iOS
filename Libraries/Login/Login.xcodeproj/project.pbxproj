@@ -488,7 +488,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					EF8CE03A2759141C3B1EAC1D = {
-						DevelopmentTeam = SQDGL9TDH9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -687,6 +686,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9D68HRF7M3;
 				INFOPLIST_FILE = Login/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACH_O_TYPE = staticlib;
@@ -701,6 +701,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9D68HRF7M3;
 				INFOPLIST_FILE = Login/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACH_O_TYPE = staticlib;

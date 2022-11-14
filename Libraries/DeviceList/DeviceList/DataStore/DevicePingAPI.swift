@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DevicePingAPI: AnyObject {
-    func ping(_ ip: String, _ complete: @escaping (Double) -> Void)
+    func ping(_ ip: String, _ complete: @escaping (Double, Error?) -> Void)
 }

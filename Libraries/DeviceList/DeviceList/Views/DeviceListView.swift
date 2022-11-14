@@ -103,23 +103,24 @@ public struct DeviceListView: View {
         HStack(alignment: .bottom) {
             deviceInfoView(info: info)
             Spacer()
-            if (info.ping == 0) {
-                             Text("? ms").foregroundColor(Color.gray)
-                         }
-                         else if (info.ping < 100) {
-                             Text("\(info.ping) ms").foregroundColor(Color.green)
-                         }
-                         else if (info.ping > 200) {
-                             if (info.ping > 2000) {
-                                 Text("? ms").foregroundColor(Color.gray)
-                             }
-                             else {Text("\(info.ping) ms").foregroundColor(Color.red)
-                             }
-                         }
-                         else
-                         {
-                             Text("\(info.ping) ms").foregroundColor(Color.orange)
-                         }
+            if info.ping == nil {
+                Text("timeout").foregroundColor(.gray)
+            } else {
+                let ping = info.ping!
+                if ping == 0 {
+                    Text("? ms").foregroundColor(.gray)
+                } else if ping < 100 {
+                    Text("\(ping) ms").foregroundColor(.green)
+                } else if ping > 200 {
+                    if ping > 2000 {
+                        Text("? ms").foregroundColor(.gray)
+                    } else {
+                        Text("\(ping) ms").foregroundColor(.red)
+                    }
+                } else {
+                    Text("\(ping) ms").foregroundColor(.orange)
+                }
+            }
         }.padding(.trailing, 8)
     }
 

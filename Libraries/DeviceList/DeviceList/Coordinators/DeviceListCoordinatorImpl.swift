@@ -101,7 +101,7 @@ extension DeviceListCoordinatorImpl: DeviceListDelegate {
         setting = router.push(view: AnyView(view))
     }
 
-    func ping(_ ip: String, _ complete: @escaping (Double) -> Void) {
+    func ping(_ ip: String, _ complete: @escaping (Double, Error?) -> Void) {
         scope.pingProvider.ping(ip, complete)
     }
 }
