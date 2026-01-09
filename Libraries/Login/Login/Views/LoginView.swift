@@ -27,6 +27,8 @@ struct LoginView: View {
         self.showConcentAlert = !UserDefaults.standard.bool(forKey: "UserConcent")
     }
 
+    @State private var showingScanner = false
+
     public var body: some View {
         ZStack {
             Group {
@@ -39,6 +41,27 @@ struct LoginView: View {
             VStack(alignment: .center) {
                 Spacer().frame(maxHeight: 40)
                 LoginTitleView()
+                GoogleLoginView {
+                                     viewModel.googleLogin()
+                                 }
+                
+                Button(action: {
+                    viewModel.oauthLogin()
+                }, label: {
+                    HStack {
+                        Image(systemName: "safari")
+                        Spacer().frame(width: 20)
+                        Text("Log in with Browser")
+                            .foregroundColor(Color(.black.withAlphaComponent(0.54)))
+                            .font(Font.OME.buttonSecondary)
+                    }
+                })
+                .buttonStyle(SecondaryButtonStyle())
+                .padding(.top, 5)
+
+                                 Text("- or continue with email -")
+                                     .font(Font.OME.subTitle)
+                                     .foregroundColor(Color.OME.gray)
                 VStack(alignment: .leading) {
                     if #available(iOS 15.0, *) {
                         TextField("Email", text: $email)
@@ -110,6 +133,17 @@ struct LoginView: View {
                         .disabled(valid)
                         .padding(.top, 30)
 
+                Button(action: {
+                    showingScanner = true
+                }, label: {
+                    HStack {
+                        Image(systemName: "qrcode.viewfinder")
+                        Text("Scan QR to Login Desktop")
+                    }
+                    .foregroundColor(Color.OME.primary)
+                })
+                .padding(.top, 10)
+
                 HStack(alignment: .center) {
                     Text("New to OmniEdge?")
                         .font(.system(size: 15))
@@ -135,6 +169,14 @@ struct LoginView: View {
                     }
                 }
             }.padding()
+            .sheet(isPresented: $showingScanner) {
+                QRScannerView { code in
+                    showingScanner = false
+                    handleScannedCode(code)
+                } didCancel: {
+                    showingScanner = false
+                }
+            }
 
             /// layer3: loading spinner
             if viewModel.loading {
@@ -193,6 +235,18 @@ The personal information that you are asked to provide, and the reasons why you 
                 }
             }
         }.padding()
+    }
+
+    private func handleScannedCode(_ code: String) {
+        guard let url = URL(string: code),
+              let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+              let sessionUUID = components.queryItems?.first(where: { $0.name == "auth_session_uuid" })?.value else {
+            return
+        }
+        
+        if !email.isEmpty && !password.isEmpty {
+            viewModel.login(email: email, password: password, authSessionUUID: sessionUUID)
+        }
     }
 }
 

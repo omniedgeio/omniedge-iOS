@@ -27,16 +27,32 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 return
             }
             os_log(.default, log: self.log, "Omniedge Did setup tunnel")
-            //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "151.11.50.180")
-            //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "54.223.23.92")
             let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: config.superNodeAddr)
-            //let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "18.163.33.122")
             let ipV4 = NEIPv4Settings(addresses: [config.ipAddress], subnetMasks: ["255.255.255.0"])
-            ipV4.includedRoutes = [NEIPv4Route.default()]
+            
+            //set private IP
+            let ip1 = "10.0.0.0"
+            let mask1 = "255.0.0.0"
+            let route1 = NEIPv4Route(destinationAddress: ip1, subnetMask: mask1)
+
+            let ip2 = "172.16.0.0"
+            let mask2 = "255.240.0.0"
+            let route2 = NEIPv4Route(destinationAddress: ip2, subnetMask: mask2)
+
+            let ip3 = "192.168.0.0"
+            let mask3 = "255.255.0.0"
+            let route3 = NEIPv4Route(destinationAddress: ip3, subnetMask: mask3)
+            
+            //CGNAT Address
+            let ip4 = "100.64.0.0"
+            let mask4 = "255.192.0.0"
+            let route4 = NEIPv4Route(destinationAddress: ip4, subnetMask: mask4)
+            //
+            ipV4.includedRoutes = [route1, route2, route3, route4]
             settings.ipv4Settings = ipV4
 
             #if false
-            let dns = "8.8.8.8,8.4.4.4"
+            let dns = "8.8.8.8,8.4.4.4,1.1.1.1,114.114.114.114"
             let dnsSettings = NEDNSSettings(servers: dns.components(separatedBy: ","))
             /// overrides system DNS settings
             dnsSettings.matchDomains = [""]

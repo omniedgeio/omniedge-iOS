@@ -10,7 +10,7 @@ import Combine
 import Foundation
 
 protocol LoginDelegate: AnyObject {
-    func didLogin(_ viewModel: LoginViewModel?, token: String)
+    func didLogin(_ viewModel: LoginViewModel?, token: String, refreshToken: String?)
     func didReset(_ viewModel: LoginViewModel?, email: String)
     func didRegisterDevice(_ viewModel: LoginViewModel?, token: String, deviceUUID: String)
 }
@@ -27,7 +27,7 @@ class LoginViewModel: ObservableObject {
         dataStoreAPI = dataStore
     }
 
-    func login(email: String, password: String) {
+    func login(email: String, password: String, authSessionUUID: String? = nil) {
         guard loading == false else {
             return
         }
@@ -36,7 +36,7 @@ class LoginViewModel: ObservableObject {
         error = .none
 
         //request
-        dataStoreAPI.login(LoginModel(email: email, password: password))
+        dataStoreAPI.login(LoginModel(email: email, password: password, auth_session_uuid: authSessionUUID))
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] complete in
                 switch complete {
@@ -48,7 +48,7 @@ class LoginViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] model in
                 if let token = model.token {
-                    self?.delegate?.didLogin(self, token: token)
+                    self?.delegate?.didLogin(self, token: token, refreshToken: model.refreshToken)
                 } else {
                     self?.loading = false
                     self?.error = .fail(message: "Error Token")
@@ -127,5 +127,64 @@ class LoginViewModel: ObservableObject {
                 }
             })
             .store(in: &cancellableStore)
+    }
+
+    func oauthLogin() {
+        guard loading == false else { return }
+        let pkce = PKCE.generate()
+        let clientId = "omniedge-ios"
+        let redirectUri = "io.omniedge:/oauth/callback"
+        
+        let baseURL = "https://api.omniedge.io/api/v2" // Should ideally come from config
+        let authURL = "\(baseURL)/oauth/authorize?client_id=\(clientId)&redirect_uri=\(redirectUri)&response_type=code&scope=openid%20profile%20email%20offline_access&state=\(pkce.state)&code_challenge=\(pkce.challenge)&code_challenge_method=S256"
+        
+        guard let url = URL(string: authURL) else { return }
+        
+        let session = ASWebAuthenticationSession(url: url, callbackURLScheme: "io.omniedge") { [weak self] callbackURL, error in
+            if let error = error {
+                if (error as NSError).code != ASWebAuthenticationSessionError.canceledLogin.rawValue {
+                    self?.error = .fail(message: error.localizedDescription)
+                }
+                return
+            }
+            
+            guard let callbackURL = callbackURL,
+                  let components = URLComponents(url: callbackURL, resolvingAgainstBaseURL: true),
+                  let code = components.queryItems?.first(where: { $0.name == "code" })?.value,
+                  let returnedState = components.queryItems?.first(where: { $0.name == "state" })?.value else {
+                return
+            }
+            
+            if returnedState != pkce.state {
+                self?.error = .fail(message: "State mismatch")
+                return
+            }
+            
+            self?.loading = true
+            self?.dataStoreAPI.exchangeOAuthCode(code: code, verifier: pkce.verifier, redirectUri: redirectUri)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { [weak self] complete in
+                    self?.loading = false
+                    if case .failure(let error) = complete {
+                        self?.error = error
+                    }
+                }, receiveValue: { [weak self] model in
+                    if let token = model.token {
+                        self?.delegate?.didLogin(self, token: token, refreshToken: model.refreshToken)
+                    }
+                })
+                .store(in: &(self?.cancellableStore ?? []))
+        }
+        
+        session.presentationContextProvider = self
+        session.start()
+    }
+}
+
+import AuthenticationServices
+
+extension LoginViewModel: ASWebAuthenticationPresentationContextProviding {
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return ASPresentationAnchor()
     }
 }

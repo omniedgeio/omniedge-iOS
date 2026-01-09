@@ -14,11 +14,11 @@ class LoginDataStoreProvider: LoginDataStoreAPI {
     #if false
     private let network = OENetwork(baseURL: "https://dev-api.omniedge.io/api/v1")
     #else
-    private let network = OENetwork(baseURL: "https://api.omniedge.io/api/v1")
+    private let network = OENetwork(baseURL: "https://api.omniedge.io/api/v2")
     #endif
 
     func login(_ model: LoginModel) -> AnyPublisher<LoginResult, AuthError> {
-        return network.dispatch(LoginRequest(email: model.email, password: model.password))
+        return network.dispatch(LoginRequest(email: model.email, password: model.password, auth_session_uuid: model.auth_session_uuid))
             .map({ result in
                 return LoginResult(token: result.data?.token ?? "",
                                    refreshToken: result.data?.refreshToken ?? "",
@@ -56,6 +56,19 @@ class LoginDataStoreProvider: LoginDataStoreAPI {
         return network.dispatch(RegisterDeviceRequest(token: token))
             .map({ result in
                 return RegisterDeviceResult(id: result.data?.id)
+            })
+            .mapError { error in
+                return AuthError.fail(message: error.localizedDescription)
+            }
+            .eraseToAnyPublisher()
+    }
+
+    func exchangeOAuthCode(code: String, verifier: String, redirectUri: String) -> AnyPublisher<LoginResult, AuthError> {
+        return network.dispatch(OAuthTokenRequest(code: code, verifier: verifier, redirectUri: redirectUri))
+            .map({ result in
+                return LoginResult(token: result.data?.token ?? "",
+                                   refreshToken: result.data?.refreshToken ?? "",
+                                   expires_at: result.data?.expires_at ?? "")
             })
             .mapError { error in
                 return AuthError.fail(message: error.localizedDescription)

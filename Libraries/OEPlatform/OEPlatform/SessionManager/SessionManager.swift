@@ -22,6 +22,7 @@ struct Session {
 
 public class SessionManager: SessionAPI {
     public var token: String?
+    public var refreshToken: String?
     static private let guid = "S4K8QNVVRR.com.omniedge.client"
     private var expire: Date?
 
@@ -29,7 +30,7 @@ public class SessionManager: SessionAPI {
         loadFromKeychain()
     }
 
-    public func login(token: String) -> Bool {
+    public func login(token: String, refreshToken: String? = nil) -> Bool {
         let keychain = Keychain(service: Self.guid)
 
         let dict = JWTUtil.decode(jwtToken: token)
@@ -38,6 +39,12 @@ public class SessionManager: SessionAPI {
         }
         keychain[Session.tokenKey] = token
         self.token = token
+        
+        if let refreshToken = refreshToken {
+            keychain["refresh_token"] = refreshToken
+            self.refreshToken = refreshToken
+        }
+        
         return true
     }
 
@@ -46,6 +53,8 @@ public class SessionManager: SessionAPI {
         do {
             try keychain.removeAll()
             self.expire = nil
+            self.token = nil
+            self.refreshToken = nil
         } catch {
             //
         }
@@ -56,6 +65,7 @@ public class SessionManager: SessionAPI {
         let keychain = Keychain(service: Self.guid)
         if let token = keychain[Session.tokenKey] {
             self.token = token
+            self.refreshToken = keychain["refresh_token"]
             return true
         }
         return false

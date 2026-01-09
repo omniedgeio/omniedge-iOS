@@ -13,4 +13,5 @@ protocol LoginDataStoreAPI {
     func register(_ model: RegisterModel) -> AnyPublisher<RegisterResult, AuthError>
     func reset(_ model: ResetPasswordModel) -> AnyPublisher<ResetResult, AuthError>
     func registerDevice(_ token: String) -> AnyPublisher<RegisterDeviceResult, AuthError>
+    func exchangeOAuthCode(code: String, verifier: String, redirectUri: String) -> AnyPublisher<LoginResult, AuthError>
 }

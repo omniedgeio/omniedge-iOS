@@ -44,11 +44,19 @@ struct LoginNetworkResult: Codable {
 struct LoginRequest: Request {
     let email: String
     let password: String
+    let auth_session_uuid: String?
+    
     typealias ReturnType = LoginNetworkResult
     var path: String = "/auth/login/password"
     var body: [String: Any]? {
-        ["email": email,
-         "password": password]
+        var params: [String: Any] = [
+            "email": email,
+            "password": password
+        ]
+        if let uuid = auth_session_uuid {
+            params["auth_session_uuid"] = uuid
+        }
+        return params
     }
 }
 
@@ -97,5 +105,23 @@ struct RegisterDeviceRequest: Request {
         return ["name": UIDevice.current.name,
                 "hardware_uuid": uuid,
                 "platform": "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"]
+    }
+}
+
+struct OAuthTokenRequest: Request {
+    let code: String
+    let verifier: String
+    let redirectUri: String
+    
+    typealias ReturnType = LoginNetworkResult
+    var path: String = "/oauth/token"
+    var body: [String: Any]? {
+        return [
+            "grant_type": "authorization_code",
+            "client_id": "omniedge-ios",
+            "code": code,
+            "code_verifier": verifier,
+            "redirect_uri": redirectUri
+        ]
     }
 }
