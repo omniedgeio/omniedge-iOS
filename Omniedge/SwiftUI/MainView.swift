@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel =
-        MainViewModel(config: .init(network: "mynetwork", key: "mysecretpass", ipAddr: "10.254.1.123"))
+    MainViewModel(config: .init(host: "host", port: "port", network: "mynetwork", key: "mysecretpass", ipAddr: "10.254.1.123"))
 
     var body: some View {
         NavigationView {

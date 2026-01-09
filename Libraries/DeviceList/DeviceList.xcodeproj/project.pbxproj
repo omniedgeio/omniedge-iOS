@@ -637,6 +637,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74045B99269F1886BF0AF120 /* Project-Release.xcconfig */;
 			buildSettings = {
+				GCC_OPTIMIZATION_LEVEL = 0;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
@@ -672,6 +673,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.omniedge.DeviceList;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

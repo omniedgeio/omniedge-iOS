@@ -17,6 +17,7 @@ struct RegisterModel {
 struct LoginModel {
     var email: String
     var password: String
+    var auth_session_uuid: String?
 }
 
 struct ResetPasswordModel {

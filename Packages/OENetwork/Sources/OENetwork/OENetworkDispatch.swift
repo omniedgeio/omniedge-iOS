@@ -23,6 +23,7 @@ public enum NetworkRequestError: LocalizedError, Equatable {
     case unknownError
 }
 
+@available(macOS 10.15, *)
 public struct NetworkDispatcher {
     let urlSession: URLSession!
 
@@ -51,6 +52,7 @@ public struct NetworkDispatcher {
     }
 }
 
+@available(macOS 10.15, *)
 extension NetworkDispatcher {
     private func httpError(_ statusCode: Int) -> NetworkRequestError {
         switch statusCode {

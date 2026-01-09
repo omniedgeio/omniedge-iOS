@@ -8,7 +8,8 @@
 import Foundation
 
 public protocol SessionAPI {
-    func login(token: String) -> Bool
+    func login(token: String, refreshToken: String?) -> Bool
     func logout()
     var token: String? { get }
+    var refreshToken: String? { get }
 }

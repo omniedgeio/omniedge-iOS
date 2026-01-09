@@ -27,12 +27,12 @@ class LoginCoordinatorImpl: LoginCoordinator, LoginDelegate {
         return AnyView(LoginView(viewModel: viewModel).navigationBarHidden(true))
     }
 
-    func didLogin(_ viewModel: LoginViewModel?, token: String) {
+    func didLogin(_ viewModel: LoginViewModel?, token: String, refreshToken: String?) {
         let session = scope.getService(SessionAPI.self)
         let userManager = scope.getService(UserAPI.self)
         var error = false
 
-        if session.login(token: token) {
+        if session.login(token: token, refreshToken: refreshToken) {
             if let email = token.jwt?.email {
                 var currentUsr: User? = nil
 
