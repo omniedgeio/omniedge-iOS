@@ -60,7 +60,7 @@ jobs:
 
       - name: Test OENetwork
         run: |
+          cd Packages/OENetwork
           xcodebuild test \
-            -workspace OmniedgeNew/OmniedgeNew.xcworkspace \
             -scheme OENetwork \
             -destination 'platform=iOS Simulator,name=iPhone 15'
