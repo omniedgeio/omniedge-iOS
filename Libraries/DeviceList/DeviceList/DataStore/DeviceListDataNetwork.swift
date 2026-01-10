@@ -8,13 +8,13 @@
 import OENetwork
 
 struct DataNetworkResult: Codable {
-    var message: String
-    var data: [String: String]?
+    var message: String?
+    var data: PaginatedResponse<DeviceModel>?
 }
 
 struct DataNetworkListResult: Codable {
-    var code: Int?
-    var data: [NetworkModel]?
+    var message: String?
+    var data: PaginatedResponse<NetworkModel>?
 }
 
 struct FetchNetworkListRequst: Request {
