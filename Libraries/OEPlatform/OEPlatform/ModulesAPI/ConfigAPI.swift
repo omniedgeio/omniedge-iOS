@@ -13,13 +13,15 @@ public struct N2NConfig {
     public var networkName: String
 
     public var ip: String
+    public var subnetMask: String
     public var key: String
 
-    public init(host: String, port: String, networkName: String, ip: String, key: String) {
+    public init(host: String, port: String, networkName: String, ip: String, subnetMask: String, key: String) {
         self.host = host
         self.port = port
         self.networkName = networkName
         self.ip = ip
+        self.subnetMask = subnetMask
         self.key = key
     }
 }

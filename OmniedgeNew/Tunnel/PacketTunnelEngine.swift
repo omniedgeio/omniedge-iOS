@@ -8,7 +8,7 @@
 import Foundation
 import NetworkExtension
 import OmniedgeDylib
-import os.log
+import os
 
 class PacketTunnelEngine: NSObject {
     // MARK: - Property
@@ -17,7 +17,7 @@ class PacketTunnelEngine: NSObject {
     private weak var tunnel: PacketTunnelProvider!
     private var configuration: OmniEdgeConfig!
     private var superNode: NWUDPSession!
-    private let log = OSLog(subsystem: "Omniedge", category: "default")
+    private let logger = Logger(subsystem: "com.omniedge.client", category: "TunnelEngine")
     private let queue = DispatchQueue(label: "omniedge.tunnel") //serial
     private let n2nQueue = DispatchQueue(label: "omniedge.n2n") //serial
     private var startHandler: ((Error?) -> Void)?
@@ -78,15 +78,15 @@ class PacketTunnelEngine: NSObject {
         if hostname == configuration?.superNodeAddr && port == configuration?.superNodePort {
             superNode.writeDatagram(data) { [weak self] error in
                 if let error = error {
-                    os_log(.default, log: self?.log ?? .default, "Failed to write udp datagram, error: %{public}@", "\(error)")
+                    self?.logger.error("Failed to write udp datagram, error: \(error, privacy: .public)")
                 } else {
-                    os_log(.default, log: self?.log ?? .default, "Success to write udp datagram:\(data.count)")
+                    self?.logger.debug("Success to write udp datagram: \(data.count)")
                 }
             }
         } else {
             udp.sendData(data: data, hostname: hostname, port: port) { [weak self] datagrams, _ in
                 guard let self = self else { return }
-                os_log(.default, log: self.log, "udp recv data")
+                self.logger.debug("udp recv data")
                 self.queue.async {
                     if let engine = self.ocEngine, let list = datagrams {
                         for item in list {
@@ -103,24 +103,24 @@ class PacketTunnelEngine: NSObject {
 
     // MARK: - Private
     private func startTunnel() {
-        os_log(.default, log: self.log, "engine startTunnel")
+        logger.info("engine startTunnel")
         self.startUDPSession()
         self.timeoutTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { [weak self] _ in
             guard let self = self else { return }
-            os_log(.default, log: self.log, "engine startTunnel timeout")
+            self.logger.error("engine startTunnel timeout")
             self.startHandler?(NEVPNError(.connectionFailed))
             self.startHandler = nil
         }
     }
 
     private func startUDPSession() {
-        os_log(.default, log: log, "engine Starting UDP session")
+        logger.info("engine Starting UDP session")
         //let endpoint = NWHostEndpoint(hostname: "151.11.50.180", port: "7777")
         let endpoint = NWHostEndpoint(hostname: configuration.superNodeAddr, port: configuration.superNodePort)
         self.superNode = tunnel.createUDPSession(to: endpoint, from: nil)
         self.observer = superNode.observe(\.state, options: [.new]) { [weak self] session, _ in
             guard let self = self else { return }
-            os_log(.default, log: self.log, "engine Session did update state: %{public}@", session)
+            self.logger.info("engine Session did update state: \(String(describing: session.state), privacy: .public)")
             self.queue.async {
                 self.udpSession(session, didUpdateState: session.state,
                                 ipAddr: self.configuration.superNodeAddr,

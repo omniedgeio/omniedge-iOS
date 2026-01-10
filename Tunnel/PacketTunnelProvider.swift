@@ -28,8 +28,23 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             }
             os_log(.default, log: self.log, "Omniedge Did setup tunnel")
             let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: config.superNodeAddr)
-            let ipV4 = NEIPv4Settings(addresses: [config.ipAddress], subnetMasks: ["255.255.255.0"])
-            ipV4.includedRoutes = [NEIPv4Route(destinationAddress: config.ipAddress, subnetMask: "255.255.255.0")]
+            let ipV4 = NEIPv4Settings(addresses: [config.ipAddress], subnetMasks: [config.subnetMask])
+            
+            // Calculate network address for routing
+            let addresses = config.ipAddress.components(separatedBy: ".")
+            let masks = config.subnetMask.components(separatedBy: ".")
+            if addresses.count == 4 && masks.count == 4 {
+                var networkAddressParts = [String]()
+                for i in 0..<4 {
+                    if let addrPart = Int(addresses[i]), let maskPart = Int(masks[i]) {
+                        networkAddressParts.append("\(addrPart & maskPart)")
+                    }
+                }
+                let networkAddress = networkAddressParts.joined(separator: ".")
+                let vnwRoute = NEIPv4Route(destinationAddress: networkAddress, subnetMask: config.subnetMask)
+                ipV4.includedRoutes = [vnwRoute]
+            }
+            
             settings.ipv4Settings = ipV4
             #if false
             let dns = "8.8.8.8,8.8.4.4,1.1.1.1,114.114.114.114"

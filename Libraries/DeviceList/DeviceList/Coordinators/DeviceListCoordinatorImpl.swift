@@ -60,7 +60,7 @@ extension DeviceListCoordinatorImpl: DeviceListDelegate {
         if address.count > 1 {
             if let hostIP = getIPs(dnsName: address[0]) {
                 /// save config
-                let n2nConfig = N2NConfig(host: hostIP, port: address[1], networkName: model.community_name, ip: model.virtual_ip, key: model.secret_key)
+                let n2nConfig = N2NConfig(host: hostIP, port: address[1], networkName: model.community_name, ip: model.virtual_ip, subnetMask: model.subnet_mask, key: model.secret_key)
                 config.save(config: n2nConfig)
 
                 /// save user info

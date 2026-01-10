@@ -15,6 +15,7 @@ extension OmniEdgeConfig {
     static let networkName = "networkName"
     static let encryptionKey = "encryptionKey"
     static let ipAddress = "ipAddress"
+    static let subnetMask = "subnetMask"
     static let isSecure = "isSecure"
 }
 
@@ -24,18 +25,20 @@ public struct OmniEdgeConfig: Codable {
     public var networkName: String = ""
     public var encryptionKey: String = ""
     public var ipAddress: String = ""
+    public var subnetMask: String = "255.255.255.0"
     public var isSecure = true
 
     public init() {
         load()
     }
 
-    public init(host: String, port: String, network: String, key: String, ipAddr: String) {
+    public init(host: String, port: String, network: String, key: String, ipAddr: String, mask: String) {
         superNodeAddr = host
         superNodePort = port
         networkName = network
         encryptionKey = key
         ipAddress = ipAddr
+        subnetMask = mask
     }
 
     public func sync() {
@@ -45,6 +48,7 @@ public struct OmniEdgeConfig: Codable {
             dataStorage.setValue(networkName, forKey: OmniEdgeConfig.networkName)
             dataStorage.setValue(encryptionKey, forKey: OmniEdgeConfig.encryptionKey)
             dataStorage.setValue(ipAddress, forKey: OmniEdgeConfig.ipAddress)
+            dataStorage.setValue(subnetMask, forKey: OmniEdgeConfig.subnetMask)
             dataStorage.setValue(isSecure, forKey: OmniEdgeConfig.isSecure)
             dataStorage.synchronize()
         }
@@ -68,6 +72,9 @@ public struct OmniEdgeConfig: Codable {
             }
             if let ipAddr = dataStorage.string(forKey: OmniEdgeConfig.ipAddress) {
                 ipAddress = ipAddr
+            }
+            if let mask = dataStorage.string(forKey: OmniEdgeConfig.subnetMask) {
+                subnetMask = mask
             }
             isSecure = dataStorage.bool(forKey: OmniEdgeConfig.isSecure)
         }

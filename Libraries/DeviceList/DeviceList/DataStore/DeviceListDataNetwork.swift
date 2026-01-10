@@ -42,6 +42,6 @@ struct JoinNetworkRequst: Request {
     var deviceUUID: String
 
     var path: String {
-        return "/virtual-networks/\(uuid)/devices/\(deviceUUID)/join"
+        return "/virtual-networks/\(uuid)/devices/\(deviceUUID)"
     }
 }

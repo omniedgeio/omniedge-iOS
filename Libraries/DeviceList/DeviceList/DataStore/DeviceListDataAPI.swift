@@ -26,4 +26,9 @@ protocol DeviceListDataStoreAPI {
     func fetchNetworkList(_ request: NetworkListRequest) -> AnyPublisher<NetworkListModel, DataError>
     func fetchDeviceList(_ request: DeviceListRequest) -> AnyPublisher<DeviceListModel, DataError>
     func joinNetwork(_ request: JoinRequest) -> AnyPublisher<N2NModel, DataError>
+
+    // Async equivalents
+    func fetchNetworkList(_ request: NetworkListRequest) async throws -> NetworkListModel
+    func fetchDeviceList(_ request: DeviceListRequest) async throws -> DeviceListModel
+    func joinNetwork(_ request: JoinRequest) async throws -> N2NModel
 }

@@ -12,7 +12,7 @@ import OENetwork
 class LoginDataStoreProvider: LoginDataStoreAPI {
     private var cancellables = [AnyCancellable]()
     #if false
-    private let network = OENetwork(baseURL: "https://dev-api.omniedge.io/api/v1")
+    private let network = OENetwork(baseURL: "https://dev-api.omniedge.io/api/v2")
     #else
     private let network = OENetwork(baseURL: "https://api.omniedge.io/api/v2")
     #endif
@@ -74,5 +74,55 @@ class LoginDataStoreProvider: LoginDataStoreAPI {
                 return AuthError.fail(message: error.localizedDescription)
             }
             .eraseToAnyPublisher()
+    }
+
+    // MARK: - Async Implementation
+    func login(_ model: LoginModel) async throws -> LoginResult {
+        do {
+            let result: LoginNetworkResult = try await network.dispatch(LoginRequest(email: model.email, password: model.password, auth_session_uuid: model.auth_session_uuid))
+            return LoginResult(token: result.data?.token ?? "",
+                               refreshToken: result.data?.refreshToken ?? "",
+                               expires_at: result.data?.expires_at ?? "")
+        } catch {
+            throw AuthError.fail(message: error.localizedDescription)
+        }
+    }
+
+    func register(_ model: RegisterModel) async throws -> RegisterResult {
+        do {
+            let result: RegisterNetworkResult = try await network.dispatch(RegisterRequst(name: model.name, email: model.email, password: model.password))
+            return RegisterResult(id: result.data?.id)
+        } catch {
+            throw AuthError.fail(message: error.localizedDescription)
+        }
+    }
+
+    func reset(_ model: ResetPasswordModel) async throws -> ResetResult {
+        do {
+            let result: ResetPasswordNetworkResult = try await network.dispatch(ResetPasswordRequest(email: model.email))
+            return ResetResult(id: result.data?.status)
+        } catch {
+            throw AuthError.fail(message: error.localizedDescription)
+        }
+    }
+
+    func registerDevice(_ token: String) async throws -> RegisterDeviceResult {
+        do {
+            let result: RegisterDeviceNetworkResult = try await network.dispatch(RegisterDeviceRequest(token: token))
+            return RegisterDeviceResult(id: result.data?.id)
+        } catch {
+            throw AuthError.fail(message: error.localizedDescription)
+        }
+    }
+
+    func exchangeOAuthCode(code: String, verifier: String, redirectUri: String) async throws -> LoginResult {
+        do {
+            let result: LoginNetworkResult = try await network.dispatch(OAuthTokenRequest(code: code, verifier: verifier, redirectUri: redirectUri))
+            return LoginResult(token: result.data?.token ?? "",
+                               refreshToken: result.data?.refreshToken ?? "",
+                               expires_at: result.data?.expires_at ?? "")
+        } catch {
+            throw AuthError.fail(message: error.localizedDescription)
+        }
     }
 }

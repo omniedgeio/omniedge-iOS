@@ -769,7 +769,7 @@
 					"\"$(SRCROOT)/n2n/src/main/cpp/edge_jni\"",
 				);
 				INFOPLIST_FILE = Tunnel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -805,7 +805,7 @@
 					"\"$(SRCROOT)/n2n/src/main/cpp/edge_jni\"",
 				);
 				INFOPLIST_FILE = Tunnel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -878,7 +878,7 @@
 					"\"$(SRCROOT)/n2n/src/main/cpp/ios\"",
 					"\"$(SRCROOT)/n2n/src/main/cpp/edge_jni\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -940,7 +940,7 @@
 					"\"$(SRCROOT)/n2n/src/main/cpp/ios\"",
 					"\"$(SRCROOT)/n2n/src/main/cpp/edge_jni\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -973,7 +973,7 @@
 					"\"$(SRCROOT)/n2n/src/main/cpp/edge_jni\"",
 				);
 				INFOPLIST_FILE = Omniedge/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1006,7 +1006,7 @@
 					"\"$(SRCROOT)/n2n/src/main/cpp/edge_jni\"",
 				);
 				INFOPLIST_FILE = Omniedge/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1040,7 +1040,7 @@
 					"\"$(SRCROOT)/OmniedgeTests\"",
 				);
 				INFOPLIST_FILE = OmniedgeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1072,7 +1072,7 @@
 					"\"$(SRCROOT)/OmniedgeTests\"",
 				);
 				INFOPLIST_FILE = OmniedgeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1144,7 +1144,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = OmniedgeDylib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1178,7 +1178,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = OmniedgeDylib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1209,7 +1209,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = OmniedgeDylibTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1230,7 +1230,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S4K8QNVVRR;
 				INFOPLIST_FILE = OmniedgeDylibTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

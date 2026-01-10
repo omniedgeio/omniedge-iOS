@@ -7,15 +7,15 @@
 
 import NetworkExtension
 import OmniedgeDylib
-import os.log
+import os
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
-    private let log = OSLog(subsystem: "Omniedge", category: "default")
+    private let logger = Logger(subsystem: "com.omniedge.client", category: "PacketTunnel")
     private var engine: PacketTunnelEngine?
 
     // MARK: - Override
     override func startTunnel(options: [String: NSObject]?, completionHandler: @escaping (Error?) -> Void) {
-        os_log(.default, log: log, "Omniedge Starting tunnel, options: %{private}@", "\(String(describing: options))")
+        logger.info("Omniedge Starting tunnel, options: \(String(describing: options), privacy: .private)")
         engine = PacketTunnelEngine(provider: self)
         guard let engine = engine else {
             return
@@ -26,29 +26,25 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             guard let self = self else {
                 return
             }
-            os_log(.default, log: self.log, "Omniedge Did setup tunnel")
+            self.logger.info("Omniedge Did setup tunnel")
             let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: config.superNodeAddr)
-            let ipV4 = NEIPv4Settings(addresses: [config.ipAddress], subnetMasks: ["255.255.255.0"])
+            let ipV4 = NEIPv4Settings(addresses: [config.ipAddress], subnetMasks: [config.subnetMask])
             
-            //set private IP
-            let ip1 = "10.0.0.0"
-            let mask1 = "255.0.0.0"
-            let route1 = NEIPv4Route(destinationAddress: ip1, subnetMask: mask1)
-
-            let ip2 = "172.16.0.0"
-            let mask2 = "255.240.0.0"
-            let route2 = NEIPv4Route(destinationAddress: ip2, subnetMask: mask2)
-
-            let ip3 = "192.168.0.0"
-            let mask3 = "255.255.0.0"
-            let route3 = NEIPv4Route(destinationAddress: ip3, subnetMask: mask3)
+            // Calculate network address for routing
+            let addresses = config.ipAddress.components(separatedBy: ".")
+            let masks = config.subnetMask.components(separatedBy: ".")
+            if addresses.count == 4 && masks.count == 4 {
+                var networkAddressParts = [String]()
+                for i in 0..<4 {
+                    if let addrPart = Int(addresses[i]), let maskPart = Int(masks[i]) {
+                        networkAddressParts.append("\(addrPart & maskPart)")
+                    }
+                }
+                let networkAddress = networkAddressParts.joined(separator: ".")
+                let vnwRoute = NEIPv4Route(destinationAddress: networkAddress, subnetMask: config.subnetMask)
+                ipV4.includedRoutes = [vnwRoute]
+            }
             
-            //CGNAT Address
-            let ip4 = "100.64.0.0"
-            let mask4 = "255.192.0.0"
-            let route4 = NEIPv4Route(destinationAddress: ip4, subnetMask: mask4)
-            //
-            ipV4.includedRoutes = [route1, route2, route3, route4]
             settings.ipv4Settings = ipV4
 
             #if false
@@ -60,7 +56,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             #endif
 
             self.setTunnelNetworkSettings(settings) { error in
-                os_log(.default, log: self.log, "Did setup tunnel settings: %{public}@, error: %{public}@", "\(settings)", "\(String(describing: error))")
+                self.logger.info("Did setup tunnel settings: \(settings, privacy: .public), error: \(String(describing: error), privacy: .public)")
 
                 completionHandler(error)
                 self.didStartTunnel()
@@ -73,7 +69,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             engine.stop { [weak self] in
                 completionHandler()
                 guard let self = self else { return }
-                os_log(.fault, log: self.log, "Omniedge stopTunnel tunnel, options: %{private}@")
+                self.logger.error("Omniedge stopTunnel tunnel")
             }
         }
     }
@@ -83,18 +79,18 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         if let handler = completionHandler {
             handler(messageData)
         }
-        os_log(.fault, log: log, "Omniedge ****** omniedge now working*********\n")
+        logger.error("Omniedge ****** omniedge now working*********")
     }
 
     override func sleep(completionHandler: @escaping () -> Void) {
         // Add code here to get ready to sleep.
         completionHandler()
-        os_log(.fault, log: log, "Omniedge ****** omniedge now sleep*********\n")
+        logger.error("Omniedge ****** omniedge now sleep*********")
     }
 
     override func wake() {
         // Add code here to wake up.
-        os_log(.fault, log: log, "Omniedge ****** omniedge now wake*********\n")
+        logger.error("Omniedge ****** omniedge now wake*********")
     }
 
     // MARK: - Private
@@ -103,18 +99,18 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     }
 
     private func readPackets () {
-        os_log(.fault, log: log, "Omniedge start readPackets\n")
+        logger.error("Omniedge start readPackets")
         packetFlow.readPacketObjects { [weak self] packets in
             guard let self = self else {
                 return
             }
-            os_log(.fault, log: self.log, "Omniedge readPackets ok\n")
+            self.logger.error("Omniedge readPackets ok")
             if let engine = self.engine {
                 for item in packets {
                     engine.onTunData(item.data)
                 }
             }
-            os_log(.fault, log: self.log, "Omniedge get a packet\n")
+            self.logger.error("Omniedge get a packet")
             self.readPackets()
         }
     }

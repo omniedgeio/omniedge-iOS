@@ -128,29 +128,25 @@ class DeviceListViewModel: ObservableObject {
     }
 
     func load() {
-        guard isLoading == false else {
-            return
-        }
+        guard isLoading == false else { return }
         self.isLoading = true
-        dataStore.fetchNetworkList(NetworkListRequest(token: token))
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] complete in
-                switch complete {
-                case .finished:
-                    self?.error = .none
-                case .failure(let error):
-                    self?.error = error
+        Task { @MainActor in
+            do {
+                let model = try await dataStore.fetchNetworkList(NetworkListRequest(token: token))
+                self.isLoading = false
+                let list = self.parseNetworkList(model: model)
+                if let network = self.user.network {
+                    let _ = self.list.filter { $0.uuid == network.networkUUID }.map { $0.connected = true }
                 }
-                self?.isLoading = false
-            }, receiveValue: { [weak self] model in
-                self?.isLoading = false
-                let list = self?.parseNetworkList(model: model)
-                if let network = self?.user.network {
-                    let _ = self?.list.filter { $0.uuid == network.networkUUID }.map { $0.connected = true }
-                }
-                self?.delegate?.didLoadNetworkList(self, list: list ?? [])
-            })
-            .store(in: &cancellableStore)
+                self.delegate?.didLoadNetworkList(self, list: list)
+            } catch let error as DataError {
+                self.error = error
+                self.isLoading = false
+            } catch {
+                self.error = .fail(message: error.localizedDescription)
+                self.isLoading = false
+            }
+        }
     }
 
     func showSetting() {

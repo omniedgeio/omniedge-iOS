@@ -28,73 +28,61 @@ class LoginViewModel: ObservableObject {
     }
 
     func login(email: String, password: String, authSessionUUID: String? = nil) {
-        guard loading == false else {
-            return
-        }
-        /// clear
+        guard loading == false else { return }
         loading = true
         error = .none
 
-        //request
-        dataStoreAPI.login(LoginModel(email: email, password: password, auth_session_uuid: authSessionUUID))
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] complete in
-                switch complete {
-                case .finished:
-                    self?.error = .none
-                case .failure(let error):
-                    self?.error = error
-                    self?.loading = false
-                }
-            }, receiveValue: { [weak self] model in
+        Task { @MainActor in
+            do {
+                let model = try await dataStoreAPI.login(LoginModel(email: email, password: password, auth_session_uuid: authSessionUUID))
                 if let token = model.token {
-                    self?.delegate?.didLogin(self, token: token, refreshToken: model.refreshToken)
+                    self.delegate?.didLogin(self, token: token, refreshToken: model.refreshToken)
                 } else {
-                    self?.loading = false
-                    self?.error = .fail(message: "Error Token")
+                    self.loading = false
+                    self.error = .fail(message: "Error Token")
                 }
-            })
-            .store(in: &cancellableStore)
+            } catch let error as AuthError {
+                self.error = error
+                self.loading = false
+            } catch {
+                self.error = .fail(message: error.localizedDescription)
+                self.loading = false
+            }
+        }
     }
 
     func register(name: String, email: String, password: String) {
         self.loading = true
-        dataStoreAPI.register(RegisterModel(name: name, email: email, password: password))
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] complete in
-                self?.loading = false
-                switch complete {
-                case .finished:
-                    self?.error = .none
-                case .failure(let error):
-                    self?.error = error
-                }
-            }, receiveValue: { [weak self] _ in
-                self?.loading = false
-                self?.login(email: email, password: password)
-            })
-            .store(in: &cancellableStore)
+        Task { @MainActor in
+            do {
+                _ = try await dataStoreAPI.register(RegisterModel(name: name, email: email, password: password))
+                self.login(email: email, password: password)
+            } catch let error as AuthError {
+                self.error = error
+                self.loading = false
+            } catch {
+                self.error = .fail(message: error.localizedDescription)
+                self.loading = false
+            }
+        }
     }
 
     func resetPassword(email: String) {
-        guard !email.isEmpty else {
-            return
-        }
+        guard !email.isEmpty else { return }
         self.loading = true
-        dataStoreAPI.reset(ResetPasswordModel(email: email))
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] complete in
-                self?.loading = false
-                switch complete {
-                case .finished:
-                    self?.error = .none
-                case .failure(let error):
-                    self?.error = error
-                }
-            }, receiveValue: { [weak self] _ in
-                self?.delegate?.didReset(self, email: email)
-            })
-            .store(in: &cancellableStore)
+        Task { @MainActor in
+            do {
+                _ = try await dataStoreAPI.reset(ResetPasswordModel(email: email))
+                self.loading = false
+                self.delegate?.didReset(self, email: email)
+            } catch let error as AuthError {
+                self.error = error
+                self.loading = false
+            } catch {
+                self.error = .fail(message: error.localizedDescription)
+                self.loading = false
+            }
+        }
     }
 
     func googleLogin() {
@@ -109,24 +97,23 @@ class LoginViewModel: ObservableObject {
     }
 
     public func registerDevice(_ token: String) {
-        dataStoreAPI.registerDevice(token)
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] complete in
-                self?.loading = false
-                switch complete {
-                case .finished:
-                    self?.error = .none
-                case .failure(let error):
-                    self?.error = error
-                }
-            }, receiveValue: { [weak self] model in
+        Task { @MainActor in
+            do {
+                let model = try await dataStoreAPI.registerDevice(token)
+                self.loading = false
                 if let uuid = model.id {
-                    self?.delegate?.didRegisterDevice(self, token: token, deviceUUID: uuid)
+                    self.delegate?.didRegisterDevice(self, token: token, deviceUUID: uuid)
                 } else {
-                    self?.error = .fail(message: "Register Device Error")
+                    self.error = .fail(message: "Register Device Error")
                 }
-            })
-            .store(in: &cancellableStore)
+            } catch let error as AuthError {
+                self.error = error
+                self.loading = false
+            } catch {
+                self.error = .fail(message: error.localizedDescription)
+                self.loading = false
+            }
+        }
     }
 
     func oauthLogin() {
@@ -161,19 +148,21 @@ class LoginViewModel: ObservableObject {
             }
             
             self?.loading = true
-            self?.dataStoreAPI.exchangeOAuthCode(code: code, verifier: pkce.verifier, redirectUri: redirectUri)
-                .receive(on: DispatchQueue.main)
-                .sink(receiveCompletion: { [weak self] complete in
+            Task { @MainActor [weak self] in
+                do {
+                    let model = try await self?.dataStoreAPI.exchangeOAuthCode(code: code, verifier: pkce.verifier, redirectUri: redirectUri)
                     self?.loading = false
-                    if case .failure(let error) = complete {
-                        self?.error = error
+                    if let token = model?.token {
+                        self?.delegate?.didLogin(self, token: token, refreshToken: model?.refreshToken)
                     }
-                }, receiveValue: { [weak self] model in
-                    if let token = model.token {
-                        self?.delegate?.didLogin(self, token: token, refreshToken: model.refreshToken)
-                    }
-                })
-                .store(in: &(self?.cancellableStore ?? []))
+                } catch let error as AuthError {
+                    self?.error = error
+                    self?.loading = false
+                } catch {
+                    self?.error = .fail(message: error.localizedDescription)
+                    self?.loading = false
+                }
+            }
         }
         
         session.presentationContextProvider = self

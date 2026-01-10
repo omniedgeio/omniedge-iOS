@@ -50,6 +50,24 @@ public struct NetworkDispatcher {
             }
             .eraseToAnyPublisher()
     }
+
+    public func dispatch<ReturnType: Codable>(request: URLRequest) async throws -> ReturnType {
+        let (data, response) = try await urlSession.data(for: request)
+        
+        if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
+            throw httpError(response.statusCode)
+        }
+        
+        #if DEBUG
+        print("data: \(String(decoding: data, as: UTF8.self))")
+        #endif
+        
+        do {
+            return try JSONDecoder().decode(ReturnType.self, from: data)
+        } catch {
+            throw NetworkRequestError.decodingError
+        }
+    }
 }
 
 @available(macOS 10.15, *)

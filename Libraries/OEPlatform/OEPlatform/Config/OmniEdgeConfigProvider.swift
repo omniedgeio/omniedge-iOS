@@ -12,7 +12,7 @@ import Tattoo
 public class OmniEdgeConfigProvider: ConfigAPI {
     public init(scope: APICenter) {}
     public func save(config: N2NConfig) {
-        let writter = OmniEdgeConfig(host: config.host, port: config.port, network: config.networkName, key: config.key, ipAddr: config.ip)
+        let writter = OmniEdgeConfig(host: config.host, port: config.port, network: config.networkName, key: config.key, ipAddr: config.ip, mask: config.subnetMask)
         writter.sync()
     }
 }

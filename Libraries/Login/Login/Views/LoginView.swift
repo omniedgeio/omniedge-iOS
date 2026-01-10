@@ -35,7 +35,7 @@ struct LoginView: View {
             /// layer1: background colorß
             Color.OME.background.onTapGesture {
                 hideKeyboard()
-            }.edgesIgnoringSafeArea(.all)
+            }.ignoresSafeArea()
 
             /// layer2: content
             VStack(alignment: .center) {

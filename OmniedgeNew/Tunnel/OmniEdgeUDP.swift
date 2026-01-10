@@ -8,10 +8,10 @@
 
 import Foundation
 import NetworkExtension
-import os.log
+import os
 
 class OmniEdgeUDP {
-    private let log = OSLog(subsystem: "Omniedge", category: "udp")
+    private let logger = Logger(subsystem: "com.omniedge.client", category: "UDP")
     private let queue: DispatchQueue
     private var map: [String:(udp: NWUDPSession, observer: NSKeyValueObservation)]
     private let tunnel: NEPacketTunnelProvider
@@ -28,9 +28,9 @@ class OmniEdgeUDP {
         if let session = map[key] {
             session.udp.writeDatagram(data) { [weak self] error in
                 if let error = error {
-                    os_log(.default, log: self?.log ?? .default, "udp error: %{public}@", "\(error)")
+                    self?.logger.error("udp error: \(error, privacy: .public)")
                 } else {
-                    os_log(.default, log: self?.log ?? .default, "udp ok")
+                    self?.logger.debug("udp ok")
                 }
             }
         } else {
@@ -38,7 +38,7 @@ class OmniEdgeUDP {
             let session = tunnel.createUDPSession(to: endpoint, from: nil)
             let observer = session.observe(\.state, options: [.new]) { [weak self] session, _ in
                 guard let self = self else { return }
-                os_log(.default, log: self.log, "engine Session did update state: %{public}@", session)
+                self.logger.info("engine Session did update state: \(String(describing: session.state), privacy: .public)")
                 self.queue.async {
                     self.handleSessionState(session, didUpdateState: session.state, data: data, addr: (ip: hostname, port: port), reader: reader)
                 }
@@ -56,9 +56,9 @@ class OmniEdgeUDP {
             session.setReadHandler(reader, maxDatagrams: Int.max)
             session.writeDatagram(data) { [weak self] error in
                 if let error = error {
-                    os_log(.default, log: self?.log ?? .default, "udp error: %{public}@", "\(error)")
+                    self?.logger.error("udp error: \(error, privacy: .public)")
                 } else {
-                    os_log(.default, log: self?.log ?? .default, "udp ok")
+                    self?.logger.debug("udp ok")
                 }
             }
         case .failed:

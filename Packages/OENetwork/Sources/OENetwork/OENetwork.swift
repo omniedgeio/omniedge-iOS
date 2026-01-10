@@ -22,4 +22,12 @@ public struct OENetwork {
         let requestPublisher: AnyPublisher<R.ReturnType, NetworkRequestError> = networkDispatcher.dispatch(request: urlRequest)
         return requestPublisher.eraseToAnyPublisher()
     }
+
+    @available(macOS 12.0, iOS 15.0, *)
+    public func dispatch<R: Request>(_ request: R) async throws -> R.ReturnType {
+        guard let urlRequest = request.asURLRequest(baseURL: baseURL) else {
+            throw NetworkRequestError.badRequest
+        }
+        return try await networkDispatcher.dispatch(request: urlRequest)
+    }
 }

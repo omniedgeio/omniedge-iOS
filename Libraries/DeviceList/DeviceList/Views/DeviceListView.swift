@@ -18,7 +18,7 @@ public struct DeviceListView: View {
         ZStack {
             Color.OME.background.onTapGesture {
                 hideKeyboard()
-            }.edgesIgnoringSafeArea(.all)
+            }.ignoresSafeArea()
 
             VStack(spacing: 12) {
                 TextLogo {

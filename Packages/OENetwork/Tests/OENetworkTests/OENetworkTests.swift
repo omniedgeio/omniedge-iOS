@@ -5,9 +5,9 @@ import XCTest
 final class OENetworkTests: XCTestCase {
     private var cancellables = [AnyCancellable]()
     #if false
-    private let network = OENetwork(baseURL: "https://dev-api.omniedge.io/api/v1")
+    private let network = OENetwork(baseURL: "https://dev-api.omniedge.io/api/v2")
     #else
-    private let network = OENetwork(baseURL: "https://api.omniedge.io/api/v1")
+    private let network = OENetwork(baseURL: "https://api.omniedge.io/api/v2")
     #endif
 
     func testRegister() {
