@@ -56,6 +56,7 @@ public extension Spacer {
     }
 }
 
+#if DEBUG
 struct Views_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
@@ -64,3 +65,4 @@ struct Views_Previews: PreviewProvider {
         }
     }
 }
+#endif
