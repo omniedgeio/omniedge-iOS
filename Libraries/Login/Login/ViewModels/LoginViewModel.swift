@@ -179,6 +179,20 @@ class LoginViewModel: ObservableObject {
         session.presentationContextProvider = self
         session.start()
     }
+
+    func handleDeepLink(_ url: URL) {
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+              let queryItems = components.queryItems else {
+            return
+        }
+        
+        let token = queryItems.first(where: { $0.name == "token" })?.value
+        let refreshToken = queryItems.first(where: { $0.name == "refresh_token" })?.value
+        
+        if let token = token {
+            self.delegate?.didLogin(self, token: token, refreshToken: refreshToken)
+        }
+    }
 }
 
 import AuthenticationServices

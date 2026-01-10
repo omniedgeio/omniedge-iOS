@@ -194,6 +194,9 @@ struct LoginView: View {
         //.border(Color.black, width: 1)
         .allowsHitTesting(!viewModel.loading)
         .navigationBarHidden(true)
+        .onOpenURL { url in
+            viewModel.handleDeepLink(url)
+        }
     }
 
     @ViewBuilder
@@ -213,9 +216,9 @@ The personal information that you are asked to provide, and the reasons why you 
             //Toggle(isOn: $concentChecked) { Text("") }.padding(.init(top: 0, leading: 0, bottom: 0, trailing: 20)).border(.blue, width: 1)
             HStack(spacing: 0) {
                 Text("Our ")
-                Link("Term of Service", destination: URL(string: "https://omniedge.io/terms")!)
+                Link("Term of Service", destination: URL(string: "https://connect.omniedge.io/terms")!)
                 Text(" And ")
-                Link("Privacy", destination: URL(string: "https://omniedge.io/privacy")!)
+                Link("Privacy", destination: URL(string: "https://connect.omniedge.io/privacy")!)
             }
             HStack {
                 Text("Concent: ")

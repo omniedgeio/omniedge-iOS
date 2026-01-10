@@ -9,7 +9,7 @@
 <!-- [![Build Status]() -->
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-[🤝 Website](https://omniedge.io)
+[🤝 Website](https://connect.omniedge.io)
 [💬 Twitter](https://twitter.com/omniedgeio)
 [😇 Discord](https://discord.gg/d4faRPYj)
 
@@ -23,7 +23,7 @@ A cross-platform private network tool for developers.
 ## How to get started? 
 
 1. If you only need a convenient connectivity service 
-Just visit https://omniedge.io/download and download the apps for your platform. 
+Just visit https://connect.omniedge.io/download and download the apps for your platform. 
 
 2. If you are an experienced programmer 
 You can prepare your own supernode and build the client to reach your own target accroding to the following `Compiler and debugger` Section.
@@ -51,4 +51,4 @@ Check the tempalte into .github folder to report an issue or submit a PR:
 @zteshadow 
 
 ## About US
-[OmniEdge](https://omniedge.io) is primiary developed by the people at [https://github.com/orgs/omniedgeio/people](https://github.com/orgs/omniedgeio/people). 
+[OmniEdge](https://connect.omniedge.io) is primiary developed by the people at [https://github.com/orgs/omniedgeio/people](https://github.com/orgs/omniedgeio/people).
