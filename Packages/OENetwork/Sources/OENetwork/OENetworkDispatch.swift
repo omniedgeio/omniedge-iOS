@@ -23,7 +23,7 @@ public enum NetworkRequestError: LocalizedError, Equatable {
     case unknownError
 }
 
-@available(macOS 10.15, *)
+@available(macOS 12.0, *)
 public struct NetworkDispatcher {
     let urlSession: URLSession!
 
