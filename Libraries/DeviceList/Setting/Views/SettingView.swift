@@ -12,7 +12,7 @@ struct SettingView: View {
 
     var body: some View {
         ZStack {
-            Color.OME.background.edgesIgnoringSafeArea(.all)
+            Color.OME.background.ignoresSafeArea()
             List {
                 logout
                 reset

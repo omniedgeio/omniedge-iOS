@@ -411,14 +411,14 @@
 				7ED460A126C774CD00FF4870 /* PBXTargetDependency */,
 				7E7E938427AFBB1C00527213 /* PBXTargetDependency */,
 			);
-			name = OmniedgeNew;
+			name = omniedge;
 			packageProductDependencies = (
 				7E01CBB9272F9DC100E76A47 /* KeychainAccess */,
 				7E3C3C4D2748700600830824 /* OENetwork */,
 				7E3C3C4F2748700B00830824 /* OEDI */,
 				7E3C3C512748702E00830824 /* OEUIKit */,
 			);
-			productName = OmniedgeNew;
+			productName = omniedge;
 			productReference = EEF8EFA72C21AE46004538AD /* OmniedgeNew.app */;
 			productType = "com.apple.product-type.application";
 		};

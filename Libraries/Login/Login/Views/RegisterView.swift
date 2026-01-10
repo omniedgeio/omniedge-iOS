@@ -32,7 +32,7 @@ struct RegisterView: View {
         ZStack {
             Color.OME.background.onTapGesture {
                 hideKeyboard()
-            }.edgesIgnoringSafeArea(.all)
+            }.ignoresSafeArea()
 
             VStack(alignment: .center) {
                 Group {

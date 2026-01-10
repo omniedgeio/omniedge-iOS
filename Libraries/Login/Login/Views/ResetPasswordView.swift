@@ -23,7 +23,7 @@ struct ResetPasswordView: View {
         ZStack {
             Color.OME.background.onTapGesture {
                 hideKeyboard()
-            }.edgesIgnoringSafeArea(.all)
+            }.ignoresSafeArea()
             VStack(alignment: .center) {
                 //Spacer().frame(maxHeight: 40)
                 Image.OME.primary

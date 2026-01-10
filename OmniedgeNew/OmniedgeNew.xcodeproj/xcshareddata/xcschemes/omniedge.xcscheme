@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7E2949FC26C76C2D008DEA5D"
-               BuildableName = "OmniedgeNew.app"
-               BlueprintName = "OmniedgeNew"
+               BuildableName = "omniedge.app"
+               BlueprintName = "omniedge"
                ReferencedContainer = "container:OmniedgeNew.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -65,8 +65,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E2949FC26C76C2D008DEA5D"
-            BuildableName = "OmniedgeNew.app"
-            BlueprintName = "OmniedgeNew"
+            BuildableName = "omniedge.app"
+            BlueprintName = "omniedge"
             ReferencedContainer = "container:OmniedgeNew.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,8 +82,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E2949FC26C76C2D008DEA5D"
-            BuildableName = "OmniedgeNew.app"
-            BlueprintName = "OmniedgeNew"
+            BuildableName = "omniedge.app"
+            BlueprintName = "omniedge"
             ReferencedContainer = "container:OmniedgeNew.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

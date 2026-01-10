@@ -6,7 +6,7 @@
 //  
 //
 
-@testable import OmniedgeNew
+@testable import omniedge
 import XCTest
 
 class OmniedgeNewTests: XCTestCase {
