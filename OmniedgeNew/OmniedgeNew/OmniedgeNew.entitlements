@@ -8,7 +8,7 @@
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.jieqi.omniedge</string>
+		<string>group.com.omniedge</string>
 	</array>
 </dict>
 </plist>

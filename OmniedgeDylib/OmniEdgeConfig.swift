@@ -8,7 +8,7 @@
 import Foundation
 
 extension OmniEdgeConfig {
-    static let group = "group.com.jieqi.omniedge"
+    static let group = "group.com.omniedge"
 
     static let hostKey = "host"
     static let portKey = "port"

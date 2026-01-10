@@ -4,11 +4,8 @@
 
 [![Build iOS](https://github.com/omniedgeio/omniedge-iOS/actions/workflows/build-ios.yml/badge.svg)](https://github.com/omniedgeio/omniedge-iOS/actions/workflows/build-ios.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-[![App Store](https://img.shields.io/badge/App_Store-Download-black?style=flat&logo=apple)](https://apps.apple.com/us/app/omniedgenew/id1603005893)
 
 OmniEdge is a cross-platform private network tool for developers, allowing you to access your private servers from anywhere.
-
-<img width="149" alt="OmniEdge iOS App" src="https://user-images.githubusercontent.com/93888/175050671-936ad8d5-60a5-4e3a-917f-794686e67b81.png">
 
 ## Changes in v1.0.0
 
@@ -22,14 +19,14 @@ OmniEdge is a cross-platform private network tool for developers, allowing you t
 ## Getting Started
 
 ### For Users
-Visit [https://omniedge.io/download](https://omniedge.io/download) to download the app for your platform.
+Visit [https://connect.omniedge.io/download](https://omniedge.io/download) to download the app for your platform.
 
 ### For Developers
 
 To build the project locally, you will need:
 - macOS 14 or later
 - Xcode 15.4 or later
-- CocoaPods (optional, if required by future dependencies)
+
 
 #### Build Instructions
 
