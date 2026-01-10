@@ -27,18 +27,18 @@ class DeviceListDataProvider: DeviceListDataStoreAPI {
             .eraseToAnyPublisher()
     }
 
-    private func createNetworkList(_ data: [NetworkModel]?) -> NetworkListModel {
-        if let list = data {
-            return NetworkListModel(list: list)
+    private func createNetworkList(_ data: PaginatedResponse<NetworkModel>?) -> NetworkListModel {
+        if let paginatedData = data {
+            return NetworkListModel(data: paginatedData)
         } else {
-            return NetworkListModel(list: [])
+            return NetworkListModel(data: PaginatedResponse(meta: nil, data: []))
         }
     }
 
     func fetchDeviceList(_ request: DeviceListRequest) -> AnyPublisher<DeviceListModel, DataError> {
         return network.dispatch(FetchDeviceListRequst(token: request.token))
             .compactMap({ [weak self] result in
-                return self?.createDeviceList(message: result.message, dict: result.data)
+                return self?.createDeviceList(message: result.message ?? "", data: result.data)
             })
             .mapError { error in
                 return DataError.fail(message: error.localizedDescription)
@@ -46,8 +46,8 @@ class DeviceListDataProvider: DeviceListDataStoreAPI {
             .eraseToAnyPublisher()
     }
 
-    private func createDeviceList(message: String, dict: [String: String]?) -> DeviceListModel {
-        return DeviceListModel(list: [])
+    private func createDeviceList(message: String, data: PaginatedResponse<DeviceModel>?) -> DeviceListModel {
+        return DeviceListModel(list: data?.data ?? [])
     }
 
     func joinNetwork(_ request: JoinRequest) -> AnyPublisher<N2NModel, DataError> {

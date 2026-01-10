@@ -15,7 +15,7 @@ protocol LoginDelegate: AnyObject {
     func didRegisterDevice(_ viewModel: LoginViewModel?, token: String, deviceUUID: String)
 }
 
-class LoginViewModel: ObservableObject {
+class LoginViewModel: NSObject, ObservableObject {
     private var dataStoreAPI: LoginDataStoreAPI
     private var cancellableStore = [AnyCancellable]()
     weak var delegate: LoginDelegate?
