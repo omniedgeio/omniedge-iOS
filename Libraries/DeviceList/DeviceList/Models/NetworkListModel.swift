@@ -7,23 +7,64 @@
 
 import Foundation
 
-/*
- //list network
- {
-     "message": "List virtual network successfully",
-     "data": [
-         {
-             "uuid": "935ab516-8bf3-440a-b32e-002ce3bf7771",
-             "name": "My omni network",
-             "ip_range": "100.100.0.0/24",
-             "role": "admin",
-             "devices": []
-         }
-     ]
- }
- */
-struct NetworkListModel {
-    var list: [NetworkModel]
+struct PaginatedResponse<T: Codable>: Codable {
+    var meta: [String: AnyCodable]?
+    var data: [T]
+}
+
+struct NetworkListModel: Codable {
+    var data: PaginatedResponse<NetworkModel>
+}
+
+struct AnyCodable: Codable {
+    let value: Any
+
+    init(_ value: Any) {
+        self.value = value
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let x = try? container.decode(Bool.self) {
+            self.value = x
+        } else if let x = try? container.decode(Int.self) {
+            self.value = x
+        } else if let x = try? container.decode(Double.self) {
+            self.value = x
+        } else if let x = try? container.decode(String.self) {
+            self.value = x
+        } else if let x = try? container.decode([String: AnyCodable].self) {
+            self.value = x
+        } else if let x = try? container.decode([AnyCodable].self) {
+            self.value = x
+        } else if container.decodeNil() {
+            self.value = NSNull()
+        } else {
+            throw DecodingError.typeMismatch(AnyCodable.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for AnyCodable"))
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch value {
+        case let x as Bool:
+            try container.encode(x)
+        case let x as Int:
+            try container.encode(x)
+        case let x as Double:
+            try container.encode(x)
+        case let x as String:
+            try container.encode(x)
+        case let x as [String: AnyCodable]:
+            try container.encode(x)
+        case let x as [AnyCodable]:
+            try container.encode(x)
+        case is NSNull:
+            try container.encodeNil()
+        default:
+            throw EncodingError.invalidValue(value, EncodingError.Context(codingPath: encoder.codingPath, debugDescription: "AnyCodable value cannot be encoded"))
+        }
+    }
 }
 
 struct NetworkModel: Codable {

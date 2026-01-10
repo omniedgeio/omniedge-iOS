@@ -174,7 +174,7 @@ class DeviceListViewModel: ObservableObject {
 
     private func parseNetworkList(model: NetworkListModel) -> [String] {
         self.list.removeAll()
-        for network in model.list {
+        for network in model.data.data {
             var deviceList = [DeviceInfoViewModel]()
             for device in network.devices {
                 if let device = device {
@@ -185,7 +185,7 @@ class DeviceListViewModel: ObservableObject {
             let networkItem = NetworkViewModel(name: network.name, uuid: network.id, list: deviceList)
             self.list.append(networkItem)
         }
-        return model.list.map { $0.id }
+        return model.data.data.map { $0.id }
     }
 }
 
