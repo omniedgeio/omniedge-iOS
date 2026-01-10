@@ -85,6 +85,7 @@ jobs:
             -workspace OmniedgeNew/OmniedgeNew.xcworkspace \
             -scheme omniedge \
             -configuration Release \
+            -destination "generic/platform=iOS" \
             -archivePath build/omniedge.xcarchive \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
