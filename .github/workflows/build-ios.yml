@@ -95,19 +95,14 @@ jobs:
             ENABLE_BITCODE=NO \
             DEBUG_INFORMATION_FORMAT=dwarf
 
-      - name: Export IPA
+      - name: Export IPA (Manual Zip)
         run: |
-          xcodebuild -exportArchive \
-            -archivePath build/omniedge.xcarchive \
-            -exportOptionsPlist ExportOptions.plist \
-            -exportPath build/output \
-            -allowProvisioningUpdates
-          
-          # Rename the IPA to include the version tag
-          mv build/output/omniedge.ipa build/output/omniedge-iOS-${{ github.ref_name }}.ipa
+          mkdir Payload
+          cp -r build/omniedge.xcarchive/Products/Applications/*.app Payload/
+          zip -r omniedge-iOS-${{ github.ref_name }}.ipa Payload
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/v')
         with:
-          files: build/output/omniedge-iOS-${{ github.ref_name }}.ipa
+          files: omniedge-iOS-${{ github.ref_name }}.ipa
