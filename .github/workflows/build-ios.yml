@@ -99,9 +99,12 @@ jobs:
             -exportOptionsPlist ExportOptions.plist \
             -exportPath build/output \
             -allowProvisioningUpdates
+          
+          # Rename the IPA to include the version tag
+          mv build/output/omniedge.ipa build/output/omniedge-iOS-${{ github.ref_name }}.ipa
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/v')
         with:
-          files: build/output/omniedge.ipa
+          files: build/output/omniedge-iOS-${{ github.ref_name }}.ipa
