@@ -64,3 +64,44 @@ jobs:
           xcodebuild test \
             -scheme OENetwork \
             -destination 'platform=iOS Simulator,name=iPhone 15'
+
+  release:
+    name: Release IPA
+    needs: [build, test]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: macos-14
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app
+
+      - name: Archive app
+        run: |
+          xcodebuild archive \
+            -workspace OmniedgeNew/OmniedgeNew.xcworkspace \
+            -scheme omniedge \
+            -configuration Release \
+            -archivePath build/omniedge.xcarchive \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="" \
+            PROVISIONING_PROFILE_SPECIFIER=""
+
+      - name: Export IPA
+        run: |
+          xcodebuild -exportArchive \
+            -archivePath build/omniedge.xcarchive \
+            -exportOptionsPlist ExportOptions.plist \
+            -exportPath build/output \
+            -allowProvisioningUpdates
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/v')
+        with:
+          files: build/output/omniedge.ipa
